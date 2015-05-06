@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="menu_border0">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            The query results
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <!--块容器开始-->
+					<div id="nocon"></div>
+                    <div id="wrapper0" class="wrapper">
+                        <div id="scroller0" class="scroller" style="width:1600px;">
+
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var aspno ='';  //服务商编码
+		 var s = window.getComputedStyle(document.body, null);
+		 var scroller0_width='';
+        window.uexOnload = function(type){
+            if (!type) {
+				if(isAndroid){
+					$$('scroller0').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					 $$('scroller0').style.width= s.width;
+			         scroller0_width = s.width.split('px')[0];
+				}
+           
+		
+            }
+          
+			list();
+           
+        }
+		function list(){
+			 $toast('loading......');
+			var url_data = Interface+'getjoblist?jobid='+getLocVal('Search_con').split(';')[10]+'&country='+getLocVal('Search_con').split(';')[2]+'&state='+getLocVal('Search_con').split(';')[3]+'&datestart='+getLocVal('Search_con').split(';')[0]+'&dateend='+getLocVal('Search_con').split(';')[1]+'&casetype='+getLocVal('Search_con').split(';')[4]+'&casestatus='+getLocVal('Search_con').split(';')[5]+'&customername='+getLocVal('Search_con').split(';')[6]+'&customeraddress='+getLocVal('Search_con').split(';')[7]+'&rmano='+getLocVal('Search_con').split(';')[8]+'&customerphone='+getLocVal('Search_con').split(';')[9]+'&aspno='+aspno+'&jobstatus='+getLocVal('Search_con').split(';')[11];
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.resulte.joblist!=0){
+					if(data.resulte.joblist.job.length!=0){
+						var template=' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2">'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +'  <div class="list_padding">Job No.</div>'
+                               +' </div>'
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> Job Status</div>'
+                              +'  </div>'
+                            +'</div>';
+							if(data.resulte.joblist.job.length>1){
+								for(var i=0;i<data.resulte.joblist.job.length;i++){
+							template+=' <div onClick="details('+data.resulte.joblist.job[i].jobid+')" class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                +'    '+data.resulte.joblist.job[i].jobid+''
+                               +'</div> </div>'    
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.joblist.job[i].jobstatus+''
+                              +' </div> </div>'
+
+                            
+                          +'  </div>';
+						}
+							}else{
+								template+=' <div onClick="details('+data.resulte.joblist.job.jobid+')" class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                +'    '+data.resulte.joblist.job.jobid+''
+                               +'</div> </div>'                        
+                             
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.joblist.job.jobstatus+''
+                              +'</div>  </div>'
+
+                          +'  </div>';
+							}
+						
+						$$('scroller0').innerHTML=template;
+						
+					}else{
+						$$('wrapper0').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr zhy_in_m2 uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">No search information</div>';
+				}
+					}else{
+						$$('wrapper0').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr zhy_in_m2 uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">No search information</div>';
+				}
+				}else{
+						$$('wrapper0').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr zhy_in_m2 uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">No search information</div>';
+					}
+					if(isAndroid){
+						 loaded();
+					}else{
+						 borderloaded();
+						  loaded();
+					}
+					
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);		
+
+		}
+        var myScroll0;
+        function loaded(){
+        if(isAndroid){
+			
+		}else{
+			myScroll0 = new IScroll('#wrapper0', {
+                scrollX: true,
+                freeScroll: true
+            });
+		}
+            
+            var scroll0 = document.getElementsByName('scroll0');
+            var length0 = $$('scroller0').children.length;
+            for (var i = 0; i < scroll0.length; i++) {
+				if(isAndroid){
+					 scroll0[i].style.width =  s.width.split('px')[0]/ (scroll0.length / length0) + 'px';
+				}else{
+					 scroll0[i].style.width =  scroller0_width/ (scroll0.length / length0) + 'px';
+				}
+               
+            }
+			$closeToast();	
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                mouseWheel: true,
+                click: true
+            });
+            //bordermyScroll = new IScroll('#border_scroll', { bounceEasing: 'elastic', bounceTime: 1200 });
+			
+        }
+        if(isAndroid){
+			
+		}else{
+			  document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+      
+        
+        function details(id){
+			setLocVal('details',id);
+            openNewWin('details', 'details.html', 0);
+        }
+    </script>
+</html>

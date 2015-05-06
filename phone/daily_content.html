@@ -1,0 +1,2866 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/jquery.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+      <script src="js/highcharts.js">
+        </script>
+        <script src="js/exporting.js">
+        </script>
+    </head>
+    <body class="um-vp  zhy_ov_x"  style=" background:#efefef" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div class="ub ub-ver  zhy_server_bg  t-bla ">
+                    <div class=" uinn uc-t1" id="titles">
+                    	&nbsp;
+                    </div>
+                </div>
+                <div class="zhy_in_m">
+                    <div id="bor_con0">
+                        <div id="wrapper1" class="wrapper">
+                            <div id="scroller1" class="scroller" style="width:1200px;">
+                                 <div id="container1" class="ulev0"></div>
+                            </div>
+                        </div>
+						<div id="wrapper2" class="wrapper">
+                            <div id="scroller2" class="scroller" style="width:1200px;">
+                                 <div id="container2" class="ulev0"></div>
+                            </div>
+                        </div>
+						<div id="wrapper3" class="wrapper">
+                            <div id="scroller3" class="scroller" style="width:1200px;">
+                                 <div id="container3" class="ulev0"></div>
+                            </div>
+                        </div>
+						<div id="wrapper4" class="wrapper">
+                            <div id="scroller4" class="scroller" style="width:1200px;">
+                                 <div id="container4" class="ulev0"></div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    </div>
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+   
+	
+    <script>
+        zy_init();
+        var s = window.getComputedStyle(document.body, null);
+		var font='';
+        window.uexOnload = function(type){
+					$toast('努力加载中,请稍候....');
+			font=s.fontSize.substring(0,s.fontSize.length-2);
+			
+            if (!type) {
+			if(isAndroid){
+				$$('scroller1').style.width= '2400px'
+				$$('scroller2').style.width= '2400px'
+				$$('scroller3').style.width= '2400px'
+				$$('scroller4').style.width= '2400px'
+			}else{
+			}
+				if(getLocVal('nemuname')){
+					 $$('titles').innerHTML = getLocVal('nemuname');
+				}else{
+					 $$('titles').innerHTML = 'IN_CN';
+				}
+				if (getLocVal('menunumber') == 12) {
+					qushitu_out();
+				}else if(getLocVal('menunumber') ==4){
+					reportOnlineType();
+				}else if(getLocVal('menunumber') ==5){
+					reportFuncPie();
+				}else if(getLocVal('menunumber') ==6){
+					reportU7_2();
+				}else if(getLocVal('menunumber') ==14){
+					reportIsc();
+				}else if(getLocVal('menunumber') ==8){
+				OBCTotal();
+				}else if(getLocVal('menunumber') ==9){
+					CSC_NA();
+				}else{
+					 qushitu();
+				}
+              
+            }
+            
+        }
+         function qushitu(){
+			var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			
+					if(getLocVal('parameter')){
+					 var url_data = Interface+'reportIn?sub_org='+ encodeURIComponent(getLocVal('parameter')) ;
+				}else{
+					 var url_data = Interface+'reportIn?sub_org='+encodeURIComponent('销司') ;
+				}
+
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}else{
+									day_length+=null;
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}else{
+										play_length+=null;
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}else{
+									day_length+=null+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}else{
+									play_length+=null+';';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+''+';';
+								}
+								
+							}
+						}
+						if(getLocVal('menunumber') ==2){
+						var titles = 'CN-SELL IN销售计划达成趋势图';
+						}else{
+							var titles= data.data[0].CENTER_NAME+data.data[0].SUB_ORG;
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+						day_in.push(null);
+						}else{
+							day_in.push(parseFloat(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseFloat(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						//alert(per_sell[i])
+						if(per_sell[i]=='null'){
+						per_in.push(null)
+						}else{
+						per_in.push(parseFloat(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						
+						console.log(per_in_con);
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseFloat(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container1').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: titles,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX,
+					            x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '实销',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					borderloaded();
+            	loaded();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			 
+				
+           
+        }
+        function qushitu_out(){
+			var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			
+			if (getLocVal('parameter')) {
+					var url_data = Interface + 'reportOut?sub_org=' + encodeURIComponent(getLocVal('parameter'));
+				}else{
+					var url_data = Interface + 'reportOut?sub_org=' +encodeURIComponent('销司') ;
+				}
+				$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_OUT){
+									day_length+=''+data.data[i].CN_SELL_OUT+'';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_OUT+'';
+								}
+								if(data.data[i].CN_PLAN_SELL_OUT){
+									play_length+=''+data.data[i].CN_PLAN_SELL_OUT+'';
+								}else{
+										play_length+=''+data.data[i].CN_PLAN_SELL_OUT+'';
+								}
+								if(data.data[i].PER_CN_SELL_OUT){
+									per_length+=''+data.data[i].PER_CN_SELL_OUT*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_OUT+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_OUT){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_OUT*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_OUT+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_OUT){
+									day_length+=''+data.data[i].CN_SELL_OUT+''+';';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_OUT+''+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_OUT){
+									play_length+=''+data.data[i].CN_PLAN_SELL_OUT+''+';';
+								}else{
+									play_length+=''+data.data[i].CN_PLAN_SELL_OUT+''+';';
+								}
+								if(data.data[i].PER_CN_SELL_OUT){
+									per_length+=''+data.data[i].PER_CN_SELL_OUT*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_OUT+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_OUT){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_OUT*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_OUT+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+							day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+							play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container1').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '日销售量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					borderloaded();
+            	loaded();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+				
+		}
+		
+		function reportType(){ // 柱状图
+			var url_data = Interface+'reportSizeZhu';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+				
+					if(data.data.length!=0){
+					var SPEC_NUMBER='';
+					var QTY_PER='';
+					for(var i =0;i<data.data.length;i++){
+						if(i== data.data.length-1){
+						SPEC_NUMBER+= data.data[i].SPEC_NUMBER;
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+'';
+						}else{
+							QTY_PER+=data.data[i].QTY_PER+'';
+						}
+						}else{
+						SPEC_NUMBER+=data.data[i].SPEC_NUMBER+';'
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+';';
+						}else{
+							QTY_PER+=data.data[i].QTY_PER+';';
+						}
+						}
+					}
+					var SPEC_NUMBER_con = SPEC_NUMBER.split(';');
+					var QTY_PER_con = QTY_PER.split(';');
+					var QTY_PER_inv=[];
+					for(var i in QTY_PER_con){
+					if(QTY_PER_con[i]=='null'){
+						QTY_PER_inv.push(null)
+					}else{
+						QTY_PER_inv.push(parseFloat(QTY_PER_con[i]))
+					}
+						
+					}
+					var QTY_PER_border= QTY_PER_inv;
+						$('#container3').highcharts({
+        chart: {
+            type: 'bar'
+        },
+		 credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+        title: {
+            text: '月销量进度',
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+        xAxis: {
+            categories: SPEC_NUMBER_con,
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+             title: {
+                text: null
+            }
+        },
+        tooltip: {
+           enabled: false
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+					format: '<b>{point.y}%</b>'
+					
+                }
+            }
+        },
+        legend: {
+             enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            data: QTY_PER_border
+        }]
+    });
+	reportSizeMj();
+					}
+				}
+			});
+			 
+		}
+		function reportOnlineType(){  //饼状图
+		$$('scroller2').style.width =document.body.offsetWidth+'px';
+			var url_data = Interface+'reportSizePie';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){
+						var arr = [];
+						data.data.forEach(function(node,index){
+						var a = [];
+						a.push(node.C_SIZE);
+						a.push(node.PE_QTY);
+						arr.push(a);}
+						);
+						
+						 $('#container2').highcharts({
+        chart: {
+            
+        },
+        title: {
+            text: data.data[0].C_TITEL,
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+		subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+		 credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+        tooltip: {
+             enabled: false
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b> {point.name}</b> ({point.percentage:.1f} %)',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || '#666',
+						fontSize: '' + s.fontSize + ''
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            data: arr
+        }]
+    });
+	
+	  			reportType();
+					}
+				}
+				
+				
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+		function reportSizeMj(){
+			var url_data = Interface+'reportSizeMj';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){
+					var DAY_NAME='';
+					var PER_A = '';
+					var PER_B= '';
+					var PER_C= '';
+					var PER_D= '';
+					var PER_E='';
+					for(var i =0;i<data.data.length;i++){
+						if(i == data.data.length-1){
+							DAY_NAME+=data.data[i].DAY_NAME+'';
+							if(data.data[i].PER_A){
+								PER_A+=data.data[i].PER_A*100+'';
+							}else{
+								PER_A+='';
+							}
+							if(data.data[i].PER_B){
+								PER_B+=data.data[i].PER_B*100+'';
+							}else{
+								PER_B+='';
+							}
+							if(data.data[i].PER_C){
+								PER_C+=data.data[i].PER_C*100+'';
+							}else{
+								PER_C+='';
+							}
+							if(data.data[i].PER_D){
+								PER_D+=data.data[i].PER_D*100+'';
+							}else{
+								PER_D+='';
+							}
+							if(data.data[i].PER_E){
+								PER_E+=data.data[i].PER_E*100+'';
+							}else{
+								PER_E+='';
+							}
+						}else{
+							DAY_NAME+=data.data[i].DAY_NAME+';';
+							if(data.data[i].PER_A){
+								PER_A+=data.data[i].PER_A*100+';';
+							}else{
+								PER_A+=''+';';
+							}
+							if(data.data[i].PER_B){
+								PER_B+=data.data[i].PER_B*100+';';
+							}else{
+								PER_B+=''+';';
+							}
+							if(data.data[i].PER_C){
+								PER_C+=data.data[i].PER_C*100+';';
+							}else{
+								PER_C+=''+';';
+							}
+							if(data.data[i].PER_D){
+								PER_D+=data.data[i].PER_D*100+';';
+							}else{
+								PER_D+=''+';';
+							}
+							if(data.data[i].PER_E){
+								PER_E+=data.data[i].PER_E*100+';';
+							}else{
+								PER_E+=''+';';
+							}
+						}
+					}
+					var DAY_NAME_con= DAY_NAME.split(';');
+					var PER_A_con = PER_A.split(';');
+					var PER_A_inv =[];
+					for(var i in PER_A_con){
+						PER_A_inv.push(parseFloat(PER_A_con[i]));
+					}
+					var PER_A_border= PER_A_inv;
+					
+					var PER_B_con = PER_B.split(';');
+					var PER_B_inv =[];
+					for(var i in PER_B_con){
+						PER_B_inv.push(parseFloat(PER_B_con[i]));
+					}
+					var PER_B_border= PER_B_inv;
+					
+					var PER_C_con = PER_C.split(';');
+					var PER_C_inv =[];
+					for(var i in PER_C_con){
+						PER_C_inv.push(parseFloat(PER_C_con[i]));
+					}
+					var PER_C_border= PER_C_inv;
+					
+					var PER_D_con = PER_D.split(';');
+					var PER_D_inv =[];
+					for(var i in PER_D_con){
+						PER_D_inv.push(parseFloat(PER_D_con[i]));
+					}
+					var PER_D_border= PER_D_inv;
+					
+					var PER_E_con = PER_E.split(';');
+					var PER_E_inv =[];
+					for(var i in PER_E_con){
+						PER_E_inv.push(parseFloat(PER_E_con[i]));
+					}
+					var PER_E_border= PER_E_inv;
+					
+						 $('#container4').highcharts({
+        chart: {
+            type: 'area'
+        },
+		credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+        title: {
+            text: '每日功能分类占比情况'
+        },
+        xAxis: {
+             categories: DAY_NAME_con,
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+		min:0,
+            title: {
+                text: null
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 100;
+                }
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [{
+            name: '>55',
+            data: PER_A_border
+        }, {
+            name: '==55',
+            data: PER_B_border
+        }, {
+            name: '>48<50',
+            data: PER_C_border
+        }, {
+            name: '>39<43',
+            data: PER_D_border
+        }, {
+            name: '<32',
+            data: PER_E_border
+        }]
+    });
+	borderloaded();
+    loaded();
+					}
+				}
+			});
+		}
+		function reportIsc(){
+			var url_data= Interface+'reportIsc'; 
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){
+					var BUSINESS_UNIT='';
+					var ODF_QTY='';
+					var PLAN_QTY='';
+					for(var i =0;i<data.data.length;i++){
+						if(i == data.data.length-1){
+							BUSINESS_UNIT+=data.data[i].BUSINESS_UNIT;
+							if(data.data[i].ODF_QTY){
+								ODF_QTY+=data.data[i].ODF_QTY;
+							}else{
+								ODF_QTY+='';
+							}
+							if(data.data[i].PLAN_QTY){
+								PLAN_QTY+=data.data[i].PLAN_QTY;
+							}else{
+								PLAN_QTY+='';
+							}
+						}else{
+							BUSINESS_UNIT+=data.data[i].BUSINESS_UNIT+';';
+							if(data.data[i].ODF_QTY){
+								ODF_QTY+=data.data[i].ODF_QTY+';';
+							}else{
+								ODF_QTY+=''+';';
+							}
+							
+							if(data.data[i].PLAN_QTY){
+								PLAN_QTY+=data.data[i].PLAN_QTY+';';
+							}else{
+								PLAN_QTY+=''+';';
+							}
+						}
+					}
+					var busi_con = BUSINESS_UNIT.split(';');
+					var ODF_QTY_inv= ODF_QTY.split(';');
+					var ODF_QTY_con= [];
+					for(var i in ODF_QTY_inv){
+						ODF_QTY_con.push(parseInt(ODF_QTY_inv[i]));
+					}
+					var ODF_QTY_border= ODF_QTY_con;
+					var PLAN_QTY_inv = PLAN_QTY.split(';');
+					var PLAN_QTY_con = [];
+					for(var i in PLAN_QTY_inv){
+						PLAN_QTY_con.push(parseInt(PLAN_QTY_inv[i]));
+					}
+					var PLAN_QTY_border= PLAN_QTY_con;
+						 $('#container4').highcharts({//  库存
+                    chart: {},
+                    credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    title: {
+                        align: 'center',
+                        text: 'ISC接单进度',
+                        style: {
+                            "color": "#666",
+                            "fontSize": "" + s.fontSize + "",
+                            fontWeight: "bold"
+                        }
+                    },
+					subtitle: {
+					            text: data.data[0].MAX_DAY, x:400
+					        },
+                    legend: {
+                        title: {
+                            style: {
+                                color: '#666'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        categories: busi_con,
+                        style: {
+                            color: '#666',
+                            fontSize: '' + s.fontSize + ''
+                        }
+                    
+                    },
+                    yAxis: [{ // Primary yAxis
+                        labels: {
+                            format: '{value}',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        },
+                        title: {
+                            text: '',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        }
+                    }],
+                    
+                    tooltip: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking: 'normal',
+                            dataLabels: {
+                                enabled: false,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'column',
+                        name: '当月已下ODF',
+                        color: '#ffcfce',
+                        data: ODF_QTY_border
+                    }, {
+                        type: 'column',
+                        name: '当月主计划',
+                        color: '#b2cbe5',
+                        data: PLAN_QTY_border
+                    }]
+                });
+				borderloaded();
+            	loaded();
+					}
+				}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+        var myScroll1;
+		var myScroll2;
+		var myScroll3;
+		var myScroll4;
+        function loaded(){
+         
+                    myScroll1 = new IScroll('#wrapper1', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					myScroll2 = new IScroll('#wrapper2', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					myScroll3 = new IScroll('#wrapper3', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					myScroll4 = new IScroll('#wrapper4', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					 $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                bounceEasing: 'elastic',
+                bounceTime: 1200
+            });
+        }
+        
+        document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+        
+        
+     function CSC_NA(){
+	 	var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			 var url_data = Interface+'reportIn?sub_org='+encodeURIComponent('NA') ;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}else{
+										play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}else{
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+						day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+							play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+						per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container1').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '日销售量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					CSC_EU();
+            	
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			 
+				
+	 }
+	 function CSC_EU(){
+	 	var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			 var url_data = Interface+'reportIn?sub_org='+encodeURIComponent('EU') ;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}else{
+										play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}else{
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+						day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+						per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+						 per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container2').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '日销售量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					CSC_EM();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			 
+				
+	 }
+	 function CSC_EM(){
+	 	var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			 var url_data = Interface+'reportIn?sub_org='+encodeURIComponent('EM') ;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}else{
+										play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}else{
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+						day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container3').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '日销售量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					CSC_ISC();
+            	
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			 
+				
+	 }
+	  function CSC_ISC(){
+	 	var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			 var url_data = Interface+'reportIn?sub_org='+encodeURIComponent('ISC') ;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_AME;
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+'';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}else{
+										play_length+=''+data.data[i].CN_PLAN_SELL_IN+'';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+'';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_AME+''+';';
+								if(data.data[i].CN_SELL_IN){
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}else{
+									day_length+=''+data.data[i].CN_SELL_IN+''+';';
+								}
+								if(data.data[i].CN_PLAN_SELL_IN){
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}else{
+									play_length+=''+data.data[i].CN_PLAN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_SELL_IN){
+									per_length+=''+data.data[i].PER_CN_SELL_IN*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PER_CN_SELL_IN+''+';';
+								}
+								if(data.data[i].PER_CN_PLAN_SELL_IN){
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PER_CN_PLAN_SELL_IN+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+						day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+						per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container4').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '实销',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					borderloaded();
+            	loaded();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			 
+				
+	 }
+	 
+function reportFuncPie(){
+$$('scroller2').style.width =document.body.offsetWidth+'px';
+var url_data = Interface+'reportFuncPie';
+$.getJSON(url_data,function(data){
+	if(data.status==0){
+		if(data.data.length!=0){
+		var arr = [];
+						data.data.forEach(function(node,index){
+						var a = [];
+						a.push(node.C_FUNC_SIZE);
+						a.push(node.PE_QTY);
+						arr.push(a);}
+						);
+			$('#container2').highcharts({
+        chart: {
+            
+        },
+        title: {
+            text: data.data[0].C_TITEL,
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+		subtitle: {
+					            text: data.data[0].DAY_MAX, x:400
+					        },
+		 credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+        tooltip: {
+             enabled: false
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b> {point.name}</b> ({point.percentage:.1f} %)',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || '#666',
+						fontSize: '' + s.fontSize + ''
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            data: arr
+        }]
+    });
+	reportFuncZhu();
+		}
+	}
+});
+
+}
+function reportFuncZhu(){
+var url_data = Interface+'reportFuncZhu';
+$.getJSON(url_data,function(data){
+	if(data.status==0){
+		if(data.data.length!=0){
+			var SPEC_NUMBER='';
+					var QTY_PER='';
+					for(var i =0;i<data.data.length;i++){
+						if(i== data.data.length-1){
+						SPEC_NUMBER+= data.data[i].FUNC_NUMBER;
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+'';
+						}else{
+							QTY_PER+='';
+						}
+						}else{
+						SPEC_NUMBER+=data.data[i].FUNC_NUMBER+';'
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+';';
+						}else{
+							QTY_PER+=''+';';
+						}
+						}
+					}
+					var SPEC_NUMBER_con = SPEC_NUMBER.split(';');
+					var QTY_PER_con = QTY_PER.split(';');
+					var QTY_PER_inv=[];
+					for(var i in QTY_PER_con){
+						QTY_PER_inv.push(parseFloat(QTY_PER_con[i]))
+					}
+					var QTY_PER_border= QTY_PER_inv;
+					//alert(QTY_PER_border)
+						$('#container3').highcharts({
+        chart: {
+            type: 'bar'
+        },
+		 credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+        title: {
+            text: '结构',
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+        xAxis: {
+            categories: SPEC_NUMBER_con,
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+             title: {
+                text: null
+            }
+        },
+        tooltip: {
+           enabled: false
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+					format: '<b>{point.y}%</b>'
+					
+                }
+            }
+        },
+        legend: {
+             enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            data: QTY_PER_border
+        }]
+    });
+	reportFuncMj();
+		}
+	}
+});
+
+
+}
+function reportFuncMj(){
+var url_data =Interface +'reportFuncMj';
+$.getJSON(url_data,function(data){
+	if(data.status==0){
+		if(data.data.length!=0){
+		var DAY_NAME='';
+		var k2= '';
+		var tv='';
+		var k4='';
+		var dd_k4='';
+		var languang = '';
+		var net = '';
+		for(var i =0;i<data.data.length;i++){
+			if(i == data.data.length-1){
+				DAY_NAME+= data.data[i].DAY_NAME+'';
+				if(data.data[i]['2K云']){
+					k2+= data.data[i]['2K云']*100+'';
+				}else{
+					k2+= data.data[i]['2K云']+'';
+				}
+				if(data.data[i]['TV+2K']){
+					tv+= data.data[i]['TV+2K']*100+'';
+				}else{
+					tv+=data.data[i]['TV+2K']+'';
+				}
+				if(data.data[i]['TV+4K']){
+					k4+= data.data[i]['TV+4K']+'';
+				}else{
+					k4+=data.data[i]['TV+4K']*100+'';
+				}
+				if(data.data[i]['低端4K']){
+					dd_k4+= data.data[i]['低端4K']*100+'';
+				}else{
+					dd_k4+=data.data[i]['低端4K']+'';
+				}
+				if(data.data[i]['蓝光']){
+					languang+= data.data[i]['蓝光']*100+'';
+				}else{
+					languang+=data.data[i]['蓝光']+'';
+				}
+				if(data.data[i]['网络']){
+					net+= data.data[i]['网络']*100+'';
+				}else{
+					net+= data.data[i]['网络']+'';
+				}
+			}else{
+				DAY_NAME+=data.data[i].DAY_NAME+';';
+				if(data.data[i]['2K云']){
+					k2+= data.data[i]['2K云']*100+';';
+				}else{
+					k2+=data.data[i]['2K云']+';';
+				}
+				if(data.data[i]['TV+2K']){
+					tv+= data.data[i]['TV+2K']*100+';';
+				}else{
+					tv+=data.data[i]['TV+2K']+';';
+				}
+				if(data.data[i]['TV+4K']){
+					k4+= data.data[i]['TV+4K']*100+';';
+				}else{
+					k4+= data.data[i]['TV+4K']+';';
+				}
+				if(data.data[i]['低端4K']){
+					dd_k4+= data.data[i]['低端4K']*100+';';
+				}else{
+					dd_k4+= data.data[i]['低端4K']+';';
+				}
+				if(data.data[i]['蓝光']){
+					languang+= data.data[i]['蓝光']*100+';';
+				}else{
+					languang+=data.data[i]['蓝光']+';';
+				}
+				if(data.data[i]['网络']){
+					net+= data.data[i]['网络']*100+';';
+				}else{
+					net+=data.data[i]['网络']+';';
+				}
+			}
+		}
+		var DAY_NAME_con =DAY_NAME.split(';');
+		var k2_con = k2.split(';');
+		var k2_inv=[];
+		for(var i in k2_con){
+			k2_inv.push(parseFloat(k2_con[i]))
+		}
+		var k2_border= k2_inv;
+		
+		var tv_con = tv.split(';');
+		var tv_inv=[];
+		for(var i in tv_con){
+			tv_inv.push(parseFloat(tv_con[i]))
+		}
+		var tv_border= tv_inv;
+		
+		var k4_con = k4.split(';');
+		var k4_inv=[];
+		for(var i in k4_con){
+			k4_inv.push(parseFloat(k4_con[i]))
+		}
+		var k4_border= k4_inv;
+		
+		var dd_k4_con = dd_k4.split(';');
+		var dd_k4_inv=[];
+		for(var i in dd_k4_con){
+			dd_k4_inv.push(parseFloat(dd_k4_con[i]))
+		}
+		var dd_k4_border= dd_k4_inv;
+		
+		var languang_con = languang.split(';');
+		var languang_inv=[];
+		for(var i in languang_con){
+			languang_inv.push(parseFloat(languang_con[i]))
+		}
+		var languang_border= languang_inv;
+		
+		var net_con = net.split(';');
+		var net_inv=[];
+		for(var i in net_con){
+			net_inv.push(parseFloat(net_con[i]))
+		}
+		var net_border= net_inv;
+		
+			$('#container4').highcharts({
+        chart: {
+            type: 'area'
+        },
+		credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+        title: {
+            text: '每日功能分类占比情况'
+        },
+        xAxis: {
+             categories: DAY_NAME_con,
+            tickmarkPlacement: 'on',
+            title: {
+                enabled: false
+            }
+        },
+        yAxis: {
+            title: {
+                text: null
+            },
+            labels: {
+                formatter: function () {
+                    return this.value / 100;
+                }
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        plotOptions: {
+            area: {
+                stacking: 'normal',
+                lineColor: '#666666',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#666666'
+                }
+            }
+        },
+        series: [{
+            name: '2k云',
+            data: k2_border
+        }, {
+            name: 'TV+2K',
+            data:tv_border
+        }, {
+            name: 'TV+4K',
+            data:k4_border
+        }, {
+            name: '低端4K',
+            data: dd_k4_border
+        }, {
+            name: '蓝光',
+            data: languang_border
+        }, {
+            name: '网络',
+            data: net_border
+        }]
+    });
+	borderloaded();
+loaded();
+		}
+	}
+});
+
+}
+
+function reportU7(){
+	var url_data = Interface+'reportU7';
+	$.getJSON(url_data,function(data){
+	if(data.status==0){
+		if(data.data.length!=0){
+			var SPEC_NUMBER='';
+					var QTY_PER='';
+					for(var i =0;i<data.data.length;i++){
+						if(i== data.data.length-1){
+						SPEC_NUMBER+= data.data[i].FUNC_NUMBER;
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+'';
+						}else{
+							QTY_PER+='';
+						}
+						}else{
+						SPEC_NUMBER+=data.data[i].FUNC_NUMBER+';'
+						if(data.data[i].QTY_PER){
+							QTY_PER+=data.data[i].QTY_PER*100+';';
+						}else{
+							QTY_PER+=''+';';
+						}
+						}
+					}
+					var SPEC_NUMBER_con = SPEC_NUMBER.split(';');
+					var QTY_PER_con = QTY_PER.split(';');
+					var QTY_PER_inv=[];
+					for(var i in QTY_PER_con){
+						QTY_PER_inv.push(parseFloat(QTY_PER_con[i]))
+					}
+					var QTY_PER_border= QTY_PER_inv;
+						$('#container3').highcharts({
+        chart: {
+            type: 'bar'
+        },
+		 credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+        title: {
+            text: '曲大U7高',
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+        xAxis: {
+            categories: SPEC_NUMBER_con,
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+             title: {
+                text: null
+            }
+        },
+        tooltip: {
+           enabled: false
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true,
+					format: '<b>{point.y}%</b>'
+					
+                }
+            }
+        },
+        legend: {
+             enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            data: QTY_PER_border
+        }]
+    });
+	borderloaded();
+loaded();
+		}
+	}
+});
+	
+}
+
+function reportU7_2(){
+$$('scroller2').style.width =document.body.offsetWidth+'px';
+	var url_data =Interface+'reportU7_2';
+	$.getJSON(url_data,function(data){
+	if(data.status==0){
+		if(data.data.length!=0){
+			var arr = [];
+						data.data.forEach(function(node,index){
+						var a = [];
+						a.push(node.FUNC_NUMBER);
+						a.push(node.PER_QTY);
+						arr.push(a);}
+						);
+			$('#container2').highcharts({
+        chart: {
+            
+        },
+        title: {
+            text: '曲U7高',
+			style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + '',
+									 fontWeight: "bold"
+                                }
+        },
+		 credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+        tooltip: {
+             enabled: false
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b> {point.name}</b> ({point.percentage:.1f} %)',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || '#666',
+						fontSize: '' + s.fontSize + ''
+                    }
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            data: arr
+        }]
+    });
+	reportU7();
+		
+		}
+	}
+});
+
+}
+
+function OBCTotal(){
+var url_data =Interface+'OBCTotal';
+$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){						
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_NAME;
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}else{
+										play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+'';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_NAME+''+';';
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}else{
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+							day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container1').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: 'OBC总览',
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].C_MAX_PRO_DATE, x:400
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '达成率(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '销量（万台）',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '实销',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计销',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累积完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });
+					
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						$toast('暂无数据',3000);
+					}
+					borderloaded();
+            	loaded();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+}
+    </script>
+	 </body>
+</html>

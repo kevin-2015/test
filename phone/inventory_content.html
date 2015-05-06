@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/jquery.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+      <script src="js/highcharts.js">
+        </script>
+        <script src="js/exporting.js">
+        </script>
+    </head>
+    <body class="um-vp  zhy_ov_x" style=" background:#efefef" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div class="ub ub-ver  zhy_server_bg  t-bla ">
+                    <div class=" uinn uc-t1" id="titles">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="zhy_in_m">
+                    <div id="bor_con0">
+                        <div id="wrapper1" class="wrapper">
+                            <div id="scroller1" class="scroller" style="width:1200px;">
+                                 <div id="container0" class="ulev0"></div>
+                            </div>
+                        </div>
+						 <div id="wrapper2" class="wrapper">
+                            <div id="scroller2" class="scroller" style="width:1200px;">
+                                 <div id="container2" class="ulev0"></div>
+                            </div>
+                        </div>
+						 <div id="wrapper3" class="wrapper">
+                            <div id="scroller3" class="scroller" style="width:1200px;">
+                                 <div id="container3" class="ulev0"></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+
+    <script>
+        zy_init();
+        var s = window.getComputedStyle(document.body, null);
+		var font='';
+        window.uexOnload = function(type){
+			$toast('努力加载中,请稍候....');
+			font=s.fontSize.substring(0,s.fontSize.length-2);
+            if (!type) {
+			if(isAndroid){
+				$$('scroller1').style.width= '2400px'
+				$$('scroller2').style.width= '2400px'
+				$$('scroller3').style.width= '2400px'
+			
+			}else{
+			}
+				if(getLocVal('kcnemuname')){
+					 $$('titles').innerHTML = getLocVal('kcnemuname');
+				}else{
+					 $$('titles').innerHTML = 'CN';
+				}
+				if(getLocVal('kcmenunumber')==0){
+					qushitu();
+				}else{
+					qushitu_xx();
+				}
+				
+                
+            }
+            
+        }
+        function qushitu(){
+			
+			var url_data= Interface+'reportStock?sub_org='+encodeURIComponent('销司') ;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){
+						var cus_length='';
+						var head_length='';
+						var net_length='';
+						var time='';
+						var sum_length='';
+						 var inv_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i==data.data.length-1){
+								if(data.data[i].CUS_INV){
+									cus_length+=data.data[i].CUS_INV;
+								}else{
+									cus_length+=data.data[i].CUS_INV;
+								}
+								if(data.data[i].HEAD_INV){
+										head_length+=data.data[i].HEAD_INV;
+								}else{
+										head_length+=data.data[i].HEAD_INV;
+								}
+								if(data.data[i].NET_INV){
+									net_length+=data.data[i].NET_INV;
+								}else{
+									net_length+=data.data[i].NET_INV;
+								}
+								if(data.data[i].SUM_INV){
+									sum_length+=data.data[i].SUM_INV;
+								}else{
+									sum_length+=data.data[i].SUM_INV;
+								}
+								if(data.data[i].INV_PLAN){
+									inv_length+=data.data[i].INV_PLAN;
+								}else{
+									inv_length+=data.data[i].INV_PLAN;
+								}
+								time+=data.data[i].DAY_NAME;
+							}else{
+								if(data.data[i].CUS_INV){
+									cus_length+=data.data[i].CUS_INV+';';
+								}else{
+									cus_length+=data.data[i].CUS_INV+';';
+								}
+								if(data.data[i].HEAD_INV){
+									head_length+=data.data[i].HEAD_INV+';';
+								}else{
+									head_length+=data.data[i].HEAD_INV+';';
+								}
+								if(data.data[i].NET_INV){
+									net_length+=data.data[i].NET_INV+';';
+								}else{
+									net_length+=data.data[i].NET_INV+';';
+								}
+								if(data.data[i].SUM_INV){
+									sum_length+=data.data[i].SUM_INV+';';
+								}else{
+									sum_length+=data.data[i].SUM_INV+';';
+								}
+								if(data.data[i].INV_PLAN){
+									inv_length+=data.data[i].INV_PLAN+';';
+								}else{
+									inv_length+=data.data[i].INV_PLAN+';';
+								}
+								time+=data.data[i].DAY_NAME+';';
+							}
+						}
+						var time_con =time.split(';');
+						var cus_inv= cus_length.split(';');
+						var cus_con=[];
+						for(var i in cus_inv){
+						if(cus_inv[i]=='null'){
+						cus_con.push(null);
+						}else{
+						cus_con.push(parseInt(cus_inv[i]));	
+						}
+							
+						}
+						var cus_inv_con =cus_con;
+						var head_inv= head_length.split(';');
+						var head_con=[];
+						for(var i in head_inv){
+						if(head_inv[i]=='null'){
+						head_con.push(null);
+						}else{
+							head_con.push(parseInt(head_inv[i]));
+						}
+							
+						}
+						var head_inv_con=head_con;
+						var net_inv = net_length.split(';');
+						var net_con =[];
+						for(var i in net_inv){
+						if(net_inv[i]=='null'){
+							net_con.push(null);
+						}else{
+							net_con.push(parseInt(net_inv[i]));
+						}
+							
+						}
+						var net_inv_con =net_con;
+						var sum_inv=sum_length.split(';');
+						var sum_con =[];
+						for(var i in sum_inv){
+						if(sum_inv[i]=='null'){
+							sum_con.push(null);
+						}else{
+							sum_con.push(parseInt(sum_inv[i]));
+						}
+							
+						}
+						var sum_inv_con = sum_con;
+						var inv_inv=inv_length.split(';');
+						var inv_con=[];
+						for(var i in inv_inv){
+						if(inv_inv[i]=='null'){
+							inv_con.push(null);
+						}else{
+							inv_con.push(parseInt(inv_inv[i]));
+						}
+							
+						}
+						var inv_inv_con= inv_con;
+						 $('#container0').highcharts({//  库存
+                    chart: {},
+                    credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    title: {
+                        align: 'center',
+                        text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                        style: {
+                            "color": "#666",
+                            "fontSize": "" + s.fontSize + "",
+                            fontWeight: "bold"
+                        }
+                    },
+					 subtitle: {
+					            text: data.data[0].DAY_MAX,
+					            x: 350
+					        },
+                    legend: {
+                        title: {
+                            style: {
+                                color: '#666'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        categories: time_con,
+                        style: {
+                            color: '#666',
+                            fontSize: ''+s.fontSize +''
+                        }
+                    
+                    },
+                    yAxis: [{ // Primary yAxis
+                        labels: {
+                            format: '{value}',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        },
+                        title: {
+                            text: '库存(K)',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        }
+                    }],
+                    
+                    tooltip: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking: 'normal',
+                            dataLabels: {
+                                enabled: false,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'column',
+                        name: '客户库存',
+                        color: '#ccc1da',
+                        data: cus_inv_con
+                    }, {
+                        type: 'column',
+                        name: '网络库存',
+                        color: '#4bacc6',
+                        data: net_inv_con
+                    }, {
+                        type: 'column',
+                        name: '总部库存',
+                        color: '#fcd5b5',
+                        data: head_inv_con
+                    }, {
+                        type: 'spline',
+                        name: '库存合计',
+                        color: '#ff0000',
+                        data: sum_inv_con,
+                        marker: {
+                            lineWidth: 2,
+                            lineColor: Highcharts.getOptions().colors[3],
+                            fillColor: 'white'
+                        }
+                    }, {
+                        type: 'spline',
+                        name: '库存目标',
+                        color: '#0000ff',
+                        data:inv_inv_con,
+                        marker: {
+                            lineWidth: 2,
+                            lineColor: Highcharts.getOptions().colors[3],
+                            fillColor: 'white'
+                        }
+                    }]
+                });
+				 borderloaded();
+            	loaded();
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+				}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			   
+           
+        }
+        var myScroll1;
+         var myScroll2;
+		 var myScroll3;
+        function loaded(){
+           
+                    myScroll1 = new IScroll('#wrapper1', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					 myScroll2 = new IScroll('#wrapper2', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					 myScroll3 = new IScroll('#wrapper3', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+ $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                bounceEasing: 'elastic',
+                bounceTime: 1200
+            });
+        }
+        
+        document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+function qushitu_xx(){
+var url_data= Interface+'reportStock?sub_org='+encodeURIComponent(getLocVal('kcparameter')) ;
+$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.data.length!=0){
+						var cus_length='';
+						var head_length='';
+						var net_length='';
+						var time='';
+						var sum_length='';
+						 var inv_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i==data.data.length-1){
+								if(data.data[i].CUS_INV){
+									cus_length+=data.data[i].CUS_INV;
+								}else{
+									cus_length+=data.data[i].CUS_INV;
+								}
+								if(data.data[i].HEAD_INV){
+										head_length+=data.data[i].HEAD_INV;
+								}else{
+										head_length+=data.data[i].HEAD_INV;
+								}
+								if(data.data[i].NET_INV){
+									net_length+=data.data[i].NET_INV;
+								}else{
+									net_length+=data.data[i].NET_INV;
+								}
+								if(data.data[i].SUM_INV){
+									sum_length+=data.data[i].SUM_INV;
+								}else{
+									sum_length+=data.data[i].SUM_INV;
+								}
+								if(data.data[i].INV_PLAN){
+									inv_length+=data.data[i].INV_PLAN;
+								}else{
+									inv_length+=data.data[i].INV_PLAN;
+								}
+								time+=data.data[i].DAY_NAME;
+							}else{
+								if(data.data[i].CUS_INV){
+									cus_length+=data.data[i].CUS_INV+';';
+								}else{
+									cus_length+=data.data[i].CUS_INV+';';
+								}
+								if(data.data[i].HEAD_INV){
+									head_length+=data.data[i].HEAD_INV+';';
+								}else{
+									head_length+=data.data[i].HEAD_INV+';';
+								}
+								if(data.data[i].NET_INV){
+									net_length+=data.data[i].NET_INV+';';
+								}else{
+									net_length+=data.data[i].NET_INV+';';
+								}
+								if(data.data[i].SUM_INV){
+									sum_length+=data.data[i].SUM_INV+';';
+								}else{
+									sum_length+=data.data[i].SUM_INV+';';
+								}
+								if(data.data[i].INV_PLAN){
+									inv_length+=data.data[i].INV_PLAN+';';
+								}else{
+									inv_length+=data.data[i].INV_PLAN+';';
+								}
+								time+=data.data[i].DAY_NAME+';';
+							}
+						}
+						var time_con =time.split(';');
+						var cus_inv= cus_length.split(';');
+						var cus_con=[];
+						for(var i in cus_inv){
+						if(cus_inv[i]=='null'){
+						cus_con.push(null);
+						}else{
+						cus_con.push(parseInt(cus_inv[i]));	
+						}
+							
+						}
+						var cus_inv_con =cus_con;
+						var head_inv= head_length.split(';');
+						var head_con=[];
+						for(var i in head_inv){
+						if(head_inv[i]=='null'){
+						head_con.push(null);
+						}else{
+							head_con.push(parseInt(head_inv[i]));
+						}
+							
+						}
+						var head_inv_con=head_con;
+						var net_inv = net_length.split(';');
+						var net_con =[];
+						for(var i in net_inv){
+						if(net_inv[i]=='null'){
+							net_con.push(null);
+						}else{
+							net_con.push(parseInt(net_inv[i]));
+						}
+							
+						}
+						var net_inv_con =net_con;
+						var sum_inv=sum_length.split(';');
+						var sum_con =[];
+						for(var i in sum_inv){
+						if(sum_inv[i]=='null'){
+							sum_con.push(null);
+						}else{
+							sum_con.push(parseInt(sum_inv[i]));
+						}
+							
+						}
+						var sum_inv_con = sum_con;
+						var inv_inv=inv_length.split(';');
+						var inv_con=[];
+						for(var i in inv_inv){
+						if(inv_inv[i]=='null'){
+							inv_con.push(null);
+						}else{
+							inv_con.push(parseInt(inv_inv[i]));
+						}
+							
+						}
+						var inv_inv_con= inv_con;
+						 $('#container0').highcharts({//  库存
+                    chart: {},
+                    credits: {
+                        enabled: false
+                    },
+                    exporting: {
+                        enabled: false
+                    },
+                    title: {
+                        align: 'center',
+                        text: data.data[0].CENTER_NAME+data.data[0].SUB_ORG,
+                        style: {
+                            "color": "#666",
+                            "fontSize": "" + s.fontSize + "",
+                            fontWeight: "bold"
+                        }
+                    },
+					 subtitle: {
+					            text: data.data[0].DAY_MAX,
+					            x: 350
+					        },
+                    legend: {
+                        title: {
+                            style: {
+                                color: '#666'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        categories: time_con,
+                        style: {
+                            color: '#666',
+                            fontSize: ''+s.fontSize +''
+                        }
+                    
+                    },
+                    yAxis: [{ // Primary yAxis
+                        labels: {
+                            format: '{value}',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        },
+                        title: {
+                            text: '库存(K)',
+                            style: {
+                                color: '#666',
+                                fontSize: '' + s.fontSize + ''
+                            }
+                        }
+                    }],
+                    
+                    tooltip: {
+                        enabled: false
+                    },
+                    plotOptions: {
+                        column: {
+                            stacking: 'normal',
+                            dataLabels: {
+                                enabled: false,
+                                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                            }
+                        }
+                    },
+                    series: [{
+                        type: 'column',
+                        name: '库存合计',
+                        color: '#ccc1da',
+                        data: sum_inv_con,
+                       
+                    }, {
+                        type: 'spline',
+                        name: '库存目标',
+                        color: '#0000ff',
+                        data:inv_inv_con,
+                        marker: {
+                            lineWidth: 2,
+                            lineColor: Highcharts.getOptions().colors[3],
+                            fillColor: 'white'
+                        }
+                    }]
+                });
+				 borderloaded();
+            	loaded();
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+				}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+}
+    </script>
+</html>

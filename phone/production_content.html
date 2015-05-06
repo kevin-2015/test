@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/jquery.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+      <script src="js/highcharts.js">
+        </script>
+        <script src="js/exporting.js">
+        </script>
+    </head>
+    <body class="um-vp  zhy_ov_x" style=" background:#efefef" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div class="ub ub-ver  zhy_server_bg  t-bla ">
+                    <div class=" uinn uc-t1" id="titles">
+                    	&nbsp;
+                    </div>
+                </div>
+                <div class="zhy_in_m">
+                    <div id="bor_con0">
+                        <div id="wrapper1" class="wrapper">
+                            <div id="scroller1" class="scroller" style="width:1200px;">
+                                 <div id="container1" class="ulev0"></div>
+                            </div>
+                        </div>
+						<div id="wrapper2" class="wrapper">
+                            <div id="scroller2" class="scroller" style="width:1200px;">
+                                 <div id="container2" class="ulev0"></div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    </div>
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+   
+	
+    <script>
+        zy_init();
+        var s = window.getComputedStyle(document.body, null);
+		var font='';
+        window.uexOnload = function(type){
+			font=s.fontSize.substring(0,s.fontSize.length-2);
+			$toast('努力加载中,请稍候....');
+            if (!type) {
+			if(isAndroid){
+				$$('scroller1').style.width= '2400px'
+				$$('scroller2').style.width= '2400px'
+			}else{
+			}
+				if(getLocVal('scnemuname')){
+					 $$('titles').innerHTML = getLocVal('scnemuname');
+				}else{
+					 $$('titles').innerHTML = 'PSI(总览)';
+				}
+				//alert(getLocVal('scmenunumber'))
+				if(getLocVal('scmenunumber')==''){
+					qushitu();
+				}else if(getLocVal('scmenunumber')==4){
+					qushitu();
+				}else if(getLocVal('scmenunumber')==9){
+					qushitu();			
+				}else if(getLocVal('scmenunumber')==0){
+					qushitu();
+				}else{
+					qushitu_mingxi();
+				}
+               
+            }
+            
+        }
+		var qushi_alert1='';
+		var qushi_alert2='';
+        function qushitu(){
+			var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			var url_data = Interface+'reportProductAll';
+			
+			$.getJSON(url_data,function(data){
+				qushi_alert1= data.status;
+				qushi_alert2 = data.data.length;
+				if(data.status==0){
+					if(data.data.length!=0){
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_NAME+'';
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}else{
+									play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+'';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_NAME+''+';';
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}else{
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+							day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+						play_in.push(null);
+						}else{
+							play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+						per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+						per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container1').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: '生产汇总报表',
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].C_MAX_PRO_DATE,
+					            x: 350
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '累计完成(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '生产量(万台)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '实际生产量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计划生产量',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累计完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });			
+					}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+					 
+				}else{
+						 $closeToast();
+						$toast('暂无数据',3000);
+					}
+				borderloaded();
+           	   loaded();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		
+        }
+		
+		
+		var qushi_alert3='';
+		var qushi_alert4='';
+        function qushitu_mingxi(){
+			var data = new Date();
+			var year = data.getFullYear();
+			var month = parseInt(data.getMonth()+1) <9 ? '0'+parseInt(data.getMonth()+1)+''  : ''+parseInt(data.getMonth()+1)+'';
+			var day = parseInt(data.getDate())< 9 ? '0'+parseInt(data.getDate())+'' : ''+parseInt(data.getDate())+'';
+			var con =year+'年'+ month+'月'+day+'日数据';
+			var url_data = Interface+'reportProduct?area_='+encodeURIComponent(getLocVal('scparameter'));
+			$.getJSON(url_data,function(data){
+				qushi_alert3= data.status;
+				qushi_alert4= data.data.length;
+				if(data.status==0){
+					if(data.data.length!=0){
+						var time_lebgth='';
+						var  day_length='';
+						var play_length = '';
+						var per_length = '';
+						var per_play_length='';
+						for(var i =0;i<data.data.length;i++){
+							if(i == data.data.length-1){
+								time_lebgth+=''+data.data[i].DAY_NAME+'';
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}else{
+									play_length+=''+data.data[i].PRO_QTY_PLAN+'';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+'';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+'';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+'';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+'';
+								}
+								
+							}else{
+								time_lebgth+=''+data.data[i].DAY_NAME+''+';';
+								if(data.data[i].PRO_QTY){
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}else{
+									day_length+=''+data.data[i].PRO_QTY+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN){
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}else{
+									play_length+=''+data.data[i].PRO_QTY_PLAN+''+';';
+								}
+								if(data.data[i].PRO_QTY_PE){
+									per_length+=''+data.data[i].PRO_QTY_PE*100+''+';';
+								}else{
+									per_length+=''+data.data[i].PRO_QTY_PE+''+';';
+								}
+								if(data.data[i].PRO_QTY_PLAN_PE){
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE*100+''+';';
+								}else{
+									per_play_length+=''+data.data[i].PRO_QTY_PLAN_PE+''+';';
+								}
+								
+							}
+						}
+						var times =time_lebgth.split(';');
+						var day_sell = day_length.split(';');
+						var day_in = [];
+						for(var i in day_sell){
+						if(day_sell[i]=='null'){
+							day_in.push(null);
+						}else{
+							day_in.push(parseInt(day_sell[i]));
+						}
+							
+						}
+						var day_sell_con= day_in;
+						var play_sell = play_length.split(';');
+						var play_in =[];
+						for(var i in play_sell){
+						if(play_sell[i]=='null'){
+							play_in.push(null);
+						}else{
+						play_in.push(parseInt(play_sell[i]));
+						}
+							
+						}
+						var play_sell_con =play_in;
+						var per_sell =per_length.split(';');
+						var per_in = [];
+						for(var i in per_sell){
+						if(per_sell[i]=='null'){
+							per_in.push(null);
+						}else{
+							per_in.push(parseInt(per_sell[i]));
+						}
+							
+						}
+						var per_in_con = per_in;
+						var per_play_in = per_play_length.split(';');
+						var per_play_sell = [];
+						for(var i in per_play_in){
+						if(per_play_in[i]=='null'){
+							per_play_sell.push(null);
+						}else{
+							per_play_sell.push(parseInt(per_play_in[i]));
+						}
+							
+						}
+						var per_play_con=per_play_sell;
+						$('#container2').highcharts({ //海外销售
+                        chart: {
+                          
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        exporting: {
+                            enabled: false
+                        },
+						rangeSelector:{
+							allButtonsEnabled:false,
+							 enabled: false
+						},
+                        title: {
+                            align: 'center',
+                            text: getLocVal('scnemuname')+'生产汇总报表',
+                            style: {
+                                "color": "#666",
+                                "fontSize": "" + s.fontSize + "",
+                                fontWeight: "bold"
+                            }
+                        },
+                        subtitle: {
+					            text: data.data[0].C_MAX_PRO_DATE,
+					            x: 350
+					        },
+                        xAxis: {
+							
+                            title: {
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            categories: times
+                        
+                        },
+                        yAxis: [{ // Secondary yAxis
+                         labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								min:0,
+                                text: '累计完成(100%)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            labels: {
+                                format: '{value} ',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+                            opposite: true
+                        },{ // Primary yAxis
+                            labels: {
+                                format: '{value}',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            },
+							min:0,
+                            title: {
+								
+                                text: '生产量(万台)',
+                                style: {
+                                    color: '#666',
+                                    fontSize: '' + s.fontSize + ''
+                                }
+                            }
+                        }],
+                        
+                        tooltip: {
+                            enabled: false
+                        },
+                        plotOptions: {
+                           column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+                        },
+                        series: [{
+                            name: '实际生产量',
+                            type: 'column',
+                     		yAxis: 1,                            
+                             color: '#f8cacd',
+							 data: day_sell_con,
+            pointPadding: 0.3,
+            pointPlacement: -0.2
+                        }, {
+                            name: '计划生产量',
+                            type: 'column',
+                            yAxis: 1,
+							color: '#758fc2',
+           data: play_sell_con,
+            pointPadding: 0.4,
+            pointPlacement: -0.2
+                            
+                        },{
+                            type: 'spline',
+                            name: '实际累计完成',
+                            color: '#fd0001',
+                            data:per_in_con
+                            
+                        }, {
+                            type: 'spline',
+                            name: '计划累计完成',
+                            color: '#0100f8',
+                            data:per_play_con
+                            
+                        }]
+                    });	
+							
+					}
+					 
+				}
+			
+				borderloaded();
+           	loaded();		
+						
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+				
+		}
+		
+		function qushi_alert(){
+			//alert(qushi_alert1);
+			if(qushi_alert1==0 && qushi_alert3==0){
+				if(qushi_alert2==0 && qushi_alert4==0){
+					 $closeToast();
+						$toast('暂无数据',3000);
+				}
+			}
+				
+		}
+        var myScroll1;
+		 var myScroll2;
+        function loaded(){
+         
+                    myScroll1 = new IScroll('#wrapper1', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					 myScroll2 = new IScroll('#wrapper2', {
+                        scrollX: true,
+                        freeScroll: true
+                    });
+					 $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                bounceEasing: 'elastic',
+                bounceTime: 1200
+            });
+        }
+        
+        document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+        
+        
+     
+    </script>
+	 </body>
+</html>

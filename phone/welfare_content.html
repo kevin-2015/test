@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="menu_border0">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh zhy_in_m2">
+                        <div class=" uinn uc-t1">
+                            福利补贴
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div class="ub ub-ver   ">
+                        <div class=" uinn uc-t1">
+                            <!--块容器开始-->
+                            <div class="ub  uc-a1 ">
+                                <div class="ub-f1 uinn uc-l1">
+                                    <!--文本开始-->
+                                    <div class="c-wh uba uc-a1 b-gra  uinput uinn4">
+                                        <div onclick="createYearMonthPicker()" id="openday0" placeholder="请选择年月进行查询" type="text" class="" style=" padding:.4em; color:#cccccc;">请选择年月进行查询</div>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                                <div class=" uinn ">
+                                    <!--按钮开始-->
+                                    <div onclick="search()" ontouchstart="zy_touch('btn-act')" class="btn  uinn6 zhy_login_bg c-m1 uc-a t-wh">
+                                        搜索
+                                    </div>
+                                    <!--按钮结束-->
+                                </div>
+                            </div>
+                            <!--块容器结束-->
+                            <!--块容器开始-->
+                            <div class="ub ub-ver  t-wh ">
+                                <div class=" uinn uc-t1 ulev-1">
+                                    假如员工有住房公积金、养老保险、失业保险，
+                                    <br>
+                                    则显示信息如下：
+                                </div>
+                            </div>
+                            <!--块容器结束-->
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+					<div id="nocon"></div>
+                    <div id="wrapper0" class="uhide">
+                        <div id="scroller0" class="scroller" style="width:500px;">
+                           
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var PERNR= '00599999';
+		var ITCODE = 'MAWENBO';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+            if (!type) {
+				if(isAndroid){
+					$$('scroller0').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+				PERNR=getLocVal('login_pernr').split(';')[0];
+                var day = new Date();
+			var  year = day.getFullYear();
+			var month = parseInt(day.getMonth()+1) < 9 ? '0'+ parseInt(day.getMonth()+1)+'' : ''+ parseInt(day.getMonth()+1)+'';
+			var data = parseInt(day.getDate()) < 9 ? '0'+parseInt(day.getDate())+'' : ''+parseInt(day.getDate())+'';
+			$$('openday0').innerHTML= year+month;
+            }
+            search();
+        }
+        
+        var myScroll0;
+        function loaded(){
+			if(isAndroid){
+				
+			}else{
+				myScroll0 = new IScroll('#wrapper0', {
+                scrollX: true,
+                freeScroll: true
+            });
+			}
+            
+            var scroll0 = document.getElementsByName('scroll0');
+            var length0 = $$('scroller0').children.length;
+            for (var i = 0; i < scroll0.length; i++) {
+				if(isAndroid){
+					scroll0[i].style.width =  s.width.split('px')[0] / (scroll0.length / length0) + 'px';
+				}else{
+					scroll0[i].style.width = 500 / (scroll0.length / length0) + 'px';
+				}
+                
+            }
+			  $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                mouseWheel: true,
+                click: true
+            });
+            //bordermyScroll = new IScroll('#border_scroll', { bounceEasing: 'elastic', bounceTime: 1200 });
+        }
+        if(isAndroid){
+			
+		}else{
+			 document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+       
+        
+        /*************年-月 选择器*************/
+        function createYearMonthPicker(){
+            uexPicker.resultData = function(result){
+            
+                if (result != '(null)') {
+                    $$('openday0').innerHTML = result.split('-')[0]+result.split('-')[1];
+                }
+                else {
+                
+                }
+                
+            };
+            var W = window.screen.width;
+            var bodyObj = window.getComputedStyle(document.body, null);
+            var fz = int(bodyObj.fontSize);
+            var opid = 'as500';
+            var x = 0;
+            var width = W > 1000 ? int(bodyObj.width) * 2 : int(bodyObj.width);
+            var height = W > 1000 ? 16 * fz * 2 : 16 * fz;
+            var y = height;
+            var typeID = '4';
+            var selFontz = W > 1000 ? 3 * fz : 1.5 * fz;
+			var android = window.navigator.userAgent.indexOf('Android');
+			if (android >= 0) {
+        			selFontz = W > 1000 ? 1.5 * fz : 32;
+   				 }
+            var pickerJson = '{"pickerConfig":{"frameBgColor":"#ffffff","frameBroundColor":"#bdbdbd","frameBgImg":"res://frame_bg.png","fontSize":"' + selFontz + '","fontColor":"rgba(0,0,0,100)","selFontColor":"#023BA1","selbgColor":"#e3eaf4","selbgImg":"res://bar.png","btnNBgImg":"res://left.png","btnHLBgImg":"res://right.png","btnFontSize":"17","btnNFontColor":"#fff","btnHLFontColor":"#ffffff","btnSize":"60,34","btnTextLeft":"取消","btnTextRight":"确定"}}';
+            
+            uexPicker.open(opid, x, y, width, height, typeID, pickerJson);
+        }
+        
+        function search(){
+            var search_con = $$('openday0').innerHTML
+            if (search_con == '请选择年月进行查询') {
+                alert_login('请输入查找的年月范围',3000);
+            }
+            else {
+				$toast('努力加载中,请稍候....');
+                $$('wrapper0').className = 'wrapper';
+				var url_data = Interface+'PayrollRead?PERNR='+PERNR+'&ITCODE='+ITCODE+'&IT9070_VIEW=X&Z_PAPER_B='+search_con+'&Z_PAPER_E='+search_con;
+				$.getJSON(url_data,function(data){
+					if(data.status==0){
+						if (!isEmptyObject(data.resulte.Z_IT9070)) {
+							if (data.resulte.Z_IT9070.item.length != 0) {
+							
+								var template = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">' +
+								'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'<div class="list_padding">补贴类型</div>' +
+								' </div>' +
+								'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								' <div class="list_padding">生效时间</div>' +
+								' </div>' +
+								' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'  <div class="list_padding">补贴标准</div>' +
+								' </div>' +
+								' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel">' +
+								' <div class="list_padding">应发补贴总额（适用电脑补贴）</div>' +
+								'</div>' +
+								'<div name="scroll0" class=" b-wh uinn7 tx-c ">' +
+								' <div class="list_padding">备注</div>' +
+								'</div>' +
+								'</div>';
+								for (var i = 0; i < data.resulte.Z_IT9070.item.length; i++) {
+									if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0001') {
+										var ZZ_BTLX = '通讯补贴'
+									}
+									else 
+										if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0002') {
+											var ZZ_BTLX = '电脑补贴'
+										}
+										else 
+											if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0003') {
+												var ZZ_BTLX = '购车补贴'
+											}
+											else 
+												if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0004') {
+													var ZZ_BTLX = '交通补贴'
+												}
+												else 
+													if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0005') {
+														var ZZ_BTLX = '午餐补贴'
+													}
+													else 
+														if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0006') {
+															var ZZ_BTLX = '一次性免息贷款'
+														}
+														else 
+															if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0007') {
+																var ZZ_BTLX = '管理团队搬家补贴'
+															}
+															else 
+																if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0008') {
+																	var ZZ_BTLX = '一次性安家费'
+																}
+																else 
+																	if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0009') {
+																		var ZZ_BTLX = '探亲机票'
+																	}
+																	else 
+																		if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0010') {
+																			var ZZ_BTLX = '住房补贴'
+																		}
+																		else 
+																			if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0011') {
+																				var ZZ_BTLX = '购房补贴'
+																			}
+																			else 
+																				if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0012') {
+																					var ZZ_BTLX = '探亲补贴'
+																				}
+																				else 
+																					if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0013') {
+																						var ZZ_BTLX = '随居津贴'
+																					}
+																					else 
+																						if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0014') {
+																							var ZZ_BTLX = '子女教育'
+																						}
+																						else 
+																							if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0015') {
+																								var ZZ_BTLX = '外派津贴'
+																							}
+																							else 
+																								if (data.resulte.Z_IT9070.item[i].ZZ_BTLX == '0016') {
+																									var ZZ_BTLX = '保险报销标准'
+																								}
+									template += '<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">' +
+									'<div name="scroll0" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">' +
+									'' +
+									ZZ_BTLX +
+									'' +
+									' </div></div>' +
+									'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									data.resulte.Z_IT9070.item[i].PAPER +
+									'' +
+									'</div></div>' +
+									' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									data.resulte.Z_IT9070.item[i].ZZ_BTBZ +
+									'' +
+									'</div></div>' +
+									' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									data.resulte.Z_IT9070.item[i].ZZ_YFBTZE +
+									'' +
+									'  </div></div>' +
+									'  <div name="scroll0" class=" b-wh uinn7 tx-c "><div class="list_padding">' +
+									data.resulte.Z_IT9070.item[i].ZZ_BZ1 +
+									'' +
+									'  </div></div>' +
+									'  </div>'
+								}
+								$$('scroller0').innerHTML = template;
+								
+							}
+							else {
+								$$('wrapper0').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无搜索信息</div>';
+								
+							}
+						} else {
+								$$('wrapper0').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无搜索信息</div>';
+								
+							}
+						
+					}else{
+							$$('wrapper0').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无搜索信息</div>';
+							
+						}
+						if(isAndroid){
+							loaded();
+						}else{
+							borderloaded();
+						loaded();
+						}
+				},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+                
+            }
+           
+        }
+    </script>
+</html>

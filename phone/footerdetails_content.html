@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp zhy_footer_bg" ontouchstart>
+        <div class="uinn">
+            <div class="ub">
+                <div class="ub-f1 uinn1">
+                    <!--按钮开始-->
+                    <div onclick="windows_open(0)" ontouchstart="zy_touch('btn-act')" class="btn ub ub-ac ub-pc  uinn5 zhy_login_bg c-m1 uc-a t-wh">
+                        Accept job
+                    </div>
+                    <!--按钮结束-->
+                </div>
+                <div class="ub-f1 uinn1">
+                    <!--按钮开始-->
+                    <div onclick="windows_open(1)" ontouchstart="zy_touch('btn-act')" class="btn ub ub-ac ub-pc  uinn5 zhy_login_bg c-m1 uc-a t-wh">
+                        Reject job
+                    </div>
+                    <!--按钮结束-->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        zy_init();
+        window.uexOnload = function(type){
+            if (!type) {
+            
+            }
+        }
+        function windows_open(id){
+			setLocVal('job',id);
+            uescript('details', 'windows_opened()');
+        }
+    </script>
+</html>

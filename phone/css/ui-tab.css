@@ -1,0 +1,57 @@
+.tab
+{
+	height:3em;padding:0.2em 0.1em
+}
+
+input[type="radio"]:checked + div.tab-act
+{
+	color:#bd192f;
+}
+
+input[type="radio"] + div>div.tp-info{
+	background-image: url(../images/zhy_user2.png);
+}
+
+input[type="radio"]:checked + div>div.tp-info{
+	background-image: url(../images/zhy_user1.png);
+}
+
+input[type="radio"] + div>div.tp-menu{
+	background-image: url(res-apple/menu.png) ;
+}
+
+input[type="radio"]:checked + div>div.tp-menu{
+	background-image: url(res-apple/menu-act.png);
+}
+
+input[type="radio"] + div>div.tp-home{
+	background-image: url(../images/zhy_fu2.png);
+}
+
+input[type="radio"]:checked + div>div.tp-home{
+	background-image: url(../images/zhy_fu1.png);
+}
+
+input[type="radio"] + div>div.tp-set{
+	background-image: url(../images/zhy_yj2.png);
+}
+
+input[type="radio"]:checked + div>div.tp-set{
+	background-image: url(../images/zhy_yj1.png);
+}
+
+input[type="radio"] + div>div.tp-shop{
+	background-image: url(../images/zhy_baob2.png);
+}
+
+input[type="radio"]:checked + div>div.tp-shop{
+	background-image: url(../images/zhy_baob1.png);
+}
+
+input[type="radio"] + div>div.tp-talk{
+	background-image: url(../images/zhy_xc2.png);
+}
+
+input[type="radio"]:checked + div>div.tp-talk{
+	background-image: url(../images/zhy_xc1.png);
+}

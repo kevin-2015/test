@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp zhy_border" ontouchstart>
+        <!--块容器开始-->
+        <div class="ub ub-ver  uc-a1 t-wh  ">
+            <div class="uinn uc-t1  ">
+                <!--块容器开始-->
+                <div id="shape" class="ub  t-wh uc-a1 ">
+                    <div class=" uc-l1">
+                        <div id="shape_0" class="zhy_lbx ub ub-ver" name="middle">
+                            <div class="zhy_ov" name="zhy_ov">
+                                <div id="number" class="zhy_num2 ub ub-ac ub-pc">
+                                	
+                                </div>
+                            </div>
+							<div class="ub  ub-ver ub-pc ub-ac" name="zhy_ck">
+                            <div id="info0" onclick="information()" name="info" class="ub ub-pc ub-ac zhy_info">
+                            </div>
+                            <div onclick="information()" class="ub ub-pc ub-ac zhy_title zhy_box">
+                                员工资料
+                                <br>
+                                信息
+                            </div>
+							</div>
+                        </div>
+                        <div id="shape_1" class="zhy_lbx ub ub-ver" name="middle">
+                            <div class="zhy_ov" name="zhy_ov">
+                                <div class="zhy_num2 ub ub-ac ub-pc">
+                                </div>
+                            </div>
+							<div class="ub ub-ver ub-pc ub-ac" name="zhy_ck">
+                            <div id="info1" onclick="server()" name="info" class="ub ub-pc ub-ac zhy_sh">
+                            </div>
+                            <div onclick="server()" class="ub ub-pc ub-ac zhy_title zhy_box">
+                                售后服务
+                            </div>
+							</div>
+                        </div>
+                        <div id="shape_2" class="zhy_abg" name="middle">
+                        </div>
+                    </div>
+                    <div id="zhy_m" class=" ub-f1">
+                        <div id="shape_3" class="zhy_lbx ub ub-ver" name="middle">
+                            <div class="zhy_ov" name="zhy_ov">
+                                <div class="zhy_num2 ub ub-ac ub-pc">
+                                </div>
+                            </div>
+							<div class="ub ub-ver ub-pc ub-ac" name="zhy_ck">
+                            <div id="info2" onclick="daily()" name="info" class="ub ub-pc ub-ac zhy_bb">
+                            </div>
+                            <div onclick="daily()" class="ub ub-pc ub-ac zhy_title zhy_box">
+                                信息报表
+                            </div>
+							 </div>
+                        </div>
+                        <div id="shape_4" class="zhy_abg" name="middle">
+                            <div class="zhy_add" onclick="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--块容器结束-->
+    </body>
+    <script>
+        zy_init();
+        var s = window.getComputedStyle(document.body, null);
+        var shape_width = $$('shape').offsetWidth;
+        window.uexOnload = function(type){
+            if (!type) {
+            
+                shape();
+            }
+        }
+        function shape(){
+            var shape_con = document.getElementsByName('middle');
+            for (var i = 0; i < shape_con.length; i++) {
+                $$('shape_' + i).style.width = (shape_width + shape_width / 2 * 0.23) / 2 - ((shape_width + shape_width / 2 * 0.23) / 2 / 4) * 2 + 'px';
+                $$('shape_' + i).style.paddingLeft = (shape_width + shape_width / 2 * 0.23) / 2 / 4 + 'px';
+                $$('shape_' + i).style.paddingRight = (shape_width + shape_width / 2 * 0.23) / 2 / 4 + 'px';
+                $$('shape_' + i).style.height = (shape_width + shape_width / 2 * 0.23) / 2 * 0.8 + 'px';
+                //$$('shape_'+i).style.paddingTop=(shape_width+shape_width/2*0.23)/2*0.8/8+'px';	
+            
+            }
+            $$('zhy_m').style.marginTop = (shape_width + shape_width / 2 * 0.23) / 2 * 0.8 / 2 + 'px';
+            $$('zhy_m').style.marginLeft = '-' + shape_width / 2 * 0.26 + 'px';
+			var info_length= document.getElementsByName('info');
+
+			for(var i =0;i<info_length.length;i++){
+				info_length[i].style.height= $$('shape_0').offsetHeight/3+'px';
+			}
+			var zhy_ck = document.getElementsByName('zhy_ck');
+			var zhy_ov = document.getElementsByName('zhy_ov');
+			for(var i =0;i<zhy_ck.length;i++){
+				 for(var j =0;j<zhy_ov.length;j++){
+				 	zhy_ck[i].style.height= $$('shape_0').offsetHeight- zhy_ov[j].offsetHeight-40+'px';
+				 }
+			}
+        }
+        
+        function server(){
+            openNewWin('service', 'service.html', 0);
+        }
+        
+        function information(){
+            openNewWin('information', 'information.html', 0);
+        }
+        
+        function daily(){
+            openNewWin('daily', 'daily.html', 0);
+        }
+    </script>
+</html>

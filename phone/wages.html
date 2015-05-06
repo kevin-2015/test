@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="menu_border0">
+                    <!--块容器开始-->
+                    <div class="ub   zhy_server_bg  t-wh ">
+                    	<div onclick="go_page()" class="uinn uc-t1">
+                    		《
+                    	</div>
+                        <div class=" ub uinn uc-t1 ub-f1">
+                            工资标准详细
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+					<div id="nocon"></div>
+                    <div id="wrapper0" class="wrapper">
+                        <div id="scroller0" class="scroller" style="width:500px;">
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var PERNR= '00599999';
+		var ITCODE = 'MAWENBO';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+			$toast('努力加载中,请稍候....');
+            if (!type) {
+				if(isAndroid){
+					$$('scroller0').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+            PERNR=getLocVal('login_pernr').split(';')[0];
+            }
+			list_con();
+            
+        }
+        function list_con(){
+			var url_data = Interface+'PayrollRead?PERNR='+PERNR+'&ITCODE='+ITCODE+'&IT0008_VIEW=X';
+			$.getJSON(url_data,function(data){
+				if(data.status == 0){
+					if (!isEmptyObject(data.resulte.Z_IT0008)) {
+						if (data.resulte.Z_IT0008.item.length != 0) {
+							var con='';
+							var jiben = 0;
+							var jiaotong =0;
+							var jixiao = 0;
+							var canbu = 0;
+							var jishu = 0;
+							var template = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh  zhy_in_m2">' +
+							'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+							'<div class="list_padding">开始时间' +
+							' </div></div>' +
+							'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+							'   <div class="list_padding"> 结束时间' +
+							' </div></div>' +
+							' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+							'    <div class="list_padding">工资类型描述' +
+							' </div></div>' +
+							' <div name="scroll0" class=" b-wh uinn7 tx-c zhy_width_wel">' +
+							'  <div class="list_padding"> 金额' +
+							' </div></div>' +
+							'   </div>'
+							for(var i =0;i<data.resulte.Z_IT0008.item.length;i++){
+							  template+= '<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">' +
+								'<div name="scroll0" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">' +
+								' ' +
+								data.resulte.Z_IT0008.item[i].BEGDA +
+								'' +
+								'</div></div>' +
+								'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+								data.resulte.Z_IT0008.item[i].ENDDA +
+								'' +
+								' </div></div>' +
+								'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+								data.resulte.Z_IT0008.item[i].LGTXT +
+								'' +
+								'</div></div>' +
+								'<div name="scroll0" class=" b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+								data.resulte.Z_IT0008.item[i].BETRG +
+								'' +
+								'</div></div>' +
+								'</div>'
+							}
+							$$('scroller0').innerHTML = template
+						}
+						else {
+							$$('wrapper0').className = 'uhide';
+							$$('nocon').innerHTML = '<div  class="ub zhy_in_m2 ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							
+						}
+					}else {
+							$$('wrapper0').className = 'uhide';
+							$$('nocon').innerHTML = '<div class="ub zhy_in_m2 ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							
+						}
+				}else{
+						$$('wrapper0').className = 'uhide';
+							$$('nocon').innerHTML='<div class="ub zhy_in_m2 ubl ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+						
+					}
+					if(isAndroid){
+						 loaded();
+					}else{
+						borderloaded();
+           			 loaded();
+					}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+        var myScroll0;
+        function loaded(){
+			if(isAndroid){
+				
+			}else{
+				 myScroll0 = new IScroll('#wrapper0', {
+                scrollX: true,
+                freeScroll: true
+            });
+			}
+           
+            var scroll0 = document.getElementsByName('scroll0');
+            var length0 = $$('scroller0').children.length;
+            for (var i = 0; i < scroll0.length; i++) {
+				if(isAndroid){
+					scroll0[i].style.width =  s.width.split('px')[0]/ (scroll0.length / length0) + 'px';
+				}else{
+					scroll0[i].style.width = 500/ (scroll0.length / length0) + 'px';
+				}
+                
+            }
+			$closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                bounceEasing: 'elastic',
+                bounceTime: 1200
+            });
+        }
+        if(isAndroid){
+			
+		}else{
+			 document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+       
+		
+		function chekan(){
+			openNewWin();
+			
+		}
+		function go_page(){
+			uescript('information','compensation_menu(0)');
+		}
+    </script>
+</html>

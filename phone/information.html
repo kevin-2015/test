@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-tab.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp zhy_border" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--header开始-->
+            <div id="header" class="uh header c-m1 t-wh ub">
+                <div class="umw4 ub ub-pc ub-ac" onclick="winClose()" ontouchstart="zy_touch()">
+                    <!--按钮开始-->
+                    <div class="btn  uinn5 zhy_back  uc-a t-wh">
+                    </div>
+                    <!--按钮结束-->
+                </div>
+                <h1 class="ut ub-f1 ulev0 tx-c zhy_box" id="title">我的信息</h1>
+                <div class="umw4">
+                </div>
+            </div>
+            <div id="header_menu" class="uhide">
+                <!--块容器开始-->
+                <div class="ub  c-wh  t-bla  ubb2  zhy_menu_bb">
+                    <div id="control_menu0" onclick="control_menu(0)" class="ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1">
+                        <div class="">
+                            福利补贴
+                        </div>
+                    </div>
+                    <div id="control_menu1" onclick="control_menu(1)" class="ubr b-gra ub-f1 uinn5 tx-c ulev-1">
+                        <div class="">
+                            福利帐号
+                        </div>
+                    </div>
+                    <div id="control_menu2" onclick="control_menu(2)" class="ubr b-gra ub-f1 uinn5 tx-c ulev-1">
+                        <div class="">
+                            五险一金
+                        </div>
+                    </div>
+                    <div id="control_menu3" onclick="control_menu(3)" class="ubr b-gra ub-f1 uinn5  tx-c ulev-2">
+                        <div class="">
+                            集团补充
+                            <br>
+                            养老保险
+                        </div>
+                    </div>
+                    <div id="control_menu4" onclick="control_menu(4)" class="ub-f1 uinn5   tx-c ulev-2">
+                        <div class="">
+                            商业保险
+                            <br>
+                            (销司适用)
+                        </div>
+                    </div>
+                </div>
+                <!--块容器结束-->
+            </div>
+            <div id="attendance_header" class="uhide">
+                <!--块容器开始-->
+                <div class="ub  c-wh  t-bla  ubb2  zhy_menu_bb">
+                    <div id="attendance_menu0" onclick="attendance_menu(0)" class="ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1">
+                        <div class="">
+                            年假查询
+                        </div>
+                    </div>
+                    <div id="attendance_menu1" onclick="attendance_menu(1)" class="ubr b-gra ub-f1 uinn5 tx-c ulev-1">
+                        <div class="">
+                            打卡记录
+                        </div>
+                    </div>
+                    <div id="attendance_menu2" onclick="attendance_menu(2)" class="ubr b-gra ub-f1 uinn5 tx-c ulev-1">
+                        <div class="">
+                            加班信息
+                        </div>
+                    </div>
+                    <div id="attendance_menu3" onclick="attendance_menu(3)" class="ubr b-gra ub-f1 uinn5  tx-c ulev-2">
+                        <div class="">
+                            月度加班
+                            <br>
+                            发放
+                        </div>
+                    </div>
+                    <div id="attendance_menu4" onclick="attendance_menu(4)" class="ub-f1 uinn5   tx-c ulev-1">
+                        <div class="">
+                            月度考勤
+                        </div>
+                    </div>
+                </div>
+                <!--块容器结束-->
+            </div>
+            <div id="compensation_header" class="uhide">
+                <!--块容器开始-->
+                <div class="ub  c-wh  t-bla  ubb2  zhy_menu_bb">
+                    <div id="compensation_menu0" onclick="compensation_menu(0)" class="ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1">
+                        <div class="">
+                            工资标准
+                        </div>
+                    </div>
+                    <div id="compensation_menu1" onclick="compensation_menu(1)" class="ubr b-gra ub-f1 uinn5 tx-c ulev-1">
+                        <div class="">
+                            月度工资
+                        </div>
+                    </div>
+                </div>
+                <!--块容器结束-->
+            </div>
+            <!--header结束-->
+            <!--content开始-->
+            <div id="content" class="ub-f1 tx-l t-bla ub-img6 ">
+            </div>
+            <!--content结束-->
+            <!--footer开始-->
+            <div id="footer" class="uf c-m2 c-bla t-wh">
+                <!--iPhone导航条开始-->
+                <div class="ub zhy_footer c-m12 tab zhy_menu">
+                    <input id="manu0" class="uhide" type="radio" name="tabSwitch" checked="true">
+                    <div onclick="menu_gos(0)" ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act">
+                        <div class="ub-f1 ub-img5 tp-info">
+                        </div>
+                        <div class="uinn ulev-2 tx-c">
+                            我的信息
+                        </div>
+                    </div>
+                    <input id="manu1" class="uhide" type="radio" name="tabSwitch">
+                    <div onclick="menu_gos(1)" ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act">
+                        <div class="ub-f1 ub-img5 tp-home">
+                        </div>
+                        <div class="uinn ulev-2 tx-c">
+                            我的福利
+                        </div>
+                    </div>
+                    <!--input id="manu2" class="uhide" type="radio" name="tabSwitch">
+                    <div onclick="menu_go(2)" ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act">
+                        <div class="ub-f1 ub-img5 tp-set">
+                        </div>
+                        <div class="uinn ulev-2 tx-c">
+                            我的绩效
+                        </div>
+                    </div-->
+                    <input id="manu3" class="uhide" type="radio" name="tabSwitch">
+                    <div onclick="menu_gos(3)" ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act">
+                        <div class="ub-f1 ub-img5 tp-shop">
+                        </div>
+                        <div class="uinn ulev-2 tx-c">
+                            我的考勤
+                        </div>
+                    </div>
+                    <input id="manu4" class="uhide" type="radio" name="tabSwitch">
+                    <div onclick="menu_gos(4)" ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act">
+                        <div class="ub-f1 ub-img5 tp-talk">
+                        </div>
+                        <div class="uinn ulev-2 tx-c">
+                            我的薪资
+                        </div>
+                    </div>
+                </div>
+                <!--iPhone导航条结束-->
+            </div>
+            <!--footer结束-->
+        </div>
+    </body>
+    <script>
+        zy_init();
+        var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+            add20ToHeader(zhycheck);
+            if (!type) {
+                zy_con("content", "information_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+            }
+            /*
+             window.onorientationchange=window.onresize=function(){
+             zy_resize("content",0,$$("header").offsetHeight);
+             }
+             */
+        }
+        function zhycheck(){
+        
+        }
+        
+        function menus(){
+            uexWindow.openPopover('menu', "0", 'menu_content.html', "", 0, $$("header").offsetHeight, int(s.width), int(s.height) - $$("footer").offsetHeight - $$("header").offsetHeight, int(s.fontSize), "0");
+            //uexWindow.openPopover("menu",0,"menu_content.html","",400,0,'','','',0,100);
+        }
+        
+        var now_menu = 0;
+        function menu_gos(id){
+            if (now_menu == id) {
+                $$('manu' + id).checked = true;
+            }
+            else {
+                $$('manu' + id).checked = true;
+                $$('manu' + now_menu).checked = false;
+            }
+            now_menu = id;
+			hidden_left();
+			 uexWindow.closePopover('menu');
+            if (id == 0) {
+                $$('title').innerHTML = '我的信息';
+                $$('header_menu').className = 'uhide';
+                $$('attendance_header').className = 'uhide';
+                $$('compensation_header').className = 'uhide';
+                zy_con("content", "information_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+            }
+            else 
+                if (id == 1) {
+                    $$('title').innerHTML = '我的福利';
+                    $$('header_menu').className = '';
+                    $$('attendance_header').className = 'uhide';
+                    $$('compensation_header').className = 'uhide';
+                    zy_con("content", "welfare_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                }
+                else 
+                    if (id == 2) {
+                        $$('title').innerHTML = '我的绩效';
+                        $$('header_menu').className = 'uhide';
+                        $$('attendance_header').className = 'uhide';
+                        $$('compensation_header').className = 'uhide';
+                        zy_con("content", "performance_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                    }
+                    else 
+                        if (id == 3) {
+                            $$('title').innerHTML = '我的考勤';
+                            $$('header_menu').className = 'uhide';
+                            $$('attendance_header').className = '';
+                            $$('compensation_header').className = 'uhide';
+                            zy_con("content", "attendance_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                        }
+                        else 
+                            if (id == 4) {
+                                $$('title').innerHTML = '我的薪资';
+                                $$('header_menu').className = 'uhide';
+                                $$('attendance_header').className = 'uhide';
+                                $$('compensation_header').className = '';
+                                zy_con("content", "compensation_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                            }
+            control_menu(0, 1);
+            attendance_menu(0, 1);
+            compensation_menu(0, 1);
+        }
+        
+        var control_menu_now = 0
+        function control_menu(id, num){
+            if (control_menu_now == id) {
+                if (id == 3) {
+                    $$('control_menu' + id).className = 'ubr b-gra ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                }
+                else 
+                    if (id == 4) {
+                        $$('control_menu' + id).className = 'ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                    }
+                    else {
+                        $$('control_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                    }
+                
+            }
+            else {
+                if (id == 3) {
+                    $$('control_menu' + id).className = 'ubr b-gra ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                    if (control_menu_now == 4) {
+                        $$('control_menu' + control_menu_now).className = 'ub-f1 uinn5  tx-c ulev-2';
+                    }
+                    else {
+                        $$('control_menu' + control_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                    }
+                }
+                else 
+                    if (id == 4) {
+                        $$('control_menu' + id).className = 'ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                        if (control_menu_now == 3) {
+                            $$('control_menu' + control_menu_now).className = 'ubr b-gra ub-f1 uinn5  tx-c ulev-2';
+                        }
+                        else {
+                            $$('control_menu' + control_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                        }
+                    }
+                    else {
+                        $$('control_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                        if (control_menu_now == 3) {
+                            $$('control_menu' + control_menu_now).className = 'ubr b-gra ub-f1 uinn5  tx-c ulev-2';
+                        }
+                        else 
+                            if (control_menu_now == 4) {
+                                $$('control_menu' + control_menu_now).className = 'ub-f1 uinn5  tx-c ulev-2';
+                            }
+                            else {
+                                $$('control_menu' + control_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                            }
+                    }
+            }
+            control_menu_now = id;
+            if (num == 1) {
+            
+            }
+            else {
+                if (id == 0) {
+                    zy_con("content", "welfare_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                }
+                else 
+                    if (id == 1) {
+                        zy_con("content", "account_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                    }
+                    else 
+                        if (id == 2) {
+                            zy_con("content", "gold_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                        }
+                        else 
+                            if (id == 3) {
+                                zy_con("content", "aged_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                            }
+                            else 
+                                if (id == 4) {
+                                    zy_con("content", "insurance_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                                }
+            }
+            
+            //ueppscript('information','content','menus_switch('+id+')');
+        }
+        
+        var attendance_menu_now = 0;
+        function attendance_menu(id, num){
+            if (attendance_menu_now == id) {
+                if (id == 3) {
+                    $$('attendance_menu' + id).className = 'ubr b-gra ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                }
+                else 
+                    if (id == 4) {
+                        $$('attendance_menu' + id).className = 'ub-f1 uinn5 zhy_bb_h tx-c ulev-1';
+                    }
+                    else {
+                        $$('attendance_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                    }
+                
+            }
+            else {
+                if (id == 3) {
+                    $$('attendance_menu' + id).className = 'ubr b-gra ub-f1 uinn5 zhy_bb_h tx-c ulev-2';
+                    if (attendance_menu_now == 4) {
+                        $$('attendance_menu' + attendance_menu_now).className = 'ub-f1 uinn5  tx-c ulev-1';
+                    }
+                    else {
+                        $$('attendance_menu' + attendance_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                    }
+                }
+                else 
+                    if (id == 4) {
+                        $$('attendance_menu' + id).className = 'ub-f1 uinn5 zhy_bb_h tx-c ulev-1';
+                        if (attendance_menu_now == 3) {
+                            $$('attendance_menu' + attendance_menu_now).className = 'ubr b-gra ub-f1 uinn5  tx-c ulev-2';
+                        }
+                        else {
+                            $$('attendance_menu' + attendance_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                        }
+                    }
+                    else {
+                        $$('attendance_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                        if (attendance_menu_now == 3) {
+                            $$('attendance_menu' + attendance_menu_now).className = 'ubr b-gra ub-f1 uinn5  tx-c ulev-2';
+                        }
+                        else 
+                            if (attendance_menu_now == 4) {
+                                $$('attendance_menu' + attendance_menu_now).className = 'ub-f1 uinn5  tx-c ulev-1';
+                            }
+                            else {
+                                $$('attendance_menu' + attendance_menu_now).className = 'ubr b-gra ub-f1 uinn5 tx-c ulev-1';
+                            }
+                    }
+            }
+            attendance_menu_now = id;
+            if (num == 1) {
+            
+            }
+            else {
+                if (id == 0) {
+                    zy_con("content", "attendance_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                }
+                else 
+                    if (id == 1) {
+                        zy_con("content", "clockin_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                    }
+                    else 
+                        if (id == 2) {
+                            zy_con("content", "work_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                        }
+                        else 
+                            if (id == 3) {
+                                zy_con("content", "monthly_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                            }
+                            else 
+                                if (id == 4) {
+                                    zy_con("content", "checking_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                                }
+            }
+            
+            //ueppscript('information','content','menus_switch('+id+')');
+        }
+        
+        var compensation_menu_now = 0;
+        function compensation_menu(id, num){
+            if (compensation_menu_now == id) {
+            
+                if (id == 1) {
+                    $$('compensation_menu' + id).className = 'ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                }
+                else {
+                    $$('compensation_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                }
+            }
+            else {
+                if (id == 1) {
+                    $$('compensation_menu' + id).className = 'ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                    $$('compensation_menu' + compensation_menu_now).className = 'ubr b-gra ub-f1  uinn5  tx-c  ulev-1';
+                }
+                else {
+                    $$('compensation_menu' + id).className = 'ubr b-gra ub-f1 zhy_bb_h  uinn5  tx-c  ulev-1';
+                    $$('compensation_menu' + compensation_menu_now).className = 'ubr b-gra ub-f1  uinn5  tx-c  ulev-1';
+                }
+                
+            }
+            compensation_menu_now = id;
+            if (num == 1) {
+            
+            }
+            else {
+                if (id == 0) {
+                    zy_con("content", "compensation_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                }
+                else 
+                    if (id == 1) {
+                        zy_con("content", "wage_content.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+                    }
+            }
+            
+            //ueppscript('information','content','menus_switch('+id+')');
+        }
+        
+        function hidden_left(){
+            ueppscript('information', 'content', 'hidden_close()');
+        }
+        
+        function scroll_border(){
+            //alert('000');
+            ueppscript('information', 'content', 'scroll_con()');
+        }
+		function wages_go(){
+			//alert('0000')
+			zy_con("content", "wages.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+		}
+		function details_wage(){
+			zy_con("content", "wage_details.html", 0, $$("header").offsetHeight + $$('header_menu').offsetHeight + $$('attendance_header').offsetHeight + $$('compensation_header').offsetHeight);
+		}
+    </script>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-img.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-list.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+		<script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body  id="body" class="um-vp zhy_border" ontouchstart>
+    	<div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+        <div id="dibu" style=" padding-bottom:60px;">
+            <div class="uc-a   ">
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Job No.
+                    </li>
+                    <li class="tx-r  english ub-f1" id="jobid" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        RMA No.
+                    </li>
+                    <li class="tx-r english ub-f1" id="rmano" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Case Type
+                    </li>
+                    <li class="tx-r english ub-f1" id="casetype" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Case Status
+                    </li>
+                    <li class="tx-r english ub-f1" id="casestatus" style="width:50%">
+                        
+                    </li>
+                </ul>
+				<ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%" >
+                        Job Status
+                    </li>
+                    <li class="tx-r english ub-f1" id="jobstatus" style="width:50%">
+                       
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Job Created Time
+                    </li>
+                    <li class="tx-r english ub-f1" id="JobCreatedDate" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Job Aging Time
+                    </li>
+                    <li class="tx-r english ub-f1" id="jobAgingTime" style="width:50%">
+                        
+                    </li>
+                </ul>
+                
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Product Info
+                    </li>
+                    <li class="tx-r english ub-f1" id="prodinfo" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Custormer Name
+                    </li>
+                    <li class="tx-r english ub-f1" id="customername" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Custormer Phone
+                    </li>
+                    <li class="tx-r english ub-f1" id="customermobile" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Call Concern
+                    </li>
+                    <li class="tx-r english ub-f1" id="callconcern" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Custormer Problem Remarks
+                    </li>
+                    <li class="tx-r english ub-f1" id="problem" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        ASP Assigned
+                    </li>
+                    <li class="tx-r english ub-f1" id="aspname" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        ASP NO
+                    </li>
+                    <li class="tx-r english ub-f1" id="aspno" style="width:50%">
+                        
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Note Reason
+                    </li>
+                    <li class="tx-r english ub-f1" id="notereason" style="width:50%">
+                       
+                    </li>
+                </ul>
+                <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                    <li class="ub-f1 english" style="width:50%">
+                        Job Notes
+                    </li>
+                    <li class="tx-r english ub-f1" id="note" style="width:50%">
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="mengban" class="uhide" onclick="windows_c()">
+        </div>
+        <div id="zhy_window" class="uhide">
+            <div class="ub ub-ver uinn">
+                <div class="uinn uc-t1">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver uba2 zhy_menu_bb uc-a1  ">
+                        <div class="c-wh c-m1 uinn uc-a1">
+                            <!--块容器开始-->
+                            <div class="ub ub-ver">
+                                <div class="uinn uc-t1" id="job_title">
+                                    Are you sure to reject the JOB?
+                                </div>
+                            </div>
+                            <!--块容器开始-->
+                            <div class="ub ub-ver ">
+                                <div class="uinn uc-t1">
+                                    <!--文本开始-->
+                                    <div class="uba zhy_textarea uc-a1 b-gra uinput uinn4">
+                                        <textarea id="Note" placeholder="Note" name="textarea-0" class="uc-a1"></textarea>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                            </div>
+                            <!--块容器开始-->
+                            <div class="ub ">
+                                <div class="ub-f1 uinn uc-l1">
+                                    <!--按钮开始-->
+                                    <div onclick="windows_c()" ontouchstart="zy_touch('btn-act')" class="btn ub ub-ac ub-pc  uinn5 zhy_login_bg c-m1 uc-a t-wh">
+                                        NO
+                                    </div>
+                                    <!--按钮结束-->
+                                </div>
+                                <div class="ub-f1 uinn ">
+                                    <!--按钮开始-->
+                                    <div onclick="yeas_go()" ontouchstart="zy_touch('btn-act')" class="btn ub ub-ac ub-pc  uinn5 zhy_login_bg c-m1 uc-a t-wh">
+                                        Yes
+                                    </div>
+                                    <!--按钮结束-->
+                                </div>
+                            </div>
+                            <!--块容器结束-->
+                            <!--块容器结束-->
+                            <!--块容器结束-->
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+        </div>
+        <!--块容器开始-->
+        <!--块容器结束-->
+		</div>
+        </div>
+		<div id="che_ti">
+			
+		</div>
+    </body>
+    <script>
+        zy_init();
+		var jobid='';
+		var username='admin';
+		var approve='';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+			$toast('loading....');
+            if (!type) {
+				if(isAndroid){
+					$$('dibu').style.paddingBottom= '180px';
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+				username=getLocVal('login_pernr').split(';')[1];
+            jobid= getLocVal('details');
+			details();
+            }
+        }
+		
+		function details(){
+			var url_data= Interface+'getjoblist?jobid='+jobid;
+			$.getJSON(url_data,function(data){
+				if (data.status == 0) {
+					if (data.resulte.joblist != 0) {
+						$$('jobid').innerHTML = data.resulte.joblist.job.jobid;
+						if (!isEmptyObject(data.resulte.joblist.job.rmano)) {
+							$$('rmano').innerHTML = data.resulte.joblist.job.rmano;
+						}
+						else {
+							$$('rmano').innerHTML = '';//data.joblist.job.rmano;
+						}
+						$$('casetype').innerHTML = data.resulte.joblist.job.casetype;
+						$$('casestatus').innerHTML = data.resulte.joblist.job.casestatus;
+						$$('JobCreatedDate').innerHTML = data.resulte.joblist.job.JobCreatedDate;
+						$$('jobstatus').innerHTML = data.resulte.joblist.job.jobstatus;
+						$$('jobAgingTime').innerHTML = data.resulte.joblist.job.jobAgingTime;
+						$$('prodinfo').innerHTML = data.resulte.joblist.job.prodinfo;
+						$$('customername').innerHTML = data.resulte.joblist.job.customername;
+						
+						if (!isEmptyObject(data.resulte.joblist.job.customermobile)) {
+							$$('customermobile').innerHTML = data.resulte.joblist.job.customermobile;
+						}
+						else {
+							$$('customermobile').innerHTML = '';//data.joblist.job.customermobile;
+						}
+						$$('callconcern').innerHTML = data.resulte.joblist.job.callconcern;
+						$$('aspno').innerHTML = data.resulte.joblist.job.aspno;
+						if (!isEmptyObject(data.resulte.joblist.job.notereason)) {
+							$$('notereason').innerHTML = data.resulte.joblist.job.notereason;
+						}
+						else {
+							$$('notereason').innerHTML = '';//data.joblist.job.notereason;
+						}
+						
+						
+						if (!isEmptyObject(data.resulte.joblist.job.note)) {
+							$$('note').innerHTML = '';//data.joblist.job.note;
+						}
+						else {
+							$$('note').innerHTML = '';//data.joblist.job.note;
+						}
+						$$('aspname').innerHTML = data.resulte.joblist.job.aspname;
+						$$('problem').innerHTML = data.resulte.joblist.job.problem;
+					
+					}else {
+					$toast('No information', 3000);
+					
+				}
+				}
+				else {
+					$toast('No information', 3000);
+					
+				}
+				if(isAndroid){
+					 $closeToast();
+				}else{
+					 $closeToast();
+					borderloaded();
+				}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+				
+		}
+        function windows_o(){
+			approve =getLocVal('job');
+			if(approve==0){
+				$$('job_title').innerHTML='Are you sure to accept the JOB?'
+			}else if(approve==1){
+				$$('job_title').innerHTML='Are you sure to reject the JOB?'
+			}
+            $$('mengban').className = 'mengban';
+            $$('zhy_window').className = 'zhy_window';
+        }
+        
+        function windows_c(){
+            $$('mengban').className = 'uhide';
+            $$('zhy_window').className = 'uhide';
+        }
+        
+        function yeas_go(){
+            var Note = $$('Note').value;
+			if (approve == 1) {
+				if (Note == '') {
+					$toast('Note information can not be empty', 3000);
+				}
+			}
+			else {
+				if (approve == 0) {
+					var approve_yn = 'yes';
+				}
+				else 
+					if (approve == 1) {
+						var approve_yn = 'no';
+					}
+				var url_data = Interface + 'jobapprove?jobid=' + jobid + '&approve=' + approve_yn + '&username=' + username + '&note=' + Note;
+				$.getJSON(url_data, function(data){
+					if (data.status == 0) {
+						if (!data.resulte.job.error) {
+							windows_c();
+							$$('Note').value = '';
+							details();
+							uescript('details', 'job_footer()');
+							uescript('query', 'list_check()');
+							if (approve == 0) {
+								successful('prompt', 'accept job successfully');
+								
+							}
+							else 
+								if (approve == 1) {
+									successful('prompt', 'reject job successfully');
+									
+								}
+							uexWindow.closePopover('footerdetails');
+						}
+						else {
+							windows_c();
+							$$('Note').value = '';
+							successful('prompt', data.resulte.job.error);
+						}
+					}
+					else {
+						windows_c();
+						$$('Note').value = '';
+						successful('prompt', data.resulte.job.error);
+					}
+				}, "json", function(e){
+					getJSONError(e)
+				}, "GET", "", false);
+				
+			}
+        }
+		 var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                mouseWheel: true,
+                click: true
+            });
+			
+            //	bordermyScroll = new IScroll('#border_scroll', { bounceEasing: 'elastic', bounceTime: 1200 });
+        }
+        if(isAndroid){
+			
+		}else{
+			 document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+       
+    </script>
+</html>

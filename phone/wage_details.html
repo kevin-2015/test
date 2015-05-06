@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="menu_border1" class="">
+                    <!--块容器开始-->
+                    <div class="ub  zhy_server_bg  t-wh ">
+                    	<div onclick="go_page()" class="uinn uc-t1">
+                    		《
+                    	</div>
+                        <div class="ub uinn uc-t1 ub-f1">
+                            月度工资详情
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+					
+                    <!--块容器开始-->
+					<div id="nocon"></div>
+                    <div id="wrapper1" class="uhide">
+                        <div id="scroller1" class="scroller" style="width:350px;">
+                            
+                           
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var PERNR= '00599999';
+		var ITCODE = 'MAWENBO';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+		
+            if (!type) {
+				if(isAndroid){
+					$$('scroller1').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+				PERNR=getLocVal('login_pernr').split(';')[0];
+            }
+           search();
+        }
+       
+        function search(){
+			 
+				$toast('努力加载中,请稍候....');
+				$$('wrapper1').className = 'wrapper';
+				var url_data = Interface + 'PayrollRead?PERNR=' + PERNR + '&ITCODE=' + ITCODE + '&SALARY_VIEW=X&Z_PAPER_B='+getLocVal('PayrollRead').split(';')[0]+'&Z_PAPER_E='+getLocVal('PayrollRead').split(';')[1];
+				$.getJSON(url_data, function(data){
+					if (data.status == 0) {
+						if (!isEmptyObject(data.resulte.Z_SALARY)) {
+							if (data.resulte.Z_SALARY.item.length != 0) {
+								var template = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh  zhy_in_m2">' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c  zhy_width_wel">' +
+								'<div class="list_padding">月份</div>' +
+								'</div>' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding"> 工资类型描述</div>' +
+								'</div>' +
+								' <div name="scroll1" class=" b-wh  uinn7 tx-c zhy_width_wel">' +
+								'    <div class="list_padding">金额</div> ' +
+								'</div>' +
+								'</div>'
+								var arr = data.resulte.Z_SALARY.item;
+								var newList = {};
+								var tmp_key = "";
+								for (var i = 0; i < arr.length; i++) {
+									var key = arr[i].PAPER
+									if (key != tmp_key) {
+										newList[key] = [];
+										tmp_key = key;
+									}
+									newList[key].push(arr[i]);
+								}
+								for (var key in newList) {
+										for (var i in newList[key]) {
+											if (getLocVal('details_time') == newList[key][i].PAPER) {
+											template += '<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">' +
+											'<div name="scroll1" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">' +
+											' ' +
+											newList[key][i].PAPER +
+											'' +
+											' </div></div>' +
+											'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+											newList[key][i].ZZ_HBGZXCWB +
+											'' +
+											'</div></div>' +
+											'<div name="scroll1" class=" b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+											newList[key][i].BETRG +
+											'' +
+											'</div></div>' +
+											'   </div>'
+										}
+										
+									}
+									
+								}
+								$$('scroller1').innerHTML = template;
+							}
+							else {
+								$$('wrapper1').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl ubr uinn ubb zhy_in_m2 ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							}
+						}else {
+								$$('wrapper1').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl ubr uinn zhy_in_m2 ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							}
+						
+					}
+					else {
+						$$('wrapper1').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr uinn zhy_in_m2 ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+						
+					}
+					if(isAndroid){
+						loaded();
+					}else{
+						borderloaded();
+						loaded();
+					}
+				}, "json", function(e){
+					getJSONError(e)
+				}, "GET", "", false);
+		
+		}
+        var myScroll1;
+        function loaded(){
+			if(isAndroid){
+				
+			}else{
+				myScroll1 = new IScroll('#wrapper1', {
+                scrollX: true,
+                freeScroll: true
+            });
+			}
+            
+            var scroll1 = document.getElementsByName('scroll1');
+            var length1 = $$('scroller1').children.length;
+            for (var i = 0; i < scroll1.length; i++) {
+				if(isAndroid){
+					  scroll1[i].style.width =  s.width.split('px')[0] / (scroll1.length / length1) + 'px';
+				}else{
+					  scroll1[i].style.width = 350 / (scroll1.length / length1) + 'px';
+				}
+              
+            }
+            $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                bounceEasing: 'elastic',
+                bounceTime: 1200
+            });
+        }
+        if(isAndroid){
+			
+		}else{
+			document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+        function go_page(){
+			uescript('information','compensation_menu(1)');
+		}
+    </script>
+</html>

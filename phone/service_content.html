@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+		<script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border" ontouchstart>
+    	<div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+        <div id="dibu" style=" padding-bottom:60px;">
+            <!--块容器开始-->
+            <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                <div class=" uinn uc-t1">
+                    Job monitoring platform
+                </div>
+            </div>
+            <!--块容器结束--><!--块容器开始-->
+            <div class="ub ub-ver   t-wh">
+                <div class=" uinn uc-t1">
+                    <!--块容器开始-->
+                    <div class="ub   uc-a1 ">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Job Created Date
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1 ut-s  ulev-1 tx-l">
+                                    <!--文本开始-->
+                                    <div class=" t-wh   uinput uinn4">
+                                        <div onClick="createYearMonthPicker('JobDate')" id="JobDate" placeholder="" value="1" type="text" class="uc-a1 t-wh  " style=" padding:.4em;color:#fff;">&nbsp;</div>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 ">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                to
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1  ut-s  ulev-1 tx-l">
+                                    <!--文本开始-->
+                                    <div class=" t-wh   uinput uinn4">
+                                        <div onClick="createYearMonthPicker('Jobto')" id="Jobto" placeholder="" value="1" type="text" class="uc-a1 t-wh  " style=" padding:.4em;">&nbsp;</div>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 ">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                country
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1 ut-s uinn ulev-1 tx-l" id="conyname">
+                                    plaese select
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 res3">
+                                    </div>
+                                </div>
+                                <select  selectedindex="0"  id="Region" onChange="zy_selectmenu(this.id);getcity(this.id)">
+                                   
+                                </select>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                state
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn " >
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel" >
+                                <div class="ub-f1 ut-s uinn ulev-1 tx-l">
+                                    plaese select
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 res3">
+                                    </div>
+                                </div>
+                                <select name="sel0" selectedindex="0"  id="Regionzero" onChange="zy_selectmenu(this.id);" >
+                                    
+                                </select>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh ">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Case Type
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1 ut-s uinn ulev-1 tx-l">
+                                    plaese select
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 res3">
+                                    </div>
+                                </div>
+                                <select name="sel0" selectedindex="0" id="CaseType" onChange="zy_selectmenu(this.id);">
+                                   
+                                </select>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Case Status
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1 ut-s uinn ulev-1 tx-l">
+                                    plaese select
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 res3">
+                                    </div>
+                                </div>
+                                <select name="sel0" selectedindex="0"  id="CaseStatus" onChange="zy_selectmenu(this.id)">
+                                   
+                                </select>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Job No.
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--文本开始-->
+                            <div class="zhy_s_in  us-i uinput uinn4">
+                                <input id="JobNo" placeholder="" value="" type="text" class="uc-a1 t-wh">
+                            </div><!--文本结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                RMA No.
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--文本开始-->
+                            <div class="zhy_s_in  us-i uinput uinn4">
+                                <input id="RMANo" placeholder="" value="" type="text" class="uc-a1 t-wh">
+                            </div><!--文本结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Job Status
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--select开始-->
+                            <div class="ub  uc-a1 zhy_s_in  us-i sel">
+                                <div class="ub-f1 ut-s uinn ulev-1 tx-l">
+                                    plaese select
+                                </div>
+                                <div class="   umw2 ub ub-pc uc-r1 ub-ac">
+                                    <div class="ub-img umw1 umh1 res3">
+                                    </div>
+                                </div>
+                                <select name="sel0" selectedindex="0"  id="JobStatus" onChange="zy_selectmenu(this.id)">
+                                   
+                                </select>
+                            </div>
+                            <!--select结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Customer Phone
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--文本开始-->
+                            <div class="zhy_s_in  us-i uinput uinn4">
+                                <input id="Phone" placeholder="" value="" type="text" class="uc-a1 t-wh">
+                            </div><!--文本结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Customer Name
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--文本开始-->
+                            <div class="zhy_s_in  us-i uinput uinn4">
+                                <input id="Name" placeholder="" value="" type="text" class="uc-a1 t-wh">
+                            </div><!--文本结束-->
+                        </div>
+                    </div>
+                    <div class="ub   uc-a1 t-wh">
+                        <div class="zhy_width uinn uc-l1 t-wh ub  ub-ac">
+                            <div class=" tx-r" style="width: 100%;">
+                                Detailed Address
+                            </div>
+                        </div>
+                        <div class="ub-f1 uinn ">
+                            <!--文本开始-->
+                            <div class="zhy_s_in  us-i uinput uinn4">
+                                <input placeholder="" id="Address" value="" type="text" class="uc-a1 t-wh">
+                            </div><!--文本结束-->
+                        </div>
+                    </div><!--块容器结束-->
+                </div>
+            </div><!--块容器结束-->
+        </div>
+		 </div><!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+		$toast('loading....');
+            if (!type) {
+					if(isAndroid){
+						$$('dibu').style.paddingBottom= '180px';
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+            var day = new Date();
+			var  year = day.getFullYear();
+			var month = parseInt(day.getMonth()+1) < 9 ? '0'+ parseInt(day.getMonth()+1)+'' : ''+ parseInt(day.getMonth()+1)+'';
+			var data = parseInt(day.getDate()) < 9 ? '0'+parseInt(day.getDate())+'' : ''+parseInt(day.getDate())+'';
+			//$$('JobDate').innerHTML= year+'-'+month+'-'+'01';
+			if(nowDay() == 31){
+				//	$$('Jobto').innerHTML= year+'-'+month+'-'+'31';
+			}else if(nowDay() == 30){
+			//	$$('Jobto').innerHTML= year+'-'+month+'-'+'30';
+			}else if(nowDay() == 29){
+			//	$$('Jobto').innerHTML= year+'-'+month+'-'+'29';
+			}else if(nowDay() == 28){
+				//$$('Jobto').innerHTML= year+'-'+month+'-'+'28';
+			}
+            }
+			getbasicdata();
+			
+        }
+        
+        /*************年-月 选择器*************/
+        function createYearMonthPicker(id){
+            uexPicker.resultData = function(result){
+                if (result != '(null)') {
+                    $$(id).innerHTML = result;
+                }
+                else {
+                
+                }
+                
+            };
+            var W = window.screen.width;
+            var bodyObj = window.getComputedStyle(document.body, null);
+            var fz = int(bodyObj.fontSize);
+            var opid = 'as500';
+            var x = 0;
+            var width = W > 1000 ? int(bodyObj.width) * 2 : int(bodyObj.width);
+            var height = W > 1000 ? 16 * fz * 2 : 16 * fz;
+            var y = height;
+            var typeID = '3';
+            var selFontz = W > 1000 ? 3 * fz : 1.5 * fz;
+			var android = window.navigator.userAgent.indexOf('Android');
+			if (android >= 0) {
+        			selFontz = W > 1000 ? 1.5 * fz : 32;
+   				 }
+            var pickerJson = '{"pickerConfig":{"frameBgColor":"#ffffff","frameBroundColor":"#bdbdbd","frameBgImg":"res://frame_bg.png","fontSize":"' + selFontz + '","fontColor":"rgba(0,0,0,100)","selFontColor":"#023BA1","selbgColor":"#e3eaf4","selbgImg":"res://bar.png","btnNBgImg":"res://left.png","btnHLBgImg":"res://right.png","btnFontSize":"17","btnNFontColor":"#fff","btnHLFontColor":"#ffffff","btnSize":"60,34","btnTextLeft":"取消","btnTextRight":"确定"}}';
+            
+            uexPicker.open(opid, x, y, width, height, typeID, pickerJson);
+        }
+        
+        function passd(){
+            var JobDate = $$('JobDate').innerHTML;
+            var Jobto = $$('Jobto').innerHTML;
+            var Region = $$('Region').value;
+            var Regionzero = $$('Regionzero').value;
+            var CaseType = $$('CaseType').value;
+            var CaseStatus = $$('CaseStatus').value;
+            var JobNo = $$('JobNo').value;
+            var RMANo = $$('RMANo').value;
+            var JobStatus = $$('JobStatus').value;
+            var Phone = $$('Phone').value;
+            var Name = $$('Name').value;
+            var Address = $$('Address').value;
+			if(JobDate ==='&nbsp;'){
+				JobDate='';
+			}
+			if(Jobto == '&nbsp;'){
+				Jobto='';
+			}
+          setLocVal('Search_con',JobDate+';'+Jobto+';'+Region+';'+Regionzero+';'+CaseType+';'+CaseStatus+';'+Name+';'+Address+';'+RMANo+';'+Phone+';'+JobNo+';'+JobStatus);
+                openNewWin('query', 'query.html', 0);
+        }
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                mouseWheel: true,
+                click: true
+            });
+            //	bordermyScroll = new IScroll('#border_scroll', { bounceEasing: 'elastic', bounceTime: 1200 });
+			
+        }
+        if(isAndroid){
+			
+		}else{
+			 document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+       
+		
+		function getbasicdata(){
+			var url_data= Interface+'getbasicdata?datatype=country';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					
+						var template= '<option value="'+data.resulte.basicdata.dataline.code+'" name="'+data.resulte.basicdata.dataline.data+'">'+data.resulte.basicdata.dataline.data+'</option>';
+						$$('Region').innerHTML='<option value="">plaese select</option>'+template;
+				
+					
+				}else{
+					$$('Region').innerHTML= '<option value="">plaese select</option>'
+				}
+				casetype();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+		function getcity(name){
+			 var obj = document.getElementById('Region'); //selectid
+
+    var index = obj.selectedIndex; // 选中索引
+    var value = obj.options[index].innerHTML; // 选中值
+			$toast('loading....');
+			var url_data =  Interface+'getbasicdata?datatype=state'+'&country='+value;
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.resulte.basicdata.dataline.length!=0){
+						var template='';
+						for(var i =0;i<data.resulte.basicdata.dataline.length;i++){
+						 template+= '<option value="'+data.resulte.basicdata.dataline[i].code+'">'+data.resulte.basicdata.dataline[i].data+'</option>';
+						}
+					}
+						
+						$$('Regionzero').innerHTML='<option value="">plaese select</option>'+template;
+				
+					
+				}else{
+					$$('Regionzero').innerHTML= '<option value="">plaese select</option>'
+				}
+				$closeToast();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+		function casetype(){
+			var url_data = Interface+'getbasicdata?datatype=casetype';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.resulte.basicdata.dataline.length!=0){
+						var template='';
+						
+						
+						for(var i =0;i<data.resulte.basicdata.dataline.length;i++){
+						 template+= '<option value="'+data.resulte.basicdata.dataline[i].code+'">'+data.resulte.basicdata.dataline[i].data+'</option>';
+						}
+					}
+						
+						$$('CaseType').innerHTML='<option value="">plaese select</option>'+template;
+				
+					
+				}else{
+					$$('CaseType').innerHTML= '<option value="">plaese select</option>'
+				}
+				casestatus();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+		function casestatus(){
+			var url_data = Interface+'getbasicdata?datatype=casestatus';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.resulte.basicdata.dataline.length!=0){
+						var template='';
+						
+						
+						for(var i =0;i<data.resulte.basicdata.dataline.length;i++){
+						 template+= '<option value="'+data.resulte.basicdata.dataline[i].code+'">'+data.resulte.basicdata.dataline[i].data+'</option>';
+						}
+					}
+						
+						$$('CaseStatus').innerHTML='<option value="">plaese select</option>'+template;
+				
+					
+				}else{
+					$$('CaseStatus').innerHTML= '<option value="">plaese select</option>'
+				}
+				jobstatus();
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+		function jobstatus(){
+			var url_data = Interface+'getbasicdata?datatype=jobstatus';
+			$.getJSON(url_data,function(data){
+				if(data.status==0){
+					if(data.resulte.basicdata.dataline.length!=0){
+						var template='';
+						
+						
+						for(var i =0;i<data.resulte.basicdata.dataline.length;i++){
+						 template+= '<option value="'+data.resulte.basicdata.dataline[i].code+'">'+data.resulte.basicdata.dataline[i].data+'</option>';
+						}
+					}
+						
+						$$('JobStatus').innerHTML='<option value="">plaese select</option>'+template;
+				
+					
+				}else{
+					$$('JobStatus').innerHTML= '<option value="">plaese select</option>'
+				}
+				if(isAndroid){
+					$closeToast();
+				}else{
+					$closeToast();
+					borderloaded();
+				}
+				
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+    </script>
+</html>

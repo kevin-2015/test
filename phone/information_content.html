@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-img.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/ui-list.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+		<script src="js/infermation.js">
+		</script>
+		<script src="js/city.js">
+		</script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="zhy_menu0">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            基础信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--列表开始-->
+                    <div class="uc-a   ">
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                姓名
+                            </li>
+                            <li class="tx-r " id="NAME">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                英文名
+                            </li>
+                            <li class="tx-r " id="NAME_E">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                性别
+                            </li>
+                            <li class="tx-r " id="GENDER">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                工号
+                            </li>
+                            <li class="tx-r " id="STELL">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                国籍
+                            </li>
+                            <li class="tx-r " id="NATION">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                出生日期
+                            </li>
+                            <li class="tx-r " id="BIRTH">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                民族
+                            </li>
+                            <li class="tx-r " id="RACE">
+                                 
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                政治面貌
+                            </li>
+                            <li class="tx-r " id="POLITICAL">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                婚姻状况
+                            </li>
+                            <li class="tx-r " id="MARRIED">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                办公电话
+                            </li>
+                            <li class="tx-r " id="TELNO">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                手机
+                            </li>
+                            <li class="tx-r " id="MOBILE">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                邮箱
+                            </li>
+                            <li class="tx-r " id="EMAIL">
+                                
+                            </li>
+                        </ul>
+                        <!--ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                最高学历
+                            </li>
+                            <li class="tx-r " id="EDU_LEVEL">
+                                
+                            </li>
+                        </ul-->
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                紧急联系人
+                            </li>
+                            <li class="tx-r " id="LINKMAN">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                紧急联系人电话
+                            </li>
+                            <li class="tx-r " id="TELNO_L">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                家庭地址
+                            </li>
+                            <li class="tx-r " id="LOCATION">
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="zhy_menu13">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            证件信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <div class="uc-a   ">
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                证件类型 
+                            </li>
+                            <li class="tx-r " id="leixing">
+                                北京市
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                证件号码 
+                            </li>
+                            <li class="tx-r " id="IDCARD">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                户口类型 
+                            </li>
+                            <li class="tx-r " id="ZZ_HUKOU_TYPE">
+                              
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                户口所在地 
+                            </li>
+                            <li class="tx-r " id="ZZ_HUKOU_LOCA">
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="zhy_menu1">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            任职信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <div class="uc-a   ">
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                业务中心 
+                            </li>
+                            <li class="tx-r " id="GROUP_T">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                部门
+                            </li>
+                            <li class="tx-r " id="DEPT_T">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                岗位
+                            </li>
+                            <li class="tx-r " id="POSITION_T">
+                               
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                入TCL时间
+                            </li>
+                            <li class="tx-r " id="TCL_SDATE">
+                                
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                入多媒体时间
+                            </li>
+                            <li class="tx-r " id="DEPT_SDATE">
+                               
+                            </li>
+                        </ul>
+                        <ul ontouchstart="zy_touch('btn-act')" class="uc-t ubb ub zhy_xinxi_b  t-wh ub-ac umh4 lis">
+                            <li class="ub-f1 ut-s">
+                                参加工作时间
+                            </li>
+                            <li class="tx-r " id="GL_SDATE">
+                                
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="zhy_menu2">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            教育经历
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper0" class="wrapper">
+                        <div id="scroller0" class="scroller" style="width:700px;">
+                            
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu3">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            工作经历
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper1" class="wrapper">
+                        <div id="scroller1" class="scroller" style="width:700px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu4">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            外派信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper2" class="wrapper">
+                        <div id="scroller2" class="scroller" style="width:400px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu5">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            合同类型
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper3" class="wrapper">
+                        <div id="scroller3" class="scroller" style="width:700px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu6">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            家庭成员
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper4" class="wrapper">
+                        <div id="scroller4" class="scroller" style="width:700px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu7">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            外语水平
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper5" class="wrapper">
+                        <div id="scroller5" class="scroller" style="width:400px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu8">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            国家职称
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper6" class="wrapper">
+                        <div id="scroller6" class="scroller" style="width:700px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu9">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            技能等级
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper7" class="wrapper">
+                        <div id="scroller7" class="scroller" style="width:700px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu10">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            任职资格
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper8" class="wrapper">
+                        <div id="scroller8" class="scroller" style="width:700px;">
+                           
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu11">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            培训信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper9" class="wrapper">
+                        <div id="scroller9" class="scroller" style="width:700px;">
+                           
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <div id="zhy_menu12">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            奖惩信息
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                    <!--块容器开始-->
+                    <div id="wrapper10" class="wrapper">
+                        <div id="scroller10" class="scroller" style="width:500px;">
+                            
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+                <!--列表结束-->
+            </div>
+        </div>
+        <!--左侧导航开始-->
+        <div id="zhy_left_menu" class="zhy_left_menu" onClick="menu_go()">
+        </div>
+        <!--左侧导航结束-->
+    </body>
+    <script>
+        zy_init();
+        var PERNR= '00599999';
+		var ITCODE = 'MAWENBO';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+		
+            if (!type) {
+			if(isAndroid){
+					$$('scroller0').style.width= s.width;
+					$$('scroller1').style.width= s.width;
+					$$('scroller2').style.width= s.width;
+					$$('scroller3').style.width= s.width;
+					$$('scroller4').style.width= s.width;
+					$$('scroller5').style.width= s.width;
+					$$('scroller6').style.width= s.width;
+					$$('scroller7').style.width= s.width;
+					$$('scroller8').style.width= s.width;
+					$$('scroller9').style.width= s.width;
+					$$('scroller10').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+			PERNR=getLocVal('login_pernr').split(';')[0];
+            }
+			con_list();
+            
+           
+        }
+        
+        
+        function menu_go(){
+            $$('zhy_left_menu').className = 'uhide';
+            uescript('information', 'menus()');
+        }
+        
+        function hidden_close(){
+            $$('zhy_left_menu').className = 'zhy_left_menu';
+        }
+        
+		function con_list(){
+		$toast('努力加载中,请稍候....');
+			var url_data = Interface+'ResumeRead?PERNR='+PERNR+'&ITCODE='+ITCODE+'&IT0001_VIEW=X&IT0002_VIEW=X&IT0006_VIEW=X&IT0016_VIEW=X&IT0021_VIEW=X&IT0022_VIEW=X&IT0023_VIEW=X&IT0041_VIEW=X&IT0105_VIEW=X&IT0185_VIEW=X&IT0534_VIEW=X&IT9002_VIEW=X&IT9003_VIEW=X&IT9008_VIEW=X&IT9009_VIEW=X&IT9017_VIEW=X&IT9020_VIEW=X&IT9023_VIEW=X&IT9002_VIEW=X&IT9034_VIEW=X&IT9040_VIEW=X&IT9064_VIEW=X&IT9065_VIEW=X&IT9066_VIEW=X&IT9067_VIEW=X&IT9068_VIEW=X&IT9069_VIEW=X&IT9073_VIEW=X&IT9074_VIEW=X&IT9075_VIEW=X&IT9076_VIEW=X';
+			$.getJSON(url_data,function(data){
+				if(data.status == 0){	
+					if(!isEmptyObject(data.resulte.Z_IT0002)){
+					if(!isEmptyObject(data.resulte.Z_IT0002.item[0].NACHN)){
+						$$('NAME').innerHTML=data.resulte.Z_IT0002.item[0].NACHN;   // 用户名
+					}else{
+					$$('NAME').innerHTML='';   // 用户名
+					}
+						
+						if(!isEmptyObject(data.resulte.Z_IT0002.item[0].MIDNM)){
+							$$('NAME_E').innerHTML=data.resulte.Z_IT0002.item[0].MIDNM;  //英文名
+						}else{
+						$$('NAME_E').innerHTML='';  //英文名
+						}
+					
+					if(data.resulte.Z_IT0002.item[0].GESCH==1){
+					$$('GENDER').innerHTML='男';  //性别
+					}else if(data.resulte.Z_IT0002.item[0].GESCH==2){
+					$$('GENDER').innerHTML='女';  //性别
+					}
+					//alert(family.nation.length);
+					for(var i =0;i<family.nation.length;i++){
+						if(data.resulte.Z_IT0002.item[0].NATIO ==family.nation[i].title){
+							$$('NATION').innerHTML=family.nation[i].name;  //国籍
+						}
+					}
+					
+					$$('BIRTH').innerHTML=data.resulte.Z_IT0002.item[0].GBDAT; //出生日期
+					
+					for(var i = 0; i <region.national.length;i++){
+						if(data.resulte.Z_IT0002.item[0].ZZ_RACE== region.national[i].id){
+							$$('RACE').innerHTML=region.national[i].name; //民族
+						}
+					}
+					if(data.resulte.Z_IT0002.item[0].FAMST==0){
+					$$('MARRIED').innerHTML='未婚'; //婚否
+					}else if(data.resulte.Z_IT0002.item[0].FAMST==1){
+					$$('MARRIED').innerHTML='已婚'; //婚否
+					}else if(data.resulte.Z_IT0002.item[0].FAMST==2){
+					$$('MARRIED').innerHTML='其他'; //婚否
+					}
+					
+					}else{
+						
+					}				
+					if(!isEmptyObject(data.resulte.Z_IT0534)){
+						if(data.resulte.Z_IT0534.item[0].PCODE== '01'){
+					$$('POLITICAL').innerHTML='中国共产党'; //政治面貌
+					}else if(data.resulte.Z_IT0534.item[0].PCODE== '02'){
+					$$('POLITICAL').innerHTML='其它党派'; //政治面貌
+					}else if(data.resulte.Z_IT0534.item[0].PCODE== '03'){
+					$$('POLITICAL').innerHTML='团员'; //政治面貌
+					}else if(data.resulte.Z_IT0534.item[0].PCODE== '13'){
+					$$('POLITICAL').innerHTML='群众'; //政治面貌
+					}
+					}else{
+						
+					}
+					
+					if(!isEmptyObject(data.resulte.Z_IT0001)){
+						if(!isEmptyObject(data.resulte.Z_IT0001.item[0].USRID)){
+						$$('TELNO').innerHTML=data.resulte.Z_IT0105.item[0].USRID; //办公电话
+					}else{
+					$$('TELNO').innerHTML='';//工号
+					}
+					$$('STELL').innerHTML=data.resulte.Z_IT0001.item[0].STELL;//工号
+					if(!isEmptyObject(data.resulte.Z_IT0001.item[0].USRID)){
+						$$('MOBILE').innerHTML=data.resulte.Z_IT0105.item[0].USRID; //手机
+					}else{
+					$$('MOBILE').innerHTML='';//工号
+					}
+					if(data.resulte.Z_IT0001.item[0].BTRTL=='0001'){
+						$$('GROUP_T').innerHTML='TCL多媒体总部'; //业务中心
+					}else if(data.resulte.Z_IT0001.item[0].BTRTL=='0002'){
+						$$('GROUP_T').innerHTML='TCL多媒体中国区销售公司'; //业务中心
+					}else if(data.resulte.Z_IT0001.item[0].BTRTL=='0003'){
+						$$('GROUP_T').innerHTML='TCL多媒体海外业务中心'; //业务中心
+					}else if(data.resulte.Z_IT0001.item[0].BTRTL=='0005'){
+						$$('GROUP_T').innerHTML='TCL多媒体全球制造中心'; //业务中心
+					}else if(data.resulte.Z_IT0001.item[0].BTRTL=='0006'){
+						$$('GROUP_T').innerHTML='TCL多媒体全球研发中心'; //业务中心
+					}else if(data.resulte.Z_IT0001.item[0].BTRTL=='0055'){
+						$$('GROUP_T').innerHTML='TCL多媒体ODM事业部'; //业务中心
+					}
+					$$('POSITION_T').innerHTML=data.resulte.Z_IT0001.item[0].PLANS; //岗位
+					$$('DEPT_T').innerHTML=data.resulte.Z_IT0001.item[0].ORGEH; //部门
+					
+					}else{
+						
+					}
+					
+					if(!isEmptyObject(data.resulte.Z_IT0105)){
+						$$('EMAIL').innerHTML=data.resulte.Z_IT0105.item[0].USRID_LONG;//邮箱
+					}else{
+						
+					}
+					
+					if(!isEmptyObject(data.resulte.Z_IT0006)){
+						//$$('EDU_LEVEL').innerHTML=''; //最高学历
+					$$('LINKMAN').innerHTML=data.resulte.Z_IT0006.item[0].ZZ_JJLLR; //紧急联系人
+					$$('TELNO_L').innerHTML=data.resulte.Z_IT0006.item[0].ZZ_DHHM; //紧急联系人电话
+					$$('LOCATION').innerHTML=data.resulte.Z_IT0006.item[0].ZZ_JTDZ; //家庭地址
+					}else{
+						
+					}
+					
+					if(!isEmptyObject(data.resulte.Z_IT9023)){
+						if(data.resulte.Z_IT9023.item[0].ZZ_HUKOU_TYPE==1){
+					$$('ZZ_HUKOU_TYPE').innerHTML='非农村户口'; //户口本性质
+					}else if(data.resulte.Z_IT9023.item[0].ZZ_HUKOU_TYPE==2){
+					$$('ZZ_HUKOU_TYPE').innerHTML='农村户口'; //户口本性质
+					}
+					}else{
+					
+					}
+					
+					if(!isEmptyObject(data.resulte.Z_IT0185)){
+						if(data.resulte.Z_IT0185.item[0].ICTYP=='01'){
+						$$('leixing').innerHTML = '身份证'
+					}else if(data.resulte.Z_IT0185.item[0].ICTYP=='03'){
+						$$('leixing').innerHTML = '护照'
+					}else if(data.resulte.Z_IT0185.item[0].ICTYP=='99'){
+						$$('leixing').innerHTML = '其他证件'
+					}
+					$$('IDCARD').innerHTML= data.resulte.Z_IT0185.item[0].ICNUM;
+					$$('ZZ_HUKOU_LOCA').innerHTML=data.resulte.Z_IT9023.item[0].ZZ_HUKOU_LOCA;  //户口本所在地
+					$$('TCL_SDATE').innerHTML=data.resulte.Z_IT0041.item[0].DAT02;  //入tcl时间
+					$$('DEPT_SDATE').innerHTML=data.resulte.Z_IT0041.item[0].DAT03; //入多媒体时间
+					$$('GL_SDATE').innerHTML=data.resulte.Z_IT0041.item[0].DAT01;  //参加工作时间
+					}else{
+						
+					}
+					
+						if(!isEmptyObject(data.resulte.Z_IT0022)){
+						var template0 = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                   +' <div class="list_padding">开始时间</div>'
+                                +'</div>'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +'  <div class="list_padding"> 结束时间</div>'
+                                +'</div>'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +'  <div class="list_padding"> 学校名称</div>'
+                               +' </div>'
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'     <div class="list_padding">第一专业</div>'
+                              +'  </div>'
+                                +'<div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 第二专业</div>'
+                               +' </div>'
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'     <div class="list_padding">学历</div>'
+                               +' </div>'
+                               +' <div name="scroll0" class=" b-wh uinn7 tx-c ">'
+                               +'     <div class="list_padding">学习形式</div>'
+                               +' </div>'
+                           +' </div>';
+						   for(var i =0 ;i<data.resulte.Z_IT0022.item.length;i++){
+							   if(data.resulte.Z_IT0022.item[i].ZZ_STUDY_METHOD== '01'){
+									var ZZ_STUDY_METHOD='全日制'
+							   }else if(data.resulte.Z_IT0022.item[i].ZZ_STUDY_METHOD== '02'){
+									var ZZ_STUDY_METHOD='非全日制'
+							   }
+						   
+						   		if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '100'){
+									var ZZ_DEGREE = '名誉博士';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '200'){
+									var ZZ_DEGREE = '博士';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '299'){
+									var ZZ_DEGREE = '双博士 ';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '300'){
+									var ZZ_DEGREE = '硕士';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '399'){
+									var ZZ_DEGREE = '双硕士 ';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '400'){
+									var ZZ_DEGREE = '学士';
+								}else if(data.resulte.Z_IT0022.item[i].ZZ_DEGREE== '499'){
+									var ZZ_DEGREE = '双学士';
+								}
+						   	template0+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'
+                                  +'  '+data.resulte.Z_IT0022.item[i].BEGDA+''
+                               +' </div></div>'
+                                +'<div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0022.item[i].ENDDA+''
+                               +' </div></div>'
+                               +' <div name="scroll0" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0022.item[i].INSTI+''
+                               +' </div></div>'
+                               +' <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0022.item[i].ZZ_SPECIALTY1+''
+                               +' </div></div>'
+                              +'  <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0022.item[i].ZZ_SPECIALTY2+''
+                              +'  </div></div>'
+                              +'  <div name="scroll0" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_DEGREE+''
+                              +'  </div></div>'
+                             +'   <div name="scroll0" class=" b-wh uinn7 tx-c "><div class="list_padding">'+ZZ_STUDY_METHOD+''
+                             +'   </div></div>'
+                            +'</div>'
+						   }
+						$$('scroller0').innerHTML= template0;
+						}else{
+							$$('scroller0').innerHTML='';
+						}
+						if(!isEmptyObject(data.resulte.Z_IT0023)){
+						var template1 = ' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +' <div class="list_padding"> 开始时间</div>'
+                                +'</div>'
+                                +'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">结束时间</div>'
+                               +' </div>'
+                                +'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">工作单位</div>'
+                                +'</div>'
+                               +' <div name="scroll1" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">所属部门</div>'
+                               +' </div>'
+                               +' <div name="scroll1" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                 +'  <div class="list_padding"> 单位名称</div>'
+                               +' </div>'
+                               +' <div name="scroll1" class=" b-wh uinn7 tx-c ">'
+                                 +'   <div class="list_padding">变动原因</div>'
+                               +' </div>'
+                            +'</div>'
+							for(var i =0;i<data.resulte.Z_IT0023.item.length;i++){
+								template1+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                               +' <div name="scroll1" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                   +' '+data.resulte.Z_IT0023.item[i].BEGDA+''
+                               +' </div></div>'
+                               +' <div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0023.item[i].ENDDA+''
+                                +'</div></div>'
+                                +'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0023.item[i].ZZ_GSMC+''
+                               +' </div></div>'
+                               +' <div name="scroll1" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0023.item[i].ZZ_BMMC+''
+                                +'</div></div>'
+                                +'<div name="scroll1" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0023.item[i].ZZ_JOB_ROLE+''
+                               +' </div></div>'
+                               +' <div name="scroll1" class=" b-wh uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT0023.item[i].ZZ_REAS_LEAV+''
+                               +' </div></div>'
+                           +' </div>'
+							}
+							$$('scroller1').innerHTML= template1;
+							}else{
+								$$('scroller1').innerHTML='';
+							}
+							if(!isEmptyObject(data.resulte.Z_IT9017)){
+							var template2 = ' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll2" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +' <div class="list_padding"> 外派时间</div>'
+                               +' </div>'
+                                +'<div name="scroll2" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">派驻公司</div>'
+                                +'</div>'
+                               +' <div name="scroll2" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +'   <div class="list_padding">派驻部门</div>'
+                                +'</div>'
+                               +' <div name="scroll2" class=" b-wh uinn7 tx-c ">'
+                                 +'  <div class="list_padding"> 派驻职务</div>'
+                               +' </div>'
+                           +' </div>'
+						   for(var i =0;i<data.resulte.Z_IT9017.item.length;i++){
+						   		template2+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll2" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                 +'   '+data.resulte.Z_IT9017.item[i].ZZ_EX_DATE+''
+                                +'</div></div>'
+                               +' <div name="scroll2" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9017.item[i].ZZ_EX_COM+''
+                               +' </div></div>'
+                               +' <div name="scroll2" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9017.item[i].ZZ_EX_DEP+''
+                               +' </div></div>'
+                               +' <div name="scroll2" class=" b-wh uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT9017.item[i].ZZ_EX_JOB+''
+                               +' </div></div>'
+                            +'</div>'
+						   }
+						  $$('scroller2').innerHTML= template2; 
+						  }else{
+						  	$$('scroller2').innerHTML='';
+						  }
+						  
+						  if(!isEmptyObject(data.resulte.Z_IT0016)){
+						  var template3=' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +'  <div class="list_padding">合同类型</div>'
+                               +' </div>'
+                               +' <div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 合同期限</div>'
+                              +'  </div>'
+                               +' <div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                               +'     <div class="list_padding">到期时间</div>'
+                               +' </div>'
+                                +'<div name="scroll3" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 合同法人</div>'
+                               +' </div>'
+                              +'  <div name="scroll3" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                    +'<div class="list_padding">合同编号</div>'
+                               +' </div>'
+                               +' <div name="scroll3" class=" b-wh uinn7 tx-c ">'
+                               +'     <div class="list_padding">变化原因</div>'
+                               +' </div>'
+                           +' </div>'
+							for(var i =0;i<data.resulte.Z_IT0016.item.length;i++){
+								if(data.resulte.Z_IT0016.item[i].CTTYP == '01'){
+									var CTTYP = '固定期限劳动合同';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '02'){
+									var CTTYP = '临时工劳务协议';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '03'){
+									var CTTYP = '无固定期限合同';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '04'){
+									var CTTYP = '实习协议';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '05'){
+									var CTTYP = '保密协议';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '06'){
+									var CTTYP = '竞业限制协议';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '07'){
+									var CTTYP = '培训协议';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '08'){
+									var CTTYP = '派遣合同';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '09'){
+									var CTTYP = '返聘合同';
+								}else if(data.resulte.Z_IT0016.item[i].CTTYP == '10'){
+									var CTTYP = '顾问合同';
+								}
+								template3+='<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'
+                                 +'   '+CTTYP+''
+                                +'</div></div>'
+                                +'<div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0016.item[i].PRBZT+''
+    
+                                +'</div></div>'
+                                +'<div name="scroll3" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0016.item[i].ENDDA+''
+                   
+                               +' </div></div>'
+                                +'<div name="scroll3" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0016.item[i].ZZ_LEG_PS+''
+                              
+                                +'</div></div>'
+                                +'<div name="scroll3" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0016.item[i].ZZ_CONTRACT_NO+''
+                             
+                                +'</div></div>'
+                                +'<div name="scroll3" class=" b-wh uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT0016.item[i].ZZ_CHANGE_REAS+''
+                            
+                               +' </div></div>'
+                           +' </div>'
+							}
+							$$('scroller3').innerHTML=template3;
+							}else{
+								$$('scroller3').innerHTML='';
+							}
+							if(!isEmptyObject(data.resulte.Z_IT0021)){
+							var template4 = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll4" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +' <div class="list_padding"> 成员类型</div>'
+                                +'</div>'
+                                +'<div name="scroll4" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                               +'     <div class="list_padding">名称</div>'
+                               +' </div>'
+                               +' <div name="scroll4" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">性别</div>'
+                               +' </div>'
+                                +'<div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">出生日期</div>'
+                               +' </div>'
+                               +' <div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                 +'   <div class="list_padding">国籍</div>'
+                               +' </div>'
+                                +'<div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 工作单位</div>'
+                               +' </div>'
+                               +' <div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 联系电话</div>'
+                               +' </div>'
+                               +' <div name="scroll4" class=" b-wh uinn7 tx-c ">'
+                                +'    <div class="list_padding">是否TCL集团</div>'
+                              +'  </div>'
+                           +' </div>'
+						   for(var i = 0;i<data.resulte.Z_IT0021.item.length;i++){
+						   		if(data.resulte.Z_IT0021.item[i].FAMSA == '10'){
+									var FAMSA = '配偶';
+								}else if(data.resulte.Z_IT0021.item[i].FAMSA == '11'){
+									var FAMSA = '父母';
+								}else if(data.resulte.Z_IT0021.item[i].FAMSA == '12'){
+									var FAMSA = '子女';
+								}else if(data.resulte.Z_IT0021.item[i].FAMSA == '99'){
+									var FAMSA = '其他';
+								}
+								if(data.resulte.Z_IT0021.item[i].FASEX == '1'){
+									var FASEX = '男'
+								}else if(data.resulte.Z_IT0021.item[i].FASEX == '2'){
+									var FASEX = '女'
+								}
+								for(var j =0;j<family.nation.length;j++){
+									if(data.resulte.Z_IT0021.item[i].FANAT == family.nation[j].title){
+										var FANAT= family.nation[j].name;
+									}
+								}
+								
+								if(!isEmptyObject(data.resulte.Z_IT0021.item[i].ZZ_FAMILY_MEMBER)){
+									if(data.resulte.Z_IT0021.item[i].ZZ_FAMILY_MEMBER == 'X'){
+										var ZZ_FAMILY_MEMBER='是';
+									}
+								}else{
+									var ZZ_FAMILY_MEMBER='否';
+								}
+						    	template4+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll4" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                  +'  '+FAMSA+''
+                                +'</div></div>'
+                               +' <div name="scroll4" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0021.item[i].FANAM+''
+                                +'</div></div>'
+                                +'<div name="scroll4" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+FASEX+''
+                               +' </div></div>'
+                                +'<div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0021.item[i].FGBDT+''
+                                +'</div></div>'
+                                +'<div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+FANAT+''
+                               +' </div></div>'
+                               +' <div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT0021.item[i].ZZ_UNIT+''
+                               +' </div></div>'
+                               +' <div name="scroll4" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+(!isEmptyObject(data.resulte.Z_IT0021.item[i].ZZ_HRDIANHUA) ? ''+data.resulte.Z_IT0021.item[i].ZZ_HRDIANHUA+'' : '')+''
+                               +' </div></div>'
+                               +' <div name="scroll4" class=" b-wh uinn7 tx-c "><div class="list_padding">'+ZZ_FAMILY_MEMBER+''
+                               +' </div></div>'
+                            +'</div>'
+						   }
+						   $$('scroller4').innerHTML=template4;
+						   }else{
+						   	$$('scroller4').innerHTML='';
+						   }
+						   if(!isEmptyObject(data.resulte.Z_IT9009)){
+						   var template5 = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll5" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +' <div class="list_padding">  语种</div>'
+                               +' </div>'
+                               +' <div name="scroll5" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 证书</div>'
+                               +' </div>'
+                               +' <div name="scroll5" class=" b-wh  uinn7 tx-c ">'
+                               +'   <div class="list_padding">  级别</div>'
+                               +' </div>'
+                            +'</div>';
+							//alert(family.language.length)
+							for(var i = 0;i<data.resulte.Z_IT9009.item.length;i++){
+								for(var j=0;j<family.language.length;j++){
+									if(data.resulte.Z_IT9009.item[i].ZZ_PAD_SPRAS==family.language[j].title){
+										var ZZ_PAD_SPRAS = family.language[j].name;
+									}
+								}
+							template5+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll5" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                    +''+ZZ_PAD_SPRAS+''
+                                +'</div></div>'
+                               +' <div name="scroll5" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9009.item[i].ZZ_LANG_CERT+''
+                               +' </div></div>'
+                               +' <div name="scroll5" class=" b-wh  uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT9009.item[i].ZZ_LANG_LEVEL+''
+                               +' </div></div>'
+                           +' </div>'
+							}
+							$$('scroller5').innerHTML=template5;
+							}else{
+								$$('scroller5').innerHTML='';
+							}
+							if(!isEmptyObject(data.resulte.Z_IT9002)){
+							var template6 =' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel">'
+                               +'  <div class="list_padding"> 职称类别</div>'
+                               +' </div>'
+                                +'<div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel">'
+                                 +'  <div class="list_padding"> 职业技术职称</div>'
+                               +' </div>'
+                                +'<div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel">'
+                                +'   <div class="list_padding"> 职称级别</div>'
+                                +'</div>'
+                               +' <div name="scroll6" class="ubr b-wh uinn7 tx-c  zhy_width_wel">'
+                               +'    <div class="list_padding"> 获得时间</div>'
+                               +' </div>'
+                               +' <div name="scroll6" class="ubr b-wh uinn7 tx-c  zhy_width_wel">'
+                                +'   <div class="list_padding"> 证书编号</div>'
+                               +' </div>'
+                                +'<div name="scroll6" class=" b-wh uinn7 tx-c  ">'
+                               +'   <div class="list_padding">  发证机构</div>'
+                              +'  </div>'
+                           +' </div>';
+						   for(var i = 0;i<data.resulte.Z_IT9002.item.length;i++){
+						   		if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '01'){
+									var ZZ_SERIS = '工程';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '02'){
+									var ZZ_SERIS = '经济';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '03'){
+									var ZZ_SERIS = '会计';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '04'){
+									var ZZ_SERIS = '统计';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '05'){
+									var ZZ_SERIS = '翻译';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '06'){
+									var ZZ_SERIS = '教师';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '07'){
+									var ZZ_SERIS = '政工';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_SERIS == '08'){
+									var ZZ_SERIS = '其他';
+								}
+								if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '01'){
+									var ZZ_LEVEL = '员级';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '02'){
+									var ZZ_LEVEL = '助级';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '03'){
+									var ZZ_LEVEL = '中级';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '04'){
+									var ZZ_LEVEL = '副高级';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '05'){
+									var ZZ_LEVEL = '正高级';
+								}else if(data.resulte.Z_IT9002.item[i].ZZ_LEVEL == '09'){
+									var ZZ_LEVEL = '其它';
+								}
+						   	template6+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                +'    '+ZZ_SERIS+''
+                                +'</div></div>'
+                               +' <div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9002.item[i].ZZ_TITLE+''
+                               +' </div></div>'
+                                +'<div name="scroll6" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'+ZZ_LEVEL+''
+                               +' </div></div>'
+                               +' <div name="scroll6" class="ubr b-wh uinn7 tx-c  zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9002.item[i].ZZ_DATE2+''
+                                +'</div></div>'
+                                +'<div name="scroll6" class="ubr b-wh uinn7 tx-c  zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9002.item[i].ZZ_CER_NO+''
+                               +' </div></div>'
+                               +' <div name="scroll6" class=" b-wh uinn7 tx-c  "><div class="list_padding">'+data.resulte.Z_IT9002.item[i].ZZ_ISSUER+''
+                               +' </div></div>'
+                            +'</div>'
+						   }
+						   $$('scroller6').innerHTML=template6;
+						   }else{
+						   	$$('scroller6').innerHTML='';
+						   }
+						   if(!isEmptyObject(data.resulte.Z_IT900)){
+						   var template7 = ' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                               +' <div name="scroll7" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 取得资格职业时间</div>'
+                               +' </div>'
+                               +' <div name="scroll7" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 工种类型</div>'
+                               +' </div>'
+                               +' <div name="scroll7" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'  <div class="list_padding">  职业技术鉴定工种</div>'
+                               +' </div>'
+                               +' <div name="scroll7" class=" b-wh uinn7 tx-c ">'
+                               +'   <div class="list_padding">  职业技术级别</div>'
+                              +'  </div>'
+                           +' </div>'
+						   for(var i =0;i<data.resulte.Z_IT9003.item.length;i++){
+						   if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '01'){
+						   		var ZZ_JOB_SERIES= '工艺';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '02'){
+						   		var ZZ_JOB_SERIES= '机械';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '03'){
+						   		var ZZ_JOB_SERIES= '仪表仪表';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '04'){
+						   		var ZZ_JOB_SERIES= '分析';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '05'){
+						   		var ZZ_JOB_SERIES= '电气';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '06'){
+						   		var ZZ_JOB_SERIES= '电子';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '07'){
+						   		var ZZ_JOB_SERIES= 'GOC特殊工种';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_SERIES == '09'){
+						   		var ZZ_JOB_SERIES= '其它';
+						   }
+						   if(data.resulte.Z_IT9003.item[i].ZZ_JOB_LEVEL=='01'){
+						   		var ZZ_JOB_LEVEL = '高级技师';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_LEVEL=='02'){
+						   		var ZZ_JOB_LEVEL = '技师';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_LEVEL=='03'){
+						   		var ZZ_JOB_LEVEL = '高级工';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_LEVEL=='04'){
+						   		var ZZ_JOB_LEVEL = '中级工';
+						   }else  if(data.resulte.Z_IT9003.item[i].ZZ_JOB_LEVEL=='05'){
+						   		var ZZ_JOB_LEVEL = '初级工';
+						   }
+						   for(var j =0;j<family.professional.length;j++){
+						   	if(data.resulte.Z_IT9003.item[i].ZZ_JOB_CAT == family.professional[j].title){
+								var ZZ_JOB_CAT = family.professional[j].name;
+							}
+						   }
+						   	template7+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                               +' <div name="scroll7" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">'
+                                +'    '+data.resulte.Z_IT9003.item[i].ZZ_GET_DATE+''
+                               +' </div></div>'
+                               +' <div name="scroll7" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_JOB_SERIES+''
+                               +' </div></div>'
+                                +'<div name="scroll7" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_JOB_CAT+''
+                                +'</div></div>'
+                                +'<div name="scroll7" class=" b-wh uinn7 tx-c "><div class="list_padding">'+ZZ_JOB_LEVEL+''
+                               +' </div></div>'
+                           +' </div>'
+						   }
+						   $$('scroller7').innerHTML=template7;
+						   }else{
+						   	$$('scroller7').innerHTML='';
+						   }
+						   if(!isEmptyObject(data.resulte.Z_IT9034)){
+						   var template8 = ' <div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +'  <div class="list_padding">认证时间</div>'
+                               +' </div>'
+                               +' <div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 认证通道</div>'
+                               +' </div>'
+                                +'<div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 组织单位</div>'
+                               +' </div>'
+                               +' <div name="scroll8" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 认证等级</div>'
+                               +' </div>'
+                              +'  <div name="scroll8" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                              +'    <div class="list_padding">  认证结果</div>'
+                               +' </div>'
+                              +'  <div name="scroll8" class=" b-wh uinn7 tx-c ">'
+                               +'  <div class="list_padding">   认证分数</div>'
+                             +'   </div>'
+                           +' </div>';
+						   for(var i =0;i<data.resulte.Z_IT9034.item.length;i++){
+						   		if(data.resulte.Z_IT9034.item[i].Z_QUA_ZZDW == '10'){
+									var Z_QUA_ZZDW ='集团';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_ZZDW == '20'){
+									var Z_QUA_ZZDW ='产业';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_ZZDW == '30'){
+									var Z_QUA_ZZDW ='中心';
+								}
+								if(!isEmptyObject(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ)){
+									if(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ == '10'){
+									var Z_QUA_RZDJ = '1级';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ == '20'){
+									var Z_QUA_RZDJ = '2级';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ == '30'){
+									var Z_QUA_RZDJ = '3级';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ == '40'){
+									var Z_QUA_RZDJ = '4级';
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_RZDJ == '50'){
+									var Z_QUA_RZDJ = '5级';
+								}
+								}else{
+									var Z_QUA_RZDJ='';
+								}
+								
+								if(data.resulte.Z_IT9034.item[i].Z_QUA_RZJG == '10'){
+									var Z_QUA_RZJG = '通过'
+								}else if(data.resulte.Z_IT9034.item[i].Z_QUA_RZJG == '20'){
+									var Z_QUA_RZJG = '未通过'
+								}
+						   	template8+=' <div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'
+                                 +'   '+data.resulte.Z_IT9034.item[i].Z_QUA_DATE+''
+                                +'</div> </div>'
+                               +' <div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9034.item[i].Z_QUA_RZTD1+''
+                               +' </div> </div>'
+                               +' <div name="scroll8" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+Z_QUA_ZZDW+''
+                               +' </div> </div>'
+                               +' <div name="scroll8" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+Z_QUA_RZDJ+''
+                               +' </div> </div>'
+                               +' <div name="scroll8" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+Z_QUA_RZJG+''
+                               +' </div> </div>'
+                               +' <div name="scroll8" class=" b-wh uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT9034.item[i].Z_QUA_RZDF+''
+                              +'  </div> </div>'
+                           +' </div>'
+						   }
+						    $$('scroller8').innerHTML=template8;
+							}else{
+								$$('scroller8').innerHTML='';
+							}
+							if(!isEmptyObject(data.resulte.Z_IT9020)){
+							var template9 = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                               +' <div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                  +' <div class="list_padding"> 开始时间</div>'
+                               +' </div>'
+                               +' <div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 结束时间</div>'
+                               +' </div>'
+                               +' <div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +'<div class="list_padding">   培训形式</div>'
+                               +' </div>'
+                               +' <div name="scroll9" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                               +'    <div class="list_padding"> 培训项目</div>'
+                                +'</div>'
+                                +'<div name="scroll9" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'   <div class="list_padding"> 课程大类</div>'
+                               +' </div>'
+                               +' <div name="scroll9" class=" b-wh uinn7 tx-c ">'
+                                 +'  <div class="list_padding"> 课程小类</div>'
+                               +' </div>'
+                            +'</div>';
+							for(var i =0;i<data.resulte.Z_IT9020.item.length;i++){
+								if(data.resulte.Z_IT9020.item[i].ZZ_TE_FORMAT=='01'){
+									var ZZ_TE_FORMAT= '内部培训'
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_TE_FORMAT=='02'){
+									var ZZ_TE_FORMAT= '外部培训'
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_TE_FORMAT=='03'){
+									var ZZ_TE_FORMAT= '学历教育'
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_TE_FORMAT=='04'){
+									var ZZ_TE_FORMAT= '国外培训'
+								}
+								if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING1 == '01'){
+									var ZZ_LEIXING1='通用类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING1 == '02'){
+									var ZZ_LEIXING1='管理类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING1 == '03'){
+									var ZZ_LEIXING1='专业技术类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING1 == '04'){
+									var ZZ_LEIXING1='新人宣贯类';
+								}
+								
+								if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='10'){
+									var ZZ_LEIXING2='通用类-语言类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='11'){
+									var ZZ_LEIXING2='通用类-团队拓展类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='12'){
+									var ZZ_LEIXING2='通用类-职业技能类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='13'){
+									var ZZ_LEIXING2='通用类-讲堂类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='19'){
+									var ZZ_LEIXING2='通用类-其他';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='20'){
+									var ZZ_LEIXING2='管理类-基层经理类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='21'){
+									var ZZ_LEIXING2='管理类-中层经理类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='22'){
+									var ZZ_LEIXING2='管理类-高层经理类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='23'){
+									var ZZ_LEIXING2='管理类-经理全员类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='30'){
+									var ZZ_LEIXING2='专业技术类-研发类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='31'){
+									var ZZ_LEIXING2='专业技术类-制造类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='32'){
+									var ZZ_LEIXING2='专业技术类-质量类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='33'){
+									var ZZ_LEIXING2='专业技术类-供应链类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='34'){
+									var ZZ_LEIXING2='专业技术类-销售类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='35'){
+									var ZZ_LEIXING2='专业技术类-财务类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='36'){
+									var ZZ_LEIXING2='专业技术类-HR类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='37'){
+									var ZZ_LEIXING2='专业技术类-IT类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='39'){
+									var ZZ_LEIXING2='专业技术类-其他';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='40'){
+									var ZZ_LEIXING2='新入职社会人员类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='41'){
+									var ZZ_LEIXING2='新入职大学生类';
+								}else if(data.resulte.Z_IT9020.item[i].ZZ_LEIXING2=='42'){
+									var ZZ_LEIXING2='新人全员类';
+								}
+								template9+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh ">'
+                                +'<div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'
+                                  +'  '+data.resulte.Z_IT9020.item[i].ZZ_TE_BEG+''
+                               +' </div> </div>'
+                               +' <div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9020.item[i].ZZ_TE_END+''
+                               +' </div> </div>'
+                               +' <div name="scroll9" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_TE_FORMAT+''
+                               +' </div> </div>'
+                               +' <div name="scroll9" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9020.item[i].ZZ_TE_EVENT1+''
+                               +' </div> </div>'
+                               +' <div name="scroll9" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_LEIXING1+''
+                                +'</div> </div>'
+                               +' <div name="scroll9" class=" b-wh uinn7 tx-c "><div class="list_padding">'+ZZ_LEIXING2+''
+                               +' </div> </div>'
+                            +'</div>'
+							}
+							 $$('scroller9').innerHTML=template9;
+							 }else{
+							 	$$('scroller9').innerHTML='';
+							 }
+							 if(!isEmptyObject(data.resulte.Z_IT9008)){
+							 var template10 = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh zhy_in_m2 ">'
+                                +'<div name="scroll10" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                   +'<div class="list_padding"> 奖惩时间</div>'
+                               +' </div>'
+                                +'<div name="scroll10" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                 +'   <div class="list_padding">奖励或惩罚</div>'
+                                +'</div>'
+                                +'<div name="scroll10" class="ubr b-wh  uinn7 tx-c zhy_width_wel">'
+                                +'  <div class="list_padding">  奖惩事项</div>'
+                                +'</div>'
+                               +' <div name="scroll10" class="ubr b-wh uinn7 tx-c zhy_width_wel">'
+                                +'    <div class="list_padding">奖惩级别</div>'
+                                +'</div>'
+                               +' <div name="scroll10" class=" b-wh uinn7 tx-c ">'
+                                +'   <div class="list_padding"> 奖惩单位</div>'
+                               +' </div>'
+                            +'</div>';
+							for(var i =0;i<data.resulte.Z_IT9008.item.length;i++){
+									if(data.resulte.Z_IT9008.item[i].ZZ_A_OR_P=='1'){
+										var ZZ_A_OR_P = '奖励';
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_A_OR_P=='2'){
+										var ZZ_A_OR_P = '惩罚';
+									}
+									if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '01'){
+										var ZZ_AP_LEVEL= '国际级'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '02'){
+										var ZZ_AP_LEVEL= '国家级'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '03'){
+										var ZZ_AP_LEVEL= '省部级'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '04'){
+										var ZZ_AP_LEVEL= '地市级'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '05'){
+										var ZZ_AP_LEVEL= '区县级'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '06'){
+										var ZZ_AP_LEVEL= '集团'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '07'){
+										var ZZ_AP_LEVEL= '公司'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '08'){
+										var ZZ_AP_LEVEL= '部门'
+									}else if(data.resulte.Z_IT9008.item[i].ZZ_AP_LEVEL == '09'){
+										var ZZ_AP_LEVEL= '其他'
+									}
+								template10+='<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">'
+                                +'<div name="scroll10" class="ubr b-wh  uinn7 tx-c tx-c zhy_width_wel"><div class="list_padding">'
+                                  +'  '+data.resulte.Z_IT9008.item[i].ZZ_AP_DATE+''
+                               +' </div> </div>'
+                               +' <div name="scroll10" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_A_OR_P+''
+                               +' </div> </div>'
+                                +'<div name="scroll10" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">'+data.resulte.Z_IT9008.item[i].ZZ_JCSX+''
+                                +'</div> </div>'
+                               +' <div name="scroll10" class="ubr b-wh uinn7 tx-c zhy_width_wel"><div class="list_padding">'+ZZ_AP_LEVEL+''
+                                +'</div> </div>'
+                               +' <div name="scroll10" class=" b-wh uinn7 tx-c "><div class="list_padding">'+data.resulte.Z_IT9008.item[i].ZZ_GRANTED_BY+''
+                               +' </div> </div>'
+                            +'</div>'
+							}
+							$$('scroller10').innerHTML=template10;
+							}else{
+								$$('scroller10').innerHTML='';
+							}
+							 $closeToast();
+							 if(isAndroid){
+							  loaded();
+							 }else{
+							  borderloaded();
+					          loaded();
+							 }
+							 
+					
+				}
+			},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+			
+		}
+        var myScroll0;
+        var myScroll1;
+        var myScroll2;
+        var myScroll3;
+        var myScroll4;
+        var myScroll5;
+        var myScroll6;
+        var myScroll7;
+        var myScroll8;
+        var myScroll9;
+        var myScroll10;
+        function loaded(){
+		if(isAndroid){
+		}else{
+		 myScroll0 = new IScroll('#wrapper0', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll1 = new IScroll('#wrapper1', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll2 = new IScroll('#wrapper2', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll3 = new IScroll('#wrapper3', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll4 = new IScroll('#wrapper4', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll5 = new IScroll('#wrapper5', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll6 = new IScroll('#wrapper6', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll7 = new IScroll('#wrapper7', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll8 = new IScroll('#wrapper8', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll9 = new IScroll('#wrapper9', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+            myScroll10 = new IScroll('#wrapper10', {
+                scrollX: true,
+                freeScroll: true,
+                momentum: true,
+                hScroll: true
+            });
+		}
+            
+            var scroll0 = document.getElementsByName('scroll0');
+            var length0 = $$('scroller0').children.length;
+            
+            var scroll1 = document.getElementsByName('scroll1');
+            var length1 = $$('scroller1').children.length;
+            
+            var scroll2 = document.getElementsByName('scroll2');
+            var length2 = $$('scroller2').children.length;
+            
+            var scroll3 = document.getElementsByName('scroll3');
+            var length3 = $$('scroller3').children.length;
+            
+            var scroll4 = document.getElementsByName('scroll4');
+            var length4 = $$('scroller4').children.length;
+            
+            var scroll5 = document.getElementsByName('scroll5');
+            var length5 = $$('scroller5').children.length;
+            
+            var scroll6 = document.getElementsByName('scroll6');
+            var length6 = $$('scroller6').children.length;
+            
+            var scroll7 = document.getElementsByName('scroll7');
+            var length7 = $$('scroller7').children.length;
+            
+            var scroll8 = document.getElementsByName('scroll8');
+            var length8 = $$('scroller8').children.length;
+            
+            var scroll9 = document.getElementsByName('scroll9');
+            var length9 = $$('scroller9').children.length;
+            
+            var scroll10 = document.getElementsByName('scroll10');
+            var length10 = $$('scroller10').children.length;
+            
+            for (var i = 0; i < scroll0.length; i++) {
+				if(isAndroid){
+				scroll0[i].style.width = s.width.split('px')[0] / (scroll0.length / length0) + 'px';
+				}else{
+				scroll0[i].style.width = 700 / (scroll0.length / length0) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll1.length; i++) {
+				if(isAndroid){
+				scroll1[i].style.width = s.width.split('px')[0] / (scroll1.length / length1) + 'px';
+				}else{
+				scroll1[i].style.width = 700 / (scroll1.length / length1) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll2.length; i++) {
+			if(isAndroid){
+				scroll2[i].style.width = s.width.split('px')[0] / (scroll2.length / length2) + 'px';
+				}else{
+				scroll2[i].style.width = 400 / (scroll2.length / length2) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll3.length; i++) {
+			if(isAndroid){
+				scroll3[i].style.width = s.width.split('px')[0]  / (scroll3.length / length3) + 'px';
+				}else{
+				scroll3[i].style.width = 700 / (scroll3.length / length3) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll4.length; i++) {
+			if(isAndroid){
+				scroll4[i].style.width = s.width.split('px')[0] / (scroll4.length / length4) + 'px';
+				}else{
+				scroll4[i].style.width = 700 / (scroll4.length / length4) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll5.length; i++) {
+			if(isAndroid){
+				 scroll5[i].style.width = s.width.split('px')[0] / (scroll5.length / length5) + 'px';
+				}else{
+				 scroll5[i].style.width = 400 / (scroll5.length / length5) + 'px';
+				}
+               
+            }
+            for (var i = 0; i < scroll6.length; i++) {
+			if(isAndroid){
+				scroll6[i].style.width = s.width.split('px')[0] / (scroll6.length / length6) + 'px';
+				}else{
+				scroll6[i].style.width = 700 / (scroll6.length / length6) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll7.length; i++) {
+			if(isAndroid){
+				 scroll7[i].style.width = s.width.split('px')[0] / (scroll7.length / length7) + 'px';
+				}else{
+				 scroll7[i].style.width = 700 / (scroll7.length / length7) + 'px';
+				}
+               
+            }
+            for (var i = 0; i < scroll8.length; i++) {
+			if(isAndroid){
+				scroll8[i].style.width = s.width.split('px')[0] / (scroll8.length / length8) + 'px';
+				}else{
+				scroll8[i].style.width = 700 / (scroll8.length / length8) + 'px';
+				}
+                
+            }
+            for (var i = 0; i < scroll9.length; i++) {
+			if(isAndroid){
+				 scroll9[i].style.width = s.width.split('px')[0] / (scroll9.length / length9) + 'px';
+				}else{
+				 scroll9[i].style.width = 700 / (scroll9.length / length9) + 'px';
+				}
+               
+            }
+            for (var i = 0; i < scroll10.length; i++) {
+			if(isAndroid){
+				  scroll10[i].style.width = s.width.split('px')[0] / (scroll10.length / length10) + 'px';
+				}else{
+				  scroll10[i].style.width = 500 / (scroll10.length / length10) + 'px';
+				}
+              
+            }
+            event.stopPropagation();
+			
+			
+        }
+        function intval(v) {
+    v = parseInt(v);
+    return isNaN(v) ? 0 : v;
+}
+function getPos(e) {
+    var l = 0;
+    var t = 0;
+    var w = intval(e.style.width);
+    var h = intval(e.style.height);
+    var wb = e.offsetWidth;
+    var hb = e.offsetHeight;
+    while (e.offsetParent) {
+        l += e.offsetLeft + (e.currentStyle ? intval(e.currentStyle.borderLeftWidth) : 0);
+        t += e.offsetTop + (e.currentStyle ? intval(e.currentStyle.borderTopWidth) : 0);
+        e = e.offsetParent;
+    }
+    l += e.offsetLeft + (e.currentStyle ? intval(e.currentStyle.borderLeftWidth) : 0);
+    t += e.offsetTop + (e.currentStyle ? intval(e.currentStyle.borderTopWidth) : 0);
+    return {
+        x: l,
+        y: t,
+        w: w,
+        h: h,
+        wb: wb,
+        hb: hb
+    };
+}
+function getScroll() {
+    var t, l, w, h;
+    if (document.documentElement && document.documentElement.scrollTop) {
+        t = document.documentElement.scrollTop;
+        l = document.documentElement.scrollLeft;
+        w = document.documentElement.scrollWidth;
+        h = document.documentElement.scrollHeight;
+    } else if (document.body) {
+        t = document.body.scrollTop;
+        l = document.body.scrollLeft;
+        w = document.body.scrollWidth;
+        h = document.body.scrollHeight;
+    }
+    return {
+        t: t,
+        l: l,
+        w: w,
+        h: h
+    };
+}
+function scroller(el, duration) {
+    if (typeof el != "object") {
+        el = document.getElementById(el);
+    }
+    if (!el) return;
+    var z = this;
+    z.el = el;
+    z.p = getPos(el);
+    z.s = getScroll();
+    z.clear = function() {
+        window.clearInterval(z.timer);
+        z.timer = null
+    };
+    z.t = (new Date).getTime();
+    z.step = function() {
+        var t = (new Date).getTime();
+        var p = (t - z.t) / duration;
+        if (t >= duration + z.t) {
+            z.clear();
+            window.setTimeout(function() {
+                z.scroll(z.p.y, z.p.x)
+            }, 13);
+        } else {
+            st = ((-Math.cos(p * Math.PI) / 2) + 0.5) * (z.p.y - z.s.t) + z.s.t;
+            sl = ((-Math.cos(p * Math.PI) / 2) + 0.5) * (z.p.x - z.s.l) + z.s.l;
+            z.scroll(st, sl);
+        }
+    };
+    z.scroll = function(t, l) {
+        window.scrollTo(l, t)
+    };
+    z.timer = window.setInterval(function() {
+        z.step();
+    }, 13);
+}
+        var bordermyScroll;
+        
+        function borderloaded(){
+            bordermyScroll = new IScroll('#border_scroll', {
+                startX: 0,
+                startY: 0,
+            
+            });
+            //bordermyScroll = new IScroll('#border_scroll', { bounceEasing: 'elastic', bounceTime: 1200 });
+			
+        }
+        
+        function scroll_con(){
+		var name = getLocVal('menuname');
+		if(isAndroid){
+			scroller('zhy_menu'+name+'', 200);
+		}else{
+		//alert('1111')
+            
+            bordermyScroll.scrollTo(0, -$$('zhy_menu' + name).offsetTop, 400, IScroll.utils.ease.back);
+		}
+            
+            
+        }
+        if(isAndroid){
+		
+		}else{
+		document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+        
+        
+    </script>
+</html>

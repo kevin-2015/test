@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/iscroll.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="body" class="um-vp zhy_border zhy_ov_x" ontouchstart>
+        <div id="border_scroll" class="zhywrapper">
+            <div id="border_scroller" class="zhyscroller">
+                <div id="menu_border1" class="">
+                    <!--块容器开始-->
+                    <div class="ub ub-ver  zhy_server_bg  t-wh ">
+                        <div class=" uinn uc-t1">
+                            月度工资
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+					<div class="ub ub-ver">
+                        <div class=" uinn uc-t1">
+                            <!--块容器开始-->
+                            <div class="ub   uc-a1 ">
+                                <div class="ub-f1 uinn uc-l1">
+                                    <!--文本开始-->
+                                    <div class="c-wh uba uc-a1 b-gra  uinput uinn4">
+                                        <div onclick="createYearMonthPicker(0)" id="openday0" placeholder="" type="text" class="uc-a1" style=" padding:.4em; color:#cccccc;">开始时间</div>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                                <div class="uinn ub ub-pc ub-ac t-wh">
+                                    -
+                                </div>
+                                <div class="ub-f1 uinn uc-r1">
+                                    <!--文本开始-->
+                                    <div class="c-wh uba uc-a1 b-gra  uinput uinn4">
+                                        <div onclick="createYearMonthPicker(1)" id="openday1" placeholder="" type="text" class="uc-a1" style=" padding:.4em; color:#cccccc;">结束时间</div>
+                                    </div>
+                                    <!--文本结束-->
+                                </div>
+                            </div>
+                            <!--块容器结束-->
+                        </div>
+                    </div>
+					<div class="ub ub-ver  t-wh ">
+                        <div class=" uinn uc-t1">
+                            <!--按钮开始-->
+                            <div onclick="search(0,1)" style=" text-align:center;" ontouchstart="zy_touch('btn-act')" class="btn  uinn5 zhy_login_bg c-m1 uc-a t-wh">
+                                查询
+                            </div>
+                            <!--按钮结束-->
+                        </div>
+                    </div>
+                    <!--块容器开始-->
+					<div id="nocon"></div>
+                    <div id="wrapper1" class="uhide">
+                        <div id="scroller1" class="scroller" style="width:1000px;">
+                            
+                           
+                        </div>
+                    </div>
+                    <!--块容器结束-->
+                </div>
+            </div>
+            <!--块容器结束-->
+        </div>
+		 <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+		var PERNR= '00599999';
+		var ITCODE = 'MAWENBO';
+		var s = window.getComputedStyle(document.body, null);
+        window.uexOnload = function(type){
+		
+            if (!type) {
+				if(isAndroid){
+					$$('scroller1').style.width= s.width;
+					$$('border_scroll').className = 'um-vp';
+					$$('border_scroller').className = '';
+					$$('body').className= 'um-vp zhy_border';
+				}else{
+					
+				}
+				PERNR=getLocVal('login_pernr').split(';')[0];
+            var day = new Date();
+			var  year = day.getFullYear();
+			var month = parseInt(day.getMonth()+1) < 9 ? '0'+ parseInt(day.getMonth()+1)+'' : ''+ parseInt(day.getMonth()+1)+'';
+			var data = parseInt(day.getDate()) < 9 ? '0'+parseInt(day.getDate())+'' : ''+parseInt(day.getDate())+'';
+			$$('openday0').innerHTML= year+month;
+			$$('openday1').innerHTML= year+month;
+            }
+           
+        }
+         /*************年-月 选择器*************/
+        function createYearMonthPicker(num){
+            uexPicker.resultData = function(result){
+                if (result != '(null)') {
+                    $$('openday' + num).innerHTML = result.split('-')[0]+result.split('-')[1];
+                }
+                else {
+                
+                }
+                
+            };
+            var W = window.screen.width;
+            var bodyObj = window.getComputedStyle(document.body, null);
+            var fz = int(bodyObj.fontSize);
+            var opid = 'as500';
+            var x = 0;
+            var width = W > 1000 ? int(bodyObj.width) * 2 : int(bodyObj.width);
+            var height = W > 1000 ? 16 * fz * 2 : 16 * fz;
+            var y = height;
+            var typeID = '4';
+            var selFontz = W > 1000 ? 3 * fz : 1.5 * fz;
+			var android = window.navigator.userAgent.indexOf('Android');
+			if (android >= 0) {
+        			selFontz = W > 1000 ? 1.5 * fz : 32;
+   				 }
+            var pickerJson = '{"pickerConfig":{"frameBgColor":"#ffffff","frameBroundColor":"#bdbdbd","frameBgImg":"res://frame_bg.png","fontSize":"' + selFontz + '","fontColor":"rgba(0,0,0,100)","selFontColor":"#023BA1","selbgColor":"#e3eaf4","selbgImg":"res://bar.png","btnNBgImg":"res://left.png","btnHLBgImg":"res://right.png","btnFontSize":"17","btnNFontColor":"#fff","btnHLFontColor":"#ffffff","btnSize":"60,34","btnTextLeft":"取消","btnTextRight":"确定"}}';
+            
+            uexPicker.open(opid, x, y, width, height, typeID, pickerJson);
+        }
+        function search(num, num1){
+			 var search_con = $$('openday' + num).innerHTML;
+            var search_con1 = $$('openday' + num1).innerHTML;
+            if (search_con == '开始时间' || search_con1 == '结束时间') {
+				alert_login('请输入查找的时间范围', 3000);
+			}
+			else {
+			 setLocVal('PayrollRead',search_con+';'+search_con1);
+				$toast('努力加载中,请稍候....');
+				$$('wrapper1').className = 'wrapper';
+				var url_data = Interface + 'PayrollRead?PERNR=' + PERNR + '&ITCODE=' + ITCODE + '&SALARY_VIEW=X&Z_PAPER_B='+search_con+'&Z_PAPER_E='+search_con1;
+				$.getJSON(url_data, function(data){
+					if (data.status == 0) {
+						if (!isEmptyObject(data.resulte.Z_SALARY)) {
+							if (data.resulte.Z_SALARY.item.length != 0) {
+								var template = '<div class="ub ubl ubr ubt b-wh zhy_server_bg2 ulev-1 t-wh  zhy_in_m2">' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c  zhy_width_wel">' +
+								'<div class="list_padding">月份</div>' +
+								'</div>' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding"> 标准月薪</div>' +
+								'</div>' +
+								' <div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'    <div class="list_padding">应发</div> ' +
+								'</div>' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding">实发1</div>' +
+								' </div>' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding">实发2</div>' +
+								'</div>' +
+								'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding">实际发放总额</div>' +
+								'</div>' +
+								'<div name="scroll1" class=" b-wh  uinn7 tx-c zhy_width_wel">' +
+								'   <div class="list_padding">详细</div>' +
+								'</div>' +
+								'</div>'
+								var arr = data.resulte.Z_SALARY.item;
+	var newList = {};
+	var tmp_key = "";
+	for(var i = 0; i < arr.length;i++){
+		var key = arr[i].PAPER
+		if(key != tmp_key){
+			newList[key] = [];
+			tmp_key = key;
+		}
+		newList[key].push(arr[i]);
+	}
+	
+for(var key in newList){
+	 var shifa=0;
+								var yf1=0;
+								var yf2=0;
+								var biaozhun = 0;
+								var shiji=0;
+								var xiangxi ='';
+	for(var i in newList[key]){
+		if(newList[key][i].SEQNR=='901'){
+								 shifa =newList[key][i].BETRG;
+							}
+							if(newList[key][i].SEQNR=='902'){
+								yf1=newList[key][i].BETRG;
+							}
+							if(newList[key][i].SEQNR=='903'){
+								yf2=newList[key][i].BETRG;
+							}
+							if(newList[key][i].SEQNR=='900'){
+								biaozhun=newList[key][i].BETRG;
+							}
+							shiji= parseFloat(yf1+yf2) ;
+					xiangxi+=	newList[key][i].ZZ_HBGZXCWB+'：'	+newList[key][i].BETRG
+	}	
+	var con =xiangxi;
+	template += '<div class="ub uba b-wh zhy_server_bg2 ulev-1 t-wh  ">' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c  zhy_width_wel"><div class="list_padding">' +
+									' '+newList[key][0].PAPER+'' +
+									' </div></div>' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									biaozhun +
+									'' +
+									'</div></div>' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									shifa +
+									'' +
+									'</div></div>' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									yf1 +
+									'' +
+									'</div></div>' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									yf2 +
+									'' +
+									'</div></div>' +
+									'<div name="scroll1" class="ubr b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">' +
+									shiji +
+									'' +
+									'</div></div>' +
+									'<div name="scroll1" onclick="wage_d('+newList[key][0].PAPER+')" class=" b-wh  uinn7 tx-c zhy_width_wel"><div class="list_padding">查看' +
+									'</div></div>' +									
+									'   </div>'
+}
+								$$('scroller1').innerHTML = template;
+							}
+							else {
+								$$('wrapper1').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl zhy_in_m2 ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							}
+						}else {
+								$$('wrapper1').className = 'uhide';
+								$$('nocon').innerHTML = '<div class="ub ubl zhy_in_m2 ubr uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+							}
+						
+					}
+					else {
+						$$('wrapper1').className = 'uhide';
+						$$('nocon').innerHTML = '<div class="ub ubl ubr zhy_in_m2 uinn ubb ubt b-wh zhy_server_bg2 ulev-1 t-wh  ">暂无内容</div>';
+						
+					}
+					if(isAndroid){
+						loaded();
+					}else{
+						borderloaded();
+						loaded();
+					}
+				}, "json", function(e){
+					getJSONError(e)
+				}, "GET", "", false);
+			}
+		}
+        var myScroll1;
+        function loaded(){
+			if(isAndroid){
+				
+			}else{
+				myScroll1 = new IScroll('#wrapper1', {
+                scrollX: true,
+                freeScroll: true
+            });
+			}
+            
+            var scroll1 = document.getElementsByName('scroll1');
+            var length1 = $$('scroller1').children.length;
+            for (var i = 0; i < scroll1.length; i++) {
+				if(isAndroid){
+					scroll1[i].style.width = s.width.split('px')[0] / (scroll1.length / length1) + 'px';
+				}else{
+					scroll1[i].style.width = 1000 / (scroll1.length / length1) + 'px';
+				}
+                
+            }
+            $closeToast();
+        }
+        
+        var bordermyScroll;
+        
+        function borderloaded(){
+             bordermyScroll = new IScroll('#border_scroll', {
+                mouseWheel: true,
+                click: true
+            });
+        }
+        if(isAndroid){
+			
+		}else{
+			 document.addEventListener('touchmove', function(e){
+            e.preventDefault();
+        }, false);
+		}
+       
+		
+		function wage_d(time){
+			setLocVal('details_time',time);
+		uescript('information','details_wage()');	
+		}
+    </script>
+</html>

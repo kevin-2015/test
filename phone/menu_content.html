@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+    </head>
+    <body class="um-vp" ontouchstart>
+        <div id="menu_border" class="menu_border">
+            <div class="ub zhy_by">
+                <div class="">
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('0')">
+                        基础信息
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('13')">
+                        证件信息
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('1')">
+                        任职信息
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('2')">
+                        教育经历
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('3')">
+                        工作经历
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('4')">
+                        外派信息
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('5')">
+                        合同类型
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('6')">
+                        家庭成员
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('7')">
+                        外语水平
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('8')">
+                        国家职称
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('9')">
+                        技能等级
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('10')">
+                        任职资格
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('11')">
+                        培训信息
+                    </div>
+                    <div class="zhy_menu_bg ub ub-pc ub-ac" onclick="scroll_menu('12')">
+                        奖惩信息
+                    </div>
+                </div>
+                <div class="ub-f1 zhy_close" onclick="close_pop()">
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        zy_init();
+        window.uexOnload = function(type){
+            if (!type) {
+            
+            }
+        }
+        function close_pop(){
+            uescript('information', 'hidden_left()');
+            uexWindow.closePopover('menu');
+        }
+        
+        function scroll_menu(name){
+            setLocVal('menuname', name);
+            //alert('111')
+            uescript('information', 'scroll_border()');
+        }
+    </script>
+</html>

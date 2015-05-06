@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/ui-res.css">
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/main.js">
+        </script>
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script src="js/zy_json.js">
+        </script>
+    </head>
+    <body id="header" class="um-vp zhy_border" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0">
+            <!--content开始-->
+            <div id="content" class="ub-f1 tx-l  ub-img6">
+                <div class="t-wh ub ub-pc zhy_login_t ulev2">
+                    TCL移动办公系统
+                </div>
+                <!--块容器开始-->
+                <div class="ub ub-ver uc-a1 t-wh uinn zhy_in_m">
+                    <div class=" uinn uc-t1">
+                        <!--文本开始-->
+                        <div class="c-wh  uc-a1  us-i uinput uinn4">
+                            <input placeholder="请输入用户名" id="username" type="text" class="uc-a1 ulev-1 zhy_input" value="">
+                        </div><!--文本结束-->
+                    </div>
+                </div>
+                <div class="ub ub-ver uc-a1 t-wh uinn">
+                    <div class=" uinn uc-t1">
+                        <!--文本开始-->
+                        <div class="c-wh  uc-a1  us-i uinput uinn4">
+                            <input onfocus="change()" onclick="change()"  placeholder="请输入密码" id="userpass" type="text" class="uc-a1 ulev-1 zhy_input" value="">
+                        </div><!--文本结束-->
+                    </div>
+                </div><!--块容器结束-->
+                <!--块容器开始-->
+                <div class="ub   t-wh uc-a1 ">
+                    <div class=" ub-f1 uinn uc-l1">
+                        <!--复选框开始-->
+                        <input id="remember" type="checkbox" name="remember" class="uhide" value="">
+                        <div onclick="zy_for(event)" ontouchstart="zy_touch('btn-act')" class="ub uc-a1  t-bla uinn5 ">
+                            <div class="che-icon ub-img umw1">
+                            </div>
+                            <div class="ub-f1 ut-s tx-l zhy_ml">
+                                记住密码
+                            </div>
+                        </div>
+                        <!--复选框结束-->
+                    </div>
+                    <div class="ub-f1 uinn ">
+                        <!--复选框开始-->
+                        <input id="automatic" type="checkbox" name="automatic" class="uhide" value="">
+                        <div onclick="zy_for(event);zd_login()" ontouchstart="zy_touch('btn-act')" class="ub uc-a1  t-bla uinn5 ">
+                            <div class="che-icon ub-img umw1">
+                            </div>
+                            <div class="ub-f1 ut-s tx-l zhy_ml">
+                                自动登录
+                            </div>
+                        </div>
+                        <!--复选框结束-->
+                    </div>
+                </div>
+                <!--块容器结束-->
+                <!--块容器开始-->
+                <div class="ub ub-ver t-wh uinn" onclick="login()">
+                    <div  class="uinn uc-t1">
+                        <!--按钮开始-->
+                        <div    class="btn  uinn5 zhy_login_bg  uc-a t-wh">
+                            登录
+                        </div>
+                        <!--按钮结束-->
+                    </div>
+                </div>
+                <!--块容器结束-->
+            </div>
+            <!--content结束-->
+        </div>
+        <div id="login_window">
+        </div>
+    </body>
+    <script>
+        zy_init();
+        window.uexOnload = function(type){
+            add20ToHeader(zhycheck);
+    	   //获取自定义参数返回
+        uexEMM.cbUpdateParams =function(id,type,data){
+           // alert('后台返回的数据：'+JSON.stringify(data));
+            //uexLog.sendLog('back:');
+            //uexLog.sendLog(JSON.stringify(data));
+            //alert("自定义参数："+data);
+            alert(2);
+            setStorage('Params',data);
+        }
+         uexEMM.cbGetLoginProperty = function(opid,dataType,json){
+            alert("cbGetLoginProperty:"+json);
+        }
+		uexEMM.cbLogin = function(opid,dataType,json){
+            alert("cbLogin:"+json);
+            getParams();
+           // getLoginProperty();
+        }
+
+            if (getLocVal('remember') && getLocVal('automatic') == 0) {
+				 $$('userpass').type = 'password';
+                $$('username').value = getLocVal('remember').split(';')[0];
+                $$('userpass').value = getLocVal('remember').split(';')[1];
+                $$('remember').checked = true;
+                $$('automatic').checked = true;
+                login();
+            }
+            else {
+                if (getLocVal('remember')) {
+					 $$('userpass').type = 'password';
+                    $$('username').value = getLocVal('remember').split(';')[0];
+                    $$('userpass').value = getLocVal('remember').split(';')[1];
+                    $$('remember').checked = true;
+                }
+                else {
+                    $$('username').value = '';
+                    $$('userpass').value = '';
+                    $$('remember').checked = false;
+                    $$('automatic').checked = false;
+                }
+            }
+        }
+        function zhycheck(){
+            uexWindow.setStatusBarTitleColor(0);
+        }
+        
+        function login(){
+			
+            var username = $$('username').value;
+            var userpass = $$('userpass').value;
+			
+            if (username == '' || userpass == '') {
+                alert_login('用户名和密码不能为空', 3000);
+            }else {
+				
+                if ($$('remember').checked == true && $$('automatic').checked == true) {//记住密码and自动登录
+                    setLocVal('remember', username + ';' + userpass);
+                    setLocVal('automatic', 0);
+                }
+                else {
+                    if ($$('remember').checked == true) {
+                        setLocVal('remember', username + ';' + userpass);
+                        setLocVal('automatic', 1);
+                    }else {
+                        setLocVal('remember', '');
+                        setLocVal('automatic', 1);
+                    }
+                }
+				//alert(username+'---'+userpass)
+              var url_data = zhy_url+'OALogin?userId='+ encodeURIComponent(encodeURIComponent(username)) +'&passWord='+encodeURIComponent(encodeURIComponent(userpass)) ;
+				//alert(url_data)
+					$.getJSON(url_data,function(data){
+					//alert(data)
+						if(data.status==0){								
+							$toast('登录中,请稍候....');
+							var datas = JSON.parse(data.result);
+							if(datas.success== true){
+							//	Login_emm();
+								loginuser_id();
+							}else{
+								$closeToast();
+								alert_login('户账号和密码错误',3000);
+							}
+							
+						}else{
+							$closeToast();
+								alert_login('户账号和密码错误',3000);
+							}
+					},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+              
+            }
+        }
+        function loginuser_id(){
+			var username = $$('username').value;
+			  var url_data= Interface+'getLoginName?loginName='+encodeURIComponent(encodeURIComponent(username))
+				$.getJSON(url_data,function(data){
+					if(data.status==0){
+						if(!isEmptyObject(data.result.return)){
+							$closeToast();
+							setLocVal('login_pernr',data.result.return+';'+username);						 
+							  openNewWin('index', 'index.html', 0);
+						}else{
+							alert_login("您的账号没有对应的工号,可以设置一个默认的先进行测试",3000);
+						}
+					}else{
+							alert_login("您的账号没有对应的工号,可以设置一个默认的先进行测试",3000);
+						}
+				},"json",function(e){
+					getJSONError(e)
+				},"GET","",false);
+		}
+        function change(){
+            $$('userpass').type = 'password';
+        }
+        
+        function zd_login(){
+            if ($$('automatic').checked == true) {
+                $$('remember').checked = true;
+            }
+            else {
+            
+            }
+        }
+		function getLoginProperty(){
+        uexEMM.getLoginProperty();
+    }
+    //获取自定义参数
+        function getParams(){
+            clearStorage("Params");
+            uexEMM.updateParams();
+        }
+
+	  function Login_emm(){
+         var domainName = 'tcl';
+	     var username = $$('username').value;
+         var userpass = $$('userpass').value;
+         var json = '{"loginName":"'+username+'","loginPass":"'+userpass+'","authType":"","domainName":"'+domainName+'"}';
+         alert(json);
+         uexEMM.login(json);
+    }
+    </script>
+</html>
