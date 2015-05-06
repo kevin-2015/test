@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{cb:$1}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="">
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05">
+    	<div class="type_title" id="type_title" style="line-height: 2.8em;color: #FFF;">
+        	
+        </div>
+    	<div class="type_menu ub ub-ac tx-c" style="position:relative;width:100%;">
+        	<div class="ub-f1 type_line" id="size_tab">按尺寸分类</div>
+            <div class="ub-f1 type_line" onclick="news_pro();">最新上架</div>
+            <div class="ub-f1" id="gn_tab">产品分辨率</div>
+            <div id="size" class="uhide">
+            	<ul class="dialog" style="width:100%">
+            		<ul id="tem_list">
+            			
+            		</ul>
+                    <li class="size_up c_5fa" style="color:#fff">收起</li>
+     		   </ul>
+            </div>
+			<div id="gongneng" class="uhide">
+            	<ul class="dialog" style="width:100%">
+            		<ul id="tem_list2">
+            			
+            		</ul>
+                     <li class="size_up c_5fa"  style="color:#fff;">收起</li>
+       			 </ul>
+            </div>
+        </div>
+        <div class="type_list">
+            <ul class=" mar_t04" id="type_list" style="width:100%; ">
+               
+               
+            </ul>
+			<div style="clear:both;"></div>
+       </div>
+       <!--div id="more" class="t_7f7 more">查看更多&gt;</div-->
+    </div>
+    <div class="footer  mar_t1">
+		<script src="js/footer.js"></script>
+    </div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		$$('type_title').innerHTML=decodeURIComponent(decodeURIComponent(getQueryString('name')));
+		modifytitleandsoon([decodeURIComponent(decodeURIComponent(getQueryString('name')))])
+		header_fenlei();
+			islogin();
+			theme_list();
+	}
+	function show_list(id,typeid){
+		if(id==2){//尺寸
+			var url_data = base_url + 'product_list?category='+getQueryString('category')+'&sizearea='+typeid;
+		}else if(id==1){//分辨率
+			var url_data = base_url + 'product_list?category='+getQueryString('category')+'&resolution='+typeid;
+		}else if(id==3){
+			var url_data = base_url + 'product_list?createdAt&category='+getQueryString('category');
+		}else{
+				var url_data = base_url + 'product_list?category='+getQueryString('category');
+		}
+		
+		jQuery.getJSON(url_data, function(data){
+			if (data.status == 1) {
+				if(data.data!=''){
+					var list_html = '';
+					for (var i = 0; i < parseInt(data.data.length / 2); i++) {
+						 list_html += '<div style="overflow: hidden;"><li class="tx-c" onclick="go_detail('+data.data[i].id+',\''+data.data[i].name+'\')" style="float:left;">'
+						 +'<div style=" padding:1.2em;">'
+						 +'<div style="border:1px solid #a9a9a9;">'
+	                   				 +'<div class="">'
+	                        		 +'<img src="'+base_url+data.data[i].accessUrl+'" style="width: 100%;" />'
+	                   				 +'</div>'
+	                    			 +'<div class="mar_t05 font_01" style="padding-bottom: 1em;">'
+	                        		 +'<p>'+data.data[i].name+'</p>'
+	                        		 +'<p class="mar_t04" style="padding:0 0.5em;">'+data.data[i].description+'</p>'
+	                   			 	 +'</div>'
+									  +'</div>'
+									   +'</div>'
+	                				 +'</li>'	
+									+  '<li class="tx-c" onclick="go_detail('+data.data[i].id+',\''+data.data[i].name+'\')" style="float:left;">'
+									+'<div style=" padding:1.2em;">'
+									+'<div style="border:1px solid #a9a9a9; ">'
+	                   				 +'<div class="">'
+	                        		 +'<img src="'+base_url+data.data[i+1].accessUrl+'" style="width: 100%;" />'
+	                   				 +'</div>'
+	                    			 +'<div class="mar_t05 font_01" style="padding-bottom: 1em;">'
+	                        		 +'<p style="padding:0 0.5em;">'+data.data[i+1].name+'</p>'
+	                        		 +'<p class="mar_t04" style="padding:0 0.5em;">'+data.data[i+1].description+'</p>'
+	                   			 	 +'</div>'
+									 +'</div>'
+									 +'</div>'
+	                				 +'</li></div>'		
+					}
+						if (parseInt(data.data.length) % 2 == 1) {
+							list_html+= '<div style="overflow: hidden;"><li class="tx-c" onclick="go_detail('+data.data[i].id+',\''+data.data[i].name+'\')" style="float:left;">'
+							+'<div style=" padding:1.2em;">'
+							 +'<div style="border:1px solid #a9a9a9;">'
+	                   				 +'<div class="">'
+	                        		 +'<img src="'+base_url+data.data[i].accessUrl+'" style="width: 100%;" />'
+	                   				 +'</div>'
+	                    			 +'<div class="mar_t05 font_01" style="padding-bottom: 1em;">'
+	                        		 +'<p style="padding:0 0.5em;">'+data.data[i].name+'</p>'
+	                        		 +'<p class="mar_t04" style="padding:0 0.5em;">'+data.data[i].description+'</p>'
+	                   			 	 +'</div>'
+									 +'</div>'
+									 +'</div>'
+	                				 +'</li></div>'	
+						}
+					$$("type_list").innerHTML = list_html;
+				}else{
+					$$("type_list").innerHTML = '暂无产品信息';
+				}
+			}else{
+				alert("data error")
+			}
+			})
+	}
+	jQuery(function(){
+		/*
+jQuery("#more").click(function(){
+			$$("more").innerHTML = "加载中...";
+			setTimeout(function(){
+				$$("add").className="ub mar_t04 ";
+				$$("more").innerHTML = "查看更多&gt;";
+			},1500)
+			
+		})
+*/
+		jQuery("#size_tab").click(function(){
+			$$("size").className = "";
+		})
+		jQuery(".size_up").click(function(){
+			$$("size").className = "uhide";
+		})
+		jQuery("#gn_tab").click(function(){
+			$$("gongneng").className = "";
+		})
+		jQuery(".size_up").click(function(){
+			$$("gongneng").className = "uhide";
+		})
+	})
+	
+	//获取分辨率
+function theme_list(){
+	var url_data = base_url+"product_parameter";			
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==1){
+			if(data.theme!=''){
+				var template='';
+				for(var i =0;i<data.sizearea.length;i++){
+					template+='<li class="" onclick="sizearea_pros('+data.sizearea[i].id+')">'+data.sizearea[i].name+'</li>'
+				}
+				
+				$$('tem_list').innerHTML= template;
+			}else{
+				$$('tem_list').innerHTML= '暂无信息列表';
+			}
+			if(data.resolution!=''){
+				var template2='';
+				for(var i =0;i<data.resolution.length;i++){
+					template2+=' <li class="" onclick="sizearea_pro('+data.resolution[i].id+')">'+data.resolution[i].name+'</li>';
+				}
+					$$('tem_list2').innerHTML= template2;
+			}else{
+				$$('tem_list2').innerHTML= '暂无信息列表';
+			}
+		}else{
+			alert(data.message);
+		}
+		show_list();
+	});
+}
+//分辨率
+function sizearea_pro(sizeid){
+	$$("gongneng").className = "uhide";
+	show_list('1',sizeid);
+	
+}
+//尺寸
+function sizearea_pros(typeid){
+	$$("size").className = "uhide";
+	show_list('2',typeid);
+	
+}
+function news_pro(){
+	show_list('3','1');
+}
+</script>
+</html>

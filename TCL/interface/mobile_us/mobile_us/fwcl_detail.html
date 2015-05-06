@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{cb:$1}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05">
+        <div class="fwcl ub ub-ac c_fff fwcl_title " style="width:100%;">
+            <div class="c_5fa fw_back" style="height:3em;width:4em" onClick="go_page()"></div>
+            <div class="c_5fa fwcl_tab ub-f1 tx-c"><span class="font_02" id="names"></span></div>
+            <div class="c_5fa" style="height:3em;width:4em">
+          
+            </div>
+        </div>
+        <div class="az_text" style="text-indent:2em" id="zhy_con">
+          
+        </div>
+    </div>
+
+    <div class="footer  mar_t">
+    	
+		 <script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+	var typeid='';
+var typename= '';
+var zhy_type='';
+		window.onload = function(e){
+			typeid=getQueryString('typeid');
+		typename=getQueryString('typename');
+		zhy_type=getQueryString('zhy_type');
+		$$('names').innerHTML= decodeURIComponent(decodeURIComponent(typename));
+		modifytitleandsoon([decodeURIComponent(decodeURIComponent(typename))])
+			header_fenlei();
+			islogin();
+			list();
+	}
+	function list(){
+		var url_data=base_url+'article_get?id='+typeid;
+		jQuery.getJSON(url_data,function(data){
+				if(data.status==0){
+						if(data.data!=''){
+								var template='';
+								for(var i=0;i<data.data.length;i++){
+									if(typeid == data.data[i].id){
+											$$('zhy_con').innerHTML=data.data[i].content;
+									}	
+								}
+						}else{
+							$$('zhy_con').innerHTML='No information content';
+						}
+					
+				}else{
+					alert(data.message);
+				}
+			
+		});
+	}
+	function go_page(){
+		if(zhy_type==1){
+			window.history.go(-2);
+		}else if(zhy_type==2){
+			window.history.go(-1);
+		}
+	}
+</script>
+</html>

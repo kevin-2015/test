@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.system.support.supportname">系统管理</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader ">
+  		<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='system_management.html'" data-localize="tcl.system.home.homename" class="menu_nocheck menu_font ul_float_left">首页</div>
+			<div id="menu_1" onclick="window.location.href='system_product.html'"  data-localize="tcl.system.product.productp" class="menu_nocheck menu_font ul_float_left">产品页</div>
+			<div id="menu_2" onclick="window.location.href='system_sersup.html'"  data-localize="tcl.system.support.supportname" class="menu_now menu_font ul_float_left">服务与支持</div>
+			<div id="menu_3" onclick="window.location.href='system_apps.html'" data-localize="tcl.system.APPS.appname" class="menu_nocheck menu_font ul_float_left">APPS</div>
+			<div id="menu_4" onclick="window.location.href='system_activity.html'" data-localize="tcl.system.active.activename" class="menu_nocheck menu_font ul_float_left">活动</div>
+	   </div>
+	     <div id="menu_boader" class="menu_boader">
+		 <!--3-->
+				<div class="title_top ul_margin_top" data-localize="tcl.system.support.content">内容推荐</div>
+				<div class="ul_margin_top">
+					 <table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+						  <tr>
+							<td width="15%" data-localize="tcl.system.support.no">序号</td>
+							<td  width="30%" data-localize="tcl.system.support.picupload">图片上传</td>
+							<td  width="30%" data-localize="tcl.system.support.link">链接</td>
+							<td  width="25%" data-localize="tcl.system.support.Operation">操作</td>
+						  </tr>
+						</table>
+				 </div>
+				 <div id="systemSerup">
+				 	
+				 	
+					
+					
+				 </div>
+			 	<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left yulan button_l" data-localize="tcl.system.support.Preview">预览</div>
+					<div class="ul_float_left fabu button_l" data-localize="tcl.system.support.upload">上传</div>
+				</div>
+			</div>
+			<!--3-->
+			</div>
+			</div>
+			<iframe id="imgFrame" name="imgFrame" width="500px" height="100px" style="display:none;"></iframe>			
+</body>
+<script>
+	window.onload = function(e){
+	var url = base_url+"product_ad_get";
+	var param = {};
+	param.type = "ServiceSupport";
+	param.pageTag = "servicepage";
+	
+	jQuery.getJSON(url,param,function(data){
+		var productAd = "";
+		if(data.status=="0"){
+			productAd = data.data;
+			for(var i=0;i<productAd.length;i++){
+				//拼产品广告开始
+			var productAdStr = '<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">';
+			for(var i=0;i<productAd.length;i++)
+			{
+				productAdStr +='<tr id="'+productAd[i].id+'"><td width="15%">'+productAd[i].label+'</td><td width="30%">'
+					+'<div  style="background:url('+productAd[i].iconUrl+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="productAdImg'+productAd[i].label+'" name="img" onchange="uploadImgDB(this.id,'+productAd[i].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>'
+					+'</td><td width="30%"><input type="text" name="sHref" onfocus="" onBlur="submitHref(this,'+productAd[i].id+');" value="'+productAd[i].targetUrl+'"/></td><td width="25%"><input type="button" value="清空" onclick="clearRow('+productAd[i].id+');"/></td></tr>';
+			}
+			productAdStr += '</table>'
+			jQuery("#systemSerup")[0].innerHTML= productAdStr;
+			//拼产品广告结束	
+			}	
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+
+function clearRow(id){
+		var url = base_url+"clear?id="+id;
+		jQuery.getJSON(url,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+			var claz = "background:url(images/bianji.png);width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+			jQuery("#"+id).find("td").eq(1).find("div").attr("style",claz);
+			jQuery("#"+id).find("td").eq(2).find("input").val("");
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+var globalImageValue = "";
+function uploadImgDB(imgId,trId){
+	var jqImgId = "#"+imgId;
+	var upImg = jQuery(jqImgId).val();
+	
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqImgId).val('');
+			alert("上传图片中有目前不支持的"+type+"格式");
+			return false;
+		}
+	}
+	jQuery(jqImgId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqImgId).parent("form").submit();
+	
+	globalImageValue = setInterval('getImgUrl("'+imgId+'",'+trId+')',1*1000);	
+}
+
+function getImgUrl(imgId,trId){
+	var retVal = '';
+	var jqId ="#"+imgId;
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if (json) {
+		clearInterval(globalImageValue);
+		
+		retVal = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if (retVal.status == 0) {
+			alert(retVal.message);
+			return;
+		}
+		var param = {};
+		param.id = trId;
+		param.imgUrl =retVal.path;
+		
+		var url = base_url+"imgUrl_update";
+		jQuery.getJSON(url,param,function(data){
+			if(data.status=="0"){
+				alert(data.message);
+				var clazz ="background:url("+retVal.path+");width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+				jQuery(jqId).parent("form").parent("div").attr("style",clazz);	
+			}else{
+				alert(data.message);
+				return;
+			}
+		});
+	}
+}
+
+function submitHref(obj,id){
+	var param = {};
+	param.sHref = jQuery(obj).val();
+	param.id = id;
+	
+	var url = base_url+"submitHref";
+	jQuery.getJSON(url,param,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+		}else{
+			alert(data.message);
+		}	
+	});	
+}	
+	
+	
+	
+</script>
+</html>

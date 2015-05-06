@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title data-localize="tcl.support.main.serSup"></title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+		<script src="js/i18n.js" type="text/javascript"></script>
+		<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+   		<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <!--body部分开始-->
+        <div id="boader" class="boader ul_hidden">
+            <!--right部分开始-->
+            <div id="right_boader" class="right_boader ">
+                <div class=" shangchuaned" id="hang_menu">
+                    <div onclick="window.location.href='service_support.html'" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye" data-localize="tcl.support.main.navSet">
+                    </div>
+                    <div onclick="window.location.href='service_published.html'" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.support.main.upArt">
+                    </div>
+                    <div onclick="window.location.href='service_upload.html'" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.support.main.upFile">
+                    </div>
+                </div>
+                <div id="menu_boader" class="menu_boader">
+                    <div class="biaoque ul_hidden">
+                        <div class="ul_float_left ul_hidden right_bb">
+                            <div class="ul_float_left xunxu" data-localize="tcl.support.main.disOrder"></div>
+                            <div class="ul_float_left xun_name" data-localize="tcl.support.main.name"></div>
+                        </div>
+                        <div class="caozuo_zuo ul_float_left" data-localize="tcl.support.main.operate"></div>
+                    </div>
+					<form id="menuForm" name="menuForm" method="post">
+						<div id="menus"></div>
+                    	<div data-localize="tcl.support.main.addMenu" class="ul_margin_top add_yijis" onclick="addrow(this, 0);"></div>
+	                    <div class="ul_margin_top ul_padding ul_hidden">
+	                        <div data-localize="tcl.support.main.save" class="ul_float_left baocun button_l" onclick="subForm();"></div>
+	                    </div>
+					</form>
+                </div>
+            </div>
+            <!--right部分结束-->
+        </div>
+        <!--body部分结束-->
+    </body>
+    <script type="text/javascript">
+		window.onload = function(e){
+			jQuery.getJSON(base_url+"support_cat_get", function(result){
+				if(result.status == 0){
+					var html = "";
+					for(var i in result.data){
+						html += "<div id=\"nav_"+i+"\" class=\"biaoquess ul_hidden\">"
+							+"	<div class=\"ul_float_left ul_hidden right_bb\">"
+                            +"    <div class=\"ul_float_left xunxu xuhao\">"
+							+"			<input  name=\"orders["+i+"]\" class=\"xuhao_input\" type=\"text\" value=\""+result.data[i].order+"\" />"
+                            +"    </div>"
+                            +"   <div class=\"ul_float_left\">"
+                            +"        <div class=\"name_input\">"
+                            +"            <input name=\"cats["+i+"]\" type=\"text\" class=\"xinwen\" value=\""+result.data[i].name+"\" />"
+                            +"        </div>"
+                            +"   </div>"
+                            +"</div>"
+                            //+"<div class=\"caozuo_zuo ul_float_left delect_add\">"
+                            //+"    <a class=\"ul_margin_right\" onclick=\"del(this, 0, "+i+");\" data-localize=\"tcl.support.main.delete\">"+i18n.support.del+"</a>"
+                            //+"</div>"
+                        	+"</div>"
+							+"<div id=\"subNav_"+i+"\">";
+							for(var j in result.data[i].sub){
+								html +="<div class=\"ul_hidden\">"
+			                    +"        <div class=\"ul_float_left ul_hidden kuj\">"
+			                    +"            <div class=\"ul_float_left xunxu xuhao\">"
+			                    +"                <input class=\"xuhao_input\" type=\"text\" name=\"orders["+result.data[i].sub[j].id+"]\" value=\""+result.data[i].sub[j].order+"\"/>"
+								+"			</div>"
+			                    +"            <div class=\"ul_float_left\">"
+			                    +"                <div class=\"erji_lan\">"
+			                    +"                    <div class=\"xixian\">"
+			                    +"                        <div class=\"name_input  p_lsde\">"
+			                    +"                            <input type=\"text\" class=\"xinwen\" name=\"cats["+result.data[i].sub[j].id+"]\" value=\""+result.data[i].sub[j].name+"\"/>"
+			                    +"                        </div>"
+			                    +"                    </div>"
+			                    +"                </div>"
+			                    +"            </div>"
+			                    +"        </div>"
+			                    +"        <div class=\"caozuo_zuo ul_float_left delect_add\">"
+			                    +"            <div class=\"ul_margin_bottom zitigao\">"
+			                    +"                <a class=\"ul_margin_right\" onclick=\"del(this, 1, "+result.data[i].sub[j].id+");\" data-localize=\"tcl.support.main.delete\">"+i18n.support.del+"</a>"
+			                    +"            </div>"
+			                    +"        </div>"
+								+"		</div>";
+							}
+							html += "</div>"
+	                        +"<div class=\"ul_hidden\">"
+	                        +"    <div class=\"ul_float_left ul_hidden kuj\">"
+	                        +"        <div class=\"ul_float_left fab\"></div>"
+	                        +"        <div class=\"ul_float_left\">"
+	                        +"            <div class=\"erji_lan\">"
+	                        +"                <div class=\"xixianej\">"
+	                        +"                    <div data-localize=\"tcl.support.main.addSubMenu\" class=\"erji_button p_lsde\" onclick=\"addrow(this, "+i+");\">"+i18n.support.addSubMenu+"</div>"
+	                        +"                 </div>"
+	                        +"            </div>"
+	                        +"        </div>"
+	                        +"    </div>"
+	                        +"</div>";
+					}
+					jQuery("#menus").append(html);
+				}else{
+					
+				}
+		   	});
+		}
+		
+		function subForm(){
+			jQuery("#menuForm").attr("action", base_url+"support_cat");
+			jQuery('#menuForm').ajaxSubmit({
+	   			dataType :"json",
+	   			success: function(data){
+					if(data.status != -1){
+						alert(data.message);
+						window.location.reload();
+					}else{
+						alert(data.message);
+					}
+	   			},
+	   			error:function(xhr){
+	   			}
+	   		});
+		}
+		
+        function addrow(obj, i) {
+            var html = '';
+			if(i == 0){
+				html += "<div id=\"nav_"+i+"\" class=\"biaoquess ul_hidden\">"
+							+"	<div class=\"ul_float_left ul_hidden right_bb\">"
+                            +"    <div class=\"ul_float_left xunxu xuhao\">"
+							+"			<input  name=\"neworders[]\" class=\"xuhao_input\" type=\"text\" value=\"0\" />"	
+                            +"    </div>"
+                            +"   <div class=\"ul_float_left\">"
+                            +"        <div class=\"name_input\">"
+                            +"            <input name=\"newcats[]\" type=\"text\" class=\"xinwen\" value=\"name\" />"
+                            +"        </div>"
+                            +"   </div>"
+							+"	   <div class=\"close ul_float_left ul_margin_left\" onclick=\"delcats(this);\"></div>"
+                            +"</div>"
+                        	+"</div>";
+				jQuery("#menus").append(html);
+			}else{
+				html +="<div class=\"ul_hidden\">"
+			                    +"        <div class=\"ul_float_left ul_hidden kuj\">"
+			                    +"            <div class=\"ul_float_left xunxu xuhao\">"
+			                    +"                <input class=\"xuhao_input\" type=\"text\" name=\"newsuborders["+i+"]\" value=\"0\"/>"
+								+"			</div>"
+			                    +"            <div class=\"ul_float_left\">"
+			                    +"                <div class=\"erji_lan\">"
+			                    +"                    <div class=\"xixian\">"
+			                    +"                        <div class=\"name_input  p_lsde\">"
+			                    +"                            <input type=\"text\" class=\"xinwen\" name=\"newsubcats["+i+"]\" value=\"name\"/>"
+			                    +"                        </div>"
+			                    +"                    </div>"
+			                    +"                </div>"
+			                    +"            </div>"
+								+"            <div class=\"close ul_float_left ul_margin_left\" onclick=\"delsubcats(this);\"></div>"	
+			                    +"        </div>"
+								+"		</div>";
+				jQuery("#subNav_"+i).append(html);
+			}
+        }
+
+		function del(obj, level, id) {
+			jQuery.post(base_url+"support_cat_del", {level:level, id:id}, function(result){
+				if(result.status == 0){
+					window.location.reload();
+				}else{
+					alert(result.message);
+				}
+		   	}, "json");
+        }
+		
+		function delcats(obj){
+			jQuery(obj).parent(".ul_hidden").remove();
+		}
+		
+		function delsubcats(obj){
+			jQuery(obj).parent(".ul_hidden").remove();
+		}
+    </script>
+</html>

@@ -1,0 +1,33 @@
+var MEAP=require("meap");
+
+function run(Param, Robot, Request, Response, IF)
+{
+	var replyStatus = Param.params.replyStatus;
+	var pageVal = Param.params.page ;
+	var countVal = Param.params.count;
+	var option={//http://10.118.0.218/web/public/web/message_list
+		method : "GET",
+		url : "http://127.0.0.1:8080/tclServer/web/web/message_list?replyStatus="+replyStatus+"&pageVal="+pageVal+"&countVal="+countVal,
+		Cookie : "true"
+	};
+	
+	MEAP.AJAX.Runner(option,function(err,res,data){
+	    if(!err)
+	    {
+			LOG5('---err----',err);
+			LOG5('---data----',data.data);
+			LOG5('---data----',data);
+			Response.end(data);
+			//Add your normal handling code
+	    }
+	    else
+	    {
+			LOG5('---1err----',err);
+			LOG5('---1data----',data);
+			Response.end(data);
+			//Add your exception handling code 
+	    }
+	},Robot);
+}
+
+exports.Runner = run;

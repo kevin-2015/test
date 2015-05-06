@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05">
+        <div class="fwcl ub ub-ac c_fff fwcl_title ">
+            <div class="c_5fa fw_back" style="height:3em;width:4em" onClick="goback()"></div>
+            <div class="c_5fa fwcl_tab ub-f1 tx-c"><span class="font_02">中国</span></div>
+            <div class="c_5fa" style="height:3em;width:4em">
+          
+            </div>
+        </div>
+        <div class="az_text" style="text-indent:2em">
+            <p> 对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂对于互联网平板电视消费者，自购机之日起一年内的，公司提供一次免费的互联网功能调试服务；消费者选购非TCL底座、挂</p>
+        </div>
+    </div>
+
+    <div class="footer  mar_t">
+    	
+		 <script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+		window.onload = function(e){
+			islogin();
+	}
+</script>
+</html>

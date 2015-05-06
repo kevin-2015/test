@@ -1,0 +1,1 @@
+global.TCL_SERVER_CN = "Dsn=MySQL_SERVER;charset=utf8";

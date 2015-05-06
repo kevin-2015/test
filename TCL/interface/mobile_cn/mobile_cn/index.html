@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+<style>
+	#pointer{height:2em; width:100%; position:absolute; left:0; bottom:0; z-index:99;}
+	._umh2{height:2em;}
+	.p_crl{padding:.2em; border-radius:.2em;  margin:0 .2em;}
+	.p_act{background-color:#fff}
+	.p_auto{background-color:#000;}
+</style>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    <div class="banner">
+    	<div class="swiper-container">
+      <div id="swiper-wrapper" class="swiper-wrapper">
+      </div>
+    </div>
+    <div class="pagination"></div>
+		</div>
+
+    <div class="" id="menu"  style="width:100%; ">
+    </div>
+	<div class="" id="menu2"  style="width:100%; overflow: hidden;">
+    </div>
+     <div class="c_f4f umh_06 "></div>
+    <div class="t_4a4 div_title font_02">推荐产品</div>
+	<div id="news">
+		
+	</div>
+	<div style="clear:both;"></div>
+    <div class="c_f4f umh_06 "></div>
+    <div class="t_4a4 div_title font_02">猜你喜欢</div>
+	<div id="recom">
+		
+	</div>
+	<div style="clear:both;"></div>
+	<div class="c_f4f umh_06 "></div>
+	<script src="js/footer.js"></script>
+	</div>
+</body>
+<script>
+var Width =  document.body.offsetWidth;
+var  towwidth = parseInt(document.body.offsetWidth/2);
+var imgheight=parseInt(towwidth-32)+'px';
+var wheigt = parseInt(Width/1.5)+'px' ; 
+
+window.onload = function(e){
+	header_fenlei();
+	islogin();
+	data_con();
+}
+function data_con(){
+	var url_data = base_url+'page_data_get?pageTag=homepage';
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==0){
+			if(data.data.firstAd!=''){
+				var template= '';
+				for(var i=0;i<data.data.firstAd.length;i++){
+					template+='<div class="swiper-slide" onclick=" window.location.href=\''+data.data.firstAd[i].targetUrl+'\'"> <img src="'+base_url+data.data.firstAd[i].iconUrl+'" width="100%" height="100%"> </div>'
+				}
+				$$('swiper-wrapper').innerHTML=template;
+				  var mySwiper = new Swiper('.swiper-container',{
+				    pagination: '.pagination',
+				    loop:true,
+				    grabCursor: true,
+				    paginationClickable: true
+				  });
+				   setInterval(function(){
+                        mySwiper.swipeNext();
+                    }, 5000);
+			}
+			var retemplate='';
+
+					retemplate=' <div class="  t_000 " style="width: 100%;overflow: hidden;">'
+				+'<div class="ub-f1 ub ub-ac ub-pc ub-ver  bor_top" style="width:50%;float:left">'
+    	+'<div onclick="go_detail('+data.data.recommend[0].meta_id+',\''+data.data.recommend[0].meta_value.sTitle+'\')" class="tv_div bor_rit" style="width:100%;">'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+			+'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[0].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat;width:'+imgheight+';height:'+imgheight+'"></div></div>'
+            +'</div>'
+            +'<div class="tx-c font_01">'
+            	+'<p class=" mar_t05">'+data.data.recommend[0].meta_value.sTitle+'</p>'
+             // +'  <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[0].meta_value.sText+'</p>'
+           +' </div>'
+       +' </div>'
+	    +' </div>'
+        +'<div onclick="go_detail('+data.data.recommend[1].meta_id+',\''+data.data.recommend[1].meta_value.sTitle+'\')" class="ub-f1 ub ub-ver ub-ac ub-pc tv_div bor_top " style="width:50%;float:left">'
+           +' <div class="" style="text-align: center;width: 100%;">'
+             +'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[1].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:'+imgheight+';height:'+imgheight+'"></div></div>'
+            +'    </div>'
+             +'   <div class="tx-c font_01">'
+             +'       <p class=" mar_t05">'+data.data.recommend[1].meta_value.sTitle+'</p>'
+           // +'<p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[1].meta_value.sText+'</p>'
+            +'    </div>'
+      +'  </div>'
+   +' </div>'
+	+' <div class="bor_top  t_000 " style="width: 100%;">'
+	+'<div onclick="go_detail('+data.data.recommend[3].meta_id+',\''+data.data.recommend[2].meta_value.sTitle+'\')" class="ub-f1  ub-ver ub-ac ub-pc tv_div bor_top " style="width: 100%;">'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+           +'<div class=""><div style="background:url('+base_url+data.data.recommend[3].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:100%; height:'+wheigt+'"></div></div>'
+          +'  </div>'
+           +' <div class="tx-c font_01">'
+            +'<p class=" mar_t05">'+data.data.recommend[3].meta_value.sTitle+'</p>'
+        //  +'      <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[3].meta_value.sText+'</p>'
+         +'   </div>'
+       +' </div>'
+	+'</div>'
+	+' <div class="  t_000 " style="width: 100%;overflow: hidden;">'
+	+'<div class="ub-f1 ub ub-ac ub-pc ub-ver  bor_top" style="width:50%;float:left"  style="width:50%;float:left">'
+    	+'<div onclick="go_detail('+data.data.recommend[5].meta_id+',\''+data.data.recommend[3].meta_value.sTitle+'\')" class="tv_div bor_rit " style="width: 100%;">'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+           +'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[5].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:'+imgheight+';height:'+imgheight+'"></div></div>'
+          +'  </div>'
+           +' <div class="tx-c font_01">'
+            +'<p class=" mar_t05">'+data.data.recommend[5].meta_value.sTitle+'</p>'
+       //  +'      <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[5].meta_value.sText+'</p>'
+         +'   </div>'
+       +' </div>'
+	     +' </div>'
+       +' <div onclick="go_detail('+data.data.recommend[4].meta_id+',\''+data.data.recommend[4].meta_value.sTitle+'\')" class="ub-f1 ub ub-ver ub-ac ub-pc tv_div bor_top " style="width:50%;float:left">'
+          +'  <div class="" style="text-align: center;width: 100%;">'
+                +'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[4].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat;width:'+imgheight+';height:'+imgheight+'"></div></div>'
+              +'  </div>'
+               +' <div class="tx-c font_01">'
+                 +'   <p class=" mar_t05">'+data.data.recommend[4].meta_value.sTitle+'</p>'
+            //   +'<p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[4].meta_value.sText+'</p>'
+              +'  </div>'
+        +'</div>'
+   +' </div>'
+	/*
++' <div class=" bor_top  t_000 " style="width: 100%;">'
+	+'<div onclick="go_detail('+data.data.recommend[2].meta_id+',\''+data.data.recommend[5].meta_value.sTitle+'\')" class="ub-f1  ub-ac ub-pc ub-ver tv_div bor_top  " style="width: 100%;">'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+            +'<div class=""><div style="background:url('+base_url+data.data.recommend[2].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:100%; height:'+wheigt+'"></div></div>'
+          +'  </div>'
+           +' <div class="tx-c font_01">'
+            +'<p class=" mar_t05">'+data.data.recommend[2].meta_value.sTitle+'</p>'
+         //+'      <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[2].meta_value.sText+'</p>'
+         +'   </div>'
+       +' </div>'
+	+'</div>';
+*/
+			$$('news').innerHTML=retemplate;
+			var youtemplate=''
+			youtemplate=' <div class="  t_000 " style="width: 100%;overflow: hidden;">'
+			+'<div class="ub-f1 ub ub-ac ub-pc ub-ver  bor_top" style="width:50%;float:left"  style="width:50%;float:left">'
+    	+'<div onclick="go_detail('+data.data.recommend[6].meta_id+',\''+data.data.recommend[6].meta_value.sTitle+'\')" class="tv_div bor_rit" >'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+           +'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[6].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:'+imgheight+';height:'+imgheight+'"></div></div>'
+          +'  </div>'
+           +' <div class="tx-c font_01">'
+            +'<p class=" mar_t05">'+data.data.recommend[6].meta_value.sTitle+'</p>'
+         //+'      <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[6].meta_value.sText+'</p>'
+         +'   </div>'
+       +' </div>'
+	   +' </div>'
+       +' <div onclick="go_detail('+data.data.recommend[7].meta_id+',\''+data.data.recommend[7].meta_value.sTitle+'\')" class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top  "  style="width:50%;float:left">'
+          +'  <div class="" style="text-align: center;width: 100%;">'
+                +'<div class="uinn"><div style="background:url('+base_url+data.data.recommend[7].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:'+imgheight+';height:'+imgheight+'"></div></div>'
+              +'  </div>'
+               +' <div class="tx-c font_01">'
+                 +'   <p class=" mar_t05">'+data.data.recommend[7].meta_value.sTitle+'</p>'
+              // 	+'<p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[7].meta_value.sText+'</p>'
+              +'  </div>'
+        +'</div>'
+   +' </div>'
+   +' <div class="bor_top  t_000 " style="width: 100%;">'
+   +'<div onclick="go_detail('+data.data.recommend[8].meta_id+',\''+data.data.recommend[8].meta_value.sTitle+'\')" class="ub-f1  ub-ver ub-ac ub-pc tv_div bor_top " style="width: 100%;">'
+        	+'<div class=" " style="text-align: center;width: 100%;">'
+           +'<div class=""><div style="background:url('+base_url+data.data.recommend[8].meta_value.sPicture+');background-size:100% 100%;background-position: center center;background-repeat: no-repeat; width:100%; height:'+wheigt+'"></div></div>'
+          +'  </div>'
+           +' <div class="tx-c font_01">'
+            +'<p class=" mar_t05">'+data.data.recommend[8].meta_value.sTitle+'</p>'
+          //+'      <p class="mar_t02 font_02 bold" style="padding:0 0.5em;">'+data.data.recommend[8].meta_value.sText+'</p>'
+         +'   </div>'
+		 +'   </div>'
+       +' </div>'
+   $$('recom').innerHTML=youtemplate;
+		}
+		home_ProductParameter();
+	});
+}
+function home_ProductParameter(){
+	var url_data = base_url+'home_ProductParameter';
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==0){
+			if(data.data!=''){
+				var template= '';
+					var template2= '';
+				for(var i=0;i<data.data.length;i++){
+					if(i<4){
+						template+='<div onClick="type_page(\''+data.data[i].id+'\',\''+data.data[i].status+'\',\''+data.data[i].name+'\')" class=" ub-ac  ub-pc    " style="width:25%;float:left; border-bottom: 1px #e4e4e4 solid;">'
+						+'<div class="'+(i==3 ? 'bor_e4es' : 'bor_e4e')+'" style="width:100%;">'
+							+'<div class="uinn">'
+											+'<div class="ub ub-ver" style="width:100%;">'
+											  +'  <div class=" uc-t1" style="width:100%; text-align: center;"><img src="'+base_url+data.data[i].imgUrl+'" width="100%" /></div>'
+											    +'<div class=" zhy_title" style="width:100%; text-align: center;overflow: hidden;white-space: nowrap;word-spacing: normal;">'+data.data[i].name+'</div>'
+											+'</div>'
+											+'</div>'
+											+'</div>'
+									+'</div>'
+					}else{
+						template2+='<div onClick="type_page(\''+data.data[i].id+'\',\''+data.data[i].status+'\',\''+data.data[i].name+'\')" class=" ub-ac ub-pc    " style="width:25%;float:left;border-bottom: 1px #e4e4e4 solid;">'
+										+'<div class="'+(i==7 ? 'bor_e4es' : 'bor_e4e')+'" style="width:100%;">'
+										+'<div class="uinn">'
+											+'<div class="ub ub-ver" style="width:100%;">'
+											  +'  <div class=" uc-t1" style="width:100%; text-align: center;"><img src="'+base_url+data.data[i].imgUrl+'" width="100%"/></div>'
+											    +'<div class=" zhy_title" style="width:100%; text-align: center;overflow: hidden;white-space: normal;word-spacing: normal;">'+data.data[i].name+'</div>'
+											+'</div>'
+											+'</div>'
+											+'</div>'
+									+'</div>'
+					}
+					
+				}
+				$$('menu').innerHTML=template;
+				$$('menu2').innerHTML=template2;
+			}
+		}
+	});
+}
+</script>
+</html>
+

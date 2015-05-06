@@ -1,0 +1,62 @@
+var MEAP=require("meap");
+
+function run(Param,Robot,Request,Response,IF)
+{
+	try{
+        var countryCode = Robot.Get("countryCode");
+        var option={
+			CN:TCL_SERVER_CN,
+			sql:"select * from MenuInfo where pageTag='homepage' and countryCode='"+countryCode+"' order by parentMenuUuid"
+		};
+		var option1={
+			CN:TCL_SERVER_CN,
+			sql:"select * from Meta where meta_key like 'productRecommend%' and countryCode='"+countryCode+"'"
+		};
+		var firstAd = [];
+		var prodCategory = [];
+		var recommend =[];
+		var serviceContent = [];
+		var news = [];
+		var video = [];
+		MEAP.ODBC.Runner(option,function(err,rows,cols){
+			if(!err&rows.length>0)
+			{
+				for(var i=0;i<rows.length;i++){
+					if(rows[i].type=="Video"){
+						video.push(rows[i]);
+					}else if(rows[i].type=="News"){
+						news.push(rows[i]);
+					}else if(rows[i].type=="ServiceContent"){
+						serviceContent.push(rows[i]);
+					}else if(rows[i].type=="ProductCategory"){
+						prodCategory.push(rows[i]);
+					}else if(rows[i].type=="FirstAdvertisement"){
+						firstAd.push(rows[i]);
+					}
+				}
+				MEAP.ODBC.Runner(option1,function(err,rows,cols)
+				{
+					if(!err&rows.length>0){
+						for(var i=0;i<rows.length;i++){
+							rows[i]['meta_value']=JSON.parse(rows[i]['meta_value']);
+							recommend.push(rows[i]);
+						}
+						
+						Response.end(JSON.stringify({status:'0',firstAd:firstAd,prodCategory:prodCategory,recommend:recommend,serviceContent:serviceContent,news:news,video:video}));	
+					}else{
+						Response.end(JSON.stringify({status:'-1',message:'Error'}));
+					}
+				},Robot);
+			}else{
+				Response.end(JSON.stringify({status:'-1',message:'Error'}));
+			}
+		},Robot);
+	}
+	catch(e)
+	{
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+exports.Runner=run;
+

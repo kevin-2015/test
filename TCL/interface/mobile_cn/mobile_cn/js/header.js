@@ -1,0 +1,37 @@
+/**
+ * @author Administrator
+ */
+
+var  header='<div id="type_show">'
+    	+'<ul id="headermenu">'
+        +'</ul>'
+       +' <div id="hide_type" class="c_5fa">收起</div>'
+    +'</div>'
+    +'<div id="search_show">'
+    	+'<p class="t_7f7 mar_lr mar_t">查找产品</p>'
+		+'<div class="mar_lr">'
+       +' <div class="ub mar_t " style="width: 100%;">'
+        	+'<div class="ub-f1 s_input mar_r02" style="padding-left: 2em;">'
+            	+'<input style="height: 2.3em; line-height: 1.8em;" type="text"  id="product_names" class="t_8f8 txt_input" value="" />'
+           +' </div>'
+           +' <div class="s_btn c_5fa mar_r02" onClick="search_product()" >搜索</div>'
+      +'  </div>'
+	  +'  </div>'
+      +'  <div id="hide_search" class="mar_lr c_5fa">收起</div>'
+    +'</div>'
+	+'<div class="ub ub-pj ub-ac " style="width:100%;">'
+        +'<div style="cursor:pointer; margin-left:1em;" class="logo" onclick="window.location.href=\'index.html\'">'
+          +'  <img src="images/logo.png" style="width:4.5em;height:2.8em" />'
+       +' </div>'
+        +'<div class="h_menu ub-f1" style="margin_right:1em;">'
+           +' <div class="ub" style="width:100%;">'
+		   +'<div class="ub ub-f1">&nbsp;</div>'
+              +'<div id="type" class="uinn">分类</div>' 
+			  +'<div class="uinn">|</div>'
+              +'  <div id="search" class="uinn">搜索</div>'
+			  +'<div class="uinn">|</div>'
+             +'   <div class="uinn"><a href="fuwu.html">服务</a></div>'
+           +' </div>'
+       +' </div>'
+	+'</div>';
+	document.write(header);

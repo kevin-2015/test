@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>关于我们</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    
+	
+    <div class="mar_lr04 mar_t05">
+        <div class="ub ub-ac" style="width: 100%;">
+            <div class="c_f4f fwcl_tab ub-f1  tx-c ab_title"><span class="font_02 t_5fa">关于我们</span></div>
+        </div>
+		<div class="ub mar_t05" style="width: 100%;">
+			<div class="" id="list">
+        	</div>
+			<div class="ub-f1 uinn">
+					<!--块容器开始-->
+<div class="ub ub-ver  c-gra b-gra t-bla" style="width: 100%;">
+    <div class="ubb b-gra uinn uc-t1" id="title" style=" text-align:center; font-weight:bolder;"></div>
+    <div class="uinn " id="con" style=" text-indent:2em;"></div>
+</div>
+<!--块容器结束-->
+
+
+			</div>
+		</div>
+        
+    </div>
+	 <div class="footer">
+    	
+		<script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+
+
+
+window.onload = function(){
+	header_fenlei();
+	islogin();
+	list_data();
+}
+function list_data(){
+	var url_data = base_url+'about_us_list';
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==0){
+			if(data.data!=''){
+				var template='';
+				for(var i=0;i<data.data.length;i++){
+					template += '<ul onclick="list_con('+data.data[i].id+')" style="width: 100%;" class="ubb ub b-gra t-bla ub-ac umh4 ">' +
+						'<li class="ub-f1 ut-s lis">' +
+						data.data[i].title +
+						'</li>' +
+						' <li class="listIcon lis-sw ub-img lis"></li>' +
+						'</ul>';
+				}
+				$$('list').className='c-wh uinn umar-a uba b-gra  uc-t ';
+				$$('list').innerHTML=template;
+			}else{
+				$$('list').className='c-wh uinn umar-a uba b-gra  uc-t ';
+				$$('list').innerHTML='暂无相关内容';
+			}
+			list_con(data.data[0].id);
+		}
+		else{
+				alert(data.message);
+			}
+	});
+}
+function list_con(id){
+	var url_data = base_url+'about_us_content?id='+id;
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==0){
+			if(data.data!=''){
+				$$('title').innerHTML=data.data[0].title;
+				$$('con').innerHTML=data.data[0].summary;
+			}
+		}else{
+			alert(data.message);
+		}
+	});
+}
+</script>
+</html>

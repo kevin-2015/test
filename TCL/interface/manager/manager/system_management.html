@@ -1,0 +1,799 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>系统管理</title>
+	<link href="css/style.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+	<div id="right_boader" class="right_boader ">
+			<div class="menu_top">
+	    		<div id="menu_0" onclick="window.location.href='system_management.html'" class="menu_now menu_font ul_float_left" data-localize="tcl.system.home.homename">首页</div>
+				<div id="menu_1" onclick="window.location.href='system_product.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.system.product.productp">产品页</div>
+				<div id="menu_2" onclick="window.location.href='system_sersup.html'"class="menu_nocheck menu_font ul_float_left" 
+data-localize="tcl.system.support.supportname">服务与支持</div>
+				<div id="menu_3" onclick="window.location.href='system_apps.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.system.APPS.appname">APPS</div>
+				<div id="menu_4" onclick="window.location.href='system_activity.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.system.active.activename">活动</div>
+		   	</div>
+	     	<div id="menu_boader" class="menu_boader">
+			 	<!--导航配置开始-->
+					 <div id="menu_boader0" class="">
+							<div class="title_top" data-localize="tcl.system.home.Navigation">导航配置</div>
+								<div class="ul_margin_top shangchuaned" id="hang_menu">
+									<div id="menu_h0" onclick="menu_pz(0)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye" data-localize="tcl.system.home.productpage.ppage">
+										产品页
+									</div>
+									<div id="menu_h1" onclick="menu_pz(1)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.system.home.support.supportname">
+										服务与支持
+									</div>
+									<div id="menu_h2" onclick="menu_pz(2)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.system.home.app.appname">
+										APP
+									</div>
+									<div id="menu_h3" onclick="menu_pz(3)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.system.home.sns.snsname">
+										论坛
+									</div>
+									<div id="menu_h4" onclick="menu_pz(4)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.system.home.active.activename">
+										活动
+									</div>
+							</div>
+					</div>
+				<!--导航配置结束-->
+				<!--一屏广告配置开始-->
+					<div id="menu_border1">
+						<div class="title_top" data-localize="tcl.system.home.adone">一屏广告配置</div>
+						 <table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+		            		<tr><td width="15%" data-localize="tcl.system.home.no">序号</td><td width="30%" data-localize="tcl.system.home.picupload">图片上传</td><td width="30%" data-localize="tcl.system.home.link">链接</td><td width="25%" data-localize="tcl.system.home.Operation">操作</td></tr>
+							</table>
+							<div id="firstAd">
+								
+							</div>
+					</div>
+				<!--一屏广告配置结束-->
+				<!--产品分类配置开始-->
+					<div id="menu_border2">
+						<div class="title_top" data-localize="tcl.system.home.producttype.productname">产品分类配置</div>
+						<div id="prodCategory">
+							
+						</div>
+					</div>
+				<!--产品分类配置结束-->
+				<!--产品推荐开始-->
+					<div id="menu_border3">
+						<div class="title_top" data-localize="tcl.system.home.Recommend">产品推荐</div>
+						<div id="recommend">
+							
+						</div>
+					</div>
+				<!--产品推荐结束-->
+				<!--服务内容开始-->
+					<div id="menu_border4">
+						<div class="title_top" data-localize="tcl.system.home.content">服务内容</div>
+						<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+		            		<tr><td width="15%" data-localize="tcl.system.home.no">序号</td><td width="30%" data-localize="tcl.system.home.picupload">图片上传</td><td width="30%" data-localize="tcl.system.home.link">链接</td><td width="25%" data-localize="tcl.system.home.Operation">操作</td></tr>
+							</table>
+						<div id="serviceContent">
+							
+						</div>
+					</div>
+				<!--服务内容结束-->
+				<!--新闻开始-->
+					<div id="menu_border5">
+						<div class="title_top" data-localize="tcl.system.home.news">新闻</div>
+						<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+		            		<tr><td width="15%" data-localize="tcl.system.home.no">序号</td><td width="30%" data-localize="tcl.system.home.picupload">图片上传</td><td width="30%" data-localize="tcl.system.home.link">链接</td><td width="25%" data-localize="tcl.system.home.Operation">操作</td></tr>
+							</table>
+						<div id="news">
+							
+						</div>
+					</div>
+				<!--新闻结束-->
+				<!--视频开始-->
+					<div id="menu_border6">
+						<div class="title_top" data-localize="tcl.system.home.upmedia">视频</div>
+						<div id="video">
+							
+						</div>
+					</div>
+				<!--视频结束-->
+				<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left yulan button_l" onclick="window.open('preview.html')" data-localize="tcl.system.home.Preview">预览</div>
+					<div class="ul_float_left fabu button_l" onclick="submitPageToClient();" data-localize="tcl.system.home.upload">发布</div>
+				</div>
+			 </div>
+
+  	</div>
+  <!--right部分结束-->
+</div>
+<!--body部分结束-->
+<div id="mengban" class="ul_display_none" onclick="close_wind();"></div>
+<div id="window_open" class="ul_display_none"> 
+    <div id="win_con0" class="ul_display_none">
+        <div class="header_tan">
+                <div class="ul_float_right anniu_qx" onclick="close_wind();" data-localize="tcl.system.home.productpage.cancl">
+                    取消
+                </div>
+        </div>
+        <div id="body_tan" class="tan_con" style="height:400px; overflow-y:scroll;">
+           
+        </div>
+    </div>
+</div>
+<iframe id="imgFrame" name="imgFrame" width="500px" height="100px" style="display:none;"></iframe>
+</body>
+<script>
+window.onload = function(e)
+{
+	var firstAd = "";
+	var prodCategory = "";
+	var recommend = "";
+	var serviceContent = "";
+	var news = "";
+	var video = "";
+	//生成整个页面
+	var url = base_url+"system_management";
+	jQuery.getJSON(url,function(data){
+		if(data.status=="0"){
+			firstAd = data.firstAd;
+			prodCategory = data.prodCategory;
+			recommend = data.recommend;
+			serviceContent = data.serviceContent;
+			news = data.news;
+			video = data.video;
+			//拼一屏广告开始
+			var firstAdStr = '<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">';
+			for(var i=0;i<firstAd.length;i++)
+			{
+				firstAdStr +='<tr id="'+firstAd[i].id+'"><td width="15%">'+firstAd[i].label+'</td><td width="30%">'
+					+'<div  style="background:url('+firstAd[i].iconUrl+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="firstAdImg'+firstAd[i].label+'" name="img" onchange="uploadImgDB(this.id,'+firstAd[i].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>'
+					+'</td><td width="30%"><input type="text" name="sHref" onfocus="" onBlur="submitHref(this,'+firstAd[i].id+');" value="'+firstAd[i].targetUrl+'"/></td><td width="25%"><input type="button" value="'+i18n.server.clearRow+'" onclick="clearRow('+firstAd[i].id+');"/></td></tr>';
+			}
+			firstAdStr += '</table>'
+			jQuery("#firstAd")[0].innerHTML= firstAdStr;
+			//拼一屏广告结束
+			//产品分类开始
+			//产品分类结束
+			//产品推荐开始
+			var recommendStr ='<div  class="ul_margin_top">'
+												+'<div class="ul_hidden">'
+												+'<div class="ul_float_left moban_lss">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">1</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[0].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[0].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[0].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="ul_float_left moban_lss ul_margin_left">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">2</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[1].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[1].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[1].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="ul_float_left moban_lss ul_margin_left">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">3</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[2].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[2].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[2].meta_id+');"></div>'
+											+'</div>'
+											+'</div>'
+											+'<div class="ul_hidden ul_margin_top">'
+											+'<div class="ul_float_left moban_lssd">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">4</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[3].meta_value.sPicture+');width:542px !important;height:250px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[3].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[3].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="ul_float_left">'
+											+'<div class="moban_lss ul_margin_left">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">5</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[4].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[4].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[4].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="moban_lss ul_margin_left ul_margin_top">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">6</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[5].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[5].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[5].meta_id+');"></div>'
+											+'</div>'
+											+'</div>'
+											+'</div>'
+											+'</div>'
+											+'<div class="title_top">'+i18n.server.guessYouLike+'</div>'
+											+'<div  class="ul_margin_top">'
+											+'<div class="ul_hidden">'
+											+'<div class="ul_float_left moban_lss">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">7</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[6].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[6].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[6].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="ul_float_left moban_lss ul_margin_left">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">8</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[7].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[7].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[7].meta_id+');"></div>'
+											+'</div>'
+											+'<div class="ul_float_left moban_lss ul_margin_left">'
+												+'<div class="ul_hidden pad_z">'
+													+'<div class="left_buyuan ul_float_left">9</div>'
+													+'<div class="right_buyuan ul_float_right" onclick="">'
+														+'<div class="delect"></div>'
+													+'</div>'
+												+'</div>'
+												+'<div style="background:url('+recommend[8].meta_value.sPicture+');width:265px !important;height:120px !important;background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;" id="'+recommend[8].meta_key
+												+'"onclick="getRecommendDiv(this.id,'+recommend[8].meta_id+');"></div>'
+											+'</div>'
+											+'</div>'
+											+'</div>';
+			jQuery("#recommend")[0].innerHTML=recommendStr;
+			//产品推荐结束	
+			//服务内容开始
+			var serviceContentStr = '<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">';
+			for(var i=0;i<serviceContent.length;i++)
+			{
+				serviceContentStr +='<tr id="'+serviceContent[i].id+'"><td width="15%">'+serviceContent[i].label+'</td><td width="30%">'
+					+'<div  style="background:url('+serviceContent[i].iconUrl+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="serviceContentImg'+serviceContent[i].label+'" name="img" onchange="uploadImgDB(this.id,'+serviceContent[i].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>'
+					+'</td><td width="30%"><input type="text" name="sHref" value="'+serviceContent[i].targetUrl+'" onfocus="" onBlur="submitHref(this,'+serviceContent[i].id+');" /></td><td width="25%"><input type="button" value="'+i18n.server.clearRow+'" onclick="clearRow('+serviceContent[i].id+');"/></td></tr>';
+			}
+			serviceContentStr +='</table>';
+			jQuery("#serviceContent")[0].innerHTML=serviceContentStr;
+			//服务内容结束
+			//新闻开始
+			var newsStr = '<table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">';
+			for(var i=0;i<news.length;i++){
+				newsStr += '<tr id="'+news[i].id+'"><td width="15%">'+news[i].label+'</td><td width="30%">'
+					+'<div  style="background:url('+news[i].iconUrl+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="newsImg'+news[i].label+'" name="img" onchange="uploadImgDB(this.id,'+news[i].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>'
+					+'</td><td width="30%"><input type="text" name="sHref" value="'+news[i].targetUrl+'"  onfocus="" onBlur="submitHref(this,'+news[i].id+');"/></td><td width="25%"><input type="button" value="'+i18n.server.clearRow+'" onclick="clearRow('+news[i].id+');"/></td></tr>';	
+			}
+			newsStr +='</table>';
+			jQuery("#news")[0].innerHTML=newsStr;
+			//新闻结束
+			//视频开始
+			var videoStr = '<div id="'+video[0].id+'" style="background:url('+video[0].iconUrl+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="video'+video[0].label+'" name="img" onchange="uploadImgDB(this.id,'+video[0].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>';
+			jQuery("#video")[0].innerHTML=videoStr;
+			//视频结束
+		}
+	});
+}
+
+function getRecommendDiv(divId,id){
+	var url = base_url+"product_recommend_get?id="+id;
+	jQuery.getJSON(url,function(data){
+		if(data.status=="0"){
+			var sTitle = data.data.sTitle;
+			var sText = data.data.sText;
+			var sHref = data.data.sHref;
+			var sPicture = data.data.sPicture;
+			
+			var recomStr ='';
+			recomStr +=i18n.server.picture+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame"><input type="file" id="recomImg'+id+'" name="img" onchange="uploadRecommendImg(this.id)"/></form><input type="text" name="sPicture" value="'+sPicture+'"/></br>'
+							+i18n.server.title+'<input type="text" name="sTitle" value="'+sTitle+'"/></br>'
+							+i18n.server.text+'<input type="text" name="sText" value="'+sText+'"/></br>'
+							+i18n.server.href+'<input type="text" name="sHref" value="'+sHref+'"/></br>'
+							+'<input type="button" value="'+i18n.server.submit+'" onclick="productRecommendUpdate(\''+divId+'\','+id+');"/>';
+			jQuery("#body_tan")[0].innerHTML=recomStr;
+			$$('mengban').className='mengban';
+			$$('window_open').className='window_opens';
+			jQuery("#win_con0").attr("class","");
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+
+function productRecommendUpdate(divId,id){
+	var sPicture = jQuery("#body_tan").find("input[name='sPicture']").val();
+	var sTitle =  jQuery("#body_tan").find("input[name='sTitle']").val();
+	var sText =  jQuery("#body_tan").find("input[name='sText']").val();
+	var sHref =  jQuery("#body_tan").find("input[name='sHref']").val();
+	
+	var jStr = '{"sTitle":"'+sTitle+'","sText":"'+sText+'","sHref":"'+sHref+'","sPicture":"'+sPicture+'"}';
+	var url = base_url+"product_recommend_update";
+	var param = {};
+	param.id = id;
+	param.jStr = jStr;
+	jQuery.getJSON(url,param,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+			var clazz = 'background:url('+sPicture+');background-position:center !important;background-repeat:no-repeat !important;margin-top: -42px !important;';
+			if (divId == "productRecommend1") {
+				clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend2") {
+					clazz += 'width:265px !important;height:120px !important;';
+			} else if (divId == "productRecommend3") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend4") {
+					clazz += 'width:542px !important;height:250px !important;';
+			}else if (divId == "productRecommend5") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend6") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend7") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend8") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend9") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend10") {
+					clazz += 'width:542px !important;height:250px !important;';
+			}else if (divId == "productRecommend11") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}else if (divId == "productRecommend12") {
+					clazz += 'width:265px !important;height:120px !important;';
+			}
+			jQuery("#"+divId).attr("style",clazz);
+			close_wind();
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+
+function uploadRecommendImg(id){
+	var jqId = "#"+id;
+	var upImg = jQuery(jqId).val();
+	
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqId).val('');
+			alert(i18n.server.uploadFileFormat);
+			return false;
+		}
+	}
+	jQuery(jqId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqId).parent("form").submit();
+	
+	globalImageValue = setInterval("getRecommendImgUrl('"+id+"')",1*1000);
+}
+
+function getRecommendImgUrl(id){
+	var retVal = '';
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if (json) 
+	{
+		clearInterval(globalImageValue);
+		
+		retVal = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if (retVal.status == 0) {
+			alert(retVal.message);
+			return;
+		}
+		jQuery("#"+id).parent("form").next("input[name='sPicture']").val(retVal.path)
+	}
+}
+
+
+function submitHref(obj,id){
+	var param = {};
+	param.sHref = jQuery(obj).val();;
+	param.id = id;
+	
+	var url = base_url+"submitHref";
+	jQuery.getJSON(url,param,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+		}else{
+			alert(data.message);
+		}	
+	});	
+}
+
+function clearRow(id){
+		var url = base_url+"clear?id="+id;
+		jQuery.getJSON(url,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+			var claz = "background:url(images/bianji.png);width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+			jQuery("#"+id).find("td").eq(1).find("div").attr("style",claz);
+			jQuery("#"+id).find("td").eq(2).find("input").val("");
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+
+function uploadImgDB(imgId,trId){
+	var jqImgId = "#"+imgId;
+	var upImg = jQuery(jqImgId).val();
+	
+	alert(jqImgId);
+	alert(upImg);
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqImgId).val('');
+			alert(i18n.server.uploadFileFormat);
+			return false;
+		}
+	}
+	jQuery(jqImgId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqImgId).parent("form").submit();
+	
+	globalImageValue = setInterval('getImgUrl("'+imgId+'",'+trId+')',1*1000);	
+}
+
+function getImgUrl(imgId,trId){
+	var retVal = '';
+	var jqId ="#"+imgId;
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if (json) {
+		clearInterval(globalImageValue);
+		
+		retVal = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if (retVal.status == 0) {
+			alert(retVal.message);
+			return;
+		}
+		var param = {};
+		param.id = trId;
+		param.imgUrl =retVal.path;
+		
+		var url = base_url+"imgUrl_update";
+		jQuery.getJSON(url,param,function(data){
+			if(data.status=="0"){
+				alert(data.message);
+				var clazz ="background:url("+retVal.path+");width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+				jQuery(jqId).parent("form").parent("div").attr("style",clazz);	
+			}else{
+				alert(data.message);
+				return;
+			}
+		});
+	}
+}
+
+
+var menu_length = $$('menu_boader').children.length;
+var menu_now=0;
+function menu_rigt(id){
+     if(menu_now== id){
+	  	$$('menu_'+id).className='menu_now menu_font ul_float_left';
+	 }else{
+	 	$$('menu_'+id).className='menu_now menu_font ul_float_left'
+	 	$$('menu_'+menu_now).className='menu_nocheck menu_font ul_float_left'
+	 }
+	 menu_now= id;
+	for(var i = 0; i<menu_length;i++){
+		if(id == i){
+			$$('menu_boader'+id).className='';
+		}else{
+			$$('menu_boader'+i).className='ul_display_none';
+		}
+	}
+}
+var hang_menu_length = $$('hang_menu').children.length;
+
+var fileId = 0;
+function menu_pz(id){
+	for(var i=0; i < hang_menu_length;i++)
+	{
+		if(id==5 || id==6)
+		{
+		}else
+		{
+			if(id == i)
+			{
+				$$('menu_h'+id).className= 'ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye';
+			}else
+			{
+				$$('menu_h'+i).className= 'ul_float_left scqdss ul_margin_right ul_cursor_pointer';
+			}
+		}
+	}
+	
+	var url = "";
+	if(id==0){
+		//后台生成menu新增div
+	    url = base_url+"menu_div_get?type=product";
+	}else if(id==1){
+		url = base_url+"menu_div_get?type=service";
+	}else if(id==2){
+		url = base_url+"menu_div_get?type=app";		
+	}else if(id==3){
+		url = base_url+"menu_div_get?type=bbs";	
+	}else if(id== 4){
+		url = base_url+"menu_div_get?type=activity";		
+	}
+	$$('mengban').className='mengban';
+	$$('window_open').className='window_opens';
+	jQuery.getJSON(url,function(data)
+		{
+			var divStr = "";
+			if(data.status!="-1"){
+					var menuParent = data.menuParent;
+					var menuSecond = data.menuSecond;
+					var secondList = data.productList;
+					
+					divStr += '<div class="xuan_kuang ul_hidden">'
+						+ '<div class="add_yiji">'+i18n.server.addParentMenu+'</div>' 
+						+ '<div class="ul_margin_top ul_hidden" disabled="disabled">'
+							+'<input name="menuId"  id="menuId" type="hidden" value="'+menuParent[0].id+'" />'
+		                    + '<div class="ul_float_left add_yiji">'+i18n.server.name+'</div>'
+							+'<div class="read_input ul_float_left ul_margin_left"><span class="span">'
+							+'<input name="menuName" type="text" value="'+menuParent[0].label+'" class="inputstyle"/></span></div>'
+							+'<div class="ul_float_left add_yiji">'+i18n.server.href+'</div>'
+		                    +'<div class="read_input ul_float_left ul_margin_left">'
+		                    +'<span class="span"><input name="menuHref" type="text" value="'+menuParent[0].targetUrl+'" class="inputstyle"/></span>'
+		                    +'</div>'
+						+'</div>'
+						+'<div   class="ul_margin_top ul_hidden">'
+		                    	+'<div class="shuo_hong">'+i18n.server.attention+'</div>'
+		                    	+'<div class="add_yiji ul_margin_top">'+i18n.support.addSubMenu+'</div>'
+								+'<div id="secondCategory">'
+						;
+						if(menuSecond.length>0)
+						{
+							fileId = menuSecond.length;
+							for(var i=0;i<menuSecond.length;i++)
+							{
+								var sId = menuSecond[i].id;
+								var sName = menuSecond[i].label;
+								var sHref = menuSecond[i].targetUrl;
+								var sPicture = menuSecond[i].iconUrl;
+								
+								var selectStr = '<select name="sHref"><option value="">'+i18n.server.select+'</option>';
+								for(var j=0;j<secondList.length;j++){
+									if(secondList[j].id==sHref){
+										selectStr += '<option value="'+sHref+'" selected="selected">'+secondList[j].name+'</option>';
+									}else{
+										selectStr += '<option value="'+secondList[j].id+'">'+secondList[j].name+'</option>';
+									}
+								}
+								selectStr += '</select>'
+								
+								divStr += '<div class="ul_margin_top ul_hidden" style="background:#ececec;">'
+													+'<input name="sId" type="hidden" value="'+sId+'"/>'
+													+i18n.server.name+'<input  type="text" name="sName" class="inputstyle" value="'+sName+'"/><br/>'
+													+i18n.server.href+selectStr+'<br/>'
+													+'<input type="hidden" name="sPicture" value="'+sPicture+'"/>'
+													+'<div  style="background: url('+sPicture+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+														+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+															+'<input type="file" id="img'+(i+1)+'" name="img" onchange="uploadImg(this.id);"  class="weiqiong"/>'
+														+'</form>'
+													+'</div>'
+													+'<input type="button" value="'+i18n.server.submit+'" onclick="submitMenu(this);"/>'
+													+'<input type="button" value="'+i18n.support.del+'" onclick="deleteSecond(this);"/>'
+												+'</div>';	
+							}
+						}
+						divStr +='</div>'
+		                    			+'<div class="tianjia ul_margin_top ul_margin_bottom" onclick="add_img();">'+i18n.support.addSubMenu+'</div>'
+									+'</div>'
+								+'</div>';	
+				}
+			jQuery("#body_tan")[0].innerHTML = divStr;
+			jQuery("#win_con0").attr("class","");	
+		});		
+}
+
+var globalImageValue = '';
+function uploadImg(id){
+	var jqId = "#"+id;
+	//上传图片前清除之前的图片地址隐藏域
+	var hiddenInput = jQuery(jqId).parent("form").parent("div").prev("input[name='sPicture']");
+	if(hiddenInput.size()!=0){
+		hiddenInput.remove();
+	}
+	var upImg = jQuery(jqId).val();
+	
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqId).val('');
+			alert(i18n.server.uploadFileFormat);
+			return false;
+		}
+	}
+	jQuery(jqId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqId).parent("form").submit();
+	
+	globalImageValue = setInterval("getFrameValue('"+id+"')",1*1000);
+}
+
+function getFrameValue(id){
+	var jqId = "#"+id;
+	var data = '';
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if(json){
+		clearInterval(globalImageValue);
+
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0)
+		{
+			alert(data.message);
+			return;
+		}
+		var clazz ="background:url("+data.path+");width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+		jQuery(jqId).parent("form").parent("div").attr("style",clazz);
+		var html = '<input type="hidden" name="sPicture"  value="'+data.path+'"/>';
+		jQuery(jqId).parent("form").parent("div").before(html);
+	}
+}
+
+function deleteSecond(obj)
+{
+	var id =jQuery(obj).parent("div").children("input[name='sId']").val();
+	if(id=="new")
+	{
+		jQuery(obj).parent().remove();
+	}else
+	{
+		var url = base_url+"secondCategory_del?id="+id;
+		jQuery.getJSON(url,function(data)
+		{
+			if(data.status=="0")
+			{
+				alert(data.message);
+				jQuery(this).parent().remove();
+			}else
+			{
+				alert(data.message);
+			}
+		});	
+	}
+}
+function close_wind(){
+$$('mengban').className='ul_display_none';
+$$('window_open').className='ul_display_none';
+}
+
+function submitMenu(obj){
+	var parentId = jQuery("#menuId").val();
+	var sId = jQuery(obj).parent().children("input[name='sId']").val();
+	var sName = jQuery(obj).parent().children("input[name='sName']").val();
+	var sHref = jQuery(obj).parent().children("select").val();
+	var sPicture = jQuery(obj).parent().children("input[name='sPicture']").val();
+	
+	var param = {};
+	param.parentId = parentId;
+	param.sId = sId;
+	param.sName = sName;
+	param.sHref = sHref;
+	param.sPicture = sPicture;
+	
+	var url = base_url +"secondMenu_add";
+	jQuery.getJSON(url,param,function(data){
+		if(data.status=="0"){
+			alert(i18n.server.addSuccess);
+			close_wind();
+		}else{
+			alert(data.message);
+			return;
+		}
+	});
+}
+//删除 模板框架
+function delete_m(targetId,sourceId){
+	var imgPre = document.getElementById(targetId); 
+	imgPre.style.background ='url(images/bianji.png)'; 
+}
+
+function add_img()
+{
+	//取后台二级菜单列表	开始
+	var pUrl = base_url+"secondCategory_list";
+	var selectElement = '<select name="sHref"><option value="">'+i18n.server.select+'</option>';
+	jQuery.ajax({
+		url: pUrl,
+		async: false,
+		type: "GET",
+		success: function(data){
+			if (data.status == "0") {
+				var len = data.data.length;
+				for (var i = 0; i < len; i++) {
+					selectElement += '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
+				}
+				selectElement += '</select>';
+			}
+		}
+	});
+	//取后台二级菜单列表结束
+	fileId++;
+	var secondNewStr = 
+			 '<div class="ul_margin_top ul_hidden" style="background:#ececec;>'
+							+'<input name="sId" type="hidden" value="new"/>'
+							+i18n.server.name+'<input name="sName" type="text" class="inputstyle"/><br/>'
+							+i18n.server.href+selectElement+'</br>'
+							+'<div  style="background: url(images/bianji.png);width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="img'+fileId+'" name="img" onchange="uploadImg(this.id);"  class="weiqiong"/>'
+							+'</form>'
+							+'</div>'
+							+'<input type="button" value="'+i18n.server.submit+'" onclick="submitMenu(this);"/>'
+							+'<input type="button" value="'+i18n.support.del+'" onclick="deleteSecond(this);"/>'
+				+'</div>';
+	jQuery("#secondCategory").append(secondNewStr);
+}
+
+function submitPageToClient(){
+	var url = base_url+"home_page_toclient";
+	jQuery.getJSON(url,function(data){
+		if(data.status=='0'){
+			alert(data.message);
+		}else{
+			alert(data.message);
+			return false;
+		}
+	});
+}
+</script>
+</html>

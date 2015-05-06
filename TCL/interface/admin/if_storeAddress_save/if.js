@@ -1,0 +1,92 @@
+var MEAP=require("meap");
+require("../Initialize.js");
+
+var contryCode =null;
+var country = null;
+var state = null;
+var city = null;
+var postCode = null;
+var address = null;
+var phone = null;
+var lon = null;
+var lat = null;
+function run(Param,Robot,Request,Response,IF)
+{
+
+	//contryCode = Robot.get("checkCountry");
+	contryCode = "CN";
+	country = Param.fields.country;
+	state = Param.fields.state;
+    city = Param.fields.city;
+	postCode = Param.fields.postCode;
+	address = Param.fields.address;
+	phone = Param.fields.phone;
+	lon = Param.fields.lon;
+	lat = Param.fields.lat;
+
+	try{
+        var option={
+			 CN:TCL_SERVER_CN,
+			 transaction:["ins_sql","las_sql"]
+		};
+		MEAP.ODBC.Transaction(option, function(context, item){
+			switch(item)
+			{
+				case "ins_sql":
+					return  "INSERT INTO `ShopInfo`(`country`,`state`,`city`,`address`,`postCode`,`contactPhone`,`longitude`,`latitude`,`countryCode`) VALUES('"+country+"','"+state+"','"+city+"','"+address+"','"+postCode+"','"+phone+"','"+lon+"','"+lat+"','"+contryCode+"')";
+				case "las_sql":
+				    return  "SELECT LAST_INSERT_ID() AS LID";
+				default:
+					return item.replace("${lastid}",context.lastid);
+			}
+		  }, function(item, rows, context){
+			switch(item)
+			{
+				case "las_sql":
+					context.lastid=rows[0].LID;	
+
+					postdata(context.lastid,Robot,Request,Response)
+					break;
+			}
+			return {err:0,res:null};
+		}, function(err, data){
+			Response.end(JSON.stringify({
+                    status: '0'
+                }));
+		});
+	}
+	catch(e)
+	{
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+function postdata(id,Robot,Request,Response){
+	var countryUrl = Robot.Get("countryUrl");
+	var option={
+		method : "POST",
+		url : countryUrl+"web_manager/storeAddress_update",
+		Body:{"oper":"save","pid":id,"country":country,"state":state,"city":city,"address":address,"postCode":postCode,"phone":phone,"lon":lon,"lat":lat,"country":country,"contryCode":contryCode},
+		Enctype:"application/x-www-form-urlencoded",
+		Headers :{charset:"UTF-8"}
+	};
+	
+	MEAP.AJAX.Runner(option,function(err,res,data){
+	    if(!err)
+	    {  console.log("====if=====");
+			Response.end(JSON.stringify({
+	                    status: '1',
+						newid:id
+	                }));
+	    }
+	    else
+	    {
+			Response.end(JSON.stringify({
+                    status: '0'
+                }));
+	    }
+	},Robot);
+}
+
+exports.Runner=run;
+

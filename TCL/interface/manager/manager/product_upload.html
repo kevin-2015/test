@@ -1,0 +1,1624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title data-localize="tcl.product.products"></title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script src="js/main.js" type="text/javascript"></script>
+		<script src="js/i18n.js" type="text/javascript"></script>
+		<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+   		<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  	<div id="right_boader" class="right_boader ">
+	   <div class="menu_top" style="overflow: hidden;"> 
+	    	<div id="menu_0" onclick="window.location.href='product_upload.html'" class="menu_now menu_font ul_float_left" data-localize="tcl.product.productuplord.productuplordname">产品上传</div>
+			<div id="menu_1" onclick="window.location.href='product_published.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.product.productuplord.published.publishedname">已发布</div>
+			<!--div id="menu_2" onclick="menu_rigt(2)"class="menu_nocheck menu_font ul_float_left">草稿</div-->
+			<div id="menu_2" onclick="window.location.href='product_management.html'" class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.product.productuplord.formsetting.formname">表单管理</div>
+			<div id="menu_3" onclick="window.location.href='product_keyword.html'" class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.product.productuplord.formsetting.keywords.keywordname">关键字设计</div>
+	   </div>
+	  
+	  <div id="menu_boader" class="menu_boader">
+	  	<!--1-->
+			<div id="menu_boader0" class="">
+				<div class="title_top" data-localize="tcl.product.productuplord.productinfor">产品基本信息</div>
+				<div class="ul_margin_top shangchuan gaojus">
+					<div class="ul_float_left ul_margin_right">
+						<span class="radioButton_checked" onclick="radio('jiaobiao',this);radio_checked('radio_one','1')">
+							<input id="radio_one" checked="checked" type="radio" name="jiaobiao" value="1" />
+						</span>
+					</div>
+					<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.TVproductname">
+						TV产品上传
+					</div>
+					<div class="ul_float_left ul_margin_right">
+						<span class="radioButton" onclick="radio('jiaobiao',this);radio_checked('radio_tow','2')">
+							<input id="radio_tow" type="radio" name="jiaobiao" value="2" />
+						</span>
+					</div>
+					<div class="ul_float_left scqd ul_margin_right"  data-localize="tcl.product.productuplord.TVproduct.attproducts">
+						附件产品上传
+					</div>
+				</div>
+				<div id="tv_chuan">
+				<!--
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.alluplord">整体上传</div>
+				<div class="ul_margin_top shangchuan gaoju">
+					<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.uplord">
+						上传产品包:
+					</div>
+					<div class="read_input ul_float_left">
+						<span class="span"> 
+						<input name="" type="text" id="uplode1" onmouseout="document.getElementById('file_up1').style.display='none';" class="inputstyle" /> 
+						</span> 
+						<label for="unload" onmouseover="document.getElementById('file_up1').style.display='block';" class="file1 inpit_font" data-localize="tcl.product.productuplord.TVproduct.choosens">选择</label> 
+						<input type="file" onchange="document.getElementById('uplode1').value=this.value;this.style.display='none';" class="file" id="file_up1" style="width: 407px; display: block;"/> 
+					</div>
+					<div class="close ul_float_left ul_margin_left"></div>
+					<div class="suoming ul_display_none">路径错误，请重新输入！</div>
+				</div>-->
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.uplordpic" >上传产品图片</div>
+				  <div class="ul_margin_top ul_hidden">
+					<form id="imgForm" name="imgForm" method="post" target="imgFrame" enctype="multipart/form-data">
+						<div id="productImages"></div>
+						<div class="ul_float_left wq_lov ul_margin_left">
+								<div class="ul_hidden pad_z">
+									<div class="right_buyuan ul_float_right"></div>
+								</div>
+								<div class="qionger">
+									<input  type="file" name="img" id="proimg" onchange="addFile();" class="weiqiong" />
+								</div>
+						</div>
+					
+					<iframe id="imgFrame" name="imgFrame" width="500px" height="100px" style="display:none;"></iframe>
+					</form>
+<script type="text/javascript">
+var globalImgValue = '';
+function addFile(){
+	var proimg = jQuery("#proimg").val();
+
+	if(proimg){
+		var len = proimg.length;
+		var type =  proimg.substr(proimg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp'){
+			jQuery("#proimg").val('');
+			alert("上传图片中有目前不支持的"+type+"格式");
+			return false;
+		}
+	}
+	jQuery("#imgForm").attr("action",base_url+"upload");
+	jQuery("#imgForm").submit();
+	globalImgValue = setInterval("getFrameValue()",1*1000);
+}
+
+function getFrameValue(){
+	var data = '';
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if(json){
+		clearInterval(globalImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"imgPath\" value=\""+data.path+',1'+"\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productImages').append(html);
+	}
+}
+
+var globalVideoImgValue = '';
+function addVideoFile(){
+	var provideo = jQuery("#provideo").val();
+
+	if(provideo){
+		var len = provideo.length;
+		var type =  provideo.substr(provideo.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp'){
+			jQuery("#fineimg").val('');
+			alert("上传图片中有目前不支持的"+type+"格式");
+			return false;
+		}
+	}
+
+	jQuery("#videoForm").attr("action",base_url+"upload");
+	jQuery("#videoForm").submit();
+	globalVideoImgValue = setInterval("getVideoFrameValue()",1*1000);
+}
+
+function getVideoFrameValue(){
+	var data = '';
+	var json = jQuery("#videoFrame").contents().find("*").first().text();
+
+	if(json){
+		clearInterval(globalVideoImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('videoFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"imgPath\" value=\""+data.path+',2'+"\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productVideo').append(html);
+		jQuery('#videoDivId').attr("style","display:none");
+	}
+}
+
+//微信
+var globalWXImgValue = '';
+function addWXFile(){
+	var proweixin = jQuery("#proweixin").val();
+
+	if(proweixin){
+		var len = proweixin.length;
+		var type =  proweixin.substr(proweixin.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp'){
+			jQuery("#weixinimg").val('');
+			alert("上传图片中有目前不支持的"+type+"格式");
+			return false;
+		}
+	}
+
+	jQuery("#weixinForm").attr("action",base_url+"upload");
+	jQuery("#weixinForm").submit();
+	globalWXImgValue = setInterval("getWXFrameValue()",1*1000);
+}
+
+function getWXFrameValue(){
+	var data = '';
+	var json = jQuery("#weixinFrame").contents().find("*").first().text();
+
+	if(json){
+		clearInterval(globalWXImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('weixinFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"weixinCode\" value=\""+data.path+"\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productweixin').html(html);
+		jQuery('#weixinDivId').attr("style","display:none");
+	}
+}
+</script>
+				
+				</div>
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.uplordvedio">上传视频</div>
+				<div class="ul_margin_top ul_hidden">
+					<form id="videoForm" name="videoForm" method="post" target="videoFrame" enctype="multipart/form-data">
+						<div id="productVideo"></div>
+						<div class="ul_float_left wq_lov ul_margin_left" id="videoDivId">
+								<div class="ul_hidden pad_z">
+									<div class="right_buyuan ul_float_right"></div>
+								</div>
+								<div class="qionger">
+									<input  type="file" name="img" id="provideo" onchange="addVideoFile();" class="weiqiong" />
+								</div>
+						</div>
+					<iframe id="videoFrame" name="videoFrame" width="500px" height="100px" style="display:none;"></iframe>
+					</form>
+				</div>
+				
+				
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.productspec">产品规格</div>
+				<div class="ul_margin_top shangchuan">
+					<form id="form1">
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productname">
+						产品名称:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="name" id="name" type="text"  class="inputstyle" /></span>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.productprice">
+						产品价格:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="price" id="price" type="text"  class="inputstyle" /></span>
+						</div>
+					</div>
+					<div class="gaoju ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productkeyword">
+						产品关键字:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input onfocus="open_wind(0);" name="" type="text"  class="inputstyle" /></span>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.productScreening">
+						产品筛选级别:
+						</div>
+						<div class="read_input ul_float_left">
+						<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" name="screenLevel" name="screenLevel">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="gaoju ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productband">
+						产品品牌:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" id="brand" name="brand">
+
+								</select>
+							</div>
+						</div>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.productlevel">
+						产品星级:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" id="starlevel" name="starlevel">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					<div class="gaoju ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productser">
+						产品分类:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" id="category" name="category">
+
+								</select>
+							</div>
+						</div>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.Resolution">
+						分辨率:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" id="resolution" name="resolution">
+
+								</select>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="gaoju ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.chicun">
+						尺寸范围:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial" id="sizearea" name="sizearea">
+									<option>下拉框</option>
+								</select>
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+					<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productparameter">
+						产品参数:
+						</div>
+						<div class="ul_float_left canshu ul_cursor_pointer" onclick="open_wind('3_1')" >查看具体参数</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+					<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.producticon">
+						产品ICON:
+						</div>
+						<div class="ul_float_left canshu ul_cursor_pointer" onclick="open_wind('4_1')">查看设置</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.timetomarket">
+						上市时间:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="listedTime" id="listedTime" type="text"  class="inputstyle" /></span>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productintro">
+							产品简介:
+						</div>
+						<div class="text_input ul_hidden">
+							<textarea class="text_con" name="description" id="description"></textarea>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.buy">
+							购买按钮:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton_checked" onclick="radio('shopButton',this)">
+									<input type="radio" name="shopButton" value="2" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('shopButton',this)">
+									<input type="radio" name="shopButton" value="1" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.Electriclink">
+							购买电商链接:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="shop" id="shop" type="text"  class="inputstyle" /></span>
+						</div>
+						
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.findstore">
+							查找门店按钮:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton_checked" onclick="radio('findStore',this)">
+									<input type="radio" name="findStore" value="2" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('findStore',this)">
+									<input type="radio" name="findStore" value="1" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right"  data-localize="tcl.product.productuplord.TVproduct.test">
+							查看此产品测试:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton_checked" onclick="radio('reviewFun',this)">
+									<input type="radio" name="reviewFun" value="2" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('reviewFun',this)">
+									<input type="radio" name="reviewFun" value="1" />
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.testlink">
+						产品测试连接:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="reviewUrl" type="text"  class="inputstyle" /></span>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.Textrevision">
+						文字修改:
+						</div>
+						<div class="read_input ul_float_left">
+							<span  class="span"><input name="reviewContent" type="text"  class="inputstyle" /></span>
+						</div>
+					</div>
+					</form>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right"  data-localize="tcl.product.productuplord.TVproduct.weixinshare">
+						上传微信分享二维码:
+						</div>
+						
+				<form id="weixinForm" name="weixinForm" method="post" target="weixinFrame" enctype="multipart/form-data">
+					<div class="read_input ul_float_left">
+					<div class="read_input ul_float_left">
+						<!--<span class="span"> 
+						<input name="" type="text" id="uplode2" onmouseout="document.getElementById('file_up1').style.display='none';" class="inputstyle" /> 
+						</span> -->
+						<label for="unload" onmouseover="document.getElementById('proweixin').style.display='block';" class="file1 inpit_font" data-localize="tcl.product.productuplord.TVproduct.choosens">选择</label> 
+						<input type="file" onchange="addWXFile();this.style.display='none';" class="file" id="proweixin" name="img" style="width: 407px; display: block;" /> 
+					</div>
+					<div class="inpit_font ul_float_left ul_margin_left"  data-localize="tcl.product.productuplord.TVproduct.del">删除</div>
+					<div id="productweixin"></div>
+					<iframe id="weixinFrame" name="weixinFrame" width="500px" height="100px" style="display:none;"></iframe>
+					</div>
+					</div>
+				</div>
+				</form>
+				<div class=" ul_margin_top ul_hidden">
+					<div class="ul_float_left  title_top ul_margin_right"   data-localize="tcl.product.productuplord.TVproduct.overviewpic">
+							上传概述图片
+						</div>
+				</div>
+				
+				<form id="outlineImgForm" name="outlineImgForm" method="post" target="outlineImgFrame" enctype="multipart/form-data">
+				<div class="ul_margin_top shangchuan">
+					<div class="gai_img">
+							<div class="ul_hidden pad_z">
+									<div class="right_buyuan ul_float_right"  onclick="delete_m('gaitu_img','shuo_img')"><div class="delect"></div></div>
+							</div>
+							<div class="qiongertr ul_hidden"  id="gaitu_img">
+						</div>				
+						<div id="productOutlineImg"></div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left ul_margin_right icon_add" onclick="open_wind(1);"></div>
+							<input  type="file" name="img" id="outlineimg" value="2" onchange="addOutlineImgFile();" style="display:none;" />
+						</div>
+					</div>
+					<iframe id="outlineImgFrame" name="outlineImgFrame" width="500px" height="100px" style="display:none;"></iframe>
+				</div>
+				</form>
+				
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.instructionpic">上传说明图片</div>
+				<form id="explainImgForm" name="explainImgForm" method="post" target="explainImgFrame" enctype="multipart/form-data">
+				<div class="ul_margin_top shangchuan">
+					<div class="gai_img">
+						<div class="ul_hidden pad_z">
+								<div class="right_buyuan ul_float_right"  onclick="delete_m('shuotu_img','shuo_imged')"><div class="delect"></div></div>
+						</div>
+						<div class="qiongertr ul_hidden"  id="shuotu_img">
+						</div>
+					</div>
+					
+					<div id="productExplainImg"></div>
+					<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left ul_margin_right icon_add" onclick="open_wind(2);"></div>
+						<input  type="file" name="img" id="explainimg" value="2" onchange="addExplainImgFile();" style="display:none;" />
+					</div>
+					<iframe id="explainImgFrame" name="explainImgFrame" width="500px" height="100px" style="display:none;"></iframe>
+				</div>
+				</form>
+				
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.phonepic">上传手机精品图片：(中国)</div>
+				<div class="ul_margin_top ul_hidden">
+		
+		
+		
+		<form id="fineImgForm" name="fineImgForm" method="post" target="fineImgFrame" enctype="multipart/form-data">
+						<div id="productFineImg"></div>
+						<div class="ul_float_left wq_lov ul_margin_left">
+								<div class="ul_hidden pad_z">
+									<div class="right_buyuan ul_float_right"></div>
+								</div>
+								<div class="qionger">
+									<input  type="file" name="img" id="fineimg" onchange="addFineImgFile();" class="weiqiong" />
+								</div>
+						</div>
+					
+					<iframe id="fineImgFrame" name="fineImgFrame" width="500px" height="100px" style="display:none;"></iframe>
+<script type="text/javascript">
+var globalOutlineImgValue = '';
+var numOutAdd = 1;
+function addOutlineImgFile(){
+	var outlineimg = jQuery("#outlineimg").val();
+	if (outlineimg) {
+		var len = outlineimg.length;
+		var type = outlineimg.substr(outlineimg.lastIndexOf("."), len).toLowerCase();
+		if (type != '.jpg' && type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp') {
+			jQuery("#outlineimg").val('');
+			alert("上传图片中有目前不支持的" + type + "格式");
+			return false;
+		}
+	}
+	jQuery("#outlineImgForm").attr("action",base_url+"upload");
+	jQuery("#outlineImgForm").submit();
+	globalExplainImgValue = setInterval("getOutlineFrameValue()",1*1000);
+}
+//上传概述图片
+function getOutlineFrameValue(){
+	var data = '';
+	var json = jQuery("#outlineImgFrame").contents().find("*").first().text();
+
+	if(json){
+		clearInterval(globalOutlineImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('outlineImgFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"imgPath\" id=\"outlineimgPath"+numOutAdd+"\" value=\""+data.path+',3'+"\" style=\"display:none\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productOutlineImg').append(html);
+		jQuery('#gaitu_img').html("<img src=\""+data.path+"\" />");
+		//jQuery('#gaitu_img').attr("src",data.path);  
+		var shuotuHtml = '<div class="tutu"><div id="huakuai2" class="ul_float_left tuwn_b"><div class="tuwen_coned"><input type="text" id="outlineText'+numOutAdd+'" value=""/><input type="text" id="outlinePlace'+numOutAdd+'" value="left"/></div><div class="ul_margin_top tuwen_caozuo ul_hidden"><div id="zuoyi2" class="ul_display_none" onclick=\"zuoyi(1,'+numAdd+')\">左移</div><div class="ul_float_left ul_margin_right"  onclick=\"delOutlineText('+numOutAdd+');\">删除</div><div class="ul_float_left ul_margin_right" onclick=\"editOutlineText();\">编辑</div><div class="ul_float_left ul_margin_right" onclick=\"editOutlineText('+numOutAdd+');\">保存</div><div id="youyi2" class="ul_float_left" onclick=\"youyi(2,'+numOutAdd+');\">右移</div></div></div></div>';
+		jQuery('#gaitu_img').html(shuotuHtml);
+		numOutAdd ++;
+	}
+}
+	
+function editOutlineText(numOutAdd){
+	var imgVal = jQuery('#outlineimgPath' + numOutAdd).val();
+	var imgValNum = jQuery('#outlineimgPath' + numOutAdd).val().split(',');
+	var explainText = jQuery('#outlineText' + numOutAdd).val();
+	var explainPlace = jQuery('#outlinePlace' + numOutAdd).val();
+	if (explainText) {
+		imgValNum[2] = "'"+explainText+"'";
+//		imgVal.name = explainText;
+	}
+	if (explainPlace) {
+		imgValNum[3] = explainPlace;
+//		imgVal.place = explainPlace;
+	}
+	jQuery('#outlineimgPath'+numOutAdd).val(imgValNum);
+//	alert(JQ('#outlineimgPath'+numOutAdd).val());
+}
+
+function outlineUpload(){
+	jQuery('#outlineimg').click();
+}
+	
+//上传精品图片
+var globalFineImgValue = '';
+function addFineImgFile(){
+	var fineimg = jQuery("#fineimg").val();
+
+	if(fineimg){
+		var len = fineimg.length;
+		var type =  fineimg.substr(fineimg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp'){
+			jQuery("#fineimg").val('');
+			alert("上传图片中有目前不支持的"+type+"格式");
+			return false;
+		}
+	}
+
+	jQuery("#fineImgForm").attr("action",base_url+"upload");
+	jQuery("#fineImgForm").submit();
+	globalFineImgValue = setInterval("getFineFrameValue()",1*1000);
+}
+
+function getFineFrameValue(){
+	var data = '';
+	var json = jQuery("#fineImgFrame").contents().find("*").first().text();
+
+	if(json){
+		clearInterval(globalFineImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('fineImgFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"imgPath\" value=\""+data.path+',5'+"\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productFineImg').append(html);
+	}
+}
+//上传说明图片
+var globalExplainImgValue = '';
+var numAdd = 1;
+function addExplainImgFile(){
+	var explainimg = jQuery("#explainimg").val();
+	alert(explainimg);
+	if (explainimg) {
+		var len = explainimg.length;
+		var type = explainimg.substr(explainimg.lastIndexOf("."), len).toLowerCase();
+		if (type != '.jpg' && type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp') {
+			jQuery("#explainimg").val('');
+			alert("上传图片中有目前不支持的" + type + "格式");
+			return false;
+		}
+	}
+	jQuery("#explainImgForm").attr("action",base_url+"upload");
+	jQuery("#explainImgForm").submit();
+	globalExplainImgValue = setInterval("getExplainFrameValue()",1*1000);
+}
+
+function getExplainFrameValue(){
+	var data = '';
+	var json = jQuery("#explainImgFrame").contents().find("*").first().text();
+
+	if(json){
+		clearInterval(globalFineImgValue);
+		data = jQuery.parseJSON(json);
+		jQuery(document.getElementById('explainImgFrame').contentWindow.document.body).html('');
+		
+		if(data.status == 0){
+			alert(data.message);
+			return;
+		}
+		var html = "<div class=\"ul_float_left wq_lov ul_margin_left\">";
+			html += "<div class=\"ul_hidden pad_z\">";
+			html += "<div class=\"right_buyuan ul_float_right\" onclick=\"delete_m(this);\"><div class=\"delect\"></div></div>";
+			html +="</div>";
+			html +="<div>";
+			html +="<img width=\"150px\" height=\"150px\" src=\""+data.path+"\" />";
+			html +="<input name=\"imgPath\" id=\"imgPath"+numAdd+"\" value=\""+data.path+',4'+"\" style=\"display:none\" />";
+			html +="</div>";
+			html +="</div>";
+		jQuery('#productExplainImg').append(html);
+		//jQuery('#shuotu_img').attr("src",data.path);  
+		jQuery('#shuotu_img').html("<img src=\""+data.path+"\" />");
+		var shuotuHtml = '<div class="tutu"><div id="huakuai2" class="ul_float_left tuwn_b"><div class="tuwen_coned"><input type="text" id="explainText'+numAdd+'" value=""/><input type="text" id="explainPlace'+numAdd+'" value="left"/></div><div class="ul_margin_top tuwen_caozuo ul_hidden"><div id="zuoyi2" class="ul_display_none" onclick=\"zuoyi(2,'+numAdd+')\">左移</div><div class="ul_float_left ul_margin_right"  onclick=\"delExplainText('+numAdd+');\">删除</div><div class="ul_float_left ul_margin_right" onclick=\"editExplainText();\">编辑</div><div class="ul_float_left ul_margin_right" onclick=\"editExplainText('+numAdd+');\">保存</div><div id="youyi2" class="ul_float_left" onclick=\"youyi(2,'+numAdd+');\">右移</div></div></div></div>';
+		jQuery('#shuotu_img').html(shuotuHtml);
+		numAdd ++;
+	}
+}
+
+function editExplainText(numAdd){
+	var imgVal = jQuery('#imgPath' + numAdd).val();
+	var imgValNum = jQuery('#imgPath' + numAdd).val().split(',');
+	var explainText = jQuery('#explainText' + numAdd).val();
+	var explainPlace = jQuery('#explainPlace' + numAdd).val();
+	if (explainText) {
+		imgValNum[2] = "'"+explainText+"'";
+//		imgVal.name = explainText;
+	}
+	if (explainPlace) {
+		imgValNum[3] = explainPlace;
+//		imgVal.place = explainPlace;
+	}
+	jQuery('#imgPath'+numAdd).val(imgValNum);
+	//alert(jQuery('#imgPath'+numAdd).val());
+}
+
+function explainUpload(){
+	jQuery('#explainimg').click();
+}
+</script>
+</form>				
+		
+				</div>
+<form id="form2">
+				<!--<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.uplordarea">产品上传区域选择</div>
+				<div class="ul_margin_top">
+					<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					  <tr>
+						<td width="50%" data-localize="tcl.product.productuplord.TVproduct.area">区域</td>
+						<td width="50%" data-localize="tcl.product.productuplord.TVproduct.Operation">操作</td>
+					  </tr>
+					  <tr >
+						<td class="tr_left">
+						 	<div class="ul_float_left ul_hidden">
+								<div class="ul_float_left ul_margin_right chekec_qi">
+								<input type="checkbox" name="location" id="Common1" value="1" style="display:none;" />
+								<div class="mo_input" style="" onclick="myCheckbox('Common1',this);">&nbsp;</div>
+								</div>
+								<div class="ul_float_left ul_margin_right">北美</div>
+							</div>
+							<div class="ul_float_left ul_hidden">
+								<div class="ul_float_left ul_margin_right chekec_qi">
+								<input type="checkbox" name="location" id="Common2" value="2" style="display:none;" />
+								<div class="mo_input" style="" onclick="myCheckbox('Common2',this);">&nbsp;</div>
+								</div>
+								<div class="ul_float_left ul_margin_right">欧洲</div>
+							</div>
+							<div class="ul_float_left ul_hidden">
+								<div class="ul_float_left ul_margin_right chekec_qi">
+								<input type="checkbox" name="location" id="Common3" value="3" style="display:none;" />
+								<div class="mo_input" style="" onclick="myCheckbox('Common3',this);">&nbsp;</div>
+								</div>
+								<div class="ul_float_left ul_margin_right">泰国</div>
+							</div>
+						</td>
+						<td class="all_che"><a  data-localize="tcl.product.productuplord.TVproduct.choosen">全选</a></td>
+					  </tr>
+					</table>
+				</div>-->
+				
+				<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left baocun button_l" onclick="baocun()" data-localize="tcl.product.productuplord.TVproduct.save">保存</div>
+					<div class="ul_float_left fabu button_l" onclick="baocun()" data-localize="tcl.product.productuplord.TVproduct.publish">发布</div>
+					<div class="ul_float_left quxiao button_l" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+					<div class="ul_float_left yulan button_l" onclick="window.open('engpreview.html')" data-localize="tcl.product.productuplord.TVproduct.Preview">预览</div>
+				</div>
+			</div>
+			<div id="mengban" class="ul_display_none"  onclick="close_wind();"></div>
+			<div id="window_open" class="ul_display_none">
+				<div id="win_con">
+					<div id="win_con0" class="ul_display_none">
+							<div class="win_header">
+
+								<div class="ul_float_left">
+				
+									<div class="ul_float_left">
+				
+									<div class="ul_float_left ul_margin_right chekec_qi">
+										<input type="checkbox" name="allchecked" id="alls" value="checkbox" style="display:none;" />
+										<div class="mo_input" style="" onclick="myCheckbox('alls',this);">&nbsp;</div>
+									</div>
+									<div class="ul_float_left ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.choosen">全选</div>
+								</div>
+								<div class="ul_float_right">
+				
+										<!--<div class="ul_float_left anniu_qx ul_margin_right" onclick="enter_wind(0);">确定</div>
+										<div class="ul_float_left anniu_qx" onclick="close_wind();">取消</div>-->
+				
+										<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.save" onclick="close_wind();" >确定</div>
+										<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+									</div>
+							</div>
+							<div class="tan_con">
+								<div class="xuan_kuang ul_hidden" id="proAddOne">
+									
+								</div>
+							</div>
+					</div>					
+				</div>
+				<div id="win_con1" class="ul_display_none">
+					<div class="tuwen_con">
+						<div class="ul_hidden">
+							<div class="tuwen1_c" data-localize="tcl.product.productuplord.TVproduct.twfb">图文发布</div>
+							<div class="gaiqiong" onclick="outlineUpload();close_wind()"><!--<input  type="file" name="shuo_img" id="shuo_img" onchange="outlineUpload();close_wind()"  class="gaiqiong" />--></div>
+						</div>
+						
+						<div class="tuwen2_c ul_margin_top"  data-localize="tcl.product.productuplord.TVproduct.cwzfb">纯文字发布</div>
+					</div>
+				</div>
+				
+				<div id="win_con2" class="ul_display_none">
+					<div class="tuwen_con">
+						<div class="ul_hidden">
+							<div class="tuwen1_c" data-localize="tcl.product.productuplord.TVproduct.twfb">图文发布</div>
+							<div class="gaiqiong" onclick="explainUpload();close_wind()"><!--<input  type="file" name="shuo_imged" id="shuo_imged" onchange="preImg(this.id,'shuotu_img');close_wind()"  class="gaiqiong" />--></div>
+						</div>
+						
+						<div class="tuwen2_c ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.cwzfb">纯文字发布</div>
+					</div>
+				</div>
+				
+			</div>
+			</div>
+			
+			<div id="win_opens" class="ul_display_none">
+				<div id="canshu" class="">
+						<div class="win_headers">
+							<div class="ul_float_right">
+									<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.save" onclick="close_wind(3);" >确定</div>
+									<div class="ul_float_left anniu_qx" onclick="close_wind(3);" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+								</div>
+						</div>
+						<div class="tan_con" style="overflow-y: scroll;height: 400PX;">
+							<div class="xuan_kuang ul_hidden" id="proAddParaDiv"></div>
+						</div>
+					</div>
+			</div>
+			<div id="shecha" class="ul_display_none">
+					<div id="canshu">
+						<div class="win_headers">
+							<div class="ul_float_right">
+									<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.save">确定</div>
+										<div class="ul_float_left anniu_qx" onclick="close_wind(4);" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+								</div>
+						</div>
+						<div class="tan_con" style="overflow-y: scroll;height: 400PX;">
+							<div class="ul_hidden">
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">首页显示</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">首页显示</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">首页显示</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">首页显示</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">置顶</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">置顶</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+								<div class="ul_float_left ul_margin_left ul_margin_right">
+										<div class="wq_lovu"></div>
+										<div class="ul_margin_top ul_text_center delect_add"><a class="ul_margin_right" href="#">置顶</a><a class="ul_margin_right" href="#">取消</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--<form id="form2">
+			<div id="fj_chuan" class="ul_display_none">
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.alluplord">整体上传</div>
+				<div class="ul_margin_top shangchuan gaoju">
+					<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.uplord">
+						上传产品包:
+					</div>
+					<div class="read_input ul_float_left">
+						<span class="span"> 
+						<input name="" type="text" id="uplode1" onmouseout="document.getElementById('file_up1').style.display='none';" class="inputstyle" /> 
+						</span> 
+						<label for="unload" onmouseover="document.getElementById('file_up1').style.display='block';" data-localize="tcl.product.productuplord.TVproduct.choosens" class="file1 inpit_font"/>选择</label> 
+						<input type="file" onchange="document.getElementById('uplode1').value=this.value;this.style.display='none';" class="file" id="file_up1" style="width: 407px; display: block;"/> 
+					</div>
+					<div class="close ul_float_left ul_margin_left"></div>
+					<div class="suoming ul_display_none">路径错误，请重新输入！</div>
+				</div>
+				
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.uplordpic">上传产品图片</div>
+				<div class="ul_margin_top ul_hidden">
+					<div class="ul_float_left wq_lov">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">1</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f1','wei_img_f1')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f1"><input type="file" name="wei_img_f1" id="wei_img_f1" onchange="preImg(this.id,'qiong_img_f1');" class="weiqiong"/></div>
+					</div>
+					<div class="ul_float_left wq_lov ul_margin_left">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">2</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f2','wei_img_f2')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f2"><input type="file" name="wei_img_f2" id="wei_img_f2" onchange="preImg(this.id,'qiong_img_f2');" class="weiqiong"/></div>
+					</div>
+					<div class="ul_float_left wq_lov ul_margin_left">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">3</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f3','wei_img_f3')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f3"><input type="file" name="wei_img_f3" id="wei_img_f3" onchange="preImg(this.id,'qiong_img_f3');" class="weiqiong"/></div>
+					</div>
+					<div class="ul_float_left wq_lov ul_margin_left">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">4</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f4','wei_img_f4')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f4"><input type="file" name="wei_img_f4" id="wei_img_f4" onchange="preImg(this.id,'qiong_img_f4');" class="weiqiong"/></div>
+					</div>
+					<div class="ul_float_left wq_lov ul_margin_left">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">5</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f5','wei_img_f5')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f5"><input type="file" name="wei_img_f5" id="wei_img_f5" onchange="preImg(this.id,'qiong_img_f5');" class="weiqiong"/></div>
+					</div>
+					<div class="ul_float_left wq_lov ul_margin_left">
+							<div class="ul_hidden pad_z">
+								<div class="left_buyuan ul_float_left">6</div>
+								<div class="right_buyuan ul_float_right" onclick="delete_m('qiong_img_f6','wei_img_f6')"><div class="delect"></div></div>
+							</div>
+							<div class="qionger" id="qiong_img_f6"><input type="file" name="wei_img_f6" id="wei_img_f6" onchange="preImg(this.id,'qiong_img_f6');" class="weiqiong"/></div>
+					</div>
+				</div>
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.productspec">产品规格</div>
+				
+				<div class="ul_margin_top shangchuan">
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productname">
+						产品名称:
+						</div>
+						<div class="read_input ul_float_left">
+							<span class="span"><input name="" type="text" class="inputstyle"/></span>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left"  data-localize="tcl.product.productuplord.TVproduct.productprice">
+						产品价格:
+						</div>
+						<div class="read_input ul_float_left">
+							<span class="span"><input name="" type="text" class="inputstyle"/></span>
+						</div>
+					</div>
+					
+					<div class="gaoju ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productser">
+						产品分类:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial">
+									<option>下拉框</option>
+									<option>下拉框</option>
+									<option>下拉框</option>
+									<option>下拉框</option>
+								</select>
+							</div>
+						</div>
+						</div>
+						<div class="ul_float_left scqded ul_margin_right ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.productlevel">
+						产品星级:
+						</div>
+						<div class="read_input ul_float_left">
+							<div class="shaixuan_selsect">
+							<div class="selsect_ov">
+								<select class="xial">
+									<option>下拉框</option>
+									<option>下拉框</option>
+									<option>下拉框</option>
+									<option>下拉框</option>
+								</select>
+							</div>
+						</div>
+						</div>
+					</div>
+					
+					
+					<div class="ul_hidden ul_margin_bottom">
+					<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productparameter">
+						产品参数:
+						</div>
+						<div class="ul_float_left canshu ul_cursor_pointer" onclick="opens_go('1_1')">查看具体参数</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+					
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.productintro">
+							产品简介:
+						</div>
+						<div class="text_input ul_hidden">
+							<textarea class="text_con"></textarea>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.buy">
+							购买按钮:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.Electriclink">
+							购买电商链接:
+						</div>
+						<div class="read_input ul_float_left">
+							<span class="span"><input name="" type="text" class="inputstyle"/></span>
+						</div>
+						
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.findstore">
+							查找门店按钮:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right"  data-localize="tcl.product.productuplord.TVproduct.test">
+							查看此产品测试:
+						</div>
+						<div class="text_input ul_hidden">
+							<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.hide">
+								隐藏
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('goumai',this)">
+									<input type="radio" name="goumai" value="1"/>
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.display">
+								显示
+							</div>
+						</div>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.testlink">
+						产品测试连接:
+						</div>
+						<div class="read_input ul_float_left">
+							<span class="span"><input name="" type="text" class="inputstyle"/></span>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.Textrevision">
+						文字修改:
+						</div>
+						<div class="read_input ul_float_left">
+							<span class="span"><input name="" type="text" class="inputstyle"/></span>
+						</div>
+					</div>
+					<div class="ul_hidden ul_margin_bottom">
+						<div class="ul_float_left scqded ul_margin_right"  data-localize="tcl.product.productuplord.TVproduct.weixinshare">
+						上传微信分享二维码:
+						</div>
+						<div class="read_input ul_float_left">
+					<div class="read_input ul_float_left">
+						<span class="span"> 
+						<input name="" type="text" id="uplode2" onmouseout="document.getElementById('file_up1').style.display='none';" class="inputstyle"/> 
+						</span> 
+						<label for="unload" onmouseover="document.getElementById('file_up1').style.display='block';" data-localize="tcl.product.productuplord.TVproduct.choosens" class="file1 inpit_font"/>选择</label> 
+						<input type="file" onchange="document.getElementById('uplode2').value=this.value;this.style.display='none';" class="file" id="file_up1" style="width: 407px; display: block;"/> 
+					</div>
+					<div class="inpit_font ul_float_left ul_margin_left" data-localize="tcl.product.productuplord.TVproduct.del">删除</div>
+					</div>
+					
+					</div>
+				</div>
+				</div>
+				<div class=" ul_margin_top ul_hidden">
+					<div class="ul_float_left  title_top ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.overviewpic">
+							上传概述图片
+						</div>
+				</div>
+				<div class="ul_margin_top shangchuan">
+					<div class="gai_img">
+						<div class="ul_hidden pad_z">
+								<div class="right_buyuan ul_float_right" onclick="delete_m('gaitu_img_f','shuo_img_f')"><div class="delect"></div></div>
+						</div>
+							<div class="qiongertr" id="gaitu_img_f"></div>
+					</div>
+					<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left ul_margin_right icon_add" onclick="opens_go(4);"></div>
+					</div>
+				</div>
+				<div class="title_top ul_margin_top" data-localize="tcl.product.productuplord.TVproduct.instructionpic">上传说明图片</div>
+				<div class="ul_margin_top shangchuan">
+					<div class="gai_img">
+						<div class="ul_hidden pad_z">
+								<div class="right_buyuan ul_float_right" onclick="delete_m('shuotu_img_f','shuo_imged_f')"><div class="delect"></div></div>
+						</div>
+						<div class="qiongertr" id="shuotu_img_f"></div>
+					</div>
+					<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left ul_margin_right icon_add" onclick="opens_go(5);"></div>
+					</div>
+				</div>
+				<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left baocun button_l" onclick="baocun()" data-localize="tcl.product.productuplord.TVproduct.save">保存</div>
+					<div class="ul_float_left fabu button_l" onclick="baocun()" data-localize="tcl.product.productuplord.TVproduct.publish">发布</div>
+					<div class="ul_float_left quxiao button_l" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+					<div class="ul_float_left yulan button_l" onclick="window.open('preview.html')" data-localize="tcl.product.productuplord.TVproduct.Preview">预览</div>
+				</div>
+			</div>
+			<div id="mengbans" class="ul_display_none"  onclick="closes_go();"></div>
+			<div id="win_openss" class="ul_display_none">
+				<div id="canshus" class="">
+						<div class="win_headers">
+							<div class="ul_float_right">
+									<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.product.productuplord.TVproduct.save">确定</div>
+									<div class="ul_float_left anniu_qx" onclick="closes_go();" data-localize="tcl.product.productuplord.TVproduct.cancl">取消</div>
+								</div>
+						</div>
+						<div class="tan_con" style="overflow-y: scroll;height: 400PX;">
+							<div class="xuan_kuang ul_hidden" id="proAddParaDiv2"></div>
+						</div>
+					</div>
+			</div>
+			<div id="window_openss" class="ul_display_none">
+				<div id="win_cons">
+					<div id="win_con4" class="ul_display_none">
+						<div class="tuwen_con">
+							<div class="ul_hidden">
+								<div class="tuwen1_c" data-localize="tcl.product.productuplord.TVproduct.twfb">图文发布</div>
+								<div class="gaiqiong"><input  type="file" name="shuo_img_f" id="shuo_img_f" onchange="preImg(this.id,'gaitu_img_f');closes_go()"  class="gaiqiong" /></div>
+							</div>
+							<div class="tuwen2_c ul_margin_top"  data-localize="tcl.product.productuplord.TVproduct.cwzfb">纯文字发布</div>
+						</div>
+					</div>
+					<div id="win_con5" class="ul_display_none">
+						<div class="tuwen_con">
+							<div class="ul_hidden">
+								<div class="tuwen1_c" data-localize="tcl.product.productuplord.TVproduct.twfb">图文发布</div>
+								<div class="gaiqiong"><input  type="file" name="shuo_imged_f" id="shuo_imged_f" onchange="preImg(this.id,'shuotu_img_f');closes_go()"  class="gaiqiong" /></div>
+							</div>
+							<div class="tuwen2_c ul_margin_top"  data-localize="tcl.product.productuplord.TVproduct.cwzfb">纯文字发布</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>-->
+			</div>
+		<!--1-->
+		<!--3-->
+		<!--3-->
+	  </div>
+	</div>
+   <!--right部分结束-->
+</div>
+<!--body部分结束 -->
+<script>
+	
+	function enter_wind(flag){
+		alert(flag);
+	}
+	
+</script>
+<!--弹出层开始-->
+<!--弹出层结束-->
+
+<!--加载弹出框-->
+<div id="loading_wind" class="ul_display_none" onclick="close_loading()"></div>
+<div id="loading_con" class="ul_display_none">
+	<div class="loading_b">
+		<div class="loading_img"></div>
+		<div class="ul_margin_top jiazai_font">正在加载中，请稍候......</div>
+	</div>
+</div>
+<!--加载弹出框-->
+
+</body>
+<script type="text/javascript">
+ window.onload = function(e){
+ 	getParameterData(0);
+	getKeywordList();
+}
+
+//获取关键字列表数据
+function getKeywordList(){
+	var url = base_url+"keyword_list";
+	jQuery.getJSON(url,function(info){
+		if(info.status == "0"){
+			alert(info.message);
+			return;
+		}
+		var keywordData = info.data;
+		$$("proAddOne").innerHTML = "";
+		if(keywordData.length>0){
+			var newDiv = '';
+			for(var i = 0; i < keywordData.length;i++){
+				var oneNew = keywordData[i];
+				newDiv += '<div class="ul_float_left ul_hidden">'+
+	                                    '<div class="ul_float_left ul_margin_right chekec_qi">'+
+										'<input type="checkbox" name="keyword" id="keyword'+oneNew.id+'" value="'+oneNew.id+'" style="display:none;"/>'+
+	                                	'<div class="mo_input" style="" onclick="myCheckbox(\'keyword'+oneNew.id+'\',this);">&nbsp;</div>'+
+	                                    '</div>'+
+	                                    '<div class="ul_float_left ul_margin_right leixing">'+oneNew.name+'</div></div>';
+			}
+			$$("proAddOne").innerHTML = newDiv;
+		}else{
+			$$("proAddOne").innerHTML = "没有数据！";
+			$$("proAddOne").style.textAlign = "center";
+		}
+	});
+}
+
+//获取参数数据
+var Paraid = 0;
+function getParameterData(Paraid){
+	var getDetailUrl = base_url+"parameter_get?Paraid="+Paraid;
+	jQuery.getJSON(getDetailUrl,function(info){
+		if(info.status == "0"){
+			alert(info.message);
+			return;
+		}
+		var dataCateOne = info.dataCateOne;
+		var dataCateTwo = info.dataCateTwo;
+		var dataCateThr = info.dataCateThr;
+		if(dataCateOne.length>0){
+			var selStr = "";
+			for(var i = 0; i < dataCateOne.length;i++){
+				var oneType = dataCateOne[i];
+				if (oneType.flag == 'brand' || oneType.flag== 'category' || oneType.flag == 'resolution' || oneType.flag == 'sizearea') {
+					var cateArr = '';
+					for (var k = 0; k < dataCateThr.length; k++) {
+						if (dataCateThr[k].flag == oneType.flag) {
+							var thrType = dataCateThr[k];
+							cateArr += '<option value="' + thrType.pidId + '">' + thrType.name + '</option>';
+						}
+					}
+					$$(oneType.flag).innerHTML = cateArr;
+				}
+				else {
+					selStr += '<div class="title_top">' + oneType.name + '</div><div class="ul_hidden ul_margin_bottom">';
+					var flagId = 0;
+					if (oneType.flag == 'theme' || oneType.flag == 'show' || oneType.flag == 'dissipation' || oneType.flag == 'sizeweight' || oneType.flag == 'smart') {
+						flagId =1;
+					}
+					for (var j = 0; j < dataCateTwo.length; j++) {
+						if (dataCateTwo[j].pid == oneType.id) {
+							var twoType = dataCateTwo[j];
+							if (flagId==1) {
+								selStr += '<div class="ul_float_left"><div class="ul_float_left quyu_header ul_margin_right">' + twoType.name + ':</div><div class="ul_float_left ul_margin_right"><div class="select_up"><div class="ov_hiden"><select class="select_nob" name="parameter">';
+							}
+							for (var k = 0; k < dataCateThr.length; k++) {
+								if (dataCateThr[k].pid == twoType.id) {
+									var thrType = dataCateThr[k];
+									if (flagId==1) {
+										selStr += '<option value="' + thrType.pidId + '">' + thrType.name + '</option>';
+									}
+									else {
+										selStr += '<div class="ul_float_left ul_hidden shuotu"><div class="ul_float_left ul_margin_right chekec_qi"><input type="checkbox" name="parameter" id="' + thrType.id + '" value="'+thrType.pidId+'" style="display:none;"/><div class="mo_input" style="" onclick="myCheckbox(' + thrType.id + ',this);">&nbsp;</div></div><div class="ul_float_left ul_margin_right">' + thrType.name + '</div></div>';
+									}
+								}
+							}
+							if (flagId==1) {
+								selStr += '</select></div></div></div></div>';
+							}
+						}
+					}
+					selStr += '</div>';
+					$$('proAddParaDiv').innerHTML = selStr;
+				}
+			}
+		}else{
+			alert("请添加参数！");
+		}
+	});
+}
+
+function close_loading(){
+	$$('loading_wind').className='ul_display_none';
+	$$('loading_con').className='ul_display_none';
+}
+
+function baocun(){
+	$$('loading_wind').className='mengban';
+	$$('loading_con').className='loading_con';
+	
+	var productVal = jQuery("#form1,#form2").serialize();
+	
+	var imgVal = jQuery("#imgForm,#videoForm,#outlineImgForm,#explainImgForm,#fineImgForm,#weixinForm").serialize();	//产品图片
+//	var videoVal = JQ("#videoForm").serialize();	//视频
+//	var outlineVal = JQ("#outlineImgForm").serialize();	//概述图片
+//	var explainVal = JQ("#explainImgForm").serialize();	//说明图片
+//	var fineVal = JQ("#fineImgForm").serialize();	// 精品图片
+	var parameterVal = jQuery("input[type=checkbox][name=parameter]:checked").serialize();
+	var keywordVal = jQuery("input[type=checkbox][name=keyword]:checked").serialize();
+
+	var param = productVal;
+	if(imgVal){
+		param += '&'+imgVal;
+	}
+	if(keywordVal){
+		param += '&'+keywordVal;
+	}
+	if(parameterVal){
+		param += '&'+parameterVal;
+	}
+
+	jQuery.post(base_url+"product_add",param, function(data){
+
+		if(data.status == 0){
+			window.location.href = "product_published.html";
+		}else{
+			alert(data.message);
+		}
+   	}, "json");
+}
+
+function close_wind(id){
+	$$('mengban').className='ul_display_none';
+	$$('win_opens').className='ul_display_none';
+	$$('shecha').className='ul_display_none'
+	$$('mengban').className='ul_display_none';
+	$$('window_open').className='ul_display_none';
+	var win_con_length = $$('win_con').children.length;
+	for(var i = 0;i<win_con_length;i++){
+		$$('win_con'+i).className='ul_display_none';
+	}
+}
+
+function open_wind(id){
+	$$('mengban').className='mengban';
+	if(id=='3_1'){
+		$$('win_opens').className='win_opens';
+		
+	}else if(id=='4_1'){
+		$$('shecha').className='win_opens';
+	}else{
+		var win_con_length = $$('win_con').children.length;
+		$$('window_open').className='window_open';
+		for(var i = 0;i<win_con_length;i++){
+			if(id==i){
+				$$('win_con'+id).className=''
+			}else{
+				$$('win_con'+i).className='ul_display_none'
+			}
+		}
+	}
+}
+function closes_go(){
+	$$('mengbans').className='ul_display_none';
+	$$('win_openss').className='ul_display_none';
+	$$('window_openss').className='ul_display_none';
+	$$('win_con4').className='ul_display_none';
+	$$('win_con5').className='ul_display_none';
+}
+function opens_go(id){
+	$$('mengbans').className='mengban';
+	$$('window_openss').className='window_open';
+	if(id=='1_1'){
+		$$('win_openss').className='win_opens';
+	}else if(id==4){
+		$$('win_con4').className='';
+	}else if(id==5){
+		$$('win_con5').className='';
+	}
+}
+var menu_length = $$('menu_boader').children.length;
+var menu_now=0;
+function menu_rigt(id){
+     if(menu_now== id){
+	  	$$('menu_'+id).className='menu_now menu_font ul_float_left';
+	 }else{
+	 	$$('menu_'+id).className='menu_now menu_font ul_float_left'
+	 	$$('menu_'+menu_now).className='menu_nocheck menu_font ul_float_left'
+	 }
+	 menu_now= id;
+	 if(id == 0){
+	 	 window.location.href='Product_upload.html';
+	 }else if(id==2){}
+	for(var i = 0; i<menu_length;i++){
+		if(id == i){
+			$$('menu_boader'+id).className='';
+		}else{
+			$$('menu_boader'+i).className='ul_display_none';
+		}
+	}
+}
+
+jQuery(function(){
+	var jQuerycontent = jQuery(".scrollable_demo");
+	var i = 13  //已知显示的<div>元素的个数
+	var m = 13;  //用于计算的变量
+	var count = jQuerycontent.find("div").length;//总共的<div>元素的个数
+	jQuery(".next").click(function(){
+		if( !jQuerycontent.is(":animated")){  //判断元素是否正处于动画，如果不处于动画状态，则追加动画。
+			if(m<count){  //判断 i 是否小于总的个数
+				m++;
+				jQuerycontent.animate({left: "-=110px"}, 600);
+			}
+		}
+	});
+	jQuery(".prev").click(function(){
+		if( !jQuerycontent.is(":animated")){
+			if(m>i){ //判断 i 是否小于总的个数
+				m--;
+				jQuerycontent.animate({left: "+=110px"}, 600);
+			}
+		}
+	});
+});
+  
+ /** 
+* 从 file 域获取 本地图片 url 
+*/ 
+function getFileUrl(sourceId) { 
+	var url; 
+	if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+		url = document.getElementById(sourceId).value; 
+	} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+		url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+	} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+		url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+	} 
+	return url; 
+} 
+
+/** 
+* 将本地图片 显示到浏览器上 
+*/ 
+function preImg(sourceId, targetId) { 
+	var url = getFileUrl(sourceId); 
+	var imgPre = document.getElementById(targetId); 
+	if(url){
+		imgPre.style.background ='url('+url+')'; 
+		imgPre.style.backgroundSize = '100% 100%';
+	}else{
+		imgPre.style.background ='url(images/bianji.png)'; 
+	}
+}
+//删除 模板框架
+function delete_m(targetId,sourceId){
+	var imgPre = document.getElementById(targetId); 
+	if(targetId=='gaitu_img' || targetId=='shuotu_img' || targetId=='gaitu_img_f' || targetId=='shuotu_img_f'){
+		imgPre.style.background='';
+	}else{
+		imgPre.style.background ='url(images/bianji.png)';
+	}
+}
+
+function radio_checked(name,va){
+	if(va =='1'){
+		$$('tv_chuan').className='';
+		$$('fj_chuan').className='ul_display_none';
+	}else if(va=='2'){
+		$$('tv_chuan').className='ul_display_none';
+		$$('fj_chuan').className='';
+	}
+}
+var yikuai= 0;
+var z_move = false;
+function zuoyi(divId,numAdd){
+	if(z_move== true){
+		if(yikuai==0){//方法二开始左走
+				$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+				$$('youyi'+divId).className='ul_float_left ul_margin_right';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b huakuaied';
+				yikuai=0;
+		}else if(yikuai==1){ //方法一第二部想左走
+				$$('zuoyi'+divId).className='ul_display_none';
+				$$('youyi'+divId).className='ul_float_left ul_margin_right';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b';
+				yikuai= 0;
+				dongkuai=0;
+		}
+		jQuery('#explainPlace'+numAdd).val('left');
+		z_move = false;
+	}else{
+		if(yikuai==0){   //方法二第一步左走  true
+				$$('zuoyi'+divId).className='ul_display_none';
+				$$('youyi'+divId).className='ul_float_left ul_margin_right';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b';
+				yikuai=0;
+				dongkuai=1;
+		}else if(yikuai==1){ //方法一第一步向左走
+				$$('youyi'+divId).className='ul_float_left ul_margin_right';
+				$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b huakuaied';
+				yikuai= 1;
+		}
+		jQuery('#explainPlace'+numAdd).val('center');
+		z_move = true;
+	}
+}
+var dongkuai = 0;
+var y_move = false;
+function youyi(divId,numAdd){
+	if(y_move== true){
+		if(dongkuai== 0){ //方法一第二步向右走
+			$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+			$$('youyi'+divId).className='ul_display_none';
+			$$('huakuai'+divId).className= 'ul_float_left tuwn_b huaguo';
+			dongkuai=1;
+			yikuai= 1;
+		}else if(dongkuai==1){  //方法二 右走  false
+			$$('youyi'+divId).className='ul_float_left ul_margin_right';
+			$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+			$$('huakuai'+divId).className= 'ul_float_left tuwn_b huakuaied';
+			dongkuai = 1;
+		}
+		jQuery('#explainPlace'+numAdd).val('right');
+		 y_move = false;
+	}else{
+			if(dongkuai== 0){   //方法一第一步向右走  方法二第一步向左走   true
+  				$$('youyi'+divId).className='ul_float_left ul_margin_right';
+				$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b huakuaied';
+				dongkuai = 0;
+			}else if(dongkuai==1){
+				$$('zuoyi'+divId).className='ul_float_left ul_margin_right';
+				$$('youyi'+divId).className='ul_display_none';
+				$$('huakuai'+divId).className= 'ul_float_left tuwn_b huaguo';
+				dongkuai=1;
+			}
+			 y_move = true;
+			 jQuery('#explainPlace'+numAdd).val('center');
+		}
+}
+</script>
+</html>

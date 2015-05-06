@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.setting.setname"></title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+  <!--right部分开始-->
+	<div id="right_boader" class="right_boader ">
+		<div class="bot_menuww">
+			<div class="cs_1 ul_hidden">
+				<div id="canshu_bili0" onclick="canshu_bili(0)" class="chicun_menu ul_float_left" data-localize="tcl.setting.infor.inforname">个人信息设置</div>
+				<div id="canshu_bili1" onclick="canshu_bili(1)" class="bili_menu ul_float_left" data-localize="tcl.setting.code.codename">密码修改</div>
+			</div>
+		</div>
+		<div id="zcs_con">
+			<!--1-->
+				<div id="zcs_con0">
+					<div class="ul_margin_top shangchuan">
+						<div class="ul_idden ul_margin_bottom">
+							<div class="qunxain ul_margin_bottom">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.infor.authority">权限：</div>
+								<div class="ul_float_left zhangfs">
+									中国
+								</div>
+							</div>
+							
+							<div class="qunxain ul_margin_bottom">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.infor.admin">管理员序号：</div>
+								<div class="ul_float_left zhangfs">
+									001
+								</div>
+							</div>
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.infor.name">用户名：</div>
+								<div class="ul_float_left">
+									<span id="user_name" class="zhangfs"><input id="user_name_input" value="张三" name="" type="text" class="input_mi" readonly></span>
+								</div>
+								<div id="user_name_upload" class="inpit_font ul_float_left ul_margin_left" onclick="Modify('user_name')" data-localize="tcl.setting.infor.edit">修改</div>
+								<div id="user_name_save" class="ul_display_none" onclick="Save('user_name')" data-localize="tcl.setting.infor.upload">保存</div>
+							</div>
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.infor.email">邮箱：</div>
+								<div class="ul_float_left">
+									<span id="email" class="zhangfs"><input id="email_input" value="815128733@qq.com" name="" type="text" class="input_mi" readonly></span>
+								</div>
+								<div id="email_upload" class="inpit_font ul_float_left ul_margin_left" onclick="Modify('email')" data-localize="tcl.setting.infor.edit">修改</div>
+								<div id="email_save" class="ul_display_none" onclick="Save('email')" data-localize="tcl.setting.infor.upload">保存</div>
+							</div>
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.infor.tel">电话：</div>
+								<div class="ul_float_left">
+									<span id="telphone" class="zhangfs"><input id="telphone_input" value="12641163449" name="" type="text" class="input_mi" readonly></span>
+								</div>
+								<div id="telphone_upload" class="inpit_font ul_float_left ul_margin_left" onclick="Modify('telphone')" data-localize="tcl.setting.infor.edit">修改</div>
+								<div id="telphone_save" class="ul_display_none" onclick="Save('telphone')" data-localize="tcl.setting.infor.upload">保存</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			<!--1-->
+			<!--2-->
+				<div id="zcs_con1" class="ul_display_none">
+					<div class="ul_margin_top shangchuan">
+					<div class="qunxain ul_margin_bottom">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.code.email">邮箱：</div>
+								<div class="ul_float_left zhangfs">
+									001
+								</div>
+							</div>
+						<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.code.confirm">验证码：</div>
+								<div class="ul_float_left">
+									<span class="span"><input name="" type="text" class="inputstyle"></span>
+								</div>
+								<div class="yanma ul_float_left ul_margin_left"></div>
+							</div>
+					</div>
+					<div class="ul_margin_top ul_padding ul_hidden">
+							<div class="ul_float_left baocun button_l" onclick="canshu_bili(2)" data-localize="tcl.setting.code.xiyibu">下一步</div>
+					</div>
+				</div>
+			<!--2-->
+			<!--3-->
+				<div id="zcs_con2" class="ul_display_none">
+					<div class="ul_margin_top shangchuan">
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.code.newcode">新密码：</div>
+								<div class="ul_float_left">
+									<span class="span"><input name="" type="text" class="inputstyle"></span>
+								</div>
+							</div>
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.code.concode">确认新密码：</div>
+								<div class="ul_float_left">
+									<span class="span"><input name="" type="text" class="inputstyle"></span>
+								</div>
+							</div>
+							<div class="qunxain ul_margin_bottom ul_hidden">
+								<div class="ul_float_left quanze" data-localize="tcl.setting.code.confirm">验证码：</div>
+								<div class="ul_float_left">
+									<span class="span"><input name="" type="text" class="inputstyle"></span>
+								</div>
+								<div class="yanma ul_float_left ul_margin_left"></div>
+							</div>
+					</div>
+					<div class="ul_margin_top ul_padding ul_hidden">
+								<div class="ul_float_left baocun button_l" data-localize="tcl.setting.code.ok">保存</div>
+					</div>
+				</div>
+			<!--3-->
+		</div>
+	</div>
+	<!--right部分结束-->
+<!--body部分结束-->
+</body>
+<script>
+ window.onload = function(e){
+// now_page();
+//
+//	height_weight();
+}
+
+var zcs_con_length= $$('zcs_con').children.length;
+var canshu_bili_now= 0;
+function canshu_bili(id){
+if(id==2){
+$$('canshu_bili1').className='chicun_menu ul_float_left';
+canshu_bili_now=1;
+}else{
+	if(canshu_bili_now== id){
+		$$('canshu_bili'+id).className='chicun_menu ul_float_left';
+	}else{
+		$$('canshu_bili'+id).className='chicun_menu ul_float_left';
+		$$('canshu_bili'+canshu_bili_now).className='bili_menu ul_float_left';
+	}
+	canshu_bili_now =id;
+	}
+	for(var i =0;i < zcs_con_length;i++){
+	     if(id == i){
+		 	$$('zcs_con'+id).className= '';
+		 }else{
+		 	$$('zcs_con'+i).className= 'ul_display_none'
+		 }
+	 }
+	
+}
+
+function Modify(id){
+		$$(id).className='span';
+		$$(id+'_input').className='inputstyle';
+		$$(id+'_input').readOnly = false;
+		$$(id+'_upload').className='ul_display_none';
+		$$(id+'_save').className='inpit_font ul_float_left ul_margin_left';
+}
+function Save(id){
+		$$(id).className='zhangfs';
+		$$(id+'_input').className='input_mi';
+		$$(id+'_input').readOnly = true;
+		$$(id+'_upload').className='inpit_font ul_float_left ul_margin_left';
+		$$(id+'_save').className='ul_display_none';
+}
+</script>
+</html>

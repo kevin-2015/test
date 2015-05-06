@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>评论记录 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="um-vp" style="height:100%;width:100%;">
+<div id="page_0" class="up ub ub-ver">
+			<script src="js/header.js"></script>
+						<!--块容器开始-->
+<div class="ub uba b-gra c-gra zhy_title">
+    <div class=" uinn uc-l1 " onclick="goback();">
+    	<div class="zhy_back">返回</div>
+	</div>
+    <div class="ub-f1 uinn uc-r1 tx-r">评论记录</div>
+</div>
+<!--块容器结束-->
+<!--块容器开始-->
+<div class="ub ubb b-gra c-gra zhy_title">
+    <div class="ub-f1 uinn uc-l1">
+    	<!--块容器开始-->
+<div class="ub">
+    <div class="uinn uc-l1">
+    	<input type="checkbox">
+    </div>
+    <div class=" uinn">全选</div>
+</div>
+<!--块容器结束-->
+    </div>
+    <div class=" uinn uc-r1 ub ub-ac tx-r">删除</div>
+</div>
+<!--块容器结束-->
+<!--列表开始-->
+<div class="c-check umar-a uinn">
+    <ul ontouchstart="zy_touch('btn-act')" class="ubb ub b-gra t-bla ub-ac lis zhy_title">
+    	<li><input type="checkbox"></li>
+        <ul class="ub-f1 ub ub-ver zhy_left">
+            <li class="ulev1">
+				<!--块容器开始-->
+<div class="ub">
+    <div class="ub-f1 uinn uc-l1">L60H3600-CUD</div>
+    <div class=" uinn zhy_de">删除</div>
+</div>
+<!--块容器结束-->
+			</li>
+            <li class="ulev-1 umh4 t-gra t-red">TCL游戏电视L65E5700A-UD 65英寸4K超高清3D智。选配TCL专业蓝牙游戏手柄T2游戏体验更佳！4K专家，打造最专业的4K超高清电视。</li>
+        </ul>
+    </ul>
+</div>
+<div class="c-check umar-a uinn">
+    <ul ontouchstart="zy_touch('btn-act')" class="ubb ub b-gra t-bla ub-ac lis zhy_title">
+    	<li><input type="checkbox"></li>
+        <ul class="ub-f1 ub ub-ver zhy_left">
+            <li class="ulev1">
+				<!--块容器开始-->
+<div class="ub">
+    <div class="ub-f1 uinn uc-l1">L60H3600-CUD</div>
+    <div class=" uinn zhy_de">删除</div>
+</div>
+<!--块容器结束-->
+			</li>
+            <li class="ulev-1 umh4 t-gra t-red">TCL游戏电视L65E5700A-UD 65英寸4K超高清3D智。选配TCL专业蓝牙游戏手柄T2游戏体验更佳！4K专家，打造最专业的4K超高清电视。</li>
+        </ul>
+    </ul>
+</div>
+<!--列表结束-->
+
+
+	</div>
+	</body>
+	<script>
+		window.onload = function (){
+			list_com
+		}
+		function list_com(){
+			var url_data= base_url+''
+		}
+	</script>
+</html>

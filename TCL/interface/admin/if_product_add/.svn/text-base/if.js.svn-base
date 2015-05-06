@@ -1,0 +1,76 @@
+var MEAP=require("meap");
+var odbc = require('meap_odbc');
+require("../Initialize.js");
+
+function run(Param, Robot, Request, Response, IF){
+	LOG5('---Param---',Param);
+	var name = Param.fields.name;
+	var price = Param.fields.price;
+	var screenLevel = Param.fields.screenLevel;
+	var brand = Param.fields.brand;
+	var starlevel = Param.fields.starlevel;
+	var shop = Param.fields.shop;
+	var shopButton = Param.fields.shopButton;
+	var findStore = Param.fields.findStore;
+	var reviewFun = Param.fields.reviewFun;
+	var reviewUrl = Param.fields.reviewUrl;
+	var reviewContent = Param.fields.reviewContent;
+//	var location = Param.fields.location;
+	var location = Robot.Get("countryCode");
+	var description = Param.fields.description;
+	var keyword = Param.fields.keyword;
+	var status = 1;
+	var listedTime = Param.fields.listedTime;
+
+	var parameter = Param.fields.parameter;
+	var paraValueArr = '';
+	var parameterArr = '';
+	var imgPath = Param.fields.imgPath;
+	var imgvalueArr = '';
+	var imgvalue = '';
+	
+	var db = new odbc.Database();
+	db.openSync(TCL_SERVER_CN);
+	db.beginTransactionSync();
+	
+	var into, last, param, attachment, paraValueArr, imgvalueArr;
+	
+	try {
+		var sql = [];
+//		for (var i = 0; i < Param.fields.location.length; i++) {
+			into = db.querySync("INSERT INTO `ProductInfo` (`name`,`price`,`screenLevel`,`brand`,`starlevel`,`shop`,`findStore`,`reviewFun`,`location`, `keyword`,`listedTime`,`description`,`status`,`shopButton`,`reviewUrl`,`reviewContent`) VALUES ('" + name + "','" + price + "','" + screenLevel + "','" + brand + "','" + starlevel + "','" + shop + "','" + findStore + "','" + reviewFun + "' ,'" + location + "','"+keyword+"','"+listedTime+"','" + description + "','" + status + "','" + shopButton + "','" + reviewUrl + "','"+reviewContent+"')");
+			
+			last = db.querySync("SELECT LAST_INSERT_ID() AS LID");
+			
+			paraValueArr = '';
+			for (var j = 0; j < parameter.length; j++) {
+				parameterArr = parameter[j].split("_");
+				paraValueArr += "('" + last[0]['LID'] + "','" + parameterArr[1] + "','" + parameterArr[0] + "'),";
+			}
+			param = db.querySync("INSERT INTO `ProductSpecinfo` ( `productId`,`parameterId`,`paraPid`) VALUES" + paraValueArr.substring(0, paraValueArr.length - 1));
+			
+			imgvalueArr = '';
+			for (var k = 0; k < imgPath.length; k++) {
+				imgvalue = imgPath[k].split(",");
+				imgvalueArr += "('" + last[0]['LID'] + "','" + imgvalue[0] + "','" + imgvalue[1] + "'),";
+			}
+			attachment = db.querySync("INSERT INTO `ProductImageInfo` ( `productId`,`accessUrl`,`type`) VALUES" + imgvalueArr.substring(0, imgvalueArr.length - 1));
+			
+			
+			
+//		}
+		
+		db.commitTransactionSync();
+		db.closeSync();
+
+		Response.setHeader("Content-type","application/json;charset=utf8");
+		Response.end(JSON.stringify({status:'0', message:'addSuccess'}));
+	}catch(e){
+		db.rollbackTransactionSync();
+		db.closeSync();
+		
+		Response.setHeader("Content-type","application/json;charset=utf8");
+		Response.end(JSON.stringify({status:'0', message:'addFail'}));
+	}
+}
+exports.Runner=run;

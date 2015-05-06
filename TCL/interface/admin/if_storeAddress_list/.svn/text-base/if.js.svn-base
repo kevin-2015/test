@@ -1,0 +1,35 @@
+var MEAP=require("meap");
+
+function run(Param,Robot,Request,Response,IF)
+{
+	var country = Param.fields.country;
+	var condition = Param.fields.condition;
+	var sql = null;
+	if(condition){
+		if(!isNaN(condition))
+			sql = "SELECT * FROM `ShopInfo` WHERE  `lable`=0 and `country`='"+country+"' and `postCode`='"+condition+"' order by `id`";
+		else
+		  	sql = "SELECT * FROM `ShopInfo` WHERE  `lable`=0 and `country`='"+country+"' and `address`='"+condition+"' order by `id`";
+	}else
+		sql = "SELECT * FROM `ShopInfo` WHERE  `lable`=0 and `country`='"+country+"' order by `id`";
+	Response.setHeader("Content-type","application/json;charset=utf8");
+	try{
+        var option={
+			CN:TCL_SERVER_CN,
+			sql:sql
+		};
+		MEAP.ODBC.Runner(option,function(err,rows,cols){
+			if(!err){
+				Response.end(JSON.stringify({status:'0',data:rows}));
+			}else{
+				Response.end(JSON.stringify({status:'-1',message:'Error'}));
+			}
+		},Robot);
+	}
+	catch(e)
+	{
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+exports.Runner=run;

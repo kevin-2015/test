@@ -1,0 +1,27 @@
+var MEAP=require("meap");
+
+function run(Param,Robot,Request,Response,IF)
+{
+	try{
+		var id = Param.params.id;
+        var option={
+			CN:TCL_SERVER_CN,
+			sql:"update MenuInfo set targetUrl='',iconUrl='images/bianji.png' where id='"+id+"'"
+		};
+		MEAP.ODBC.Runner(option,function(err,rows,cols){
+			if(!err){
+				Response.setHeader("Content-type","application/json;charset=utf8")
+				Response.end(JSON.stringify({status:'0',message:'已清除'}));
+			}else{
+				Response.end(JSON.stringify({status:'-1',message:'Error'}));
+			}
+		},Robot);
+	}
+	catch(e)
+	{
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+exports.Runner=run;
+

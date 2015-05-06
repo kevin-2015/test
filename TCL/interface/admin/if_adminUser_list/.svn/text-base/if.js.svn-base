@@ -1,0 +1,51 @@
+var MEAP=require("meap");
+var odbc = require('meap_odbc');
+
+function run(Param,Robot,Request,Response,IF)
+{
+	var countrys = parseInt(Param.fields.countrys);
+	var roles = parseInt(Param.fields.roles);
+	var username = Param.fields.username;
+	var where = "WHERE a.`isFounder`= 0";
+	if(countrys){
+		where += ' AND a.`countrys` like "%'+countrys+'%"';
+	}
+	if(roles){
+		where += ' AND a.`roles` ='+roles;
+	}
+	if(username){
+		where += ' AND a.`name` like "%'+username+'%"';
+	}
+
+	Response.setHeader("Content-type","application/json;charset=utf8");
+	try{
+		var db = new odbc.Database();
+		db.openSync(TCL_SERVER_CN);
+		
+		var total = db.querySync("SELECT count(a.`id`) FROM `AdmUserInfo` AS a LEFT JOIN `AdmUserRole`  AS r ON a.role = r.id "+where);
+		console.log("===========>total",total);
+		
+		var adminList = db.querySync("SELECT a.*,DATE_FORMAT(a.createdAt ,'%Y-%m-%d %H:%i:%s') AS date , r.roleName FROM `AdmUserInfo` AS a LEFT JOIN `AdmUserRole`  AS r ON a.role = r.id "+where);
+		
+		console.log("===========>adminList",adminList);
+		
+		var countryList = db.querySync("SELECT * FROM `Country` WHERE `isEnable`= 1");
+		
+		console.log("===========>countryList",countryList);
+		
+		var result = {
+			"total" : total,
+			"adminList" : adminList
+		};
+		
+		db.closeSync();
+		Response.end(JSON.stringify({status:'0',message:'setSuccess'}));
+	}
+	catch(e)
+	{
+		db.closeSync();
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+exports.Runner=run;

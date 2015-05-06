@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Change the password</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="">
+
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+<script src="js/header.js"></script>
+<div class="ub ub-ac login_title mar_t1">
+	<div class="log_lef log_tip"></div>
+    <div class="ub-f1 tx-c">Welcome to register my TCL</div>
+    <div class="log_rit log_tip"></div>
+</div>
+<div class="mar_lr mar_t1">
+    <div class="log_input ub ub-ac mar_t05">
+    	<div class="t_4a4 txt_w" style="width: 5em; text-align:right;">The new password</div>
+        <div class="ub-f1 mar_l1">
+        	<input type="password"  id="newpass" class="t_8f8 txt_input" value="" />
+        </div>
+    </div>
+		<div class="log_input ub ub-ac">
+    	<div class="t_4a4 txt_w"  style="width: 5em; text-align:right;">Confirm password</div>
+        <div class="ub-f1 mar_l1">
+        	<input type="password"  id="aginpass" class="t_8f8 txt_input" value="" />
+        </div>
+    </div>
+</div>
+<div class="login_btn mar_t1">
+	<a onclick="change()"  style="color:#fff">submit</a>
+</div>
+</div>
+</body>
+<script>
+	window.onload = function(){
+		header_fenlei();
+	}
+	function change(){
+		var newpass = $$('newpass').value;
+		var aginpass = $$('aginpass').value;
+		if(newpass == '' || aginpass == ''){
+			alert('修改密码不能为空');
+		}else if(aginpass !=newpass){
+			alert('确认密码和新密码不一致');
+		}else{
+			window.location.href = 'login.html';
+		}
+	}
+</script>
+</html>

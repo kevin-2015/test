@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05 ub-f1">
+        <div class="fwcl ub ub-ac c_fff fwcl_title ">
+            <div class="c_5fa fw_back" style="height:3em;width:4em" onClick="open_new('fuwu')"></div>
+            <div class="c_5fa fwcl_tab ub-f1 mar_l02 tx-c"><span class="font_02">常见问题</span></div>
+            <div class="c_5fa mar_l02 fw_ss" style="height:3em;width:4em">
+          
+            </div>
+        </div>
+        <ul class="p_ul">
+        	<li class="ub ub-ac" onClick="open_new('anzhuang')"><div class="p_icon p_one" ></div><div class="ub-f1 tx-r umar_r04">如何安装</div></li>
+            <li class="ub ub-ac" onClick="open_new('anzhuang')"><div class="p_icon p_two"></div><div class="ub-f1 tx-r umar_r04">如何调试</div></li>
+            <li class="ub ub-ac" onClick="open_new('anzhuang')"><div class="p_icon p_three"></div><div class="ub-f1 tx-r umar_r04">软件升级</div></li>
+            <li class="ub ub-ac" onClick="open_new('anzhuang')"><div class="p_icon p_four"></div><div class="ub-f1 tx-r umar_r04">问题处理</div></li>
+            <li class="ub ub-ac" onClick="open_new('anzhuang')"><div class="p_icon p_five"></div><div class="ub-f1 tx-r umar_r04">智能电视</div></li>
+        </ul>
+    </div>
+
+    <div class="footer mar_lr06">
+    	
+		<script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+	window.onload = function(e){
+			islogin();
+	}
+</script>
+</html>

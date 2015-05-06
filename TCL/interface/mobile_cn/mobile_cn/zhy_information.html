@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人信息 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="um-vp" style="height:100%;width:100%;">
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+	<!--块容器开始-->
+<div class="ub uba b-gra c-gra zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 " onclick="goback();">
+    	<div class="zhy_back">返回</div>
+	</div>
+    <div class="ub-f1 uinn uc-r1 tx-r">个人信息</div>
+</div>
+<!--块容器结束-->
+<!--块容器开始-->
+<div class="uinn">
+<div class="ub ub-ver   ub ub-pc ub-ac" style="width:100%;">
+    <div class="  uc-t1 zhy_wk ub ub-ac ub-pc">
+    	<div class="zhy_x" id="avatar"></div>
+    </div>
+</div>
+</div>
+<!--块容器结束-->
+<!--块容器开始-->
+<div class="uinn">
+<div class="ub ubb b-gra  t-bla zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 tx-r ub ub-ac">昵称:</div>
+    <div class="ub-f1 uinn uc-r1">
+    	<!--文本输入开始-->
+<div class="c-wh  uinput uinn4">
+    <input placeholder="" id="user_name" readonly="readonly" type="text" class="t_8f8 txt_input uc-a1 " style="padding:.5em 0;">
+</div>
+<!--文本输入结束-->
+    </div>
+</div>
+</div>
+<div class="uinn">
+<div class="ub ubb b-gra  t-bla zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 tx-r ub ub-ac">邮箱:</div>
+    <div class="ub-f1 uinn uc-r1">
+    	<!--文本输入开始-->
+<div class="c-wh  uinput uinn4">
+    <input placeholder="" id="user_email" readonly="readonly" type="text" class="t_8f8 txt_input uc-a1 uinn" style="padding:.5em 0;">
+</div>
+<!--文本输入结束-->
+    </div>
+</div>
+</div>
+<div class="uinn">
+<div class="ub ubb b-gra  t-bla zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 tx-r ub ub-ac">电话 :</div>
+    <div class="ub-f1 uinn uc-r1">
+    	<!--文本输入开始-->
+<div class="c-wh  uinput uinn4">
+    <input placeholder="" id="user_tel" readonly="readonly" type="text" class="t_8f8 txt_input uc-a1 uinn" style="padding:.5em 0;">
+</div>
+<!--文本输入结束-->
+    </div>
+</div>
+</div>
+<div class="uinn">
+<div class="ub ubb b-gra  t-bla zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 tx-r ub ub-ac">地址:</div>
+    <div class="ub-f1 uinn uc-r1">
+    	<!--文本输入开始-->
+<div class="c-wh  uinput uinn4">
+    <input placeholder="" id="user_add" readonly="readonly" type="text" class="t_8f8 txt_input uc-a1 uinn" style="padding:.5em 0;">
+</div>
+<!--文本输入结束-->
+    </div>
+</div>
+</div>
+<div class="uinn">
+<div class="ub ubb b-gra  t-bla zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 tx-r ub ub-ac">产品:</div>
+    <div class="ub-f1 uinn uc-r1">
+    	<!--文本输入开始-->
+<div class="c-wh  uinput uinn4">
+    <input placeholder="" id="user_product" readonly="readonly" type="text" class="t_8f8 txt_input uc-a1 uinn" style="padding:.5em 0;">
+</div>
+<!--文本输入结束-->
+    </div>
+</div>
+</div>
+<!--块容器结束-->
+
+<div class="uinn">
+<div class="ub ub-ver c_fff " style="width:100%;">
+    <div onclick="bianji()" class=" uinn uc-t1 c_5fa  ub ub-pc ub-ac" id="editor_save">编辑</div>
+</div>
+</div>
+	</div>
+	</body>
+	<script>
+		var user_id='';
+		window.onload = function(e){
+			header_fenlei();
+			istobelogin();
+			data_con();
+		}
+		
+		function data_con(){
+			var url_data = base_url+'userInfo';
+			jQuery.getJSON(url_data,function (data){
+				if(data.status==0){
+					user_id = data.data[0].id;
+					setCookie('userid',data.data[0].id);
+					$$('user_name').value=data.data[0].nike;
+					$$('user_email').value=data.data[0].email;
+					$$('user_tel').value=data.data[0].phoneNum;
+					$$('user_add').value=data.data[0].location;
+					$$('user_product').value=data.data[0].products;
+					if(data.data[0].avatar!=''){
+							$$('avatar').style.background ='url('+data.data[0].avatar+')';
+					}
+				
+				}else{
+					alert(data.message);
+				}
+				
+			});
+		}
+		var bianji_t = true;
+		function bianji(){
+			if(bianji_t){
+				$$('user_name').className='t_8f8 txt_input uc-a1  uba b-gra ub-f1';
+				$$('user_email').className='t_8f8 txt_input uc-a1  uba b-gra ub-f1';
+				$$('user_tel').className='t_8f8 txt_input uc-a1  uba b-gra ub-f1';
+				$$('user_add').className='t_8f8 txt_input uc-a1  uba b-gra ub-f1';
+				$$('user_product').className='t_8f8 txt_input uc-a1  uba b-gra ub-f1';
+				$$('user_name').readOnly= false;
+				$$('user_email').readOnly= false;
+				$$('user_tel').readOnly= false;
+				$$('user_add').readOnly= false;
+				$$('user_product').readOnly= false;
+				$$('editor_save').innerHTML='保存';
+				bianji_t= false;
+			}else{
+				$$('user_name').className='t_8f8 txt_input uc-a1  ub-f1';
+				$$('user_email').className='t_8f8 txt_input uc-a1  ub-f1';
+				$$('user_tel').className='t_8f8 txt_input uc-a1  ub-f1';
+				$$('user_add').className='t_8f8 txt_input uc-a1  ub-f1';
+				$$('user_product').className='t_8f8 txt_input uc-a1  ub-f1';
+				$$('user_name').readOnly= true;
+				$$('user_email').readOnly= true;
+				$$('user_tel').readOnly= true;
+				$$('user_add').readOnly= true;
+				$$('user_product').readOnly= true;
+				$$('editor_save').innerHTML='编辑';
+				bianji_t= true;
+				var nike = $$('user_name').value;
+				var email= $$('user_email').value;
+				var phoneNum= $$('user_tel').value;
+				var location= $$('user_add').value;
+				var products= $$('user_product').value;
+				var url_data= base_url+'userinfo_update?id='+user_id+'&nike='+nike+'&email='+email+'&phoneNum='+phoneNum+'&location='+location+'&products='+products;
+				jQuery.getJSON(url_data,function(data){
+					if(data.status==0){
+						alert('保存成功');
+					}else{
+						alert(data.message);
+					}
+				});
+			}
+		}
+	</script>
+</html>

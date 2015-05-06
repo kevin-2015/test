@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>产品上传</title>
+<script src="js/jquery.js"></script>
+<script src="js/ajaxfileupload.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body>
+<form method="post" action="" id="form1">
+<div>
+	<h2>PC端11</h2>
+	<p>视频:<input type="file" id="videourl" name="videourl" value="上传视频"/></p>
+	<p>图片:<input type="file" id="img" name="img" value="上传图片"/></p>
+	<div id="pics"></div>
+</div>
+<h2>产品规格</h2>
+<div>
+	<label>产品名称</label><input type="text" id="name" name="name">
+</div>
+<div>
+	<label>产品价格</label><input type="text" id="price" name="price">
+</div>
+<div>
+	<label>产品关键字</label>
+	<div id="keywordDiv"></div>
+</div>
+<div>
+	<label>产品筛选级别</label>
+	<select name="screenLevel" id="screenLevel">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+</div>
+<div>
+	<label>产品品牌</label>
+	<select name="brand" id="brand">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+</div>
+<div>
+	<label>产品星级</label>
+	<select name="starlevel" id="starlevel">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+</div>
+<div id="parameter"></div>
+<div>
+	<label>产品简介</label>
+	<textarea name="description" id="description"></textarea>
+</div>
+<div>
+	<label>购买电商链接</label><input type="text" id="shop" name="shop">
+</div>
+<div>
+	<label>查找门店</label>
+	<input type="radio" name="findStore" value="1" checked="checked"/>显示 
+	<input type="radio" name="findStore" value="2"/>隐藏
+</div>
+<div>
+	<label>评测功能</label>
+	<input type="radio" name="reviewFun" value="1" checked="checked"/>显示 
+	<input type="radio" name="reviewFun" value="2"/>隐藏
+</div>
+<div>
+	<label>产品上传区域选择</label>
+	<input type="checkbox" name="location" value="1"> 北美
+	<input type="checkbox" name="location" value="2"> 欧洲
+</div>
+<input type="button" value="提交" onclick="saveData()">
+</form>
+</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		getParameterData(0);
+	}
+	
+	//获取参数数据
+	function getParameterData(Paraid){
+		var getKeywordUrl = base_url+"keyword_get";
+		jQuery.getJSON(getKeywordUrl,function(info){
+			if(info.status == "0"){
+				alert(info.message);
+				return;
+			}
+				
+			var dataKeyword = info.data;
+			if(dataKeyword.length>0){
+				var keywordStr = "";
+				for(var i = 0; i < dataKeyword.length;i++){
+					var oneKeyword = dataKeyword[i];
+					keywordStr += '<input type="checkbox" name="keyword" value="'+oneKeyword.id+'">'+oneKeyword.name+"&nbsp;&nbsp;";
+				}
+			$$('keywordDiv').innerHTML = keywordStr;
+			}else{
+				alert("请添加关键字！");
+			}
+		});
+		var getDetailUrl = base_url+"parameter_get?Paraid="+Paraid;
+		jQuery.getJSON(getDetailUrl,function(info){
+			if(info.status == "0"){
+				alert(info.message);
+				return;
+			}
+			
+		var dataCateOne = info.dataCateOne;
+		var dataCateTwo = info.dataCateTwo;
+		var dataCateThr = info.dataCateThr;
+		if(dataCateOne.length>0){
+			var selStr = "";
+			for(var i = 0; i < dataCateOne.length;i++){
+				var oneType = dataCateOne[i];
+				selStr += '<h5>'+oneType.name+'</h5>';
+				
+				for (var j = 0; j < dataCateTwo.length; j++) {
+					if (dataCateTwo[j].pid == oneType.id) {
+						var twoType = dataCateTwo[j];
+						selStr += twoType.name + ":<select name='parameter'>";
+						
+						for (var k = 0; k < dataCateThr.length; k++) {
+							if (dataCateThr[k].pid == twoType.id) {
+								var thrType = dataCateThr[k];
+								selStr += '<option value="' + thrType.pidId + '">' + thrType.name + '</option>';
+							}
+						}
+					}
+					selStr += '</select>';
+				}
+			}
+			$$('parameter').innerHTML = selStr;
+//			searchInfo();
+		}else{
+			alert("请添加参数！");
+		}
+		});
+	}
+	
+	function saveData(){
+		var param = jQuery("#form1").serialize();
+		jQuery.post(base_url+"product_add",param, function(data){
+			console.log('---data---',data);
+			alert(data);
+			if(data.status == 0){
+				window.location.href = "product_list.html";
+			}else{
+				alert(data.message);
+			}
+	   	}, "json");
+	}
+	
+	var count = 0;
+	jQuery("#img").on("change", function(){
+		count++;
+		alert(count);
+		jQuery.ajaxFileUpload ({
+   	    	url : base_url+"upload",
+   		    secureuri : false,
+   		    fileElementId :'img',
+   		    dataType : 'json',
+			success : function (status,data){
+				//jQuery("#img").val("");
+				if(data.status == '1'){
+					jQuery("#pics").append("<div id=\"img_"+count+"\"><img src=\""+base_url+data.url+"\" width=\"300\" height=\"200\"><a href=\"javascript:void(0);\" onclick=\"del_img('img_"+count+"');\"><font color=\"red\" style=\"cursor:pointer\">×</font></a><input type=\"hidden\" name=\"imgpath\" value=\""+base_url+data.url+"\"</div>");
+
+					jQuery("#img").replaceWith("<input type=\"file\" id=\"img\" name=\"img\" title=\""+count +"\" />");
+   				}else{
+   				    return false;
+   				}
+   		    },
+			error: function (status, data, e){
+					//jQuery("#img").val("");
+					return false;
+			}
+		});
+	});
+	
+	function del_img(id){
+		jQuery("#"+id).remove();
+	}
+</script>

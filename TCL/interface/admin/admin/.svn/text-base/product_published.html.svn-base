@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title data-localize="tcl.product.productuplord.published.publishedname"></title>
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+<script src="js/i18n.js" type="text/javascript"></script>
+<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body> 
+<!--body部分开始-->
+<div id="boader" class="boader">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader ">
+  	<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='product_upload.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.product.productuplord.productuplordname">产品上传</div>
+			<div id="menu_1"  onclick="window.location.href='product_published.html'" class="menu_now menu_font ul_float_left" data-localize="tcl.product.productuplord.published.publishedname">已发布</div>
+			<!--div id="menu_2" onclick="menu_rigt(2)"class="menu_nocheck menu_font ul_float_left">草稿</div-->
+			<div id="menu_2" onclick="window.location.href='product_management.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.product.productuplord.formsetting.formname">表单管理</div>
+			<div id="menu_3" class="menu_nocheck menu_font ul_float_left" onclick="window.location.href='product_keyword.html'"  data-localize="tcl.product.productuplord.formsetting.keywords.keywordname">关键字设计</div>
+	</div>
+<!--2-->
+		<div id="menu_boader" class="ul_margin_top">
+			<div class=" shangchuan gaoju">
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.product.productuplord.published.area">区域:</div>
+				<div class="ul_float_left ul_margin_right">
+					<div class="select_up">
+					<div class="ov_hiden">
+						<select class="select_nob">
+							<option>下拉1</option>
+						</select>
+					</div>
+					</div>
+				</div>
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.product.productuplord.published.Type">分类:</div>
+				<div class="ul_float_left ul_margin_right">
+					<div class="select_up">
+					<div class="ov_hiden">
+						<select class="select_nob" id="category">
+							
+						</select>
+					</div>
+					</div>
+				</div>
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.product.productuplord.published.publish">发布:</div>
+				<div class="ul_float_left ul_margin_right">
+					<div class="select_up">
+						<div class="ov_hiden">
+							<select class="select_nob" id="status">
+								<option value="0">全部</option>
+								<option value="1">发布</option>
+								<option value="2">草稿</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="read_input ul_float_left ul_margin_right">
+					<span class="span"><input name="name" type="text" id="name" class="inputstyle"/></span>
+				</div>
+				<div class="inpit_font ul_float_left ul_margin_right" onclick="getProductList()"  data-localize="tcl.product.productuplord.published.search">搜索</div>
+			</div>
+			<div class="ul_hidden ul_margin_top">
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.product.productuplord.published.level">按星级排序:</div>
+				<div class="ul_float_left quyu_header ul_margin_right delect_add"><a data-localize="tcl.product.productuplord.published.up">升</a>/<a data-localize="tcl.product.productuplord.published.down">降</a></div>
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.product.productuplord.published.screening">按筛选级别排序:</div>
+				<div class="ul_float_left quyu_header ul_margin_right delect_add"><a data-localize="tcl.product.productuplord.published.up">升</a>/<a data-localize="tcl.product.productuplord.published.down">降</a></div>
+			</div>
+
+			<div  id="proList">
+				
+			</div>
+		</div>
+		<!--2-->
+  </div>
+</div>
+
+<!--弹出层开始-->
+<div id="mengban" class="ul_display_none"  onclick="close_wind();"></div>
+<form id="editForm">
+<div id="window_open" class="ul_display_none">
+	<div id="tanchu_con">
+		<div id="tanchu_con0">
+			<div class="win_header">
+				<div class="ul_float_right">
+						<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.product.productuplord.published.save" onclick="editFrom()">保存</div>
+						<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.product.productuplord.published.cancl">取消</div>
+					</div>
+			</div>
+			<div class="tan_con">
+				<div class="xuan_kuang ul_hidden">
+					<input id="editId" name="editId" value="" type="hidden"/>
+					<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.type">产品分类:</div>
+						<div class="ul_float_left ul_margin_right">
+							<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob" id="proEditCate">
+										
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.name">名称:</div>
+							<div class="read_input ul_float_left ">
+								<span class="span"><input name="proEditName" id="proEditName" type="text" class="inputstyle"/></span>
+							</div>
+						</div>
+						<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.screening">产品筛选级别:</div>
+						<div class="ul_float_left ul_margin_right">
+							<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob" id="proEditScreenLevel" name="proEditScreenLevel">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.level">星级维护:</div>
+						<div class="ul_float_left ul_margin_right">
+							<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob" id="proEditStarlevel" name="proEditStarlevel">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						</div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.keyword">关键字:</div>
+							<div class="read_input ul_float_left ">
+								<span class="span"><input name="keyword" id="keyword" type="text" class="inputstyle"/></span>
+							</div>
+						</div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.product.productuplord.published.price">价格:</div>
+							<div class="read_input ul_float_left ">
+								<span class="span"><input name="proEditPrice" id="proEditPrice" type="text" class="inputstyle"/></span>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</form>
+</body>	
+<script type="text/javascript">
+window.onload = function(e){
+ //now_page();
+ //height_weight();
+ 
+ getProductList();
+ getParameterList();
+}
+
+function editFrom(){
+	var param = jQuery("#editForm").serialize();
+	jQuery.post(base_url+"product_edit",param, function(data){
+		if(data.status == 1){
+			window.location.href = "product_published.html";
+		}else{
+			alert(data.message);
+		}
+   	}, "json");
+}
+
+//获取参数数据
+function getParameterList(){
+	var url = base_url+"parameter_list?flag=category&level=3";
+	jQuery.getJSON(url,function(info){
+		if(info.status == "0"){
+			alert(info.message);
+			return;
+		}
+		var parameterData = info.data;
+		var textData ='';
+		if (parameterData.length > 0) {
+			for (var i = 0; i < parameterData.length; i++) {
+				textData += '<option value=' + parameterData[i].id + '>' + parameterData[i].name + '</option>';
+			}
+		}
+		jQuery('#category').html(textData);
+	});
+}
+
+//获取产品列表数据
+function getProductList(){
+		var category = $$("category").value;
+		var status = $$("status").value;
+		var name = $$("name").value;
+		var url = base_url+"product_list?category="+category+"&status="+status+"&name="+name;
+		jQuery.getJSON(url,function(info){
+			if(info.status == "0"){
+				alert(info.message);
+				return;
+			}
+			var keywordData = info.data;
+			$$("proList").innerHTML = "";
+			if(keywordData.length>0){
+				var newDiv = document.createElement("div");
+				newDiv.className = "ul_margin_top";
+				var newDiv = '<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1"><tr><td width="5%" data-localize="tcl.product.productuplord.published.No">序号</td><td width="5%" data-localize="tcl.product.productuplord.published.type">类型</td><td width="15%"  data-localize="tcl.product.productuplord.published.name">名称</td><td width="15%" data-localize="tcl.product.productuplord.published.screening">产品筛选级别</td><td width="15%" data-localize="tcl.product.productuplord.published.level">星级维护</td><td width="10%" data-localize="tcl.product.productuplord.published.keyword">关键字</td><td width="5%"  data-localize="tcl.product.productuplord.published.price">价格</td><td width="15%" data-localize="tcl.product.productuplord.published.productser">产品分类</td><td width="15%"  data-localize="tcl.product.productuplord.published.Operation">编辑</td></tr>'
+				for(var i = 0; i < keywordData.length;i++){
+					var oneNew = keywordData[i];
+					newDiv += '<tr><td width="5%" align="center">'+i+'</td>'+
+											'<td width="5%" align="center">'+1+'</td>'+
+											'<td width="15%" align="center">'+oneNew.name+'</td>'+
+		                                    '<td width="15%" align="center">'+oneNew.screenLevel+'</td>'+
+											'<td width="15%" align="center">'+oneNew.starlevel+'</td>'+
+											'<td width="10%" align="center">'+oneNew.keyword+'</td>'+
+											'<td width="5%" align="center">'+oneNew.price+'</td>'+
+											'<td width="15%" align="center">'+oneNew.paranames+'</td>'+
+											'<td width="10%" align="center">'+
+		                                	 '<div class=" bianji isDisplay delect_add">'+'<a onclick="open_wind('+oneNew.id+',0)">编辑</a>&nbsp;&nbsp;'+
+											 '<a href="javascript:void(0)" onclick="editKeyRow('+oneNew.id+')">复制</a>&nbsp;&nbsp;'+
+											 '<a href="javascript:void(0)" onclick="editKeyRow('+oneNew.id+')">下架</a>&nbsp;&nbsp;'+
+		                                    '<a href="javascript:void(0)" onclick="delKeyRow('+oneNew.id+')">删除</a>'+
+		                                    '</div></td></tr>';
+				}
+				newDiv +='</table></div>';
+				$$("proList").innerHTML = newDiv;
+				addHover();
+			}else{
+				$$("proList").innerHTML = "没有数据！";
+				$$("proList").style.textAlign = "center";
+			}
+		});
+}
+
+function editProRow(id){
+	var url = base_url+"product_detail?id="+id;
+	jQuery.getJSON(url,function(info){
+		if(info.status == "0"){
+			alert(info.message);
+			return;
+		}
+		var parameterData = info.data[0];
+		alert(parameterData.price);
+		console.log('----parameterData----',parameterData);
+		jQuery('#proEditName').val(parameterData.name);
+		jQuery('#proEditScreenLevel').val(parameterData.screenLevel);
+		jQuery('#proEditStarlevel').val(parameterData.starlevel);
+		jQuery('#proEditPrice').val(parameterData.price);
+		jQuery('#editId').val(parameterData.id);
+	});
+}
+
+function close_wind(){
+$$('mengban').className='ul_display_none';
+$$('window_open').className='ul_display_none';
+}
+var tanchu_con_length= $$('tanchu_con').children.length;
+function open_wind(id,flag){
+	$$('mengban').className='mengban';
+	$$('window_open').className='window_open';
+	for(var i=0;i<tanchu_con_length;i++){
+		if(flag==i){
+			$$('tanchu_con'+flag).className='';
+		}else{
+			$$('tanchu_con'+i).className='ul_display_none';
+		}
+	}
+	editProRow(id);
+}
+</script>
+</html>

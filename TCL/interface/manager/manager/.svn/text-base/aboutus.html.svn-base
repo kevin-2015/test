@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title data-localize="tcl.support.publish.publishname"></title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        <link href="umeditor/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
+		<script src="js/jquery.js" type="text/javascript"></script>
+        <script type="text/javascript" src="umeditor/umeditor.config.js" charset="utf-8"></script>
+        <script type="text/javascript" src="umeditor/editor_api.js" charset="utf-8"></script>
+        <script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/main.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/i18n.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/jquery.localize.js" charset="utf-8"></script>
+        <script type="text/javascript" src="js/language_cookie.js" charset="utf-8"></script>
+    </head>
+<body>
+<!--body部分开始-->
+	<div id="boader" class="boader ul_hidden">
+    <!--right部分开始-->
+		 <div id="right_boader" class="right_boader ">
+			 <div class="menu_top">
+				<div class=" shangchuaned" id="hang_menu">
+						<div id="menu_h0" data-localize="tcl.about.main.mainame" onclick="window.location.href='aboutus.html'" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye"></div>
+						<div id="menu_h1" data-localize="tcl.about.publish.publishname" onclick="window.location.href='aboutus_published.html'" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer">
+						</div>
+				</div>
+		     </div>
+			 <div id="menu_boader" class="menu_boader">
+					<div id="menu_boader0" class="">
+						<div id="menu_boadered">
+							<textarea id="myEditor" style="width:800px;height:500px;"></textarea>
+						</div>
+						 <div class="ul_margin_top ul_padding ul_hidden">
+							<div class="ul_float_left baocun button_l" data-localize="tcl.about.main.save"></div>
+							<div class="ul_float_left quxiao button_l" data-localize="tcl.about.main.cancl"></div>
+						</div>
+					</div>
+			  </div>
+		 </div>
+		<!--right部分结束-->
+	</div>
+<!--body部分结束-->
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		UM.getEditor('myEditor');
+	}
+	var menu_length = $$('menu_boader').children.length;
+	var menu_pz_now=0;
+	function menu_pz(id){
+		if(id==menu_pz_now){
+			$$('menu_h'+id).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye';
+		}else{
+			$$('menu_h'+id).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye';
+			$$('menu_h'+menu_pz_now).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer';
+		}
+		menu_pz_now=id;
+		for(var i = 0; i<menu_length;i++){
+			if(id == i){
+				$$('menu_boader'+id).className='';
+			}else{
+				$$('menu_boader'+i).className='ul_display_none';
+			}
+		}
+	}
+	//增加一级导航
+	function add_menu(){
+	var oFather = document.getElementById('menu_boadered');
+	var leng=oFather.children.length;
+	if(oFather.children.length>0){
+								var id = oFather.firstElementChild.id;
+								var index = id.substring(id.length-1,id.length);
+								
+								var oDiv = document.createElement("div");
+								oDiv.id = "guanli"+leng+(parseInt(index)+1);
+								var leng_id = leng+(parseInt(index)+1);
+								oDiv.innerHTML ='<div id="menu_boadered'+parseInt(leng+1)+'" class="ul_margin_top cailan">'
+								+'<div class="ul_hidden">'
+									+'<div class="biaoque ul_hidden">'
+										+'<div class="ul_float_left ul_hidden right_bb">'
+											+'<div class="ul_float_left xunxu">显示顺序</div>'
+											+'<div class="ul_float_left xun_name">名称</div>'
+										+'</div>'
+										+'<div class="caozuo_zuo ul_float_left">操作</div>'
+									+'</div>'
+									+'<div id="menus_con'+parseInt(leng+1)+'">'
+									+'<div class="biaoquess ul_hidden">'
+										+'<div class="ul_float_left ul_hidden right_bb">'
+										+'	<div class="ul_float_left xunxu xuhao" id="yiji'+parseInt(leng+1)+'"><input id="yiji_input'+parseInt(leng+1)+'" class="xuhao_input" type="text" value="1" /></div>'
+										+'	<div class="ul_float_left">'
+										+'		<div class="name_input" id="yiji_name'+parseInt(leng+1)+'"><input id="yiji_name_input'+parseInt(leng+1)+'" type="text" class="xinwen" value="新闻" /></div>'
+												
+										+'	</div>'
+										+'</div>'
+										+'<div class="caozuo_zuo ul_float_left delect_add">'
+										+'	<div>'
+											+'	<a id="con_save'+parseInt(leng+1)+'" onclick="save('+parseInt(leng+1)+')" class="ul_margin_right">保存</a><a id="con_editor'+parseInt(leng+1)+'" class="ul_display_none" onclick="editor('+parseInt(leng+1)+')">编辑</a><a class="ul_margin_right" onclick="delects('+parseInt(leng+1)+')">删除</a>'
+										+'	</div>'
+										+'</div>'
+									+'</div>'
+									+'<div id="news'+parseInt(leng+1)+'" class="ul_hidden">'
+									+'</div>'
+									+'<div class="ul_hidden">'
+									+'	<div class="ul_float_left ul_hidden kuj">'
+										+'<div class="ul_float_left fab"></div>'
+										+'	<div class="ul_float_left">'
+											+'	<div class="erji_lan">'								
+												+'	<div class="xixianej">'
+													+'	<div class=" erji_button p_lsde" onclick="tow_menu('+parseInt(leng+1)+')">增加二级菜单'
+													+'	</div>'
+													+'</div>'
+												+'</div>'
+											+'</div>'
+									+'</div>'
+								+'</div>'
+								+'</div>'
+								+'</div>'
+							+'</div>';
+								oFather.insertBefore(oDiv, oFather.firstElementChild);
+							}else{						
+								var oDiv = document.createElement("div");
+								oDiv.id = "guanli"+(1);
+								var leng_id= 1;
+								oDiv.innerHTML = '<div id="menu_boadered1" class="ul_margin_top cailan">'
+								+'<div class="ul_hidden">'
+									+'<div class="biaoque ul_hidden">'
+										+'<div class="ul_float_left ul_hidden right_bb">'
+											+'<div class="ul_float_left xunxu">显示顺序</div>'
+											+'<div class="ul_float_left xun_name">名称</div>'
+										+'</div>'
+										+'<div class="caozuo_zuo ul_float_left">操作</div>'
+									+'</div>'
+									+'<div id="menus_con1">'
+									+'<div class="biaoquess ul_hidden">'
+										+'<div class="ul_float_left ul_hidden right_bb">'
+										+'	<div class="ul_float_left xunxu xuhao" id="yiji1"><input id="yiji_input1" class="xuhao_input" type="text" value="1" /></div>'
+										+'	<div class="ul_float_left">'
+										+'		<div class="name_input" id="yiji_name1"><input id="yiji_name_input1" type="text" class="xinwen" value="新闻" /></div>'
+												
+										+'	</div>'
+										+'</div>'
+										+'<div class="caozuo_zuo ul_float_left delect_add">'
+										+'	<div>'
+											+'	<a id="con_save1" onclick="save(1)" class="ul_margin_right">保存</a><a id="con_editor1" class="ul_display_none" onclick="editor(1)">编辑</a><a class="ul_margin_right" onclick="delects(1)">删除</a>'
+										+'	</div>'
+										+'</div>'
+									+'</div>'
+									+'<div id="news1" class="ul_hidden">'
+	
+									+'</div>'
+									+'<div class="ul_hidden">'
+									+'	<div class="ul_float_left ul_hidden kuj">'
+										+'<div class="ul_float_left fab"></div>'
+										+'	<div class="ul_float_left">'
+											+'	<div class="erji_lan">'								
+												+'	<div class="xixianej">'
+													+'	<div class=" erji_button p_lsde" onclick="tow_menu(1)">增加二级菜单'
+													+'	</div>'
+													+'</div>'
+												+'</div>'
+											+'</div>'
+									+'</div>'
+								+'</div>'
+								+'</div>'
+								+'</div>'
+							+'</div>';
+								oFather.insertBefore(oDiv, oFather.firstElementChild);
+							}
+	}
+	//添加二级菜单
+	function tow_menu(ided){
+	var oFather = document.getElementById('news'+ided);
+	var leng=oFather.children.length;
+	if(oFather.children.length>0){
+		var id = oFather.firstElementChild.id;
+		var index = id.substring(id.length-1,id.length);
+		var oDiv = document.createElement("div");
+		oDiv.id = "guanlied"+leng+(parseInt(index)+1);
+		var leng_id = leng+(parseInt(index)+1);
+		oDiv.innerHTML='<div  id="cerj'+parseInt(ided+leng_id)+'" class="ul_hidden">'
+										+'<div class="ul_float_left ul_hidden kuj">'
+											+'<div class="ul_float_left xunxu xuhao" id="erji'+parseInt(ided+leng_id)+'"><input id="erji_input'+parseInt(ided+leng_id)+'" class="xuhao_input" type="text" value="1" /></div>'
+											+'<div class="ul_float_left">'
+												+'<div class="erji_lan">'								
+													+'<div class="xixian">'
+													+'	<div class="name_input  p_lsde" id="erji_name'+parseInt(ided+leng_id)+'"><input id="erjii_name_input'+parseInt(ided+leng_id)+'" type="text" class="xinwen" value="新闻" />'
+														+'</div>'
+													+'</div>'
+												+'</div>'
+											+'</div>'
+									+'</div>'
+									+'<div class="caozuo_zuo ul_float_left delect_add">'
+									+'	<div class="ul_margin_bottom zitigao">'
+												+'	<a id="ejcon_save'+parseInt(ided+leng_id)+'" onclick="ejsave('+parseInt(ided+leng_id)+')" class="ul_margin_right">保存</a><a id="ejcon_editor'+parseInt(ided+leng_id)+'" class="ul_display_none" onclick="ejeditor('+parseInt(ided+leng_id)+')">编辑</a><a class="ul_margin_right" onclick="ejdelects('+parseInt(ided+leng_id)+')">删除</a>'
+											+'</div>'
+									+'</div>'
+									+'</div>';
+		oFather.insertBefore(oDiv, oFather.firstElementChild);
+	}else{
+		var oDiv = document.createElement("div");
+		oDiv.id = "guanlied"+(1);
+		var leng_id= 1;
+		oDiv.innerHTML='<div id="cerj'+parseInt(ided+1)+'" class="ul_hidden">'
+										+'<div class="ul_float_left ul_hidden kuj">'
+											+'	<div class="ul_float_left xunxu xuhao" id="erji'+parseInt(ided+1)+'"><input id="erji_input'+parseInt(ided+1)+'" class="xuhao_input" type="text" value="1" /></div>'
+											+'<div class="ul_float_left">'
+												+'<div class="erji_lan">'								
+													+'<div class="xixian">'
+													+'	<div class="name_input  p_lsde" id="erji_name'+parseInt(ided+1)+'"><input id="erjii_name_input'+parseInt(ided+1)+'" type="text" class="xinwen" value="新闻" />'
+														+'</div>'
+													+'</div>'
+												+'</div>'
+											+'</div>'
+									+'</div>'
+									+'<div class="caozuo_zuo ul_float_left delect_add">'
+									+'	<div class="ul_margin_bottom zitigao">'
+												+'	<a id="ejcon_save'+parseInt(ided+1)+'" onclick="ejsave('+parseInt(ided+1)+')" class="ul_margin_right">保存</a><a id="ejcon_editor'+parseInt(ided+1)+'" class="ul_display_none" onclick="ejeditor('+parseInt(ided+1)+')">编辑</a><a class="ul_margin_right" onclick="ejdelects('+parseInt(ided+1)+')">删除</a>'
+											+'</div>'
+									+'</div>'
+									+'</div>';
+		oFather.insertBefore(oDiv, oFather.firstElementChild);
+	}
+	}
+	//保存一级菜单
+	function save(id){
+		$$('yiji'+id).className='ul_float_left xunxu xuhaoed';
+		$$('yiji_name'+id).className='name_inputed';
+		$$('yiji_input'+id).readOnly= true;
+		$$('yiji_name_input'+id).readOnly= true;
+		$$('con_save'+id).className='ul_display_none';
+		$$('con_editor'+id).className='ul_margin_right';
+	}
+	//编辑一级菜单
+	function editor(id){
+	$$('yiji'+id).className='ul_float_left xunxu xuhao';
+		$$('yiji_name'+id).className='name_input';
+		$$('yiji_input'+id).readOnly= false;
+		$$('yiji_name_input'+id).readOnly= false;
+		$$('con_save'+id).className='ul_margin_right';
+		$$('con_editor'+id).className='ul_display_none';
+	}
+	//删除一级菜单
+	function delects(id){
+		var guanli_div = document.getElementById("menu_boadered"+id);
+		guanli_div.parentNode.removeChild(guanli_div);
+	}
+	//保存二级级菜单
+	function ejsave(id){
+		$$('erji'+id).className='ul_float_left xunxu xuhaoed';
+		$$('erji_name'+id).className='name_inputed p_lsde';
+		$$('erji_input'+id).readOnly= true;
+		$$('erjii_name_input'+id).readOnly= true;
+		$$('ejcon_save'+id).className='ul_display_none';
+		$$('ejcon_editor'+id).className='ul_margin_right';
+	}
+	//编辑二级级菜单
+	function ejeditor(id){
+	$$('erji'+id).className='ul_float_left xunxu xuhao';
+		$$('erji_name'+id).className='name_input p_lsde';
+		$$('erji_input'+id).readOnly= false;
+		$$('erjii_name_input'+id).readOnly= false;
+		$$('ejcon_save'+id).className='ul_margin_right';
+		$$('ejcon_editor'+id).className='ul_display_none';
+	}
+	//删除二级级菜单
+	function ejdelects(id){
+		var guanli_div = document.getElementById("cerj"+id);
+		guanli_div.parentNode.removeChild(guanli_div);
+	}
+</script>
+</html>

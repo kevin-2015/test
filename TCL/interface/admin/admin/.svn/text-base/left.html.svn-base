@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>top</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body style="margin: 0;padding: 0;">
+	<div id="menus_main" name="menus" class="menu_left now_menu" onclick="page_go('main');">
+		<div id="icons_main" name="icons" class="icons_main_now"></div>
+		<div id="fonts_main" name="fonts" class="fby_now" data-localize="tcl.index.showData">数据显示</div>
+	</div>
+    <div id="menus_admins" name="menus" class="menu_left now_menu_bg" onclick="page_go('admins');">
+        <div id="icons_admins" name="icons" class="icons_admins"></div>
+		<div id="fonts_admins" name="fonts" class="fby" data-localize="tcl.adminsetting.admins">管理员设置</div>
+	</div>
+    <div id="menus_product_upload" name="menus" class="menu_left now_menu_bg" onclick="page_go('product_upload');">
+        <div id="icons_product_upload" name="icons" class="icons_product_upload"></div>
+		<div id="fonts_product_upload" name="fonts" class="fby" data-localize="tcl.product.products">产品管理</div>
+	</div>
+	<div id="menus_system_management" name="menus" class="menu_left now_menu_bg" onclick="page_go('system_management');">
+		<div id="icons_system_management" name="icons" class="icons_system_management"></div>
+		<div id="fonts_system_management" name="fonts" class="fby"  data-localize="tcl.system.systemname">系统管理</div>
+	</div>
+	<div id="menus_service_support" name="menus" class="menu_left now_menu_bg" onclick="page_go('service_support');">
+		<div id="icons_service_support" name="icons" class="icons_service_support"></div>
+		<div id="fonts_service_support" name="fonts" class="fby"  data-localize="tcl.support.supportname">服务与支持</div>
+	</div>
+	<div id="menus_user_management" name="menus" class="menu_left now_menu_bg" onclick="page_go('user_management');">
+		<div id="icons_user_management" name="icons" class="icons_user_management"></div>
+		<div id="fonts_user_management" name="fonts" class="fby" data-localize="tcl.user.username">用户管理</div>
+	</div>
+	<div id="menus_customer_service" name="menus" class="menu_left now_menu_bg" onclick="page_go('customer_service');">
+		<div id="icons_customer_service" name="icons" class="icons_customer_service"></div>
+		<div id="fonts_customer_service" name="fonts" class="fby" data-localize="tcl.usersev.usersevname">用户服务</div>
+	</div>
+	<div id="menus_news_reviews" name="menus" class="menu_left now_menu_bg" onclick="page_go('news_reviews');">
+		<div id="icons_news_reviews" name="icons" class="icons_news_reviews"></div>
+		<div id="fonts_news_reviews" name="fonts" class="fby"  data-localize="tcl.news.newsname">新闻与评测</div>
+	</div>
+	<div id="menus_countries_set" name="menus" class="menu_left now_menu_bg" onclick="page_go('countries_set');">
+		<div id="icons_countries_set" name="icons" class="icons_countries_set"></div>
+		<div id="fonts_countries_set" name="fonts" class="fby" data-localize="tcl.Function.functioname">功能设置</div>
+	</div>
+	<div id="menus_store_management" name="menus" class="menu_left now_menu_bg" onclick="page_go('store_management');">
+		<div id="icons_store_management" name="icons" class="icons_store_management"></div>
+		<div id="fonts_store_management" name="fonts" class="fby" data-localize="tcl.store.storename">门店管理</div>
+	</div>
+    <div id="menus_aboutus" name="menus" class="menu_left now_menu_bg" onclick="page_go('aboutus');">
+    	<div id="icons_aboutus" name="icons" class="icons_aboutus"></div>
+		<div id="fonts_aboutus" name="fonts" class="fby" data-localize="tcl.about.aboutsname">关于我们</div>
+	</div>
+    <div id="menus_language_settings" name="menus" class="menu_left now_menu_bg" onclick="page_go('language_settings');">
+    	<div id="icons_language_settings" name="icons" class="icons_language_settings"></div>
+		<div id="fonts_language_settings" name="fonts" class="fby"  data-localize="tcl.Language.languagesetting.languageset">语言设置</div>
+	</div>
+    <div id="menus_set_up" name="menus" class="menu_left now_menu_bg" onclick="page_go('set_up');">
+    	<div id="icons_set_up" name="icons" class="icons_set_up"></div>
+		<div id="fonts_set_up" name="fonts" class="fby" data-localize="tcl.setting.setname">设置</div>
+	</div>
+</body>
+<script type="text/javascript">
+function page_go(page){
+	var sel;
+	jQuery("div[name='menus']").each(function(){
+		sel = jQuery(this).attr('id');
+		if("menus_"+page == sel){
+			jQuery(this).addClass("now_menu");
+			jQuery(this).removeClass("now_menu_bg");
+		}else{
+			jQuery(this).addClass("now_menu_bg");
+			jQuery(this).removeClass("now_menu");
+		}
+	});
+	jQuery("div[name='icons']").each(function(){
+		sel = jQuery(this).attr('id');
+		if("icons_"+page == sel){
+			jQuery(this).addClass(sel+"_now");
+			jQuery(this).removeClass(sel);
+		}else{
+			jQuery(this).addClass(sel);
+			jQuery(this).removeClass(sel+"_now");
+		}
+	});
+	jQuery("div[name='fonts']").each(function(){
+		sel = jQuery(this).attr('id');
+		if("fonts_"+page == sel){
+			jQuery(this).addClass("fby_now");
+			jQuery(this).removeClass("fby");
+		}else{
+			jQuery(this).addClass("fby");
+			jQuery(this).removeClass("fby_now");
+		}
+	});
+	parent.window.frames['mainFrame'].location.href= page+'.html?r='+Math.random();
+}
+</script>
+</html>

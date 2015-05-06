@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title data-localize="tcl.product.productuplord.formsetting.keywords.keywordname"></title>
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/index.css" rel="stylesheet" />
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader">
+  	<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='product_upload.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.product.productuplord.productuplordname">产品上传</div>
+			<div id="menu_1" onclick="window.location.href='product_published.html'" class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.product.productuplord.published.publishedname">已发布</div>
+			<!--div id="menu_2" onclick="menu_rigt(2)"class="menu_nocheck menu_font ul_float_left">草稿</div-->
+			<div id="menu_2" onclick="window.location.href='product_management.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.product.productuplord.formsetting.formname">表单管理</div>
+			<div id="menu_3" onclick="window.location.href='product_keyword.html'" class="menu_now menu_font ul_float_left" data-localize="tcl.product.productuplord.formsetting.keywords.keywordname">关键字设计</div>
+	</div>
+<!--5-->
+			<div id="menu_boader" class="ul_margin_top">
+			</div>
+		<!--5-->
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+window.onload = function(e){
+// now_page();
+// height_weight();
+getKeywordList();
+}
+
+//获取关键字列表数据
+function getKeywordList(){
+	var url = base_url+"keyword_list";
+	jQuery.getJSON(url,function(info){
+		if(info.status == "0"){
+			alert(info.message);
+			return;
+		}
+		var keywordData = info.data;
+		$$("menu_boader").innerHTML = "";
+		if(keywordData.length>0){
+			var newDiv = document.createElement("div");
+			newDiv.className = "ul_margin_top";
+			var newDiv = '<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1"><tr><td width="20%">序号</td><td width="40%">名称</td><td width="20%">编辑</td></tr>'
+			for(var i = 0; i < keywordData.length;i++){
+				var oneNew = keywordData[i];
+				newDiv += '<tr><td width="5%" align="center">'+i+'</td>'+
+	                                    '<td width="10%" align="center">'+oneNew.name+'</td>'+
+										'<td width="10%" align="center">'+
+	                                	 '<div class=" bianji isDisplay">'+'<a href="javascript:void(0)" onclick="editKeyRow('+oneNew.id+')">编辑</a>&nbsp;&nbsp;'+
+	                                    '<a href="javascript:void(0)" onclick="delKeyRow('+oneNew.id+')">删除</a>'+
+	                                    '</div></td></tr>';
+			}
+			newDiv +='</table></div>';
+			$$("menu_boader").innerHTML = newDiv;
+			addHover();
+		}else{
+			$$("menu_boader").innerHTML = "没有数据！";
+			$$("menu_boader").style.textAlign = "center";
+		}
+	});
+}
+//编辑关键字数据
+function editKeyRow(){
+	
+}
+//删除关键字数据
+function delKeyRow(id){
+	if (window.confirm("确定要删除？")) {
+		var delCateUrl = base_url + "keyword_del?id=" + id;
+		jQuery.getJSON(delCateUrl, function(info){
+			if (info.status == "0") {
+				alert(info.message);
+				return;
+			}
+			alert("删除成功");
+			menu_rigt();
+		});
+	}
+}
+</script>
+</html>

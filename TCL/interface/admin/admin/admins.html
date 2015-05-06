@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.adminsetting.admins"></title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  	<div id="right_boader" class="right_boader ">
+		<div class="menu_top">
+			<div onclick="window.location.href='admins.html'" class="menu_now menu_font ul_float_left"  data-localize="tcl.adminsetting.admin.adminame"></div>
+			<!--<div id="menu_1" onclick="window.location.href='admin_groups.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.adminsetting.Group.Groupname"></div>-->
+			<div onclick="window.location.href='admin_roles.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.adminsetting.role.rolename"></div>
+	   </div>
+	    <div id="menu_boader" class="menu_boader">
+			<div id="menu_boader">
+				<div class="shangchuan gaoju">
+					<div class="ul_float_left ul_margin_right">
+						<div class="select_up">
+							<div class="ov_hiden">
+								<select id="countrys" class="select_nob"></select>
+							</div>
+						</div>
+					</div>
+					<div class="ul_float_left ul_margin_right">
+						<div class="select_up">
+							<div class="ov_hiden">
+								<select id="roles" class="select_nob"></select>
+							</div>
+						</div>
+					</div>
+					<div class="read_input ul_float_left ul_margin_right">
+						<span  class="span">
+							<!--data-localize="tcl.adminsetting.admin.Searchname"-->
+							<input id="username" name="username" value="" type="text"  class="inputstyle"/>
+						</span>
+					</div>
+					<div class="inpit_font ul_float_left ul_margin_right" data-localize="tcl.adminsetting.admin.search" onclick="adminList();"></div>
+					<div class="ul_hidden ul_float_right">
+						<div id="total" class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.adminsetting.admin.adminNo"></div>
+						<div class="ul_float_left quyu_header ul_margin_right delect_add" id="adminNo"></div>
+					</div>
+				</div>
+				<div class="ul_margin_top ul_hidden">
+				<div onclick="open_wind()" class="inpit_font ul_float_right ul_margin_left" data-localize="tcl.adminsetting.admin.add"></div>
+				</div>
+				<div class="ul_margin_top">
+					<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+						  <tr>
+								<td width="10%" data-localize="tcl.adminsetting.admin.number"></td>
+								<td  width="10%" data-localize="tcl.adminsetting.admin.username"></td>
+								<!--<td  width="10%" data-localize="tcl.adminsetting.admin.codesetting"></td>-->
+								<td  width="20%" data-localize="tcl.adminsetting.admin.Registrationtime"></td>
+								<td  width="20%" data-localize="tcl.adminsetting.admin.area"></td>
+								<td  width="20%" data-localize="tcl.adminsetting.admin.role"></td>
+								<td  width="20%" data-localize="tcl.adminsetting.admin.Operation"></td>
+						  </tr>
+						  <tr>
+								<table id="adminList" width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+						  		</table>
+						  </tr>
+				  	</table>
+				</div>
+				<!--<div class="ul_margin_top ul_hidden">
+					<div class="page">
+						<ul>
+							<li><a href="#" data-localize="tcl.adminsetting.admin.homepage">首页</a></li>
+							<li><a href="#" data-localize="tcl.adminsetting.admin.onepage">上一页</a></li>
+							<li class="now_page"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#" data-localize="tcl.adminsetting.admin.nextpage">下一页</a></li>
+							<li><a href="#" data-localize="tcl.adminsetting.admin.endpage">尾页</a></li>
+						</ul>
+					</div>
+				</div>-->
+			</div>
+		</div>
+	</div>
+  <!--right部分结束-->
+</div>
+<!--body部分结束-->
+<!--弹出层开始-->
+<div id="mengban" class="ul_display_none"  onclick="close_wind();"></div>
+<div id="window_open" class="ul_display_none">
+<div id="tanchu_con" class="ul_display_none">
+	<div class="win_header">
+		<div class="ul_float_right">
+				<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.adminsetting.admin.determine"></div>
+				<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.adminsetting.admin.cancel"></div>
+		</div>
+	</div>
+	<div class="tan_con">
+		<div class="xuan_kuang ul_hidden">
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.admin.username"></div>
+				<div class="read_input ul_float_left ">
+					<span class="span"><input name="" type="text" class="inputstyle"/></span>
+				</div>
+			</div>
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.admin.codesetting"></div>
+				<div class="read_input ul_float_left ">
+					<span class="span"><input name="" type="text" class="inputstyle"/></span>
+				</div>
+			</div>
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.admin.copycodesetting"></div>
+				<div class="read_input ul_float_left ">
+					<span class="span"><input name="" type="text" class="inputstyle"/></span>
+				</div>
+			</div>
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.admin.area"></div>
+			</div>
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left">
+					<div class="ul_float_left ul_margin_right chekec_qi">
+						<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+						<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+					</div>
+					<div class="ul_float_left ul_margin_right leixing">北美</div>
+				</div>
+			</div>
+			<div class="ul_margin_top ul_hidden">
+				<div class="ul_float_left add_yiji"><span data-localize="tcl.adminsetting.admin.role"></span></div>
+				<div class="ul_float_left ul_margin_right">
+					<div class="select_up">
+						<div class="ov_hiden">
+							<select class="select_nob">
+								<option data-localize="tcl.adminsetting.admin.selAll"></option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</div>
+<!--弹出层结束-->
+</body>
+<script type="text/javascript">
+window.onload = function(e){
+	jQuery.getJSON(base_url+"country_get", function(data){
+		if(data.status != -1){
+			var html = "<option value='0'>"+i18n.admins.selAll+"</option>";
+			for(var i in data.data){
+				html += "<option value=\""+data.data[i].id+"\">"+data.data[i].countryName+"</option>";
+			}
+			jQuery("#countrys").html(html);
+		}
+   	});
+	
+	jQuery.getJSON(base_url+"adminUser_role_list", function(data){
+		if(data.status != -1){
+			var html = "<option value='0'>"+i18n.admins.selAll+"</option>";
+			for(var i in data.data){
+				html += "<option value=\""+data.data[i].id+"\">"+data.data[i].roleName+"</option>";
+			}
+			jQuery("#roles").html(html);
+		}
+   	});
+	adminList();
+}
+
+function adminList(){
+	var countrys = jQuery("#countrys").val();
+	var roles =  jQuery("#roles").val();
+	var username =  jQuery("#username").val();
+
+	jQuery.post(base_url+"adminUser_list", {countrys:countrys, roles:roles, username:username}, function(result){
+		if(result.status != -1){
+			var html = "";
+			for(var i in result.data.adminList){
+				html += "<tr>";
+				html += "<td width=\"10%\">"+(parseInt(i)+1)+"</td>";
+				html += "<td width=\"10%\">"+result.data.adminList[i]["name"]+"</td>";
+				html += "<td width=\"20%\">"+result.data.adminList[i]["date"]+"</td>";
+				html += "<td width=\"20%\">"+result.data.adminList[i]["countryLang"]+"</td>";
+				html += "<td width=\"20%\">"+result.data.adminList[i]["roleName"]+"</td>";
+				html += "<td width=\"20%\"><a href=\"javascript:void(0);\" onclick=\"edit("+i+");\">"+i18n.admins.edit+"</a> | <a href=\"javascript:void(0);\" onclick=\"del("+i+");\">"+i18n.admins.del+"</td>";
+				html +="</tr>";
+			}
+			jQuery("#total").html(result.data.total);
+			jQuery("#adminList").html(html);
+		}
+   	});
+}
+
+function close_wind(){
+	$$('mengban').className='ul_display_none';
+	$$('window_open').className='ul_display_none';
+}
+
+function open_wind(){
+	$$('mengban').className='mengban';
+	$$('window_open').className='window_open';
+	$$('tanchu_con').className='';
+}
+
+function editor(id){
+	$$('user'+id).className='fenlan';
+	$$('user_input'+id).readOnly= false;
+	$$('pass'+id).className='fenlan';
+	$$('pass_input'+id).readOnly= false;
+	$$('editor'+id).className='ul_display_none';
+	$$('save'+id).className='ul_margin_right';
+}
+
+function save(id){
+	$$('user'+id).className='fenlaned';
+	$$('user_input'+id).readOnly= true;
+	$$('pass'+id).className='fenlaned';
+	$$('pass_input'+id).readOnly= true;
+	$$('editor'+id).className='ul_margin_right';
+	$$('save'+id).className='ul_display_none';
+}
+
+function delete_div(id){
+	var guanli_div = document.getElementById("guanli"+id);
+	guanli_div.parentNode.removeChild(guanli_div);
+}
+</script>
+</html>

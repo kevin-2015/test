@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.system.active.activename" >系统管理</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader ">
+  		<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='system_management.html'" data-localize="tcl.system.home.homename" class="menu_nocheck menu_font ul_float_left">首页</div>
+			<div id="menu_1" onclick="window.location.href='system_product.html'" data-localize="tcl.system.product.productp" class="menu_nocheck menu_font ul_float_left">产品页</div>
+			<div id="menu_2" onclick="window.location.href='system_sersup.html'" data-localize="tcl.system.support.supportname" class="menu_nocheck menu_font ul_float_left">服务与支持</div>
+			<div id="menu_3" onclick="window.location.href='system_apps.html'" data-localize="tcl.system.APPS.appname" class="menu_nocheck menu_font ul_float_left">APPS</div>
+			<div id="menu_4" onclick="window.location.href='system_activity.html'" data-localize="tcl.system.active.activename"  class="menu_now menu_font ul_float_left">活动</div>
+	   </div>
+	     <div id="menu_boader" class="menu_boader">
+		 <!--5-->
+			<div id="menu_boader4" class="">
+				<div class=" ul_margin_top ul_hidden">
+					<div class="ul_float_left  title_top ul_margin_right" data-localize="tcl.system.active.hide" >
+							此页面在导航栏隐藏
+						</div>
+				</div>
+				<div class="ul_margin_top shangchuan gaoju">
+					<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('up_page',this)">
+									<input type="radio" name="up_page" value="1">
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.system.active.yes">
+								是
+							</div>
+						</div>
+						<div class="read_input ul_float_left mendian_p">
+							<div class="ul_float_left ul_margin_right">
+								<span class="radioButton" onclick="radio('up_page',this)">
+									<input type="radio" name="up_page" value="1">
+								</span>
+							</div>
+							<div class="ul_float_left scqd ul_margin_right" data-localize="tcl.system.active.hide">
+								否
+							</div>
+						</div>
+				</div>
+				<div class="ul_margin_top ul_hidden"><div onclick="menu_pz()" class="inpit_font ul_float_right ul_margin_left" data-localize="tcl.system.active.add.addname">新增</div></div>
+				<div class="ul_margin_top">
+					 <table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					  <tr>
+						<td width="10%" data-localize="tcl.system.active.no">序号</td>
+						<td width="20%" data-localize="tcl.system.active.add.subject">主题</td>
+						<td width="10%" data-localize="tcl.system.active.add.txt">文字</td>
+						<td width="10%" data-localize="tcl.system.active.add.picupload">图片上传</td>
+						<td width="30%" data-localize="tcl.system.active.add.link">链接</td>
+						<td width="20%" data-localize="tcl.system.active.Operation">操作</td>
+					  </tr>
+					  <tr>
+						<td>1</td>
+						<td class="delect_add">点点滴滴</td>
+						<td class="delect_add">凤飞飞</td>
+						<td class="delect_add">
+							<div class="img_up_smail" id="img_up_smail1">
+								<input  type="file" name="smail1" id="smail1" onchange="preImged(this.id,'img_up_smail1');"  class="sami_img" />
+							</div>
+						</td>
+						<td class="delect_add">http://</td>
+						
+						<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz()">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+					  </tr>
+					</table>
+
+				</div>
+				<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left baocun button_l" data-localize="tcl.system.active.savepage">保存</div>
+					
+					<div class="ul_float_left yulan button_l" data-localize="tcl.system.active.Preview">预览</div>
+					<div class="ul_float_left fabu button_l" data-localize="tcl.system.active.upload">上传</div>
+				</div>
+			</div>
+			<!--5-->
+						</div>
+			</div>
+			</div>
+			<div id="mengban" class="ul_display_none" onclick="close_wind();"></div>
+		<div id="window_open" class="ul_display_none"> 
+			<div class="header_tan">
+				<div class="ul_float_right">
+						<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.system.active.confirm">确定</div>
+						<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.system.active.cancl">取消</div>
+					</div>
+			</div>
+			<div class="tan_con" style="height:400px;">
+				<div class="xuan_kuang ul_hidden">
+				<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left add_yiji " data-localize="tcl.system.active.add.subject">主题:</div>
+						<div class="read_input ul_float_left ul_margin_left">
+							<span class="span"><input name="" type="text" class="inputstyle"></span>
+						</div>
+					</div>
+					<div class="ul_margin_top ul_hidden">
+						<div class="ul_float_left add_yiji " data-localize="tcl.system.active.add.txt">文字:</div>
+						<div class="read_input ul_float_left ul_margin_left">
+							<span class="span"><input name="" type="text" class="inputstyle"></span>
+						</div>
+					</div>
+					<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.system.active.add.link">链接:</div>
+							<div id="files_7" class="ul_float_left tianxuan ul_margin_right ul_margin_left"  data-localize="tcl.system.active.filllink" onclick="fill_choose('fill7','choose7')">填写链接</div>
+							<div id="choose_7" class="ul_float_left tianxuaned ul_margin_right ul_margin_left"  data-localize="tcl.system.active.Chooselink" onclick="choose_fill('fill7','choose7')">选择链接</div>
+						</div>
+						<div class="read_input ul_margin_top ul_hidden" id="fill7">
+							<span class="span"><input name="" type="text" class="inputstyle"></span>
+						</div>
+						<div class="ul_display_none" id="choose7">
+							<div class="shaixuan_selsect">
+								<div class="selsect_ov">
+									<select class="xial">
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+				</div>
+			</div>
+		</div>	
+</body>
+<script>
+	/** 
+* 从 file 域获取 本地图片 url 
+*/ 
+function getFileUrl(sourceId) { 
+var url; 
+if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+url = document.getElementById(sourceId).value; 
+} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+} 
+return url; 
+} 
+/** 
+* 将本地图片 显示到浏览器上 
+*/ 
+function preImged(sourceId, targetId) { 
+var url = getFileUrl(sourceId); 
+var imgPre = document.getElementById(targetId); 
+if(url){
+imgPre.style.background ='url('+url+')'; 
+imgPre.style.backgroundSize = '100% 100%';
+}else{
+imgPre.style.background ='#dbdbdb'; 
+}
+}
+function close_wind(){
+$$('mengban').className='ul_display_none';
+$$('window_open').className='ul_display_none';
+}
+function menu_pz(){
+$$('mengban').className='mengban';
+$$('window_open').className='window_opens';
+}
+function fill_choose(id,ids){
+	$$(id).className='read_input ul_margin_top ul_hidden';
+	$$(ids).className='ul_display_none';
+	$$('files_7').className='ul_float_left tianxuan ul_margin_right ul_margin_left';
+	$$('choose_7').className='ul_float_left tianxuaned ul_margin_right ul_margin_left';
+}
+function choose_fill(id,ids){
+	$$(id).className='ul_display_none';
+	$$(ids).className='read_input ul_margin_top ul_hidden';
+	$$('files_7').className='ul_float_left tianxuaned ul_margin_right ul_margin_left';
+	$$('choose_7').className='ul_float_left tianxuan ul_margin_right ul_margin_left';
+}
+</script>
+</html>

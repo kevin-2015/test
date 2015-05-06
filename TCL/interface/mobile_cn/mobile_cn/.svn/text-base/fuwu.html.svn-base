@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>服务</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+    <div class="fw_div mar_lr04 mar_t05" style="">
+			<!--列表开始-->
+<div class="" id="list">
+    <!--ul ontouchstart="zy_touch('btn-act')" class="ubb ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">设置</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+    
+    <ul ontouchstart="zy_touch('btn-act')" class=" ub ubb b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">设置</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+    
+    <ul ontouchstart="zy_touch('btn-act')" class=" ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">设置</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul-->
+</div>
+<div class="c-wh uinn umar-a uba b-gra  uc-t" style=" margin-top:1em;">
+	<ul onclick=" window.location.href='search.html'" class=" ub ubb b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">查找门店</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+	<ul onclick=" window.location.href='liuyan.html'" class=" ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">在线留言</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+</div>
+<!--列表结束-->
+    </div>
+    <div class="footer  mar_t">
+    	
+		 <script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+	window. onload = function(e){
+		islogin();
+		list();
+	}
+	function list(){
+		var url_data=base_url+'support_cat_get';
+		jQuery.getJSON(url_data,function(data){
+				if (data.status == 0) {
+					var template='';
+					if(data.data){
+					for (i in data.data) {
+						template += '<ul onclick="open_fuwu('+data.data[i].id+',\''+data.data[i].name+'\');" class="ubb ub b-gra t-bla ub-ac umh4 lis">' +
+						'<li class="ub-f1 ut-s">' +
+						data.data[i].name +
+						'</li>' +
+						' <li class="listIcon lis-sw ub-img"></li>' +
+						'</ul>';
+					}
+						$$('list').className='c-wh uinn umar-a uba b-gra  uc-t ';
+						$$('list').innerHTML=template;
+					}else{
+						$$('list').className='c-wh uinn umar-a uba b-gra  uc-t ';
+						$$('list').innerHTML='暂无服务信息内容';
+					}
+				}else{
+					alert(data.message);
+				}
+			
+		})
+		
+	}
+function open_fuwu(id,name){
+		window.location.href='fwcl.html?typeid='+id+'&typename='+ encodeURIComponent(encodeURIComponent(name));
+}
+</script>
+</html>

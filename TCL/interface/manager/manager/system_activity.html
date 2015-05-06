@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.system.active.activename" >系统管理</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader ">
+  		<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='system_management.html'" data-localize="tcl.system.home.homename" class="menu_nocheck menu_font ul_float_left">首页</div>
+			<div id="menu_1" onclick="window.location.href='system_product.html'" data-localize="tcl.system.product.productp" class="menu_nocheck menu_font ul_float_left">产品页</div>
+			<div id="menu_2" onclick="window.location.href='system_sersup.html'" data-localize="tcl.system.support.supportname" class="menu_nocheck menu_font ul_float_left">服务与支持</div>
+			<div id="menu_3" onclick="window.location.href='system_apps.html'" data-localize="tcl.system.APPS.appname" class="menu_nocheck menu_font ul_float_left">APPS</div>
+			<div id="menu_4" onclick="window.location.href='system_activity.html'" data-localize="tcl.system.active.activename"  class="menu_now menu_font ul_float_left">活动</div>
+	   </div>
+	     <div id="menu_boader" class="menu_boader">
+		 <!--5-->
+				<div class=" ul_margin_top ul_hidden">
+					<div class="ul_float_left  title_top ul_margin_right" data-localize="tcl.system.active.hide" >
+							此页面在导航栏隐藏
+						</div>
+				</div>
+				<div class="ul_margin_top shangchuan gaoju">
+					<input type="radio" name="yon" checked="checked" value="y"/><div data-localize="tcl.system.active.yes"></div>
+					<input type="radio" name="yon"  value="n"/><div data-localize="tcl.system.active.hide"></div>
+				</div>
+				<div class="ul_margin_top ul_hidden"><div onclick="addRow();" class="inpit_font ul_float_right ul_margin_left" data-localize="tcl.system.active.add.addname">新增</div></div>
+				<div class="ul_margin_top">
+					 <table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					  <tr>
+						<td width="5%" data-localize="tcl.system.active.no">序号</td>
+						<td width="10%" data-localize="tcl.system.active.add.subject">主题</td>
+						<td width="25%" data-localize="tcl.system.active.add.txt">文字</td>
+						<td width="25%" data-localize="tcl.system.active.add.picupload">图片上传</td>
+						<td width="15%" data-localize="tcl.system.active.add.link">链接</td>
+						<td width="20%" data-localize="tcl.system.active.Operation">操作</td>
+					  </tr>
+					</table>
+					 <table id="systemActivity" width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					 	
+					 	</table>
+				</div>
+				
+				<div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left yulan button_l" data-localize="tcl.system.active.Preview">预览</div>
+					<div class="ul_float_left fabu button_l" data-localize="tcl.system.active.upload" onclick="submitPageToClient('activitypage');">上传</div>
+				</div>
+			<!--5-->
+						</div>
+			</div>
+			</div>
+	
+	<div id="mengban" class="ul_display_none" onclick="close_wind();"></div>
+<div id="window_open" class="ul_display_none"> 
+    <div id="win_con0" class="ul_display_none">
+        <div class="header_tan">
+                <div class="ul_float_right anniu_qx" onclick="close_wind();" data-localize="tcl.system.home.productpage.cancl">
+                </div>
+        </div>
+        <div id="body_tan" class="tan_con" style="height:400px; overflow-y:scroll;">
+           <div  data-localize="tcl.system.active.subject"></div><input type="text" name="sTitle"/></br>
+		  <div  data-localize="tcl.system.active.txt"></div><input type="text" name="sArticle"/></br>
+		   <form  action="" method="post" enctype="multipart/form-data" target="imgFrame">
+		   	  <div  data-localize="tcl.system.active.picupload"></div><input type="file" id="imgNew" name="img" onchange="uploadImgSimple(this.id);"/>
+		   	</form>
+		 </br>
+		  <div  data-localize="tcl.system.active.link"></div> 
+		  <input type="text" name="sHref"/></br>
+		   <div class="ul_float_left fabu button_l" data-localize="tcl.system.active.add.save" onclick="addSystemActivity();"></div>
+        </div>
+    </div>
+</div>		
+	<iframe id="imgFrame" name="imgFrame" width="500px" height="100px" style="display:none;"></iframe>
+</body>
+<script>
+	window.onload=function(e){
+		var url = base_url+"system_activity_list";
+		
+		jQuery.getJSON(url,function(data){
+			if(data.status=="0")
+			{
+				var systemActivity = data.data;
+				var activityStr = '';
+				if(systemActivity.length>0)
+				{
+					for(var i=0;i<systemActivity.length;i++)
+					{
+						activityStr +='<tr id="'+systemActivity[i].id+'"><td width="5%">'+(i+1)+'</td><td width="10%"><input type="text" name="sTitle" onfocus="" onBlur="submitHref(this,'+systemActivity[i].id+');" value="'+systemActivity[i].title+'"/></td><td width="25%"><input type="text" name="sArticle" onfocus="" onBlur="submitHref(this,'+systemActivity[i].id+');" value="'+systemActivity[i].article+'"/></td><td width="25%">'
+						+'<div  style="background:url('+systemActivity[i].picture+');width: 150px !important;height: 150px!important;background-position: center !important;background-repeat: no-repeat !important;">'
+							+'<form  action="" method="post" enctype="multipart/form-data" target="imgFrame">'
+							+'<input type="file" id="productAdImg'+systemActivity[i].id+'" name="img" onchange="uploadImgDB(this.id,'+systemActivity[i].id+');"  class="weiqiong"/>'
+							+'</form>'
+					+'</div>'
+					+'</td><td width="15%"><input type="text" name="sHref" onfocus="" onBlur="submitHref(this,'+systemActivity[i].id+');" value="'+systemActivity[i].href+'"/></td><td width="20%"><input type="button" value="'+i18n.support.del+'" onclick="deleteSystemActivity('+systemActivity[i].id+')"/></td></tr>';
+					}
+				}
+				jQuery("#systemActivity")[0].innerHTML = activityStr;
+			}else
+			{
+				alert(data.message);
+				return;
+			}
+		});	
+	}
+	function addSystemActivity(){
+		var sTitle = jQuery("#body_tan").find("input[name='sTitle']").val();
+		var sArticle = jQuery("#body_tan").find("input[name='sArticle']").val();
+		var sPicture = jQuery("#body_tan").find("input[name='sPicture']").val();
+		var sHref = jQuery("#body_tan").find("input[name='sHref']").val();
+		
+		var param = {};
+		param.sTitle = sTitle;
+		param.sArticle = sArticle;
+		param.sPicture = sPicture;
+		param.sHref = sHref;
+		
+		var url = base_url +"system_activity_add";
+		jQuery.getJSON(url,param,function(data){
+			if(data.status=="0"){
+				alert(data.message);
+				window.location.reload();
+			}else{
+				alert(data.message);
+				return;
+			}
+		});
+	}
+	function deleteSystemActivity(id){
+		var url = base_url+"system_activity_del?id="+id;
+		jQuery.getJSON(url,function(data){
+			if(data.status=="0"){
+				alert(data.message);
+				window.location.reload();
+			}else{
+				alert(data.message);
+				return;
+			}
+		});
+	}
+var globalImageValue = "";
+function getFrameValue(imgId,trId){
+	var retVal = "";
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if (json) 
+	{
+		clearInterval(globalImageValue);
+		
+		retVal = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if (retVal.status == 0) 
+		{
+			alert(retVal.message);
+			return;
+		}
+		var param = {};
+		param.id = trId;
+		param.sHref=retVal.path;
+		param.column="picture";
+		var url = base_url+"system_activity_update";
+	
+		jQuery.getJSON(url,param,function(data){
+			if(data.status=="0"){
+				alert(data.message);
+				var clazz ="background:url("+retVal.path+");width: 150px !important;height: 150px !important;background-position: center!important;background-repeat: no-repeat !important;";
+				jQuery("#"+imgId).parent("form").parent("div").attr("style",clazz);	
+			}else{
+				alert(data.message);
+				return;
+			}
+		});
+	}
+}
+function uploadImgDB(imgId,trId){
+	var jqId = "#"+imgId;
+	var upImg = jQuery(jqId).val();
+	
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqId).val('');
+			alert(i18n.server.uploadFileFormat);
+			return false;
+		}
+	}
+	jQuery(jqId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqId).parent("form").submit();
+	
+	globalImageValue = setInterval("getFrameValue('"+imgId+"',"+trId+")",1*1000);
+}
+function uploadImgSimple(id){
+	var hiddenExisted = jQuery("#"+id).parent().prev("input[type='hidden']");
+	if(hiddenExisted.size()>0){
+		hiddenExisted.remove();
+	}
+	var jqId = "#"+id;
+	var upImg = jQuery(jqId).val();
+	
+	if(upImg)
+	{
+		var len = upImg.length;
+		var type =  upImg.substr(upImg.lastIndexOf("."),len).toLowerCase();
+		if(type != '.jpg'&& type != '.jpeg' && type != '.gif' && type != '.png' && type != '.bmp')
+		{
+			jQuery(jqId).val('');
+			alert(i18n.server.uploadFileFormat);
+			return false;
+		}
+	}
+	jQuery(jqId).parent("form").attr("action",base_url+"upload");
+	jQuery(jqId).parent("form").submit();
+	
+	globalImageValue = setInterval("getFrameValueSimple('"+id+"')",1*1000);
+	
+}
+
+function getFrameValueSimple(id){
+	var retVal = "";
+	var json = jQuery("#imgFrame").contents().find("*").first().text();
+	if (json) {
+		clearInterval(globalImageValue);
+		
+		retVal = jQuery.parseJSON(json);
+		jQuery(document.getElementById('imgFrame').contentWindow.document.body).html('');
+		
+		if (retVal.status == 0) {
+			alert(retVal.message);
+			return;
+		}
+		jQuery("#"+id).parent("form").before("<input type='hidden' name='sPicture' value='"+retVal.path+"'/>");
+	}
+}
+
+function submitHref(obj,id){
+	var column = "";
+	if(jQuery(obj).attr("name")=="sHref"){
+		column = "href";
+	}else if(jQuery(obj).attr("name")=="sArticle"){
+		column = "article";
+	}else{
+		column = "title";
+	}
+	var param = {};
+	param.sHref = jQuery(obj).val();;
+	param.id = id;
+	param.column = column;
+	
+	var url = base_url+"system_activity_update";
+	jQuery.getJSON(url,param,function(data){
+		if(data.status=="0"){
+			alert(data.message);
+		}else{
+			alert(data.message);
+		}	
+	});	
+}
+
+function close_wind(){
+	$$('mengban').className='ul_display_none';
+	$$('window_open').className='ul_display_none';
+}
+function addRow(){
+	jQuery("#mengban").attr("class","mengban");
+	jQuery("#window_open").attr("class","window_opens");
+	jQuery("#win_con0").attr("class","");
+}
+
+function submitPageToClient(type){
+	var url = base_url+"product_page_toclient?type="+type;
+	jQuery.getJSON(url,function(data){
+		if(data.status=='0'){
+			alert(data.message);
+		}else{
+			alert(data.message);
+			return false;
+		}
+	});
+}
+</script>
+</html>

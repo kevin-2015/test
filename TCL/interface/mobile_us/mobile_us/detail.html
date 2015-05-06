@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{cb:$1}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/idangerous.swiper.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="js/idangerous.swiper-2.1.min.js"></script>
+   <style type="text/css">
+		 body{padding:0;margin: 0 auto;}
+		.touch_block{position:relative; height: 100%; width: 100%; overflow: hidden;}
+		.touch_page{ position:absolute; left:0; top:0%; height:100%; width:100%; }
+		.touch_page.show { z-index:10; display:block; }
+		.touch_page.hide { z-index:5; display:none; }
+		.touch_page.active { z-index:15; display:block; }
+		.touch_pageimg{width:100%; height:100%; background-repeat:no-repeat; background-position:center center;}
+		.act{color:#fff; background-color:#5fa5ea}
+	</style>
+   <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+
+</head>
+
+<body class="um-vp" style="width:100%; overflow-y:scroll;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    <div class=" ub-ver ub ub-f1" style="width:100%;">
+        <div class="de_tab ub ub-ac">
+            <div class="ub-f1 tx-c tab_bor act" id="tab0" onclick="tab(0)" style="height:2em; line-height:2em"> overview  </div>
+            <div class="ub-f1 tx-c" id="tab1" onclick="tab(1)" style="height:2em; line-height:2em">details</div>
+        </div>
+       <div id="gaisu" class=" ub-f1 touch_block" style=" height: 15em;">
+
+	</div>
+        <div id="detail" style="display:none;">
+        	<div class="de_img tx-c">
+            	<div class="swiper-container">
+				      <div id="swiper-wrapper" class="swiper-wrapper">
+				      </div>
+				    </div>
+				
+            </div>
+            <div class="umar_lr2" style="background-color:#f4f4f4;margin-top:.4em;padding:.8em 2em">
+                <div class="t_3a3 font_02" id="pro_name"> </div>
+                <div class="t_3a3 font_02" id="pro_price"></div>
+                <div id="pro_description" class=""></div>
+                <div class="ub uinn3 mar_t05" style="width: 100%;">
+				<div class="">
+					<!--块容器开始-->
+						<div class="ub "  id="stars">
+						   
+						</div>
+						<!--块容器结束-->
+
+                	
+				</div>
+				</div>
+				<div class="ub-f1 ub-pe ub ub-ac " >
+                	<div><img src="images/icon1.png" style="width:1.5em;height:1em; margin-right:.6em" /></div>
+					<div><img src="images/icon2.png" style="width:1.5em;height:1em; margin-right:.6em" /></div>
+					<div><img src="images/icon3.png" style="width:1.5em;height:1em; margin-right:.6em" /></div>
+					<div><img src="images/icon4.png" style="width:1.5em;height:1em; margin-right:.2em" /></div>
+				</div>
+				<div class="ub" style="width:100%;">
+				<div class="ub ub-f1" style="width:50%;">
+				<div class="ub-f1 mar_t05 uinn" onclick="shop()" >
+				 	<div class="buy_btn tx-c ">
+				 		Buy now
+				 	</div>
+					</div>
+					</div>
+				 	<div class="ub ub-f1" style="width:50%;">
+					<div class="ub-f1 mar_t05 uinn " onclick="add_colled()" >
+				 	<div class="buy_btn tx-c ">
+				 		Join the collection
+				 	</div>
+					</div>
+					</div>
+				   
+				</div>
+               
+      		</div>
+         <div class="de_div" style=" padding:0; overflow:hidden;">
+            	<div class="ub ub-ac de_bottom" style="width: 100%;">
+                	<div id="menus0" onclick="menus(0)" class="ub-f1 tx-c de_padd c_5fa" style="border-right:none;">Product overview</div>
+                    <div id="menus1" onclick="menus(1)" class="ub-f1 tx-c de_bor" style="border-right:none;">The product description</div>
+                    <div  id="menus2" onclick="menus(2)" class="ub-f1 tx-c de_bor" style="border-right:none;">Product specification</div>
+                </div>
+                <div class="ub ub-ac"  style="width: 100%;">
+                	<div id="menus3" onclick="menus(3)" class="ub-f1 tx-c de_bor" style="border-right:none;">Product reviews</div>
+                    <div  id="menus4"  onclick="menus(4); window.location.href='search.html'" class="ub-f1 tx-c de_bor" style="border-right:none;">Store to find</div>
+                </div>
+            </div>
+		<div class="uinn" style="overflow:hidden;">
+				<div id="overview0"></div>
+				<div id="overview1" class="uhide">No product description</div>
+				<div id="overview2" class="uhide">
+					<div class="t_6b6 ulev-1" id="cons">
+               
+                </div>
+				</div>
+				<div id="overview3" class="uhide">No product reviews</div>
+			</div>
+        </div>
+		
+    </div>
+	  <script src="js/footer.js"></script> 
+ </div> 
+
+</body>
+<script type="text/javascript" src="js/jqueryslide.js"></script>
+<script>
+		window.onload = function(e){
+			modifytitleandsoon([decodeURIComponent(decodeURIComponent(getQueryString('productname')))])
+			header_fenlei();
+			islogin();
+			procudt_d();
+	}
+	var menus_now=0;
+	function menus(id){
+		if( id==menus_now ){
+			$$('menus'+id).className='ub-f1 tx-c de_padd c_5fa';
+		}else{
+			$$('menus'+id).className='ub-f1 tx-c de_padd c_5fa';
+			$$('menus'+menus_now).className='ub-f1 tx-c de_bor';
+		}
+		menus_now=id;
+		if(id==0){
+			$$('overview0').className= '';
+			$$('overview1').className= 'uhide';
+			$$('overview2').className= 'uhide';
+			$$('overview3').className= 'uhide';
+		}else if(id==1){
+			$$('overview0').className= 'uhide';
+			$$('overview1').className= '';
+			$$('overview2').className= 'uhide';
+			$$('overview3').className= 'uhide';
+		}else if(id==2){
+			$$('overview0').className= 'uhide';
+			$$('overview1').className= 'uhide';
+			$$('overview2').className= '';
+			$$('overview3').className= 'uhide';
+		}else if(id==3){
+			$$('overview0').className= 'uhide';
+			$$('overview1').className= 'uhide';
+			$$('overview2').className= 'uhide';
+			$$('overview3').className= '';
+		}
+	}
+	function tab(flag){
+	if(flag){
+		$$("detail").style.display = "block";
+		$$("gaisu").style.display = "none";
+		$$("tab1").className += " act";
+		$$("tab0").className = $$("tab0").className.replace(/ act/g,'');
+	}else{
+		$$("detail").style.display = "none";
+		$$("gaisu").style.display = "block";
+		$$("tab0").className += " act";
+		$$("tab1").className = $$("tab1").className.replace(/ act/g,'');
+
+	}
+}
+
+jQuery(function(){
+	jQuery(".touch_page").on("swipeleft",function(){
+   		$$("detail").style.display = "block";
+		$$("gaisu").style.display = "none";
+		$$("tab1").className += " act";
+		$$("tab0").className = $$("tab0").className.replace(/ act/g,'');
+  });
+  jQuery("#detail").on("swiperight",function(){
+    $$("detail").style.display = "none";
+		$$("gaisu").style.display = "block";
+		$$("tab0").className += " act";
+		$$("tab1").className = $$("tab1").className.replace(/ act/g,'');
+  });
+  document.body.lastChild.remove();
+})
+var url_go='';
+function procudt_d(){
+	var url_data=base_url+ 'product_info_web?id='+getQueryString('productid');
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==1){
+			if(data.data!=''){
+				var template='';
+				var temp= '';
+				var jtemplate='';
+				var tems =true;
+				var stemplate='';
+				for(var i =0;i<data.data[0].img.length;i++){
+					if(data.data[0].img[i].type==1){ //产品
+						template+='<div class="swiper-slide" > <img src="'+base_url+data.data[0].img[i].accessUrl+'" width="100%" height="100%"> </div>'
+					}
+					if(data.data[0].img[i].type==3){ //概述
+						temp+='<div class=" ub-f1" style="width:100%"><img src="'+base_url+data.data[0].img[i].accessUrl+'" width="100%" /></div>'
+					}
+					if(data.data[0].img[i].type==5){//精品
+					if(tems){
+							jtemplate+='<section class="touch_page '+(tems ? 'show' : 'hide' )+'">'
+			+'<div class="touch_pageimg" data-img="'+base_url+data.data[0].img[i].accessUrl+'" style="background:url('+base_url+data.data[0].img[i].accessUrl+') center no-repeat; background-size: 100% 100%;">'
+		+'</div>'
+		+'</section>'
+		tems= false;
+					}
+					
+					}
+					if(data.data[0].img[i].type==4){
+						stemplate+='<div class=" ub-f1" style="width:100%"><img src="'+base_url+data.data[0].img[i].accessUrl+'" width="100%" /></div>';
+					}
+				}
+				$$('gaisu').innerHTML=jtemplate;
+				$$('swiper-wrapper').innerHTML=template;
+				$$('overview1').innerHTML= stemplate;
+				  var mySwiper = new Swiper('.swiper-container',{
+				    loop:true,
+				    grabCursor: true,
+				    paginationClickable: true
+				  });
+				$$('overview0').innerHTML=temp;
+				url_go= data.data[0].shop;
+				var tem = '';
+					if(data.data[0].parameter!=''){
+					for(var i=0; i<data.data[0].parameter.length;i++){
+					tem+='<div class="ub div_line" style="width:100%;background: #eeeeee;"><div class="" style="padding-left: 1em;font-weight: bolder;">'+(data.data[0].parameter[i].name ? ''+data.data[0].parameter[i].name+'' :'')+'</div></div>'
+					tem+='<div class="div_line" style="width:100%">'
+					for(var j =0;j<data.data[0].parameter[i].child.length;j++){
+						tem+='<div class="ub div_line" style="width:100%; '+(j == parseInt(data.data[0].parameter[i].child.length-1)   ? 'border-bottom: none;' : 'border-bottom: 1px solid #c3c2c2;')+'"><div class="" style="text-indent: 2em;">'+(data.data[0].parameter[i].child[j].name ? ''+data.data[0].parameter[i].child[j].name+'' :'')+' : </div><div class="ub-f1 tx-r" style="word-wrap: break-word;word-break: break-all;">'+(data.data[0].parameter[i].child[j].paraVal !='' ? ''+data.data[0].parameter[i].child[j].paraVal[0].name+'' : '')+'</div></div>'
+					}
+					tem+='</div>'
+				}
+				$$('cons').innerHTML=tem;
+				}else{
+					$$('cons').innerHTML='No product specification information';
+				}
+				$$('pro_name').innerHTML=data.data[0].name;
+				$$('pro_price').innerHTML='￥'+data.data[0].price;
+				$$('pro_description').innerHTML= data.data[0].description;
+				var stars= data.data[0].starlevel;
+				if(stars==1){
+					$$('stars').innerHTML='<div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div>';
+				}else if(stars==2){
+					$$('stars').innerHTML='<div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div>';
+				}else if(stars==3){
+					$$('stars').innerHTML='<div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div>';
+				}else if(stars==4){
+					$$('stars').innerHTML='<div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star4.jpg" class="xingzai"></div>';
+				}else if(stars==5){
+					$$('stars').innerHTML='<div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div><div class="uinn uc-l1"><img src="images/star3.jpg" class="xingzai"></div>';
+				}
+			}else{
+				alert('No information for details');
+			}
+		}else{
+			alert(data.message);
+		}
+		pl_list();
+	});
+}
+function shop(){
+	window.location.href=url_go;
+}
+function pl_list(){
+var url_data = base_url+'user_review_list?flag=0&productUuid='+getQueryString('productid');
+	jQuery.getJSON(url_data,function(data){
+		if(data.status==0){
+			if(data.rows!=''){
+				var template='';
+				for(var i=0;i<data.rows.length;i++){
+					template+='<div class="c-wh uinn umar-a uba b-gra  uc-t" style=" margin-top:1em;">'
+	+'<ul  class=" ub ubb b-gra t-bla ub-ac umh4 " style="width:100%;">'
+       +' <li class="ub-f1 ut-s lis ub">'
++'<div class="">comments：</div>'
++'<div class="ub-f1" style="white-space: normal;">'+data.rows[i].content+'</div>'
++'</li>'
+   +' </ul>'
+	+'<ul  class=" ub b-gra t-bla ub-ac umh4 " style="width:100%;">'
+      +' <li class="ub-f1 ut-s lis ub">'
++'<div class="'+(data.rows[i].response == '' ? 'uhide' : '')+'">reply：</div>'
++'<div class=" '+(data.rows[i].response == '' ? 'uhide' : 'ub-f1')+'" style="white-space: normal;">'+data.rows[i].response+'</div>'
++'</li>'
+   +' </ul>'
++'</div>'
+				}
+				$$('overview3').innerHTML=template;
+			}else{
+				$$('overview3').innerHTML='No product reviews';
+			}
+		}else{
+			alert(data.message);
+		}
+		if(getCookie('login_username')){
+			add_browse();
+		}else{
+			
+		}
+	});
+}
+function add_colled(){
+	if(!getCookie('login_username')){
+		window.location.href='login.html';
+	}else{
+		var url_data = base_url+'user_favor_add?productid='+getQueryString('productid');
+		jQuery.getJSON(url_data,function(data){
+			if(data.status==0){
+				alert('收藏成功');
+			}else{
+				alert('收藏失败');
+			}
+		});
+	}
+}
+//加入浏览记录
+function add_browse(){
+	var url_data = base_url+'user_history_add?productid='+getQueryString('productid');
+		jQuery.getJSON(url_data,function(data){
+			if(data.status==0){
+				
+			}else{
+				
+			}
+		});
+}
+</script>
+</html>

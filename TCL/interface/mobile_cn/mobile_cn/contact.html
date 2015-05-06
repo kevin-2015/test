@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05 ub-f1">
+        <div class="fwcl ub ub-ac c_fff fwcl_title ub-f1 " style="width: 100%;">
+            <div class="c_5fa fwcl_tab ub-f1 mar_l02 tx-c"><span class="font_02">联系我们</span></div>
+        </div>
+        <div class="mar_lr con_text mar_t" id="contact">
+        
+        </div>
+    </div>
+
+    <div class="footer ">
+    	
+		 <script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+	window.onload= function (e){
+		header_fenlei();
+			islogin();
+		contact_list();
+	}
+	function contact_list(){
+		var url_data = base_url+'contact_us';
+		jQuery.getJSON(url_data,function(data){
+			if(data.status==1){
+				if(data.data!=''){
+					$$('contact').innerHTML=data.data;
+				}else{
+					$$('contact').innerHTML='暂无联系我们相关信息';
+				}
+			}else{
+				alert(data.message);
+			}
+		});
+	}
+</script>
+</html>

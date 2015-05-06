@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>取回密码</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="">
+
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+<script src="js/header.js"></script>
+<div class="ub ub-ac login_title mar_t1" style="width: 100%;">
+	<div class="log_lef log_tip"></div>
+    <div class="ub-f1 tx-c">取回密码</div>
+    <div class="log_rit log_tip"></div>
+</div>
+<div class="mar_lr mar_t1">
+	<div class="log_input ub ub-ac" style="width:100%;">
+    	<div class="t_4a4 txt_w" style="width: 5em; text-align:right;">邮箱</div>
+        <div class="ub-f1 mar_l1">
+        	<input type="text"  id="email" class="t_8f8 txt_input" value="" />
+        </div>
+    </div>
+</div>
+<div class="login_btn mar_t1">
+	<a  style="color:#fff" onclick="retrieve()">提交</a>
+</div>
+</div>
+</body>
+<script>
+	window.onload = function(){
+		header_fenlei();
+	}
+function retrieve(){
+	var email= $$('email').value;
+	if(email == ''){
+		alert('邮箱不能为空');
+	}else if(!check_Eamil(email)){
+		alert('邮箱格式不正确');
+	}else{
+		window.location.href='prompt.html';
+	}
+}
+</script>
+</html>

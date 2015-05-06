@@ -1,0 +1,165 @@
+var base_url = '/web/public/web/';
+
+var jQuery = jQuery.noConflict();
+
+//中文访问地址
+var chain_language= 'http://10.118.0.218/mobile/';
+//英文访问地址
+var english_language='http://10.118.0.218/mobile_us/';
+var uexWindow;
+var open_new = function(name){
+	if(uexWindow)
+		uexWindow.open(name,'0',name+'.html', 0, '','', '0');
+	else
+	window.location.href=name+".html";
+}
+function $$(id){
+	return document.getElementById(id);
+}
+/**
+ * localStorage保存数据
+ * @param String key  保存数据的key值
+ * @param String value  保存的数据
+ */
+function setLocVal(key,value){
+	window.localStorage[key] = value;
+}
+
+/**
+ * 根据key取localStorage的值
+ * @param Stirng key 保存的key值
+ */
+function getLocVal(key){
+	if(window.localStorage[key])
+		return window.localStorage[key];
+	else
+		return "";
+}
+
+/**
+ * 清除缓存
+ * @param Striong key  保存数据的key，如果不传清空所有缓存数据
+ */
+function clearLocVal(key){
+	if(key)
+		window.localStorage.removeItem(key);
+	else
+		window.localStorage.clear();
+}
+function setCookie(name, value){
+    var Days = 30; //此 cookie 将被保存 30 天
+    var exp = new Date(); //new Date("December 31, 9998");
+    exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+    document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+}
+
+function getCookie(name){
+    var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+    if (arr != null) 
+        return unescape(arr[2]);
+    return null
+}
+/*****获取request中name对应到value值*****/	
+function getQueryString(name){
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    return r != null ? unescape(r[2]) : null;
+}
+/******返回前一页*********/
+function goback(){
+	window.history.go(-1);
+}
+
+/********动态修改title meta keywords description*****/
+function modifytitleandsoon(a){
+	//{cb:$1}
+	//a是一个数组，里面的元素依次是要替换的$1 $2 ...
+	var title = document.title;
+	if(title.indexOf('{cb:$')>-1){
+		document.title = title.replace(/\{cb\:\$(\d+)\}/g,function(all,group1){
+			return a[group1-1];
+		});
+	}
+	var objs = document.getElementsByTagName("meta");
+	var k;
+	for(var i=0;i<objs.length;i++){
+		if(objs[i].name === 'keywords' || objs[i].name === 'description'){
+			k = objs[i].content;
+			if(k.indexOf('{cb:$')>-1){
+				objs[i].content = k.replace(/\{cb\:\$(\d+)\}/g,function(all,group1){
+					return a[group1-1];
+				});
+			}
+		}
+	}
+}
+/*****判断邮箱*****/
+function check_Eamil(d){
+	var isEamil= /^[A-Za-zd]+([-_.][A-Za-zd]+)*@([A-Za-zd]+[-.])+[A-Za-zd]{2,5}$/; 
+	if(!isEamil.test(d)){
+		return false;	
+	}else{
+		return true;
+	}
+}
+function login_tcl(){
+	window.location.href='login.html';
+}
+/****************搜索产品*********/
+function search_product(){
+	var product_names = $$('product_names').value;
+	if(product_names == ''){
+		alert('搜索内容不能为空');
+	}else{
+		window.location.href='product_list.html?typename='+ encodeURIComponent(encodeURIComponent(product_names));
+	}
+}
+/*****返回顶部*****/
+function myScroll(){
+    var x = document.body.scrollTop || document.documentElement.scrollTop;
+    var timer = setInterval(function(){
+        x = x - 100;
+        if (x < 100) {
+            x = 0;
+            window.scrollTo(x, x);
+            clearInterval(timer);
+        }
+        window.scrollTo(x, x);
+    }, "10");
+}
+jQuery(function(){
+	jQuery("#type").click(function(){
+		jQuery("#type_show").animate({top: '3.2em'}, "1500");
+	})
+	jQuery("#hide_type").click(function(){
+		jQuery("#type_show").animate({top: '-1000px'}, "1500");
+	})
+	jQuery("#search").click(function(){
+		jQuery("#search_show").animate({top: '3.2em'}, "1500");
+	})
+	jQuery("#hide_search").click(function(){
+		jQuery("#search_show").animate({top: '-1000px'}, "1500");
+	})
+})
+
+//打开右侧关注我们
+function open_leftwin(){
+	$$('share_win').className='ub share_win';
+}
+function colse_leftwin(){
+	$$('share_win').className='uihide';
+}
+
+ //判断是否登录
+ function islogin(){
+      if(getCookie('login_username')){
+			$$('login_tcl').className= 'uhide';
+			$$('login_user').className='ub-f1 tx-c';
+			$$('user_name').innerHTML = getCookie('login_username');
+		}else{
+		$$('login_tcl').className= 'ub-f1 tx-c';
+		$$('login_user').className='uhide';
+		$$('user_name').innerHTML='';
+	}
+ }
+

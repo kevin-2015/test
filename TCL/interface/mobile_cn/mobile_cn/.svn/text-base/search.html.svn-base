@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+	<div id="search" class="mar_lr mar_t">
+    	<p class="t_7f7  mar_t">查找店门</p>
+        <div class="ub mar_t">
+        	<div class="ub-f1 s_input mar_r02"  style="padding-left: 2em;">
+            	<input style="height: 2.3em; line-height: 1.8em;" type="text"  id="condition" class="t_8f8 txt_input" value="" />
+            </div>
+            <div class="s_btn c_5fa mar_r02" onclick="search_store()">搜索</div>
+           
+        </div>
+        
+    </div>
+	<div class="mar_lr mar_t">
+    	<ul class="uhide" id="list_border">
+        	<li class="ub c_e3e"><div class="s_num div_t1" style="padding:0 1em; overflow:hidden;">序号</div><div class="ub-f1 tx-c div_t1">地址</div><div class="s_tel" style="padding:0 1em; overflow:hidden;">电话</div></li>
+			<ul id="list_search">
+				
+			</ul>
+        </ul>
+    </div>
+    <div class="footer  mar_t">
+		<script src="js/footer.js"></script>
+    </div>
+ </div>
+</body>
+<script>
+
+	window.onload = function(e){
+				islogin();
+	}
+
+	function search_store(){
+		var condition = $$('condition').value;
+		if (condition == '') {
+			alert('搜索内容不能为空');
+		}
+		else {
+			var url_data = base_url+'storeAddress_list?condition='+condition;
+jQuery.getJSON(url_data,function(data){
+				if (data.status == 0) {
+					if(data.data!=''){
+						$$('list_border').className='s_ul tx-c';
+						var template='';
+						for(var i=0;i<data.data.length;i++){
+							template+='<li class="ub"><div class="s_num div_t2" style="padding:0 1em; overflow:hidden;">'+i+'</div><div class="ub-f1 tx-c div_t2">'+data.data[i].address+'</div><div class="s_tel div_t0" style="padding:0 1em; overflow:hidden;"><a href="tel:'+data.data[i].contactPhone+'">'+data.data[i].contactPhone+'</a></div></li>'
+						}
+						$$('list_search').innerHTML=template;
+					}else{
+					$$('list_border').className='s_ul tx-c uinn';
+					$$('list_border').innerHTML='暂无搜索信息';
+				}
+				}else{
+					alert(data.message);
+				}
+});
+		}
+	}
+</script>
+</html>

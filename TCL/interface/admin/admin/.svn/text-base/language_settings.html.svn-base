@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.Language.languagesetting.languageset"></title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+	<div id="boader" class="boader ul_hidden">
+    <!--right部分开始-->
+		 <div id="right_boader" class="right_boader ">
+
+			 <div class="menu_top">
+				<div class=" shangchuaned" id="hang_menu">
+						<div id="menu_h0" onclick="menu_pz(0)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye" data-localize="tcl.Language.languagesetting.languageset">
+							语言页配置
+						</div>
+						<div id="menu_h1" onclick="menu_pz(1)" class="ul_float_left scqdss ul_margin_right ul_cursor_pointer" data-localize="tcl.Language.areasetting.areaset">
+							所在地区修改
+						</div>
+				</div>
+		     </div>
+			  <div id="menu_boader" class="menu_boader">
+			  	<!--1-->
+					<div id="menu_boader0" class="">
+							<div class=" shangchuan gaoju">
+								<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.Language.languagesetting.area1">所在地区:</div>
+								<div class="ul_float_left ul_margin_right">
+									<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+								</div>
+								<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.Language.languagesetting.link1">链接地址:</div>
+								<div class="ul_float_left ul_margin_right">
+									<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+								</div>
+							</div>
+							<div class="ul_margin_top ul_hidden">
+								<div onclick="open_wind(0)" class="inpit_font ul_float_right ul_margin_left" data-localize="tcl.Language.languagesetting.add.addname">新增</div>
+							</div>
+							<div  class="ul_margin_top">
+				<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+				  <tr>
+					<td width="5%" data-localize="tcl.Language.languagesetting.no">序号</td>
+					<td width="20%" data-localize="tcl.Language.languagesetting.country">国旗</td>
+					<td width="30%" data-localize="tcl.Language.languagesetting.content">文字</td>
+					<td width="15%" data-localize="tcl.Language.languagesetting.area">所在地区</td>
+					<td width="15%" data-localize="tcl.Language.languagesetting.link">链接地址</td>
+					<td width="15%" data-localize="tcl.Language.languagesetting.Operation">操作</td>
+				  </tr>
+				    <tr>
+					  <table id="listone" width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					
+					  </table>
+					  </tr>
+				</table>
+			</div>
+		</div>
+				<!--1-->
+				<!--2-->
+		<div id="menu_boader1" class="ul_display_none">
+			<div  class="ul_margin_top">
+				<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+				  <tr>
+					<td width="15%" data-localize="tcl.Language.areasetting.no">序号</td>
+					<td width="30%" data-localize="tcl.Language.areasetting.other">州名</td>
+					<td width="30%" data-localize="tcl.Language.areasetting.name">别名</td>
+					<td width="25%" data-localize="tcl.Language.areasetting.Operation">操作</td>
+				  </tr>
+				  <tr>
+					<td>1</td>
+					<td>TV</td>
+					<td>TV</td>
+					<td class="delect_add"><a class="ul_margin_right" onclick="open_wind(1)">编辑</a><a class="ul_margin_left" >删除</a></td>
+				  </tr>
+				</table>
+
+			</div>
+		</div>
+		<!--2-->
+			  </div>
+		 </div>
+	<!--right部分结束-->
+	</div>
+<!--body部分结束-->
+<!--弹出层开始-->
+<div id="mengban" class="ul_display_none"  onclick="close_wind();"></div>
+<div id="window_open" class="ul_display_none">
+<div id="wind_cons">
+<div id="wind_cons0">
+	<div class="win_header">
+		<div class="ul_float_right">
+				<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.Language.languagesetting.add.save">提交</div>
+				<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.Language.languagesetting.add.cancl">取消</div>
+			</div>
+	</div>
+	<div class="tan_con">
+		<div class="xuan_kuang ul_hidden">
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right"  data-localize="tcl.Language.languagesetting.country">国旗</div>
+				<div class="ul_float_left delect_add" style=" line-height:31px;">
+					<div class="img_up_smail" id="img_up_smail1">
+								<input  type="file" name="smail1" id="smail1" onchange="preImged(this.id,'img_up_smail1');"  class="sami_img" />
+					</div>
+				</div>
+			</div>
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right"  data-localize="tcl.Language.languagesetting.content">语言</div>
+				<div class="ul_float_left">
+					<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+				</div>
+			</div>
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right" style="width:60px;" data-localize="tcl.Language.languagesetting.area">所在地区</div>
+				<div class="ul_float_left">
+					<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+				</div>
+			</div>
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right"  data-localize="tcl.Language.languagesetting.link">链接地址</div>
+				<div class="ul_float_left">
+					<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div id="wind_cons1">
+			<div class="win_header">
+				<div class="ul_float_right">
+						<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.Language.languagesetting.add.save">提交</div>
+						<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.Language.languagesetting.add.cancl">取消</div>
+					</div>
+			</div>
+	<div class="tan_con">
+		<div class="xuan_kuang ul_hidden">
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.Language.areasetting.other">州名</div>
+				<div class="ul_float_left">
+					<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+				</div>
+			</div>
+			<div class="ul_hidden ul_margin_bottom">
+				<div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.Language.areasetting.name">别名</div>
+				<div class="ul_float_left">
+					<div class="select_up">
+								<div class="ov_hiden">
+									<select class="select_nob">
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+										<option>下拉1</option>
+									</select>
+								</div>
+								
+							</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		</div>
+		
+	</div>
+</div>
+<!--弹出层结束-->
+</body>
+<script>
+window.onload = function(e){
+//	now_page();
+//	height_weight();
+}
+var menu_length = $$('menu_boader').children.length;
+var menu_pz_now=0;
+function menu_pz(id){
+	if(id==menu_pz_now){
+		$$('menu_h'+id).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye';
+	}else{
+		$$('menu_h'+id).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer now_ye';
+		$$('menu_h'+menu_pz_now).className='ul_float_left scqdss ul_margin_right ul_cursor_pointer';
+	}
+	menu_pz_now=id;
+	for(var i = 0; i<menu_length;i++){
+		if(id == i){
+			$$('menu_boader'+id).className='';
+		}else{
+			$$('menu_boader'+i).className='ul_display_none';
+		}
+	}
+}
+function close_wind(){
+$$('mengban').className='ul_display_none';
+$$('window_open').className='ul_display_none';
+}
+function open_wind(id){
+$$('mengban').className='mengban';
+$$('window_open').className='window_open';
+var wind_cons_length= $$('wind_cons').children.length;
+for(var i= 0;i<wind_cons_length;i++){
+	if(id==i){
+		$$('wind_cons'+id).className='';
+	}else{
+	$$('wind_cons'+i).className='ul_display_none';
+	}
+}
+}
+/** 
+* 将本地图片 显示到浏览器上 
+*/ 
+function preImg(sourceId, targetId) { 
+var url = getFileUrl(sourceId); 
+var imgPre = document.getElementById(targetId); 
+if(url){
+imgPre.style.background ='url('+url+')'; 
+imgPre.style.backgroundSize = '100% 100%';
+}else{
+imgPre.style.background ='url(images/bianji.png)'; 
+}
+}
+
+/** 
+* 将本地图片 显示到浏览器上 
+*/ 
+function preImged(sourceId, targetId) { 
+var url = getFileUrl(sourceId); 
+var imgPre = document.getElementById(targetId); 
+if(url){
+imgPre.style.background ='url('+url+')'; 
+imgPre.style.backgroundSize = '100% 100%';
+}else{
+imgPre.style.background ='#dbdbdb'; 
+}
+}
+
+function add_user(){
+var oFather = document.getElementById('listone');
+var leng=oFather.children.length;
+if(oFather.children.length>0){
+							var id = oFather.firstElementChild.id;
+							var index = id.substring(id.length-1,id.length);
+							
+							var oDiv = document.createElement("tr");
+							oDiv.id = "guanli"+leng+(parseInt(index)+1);
+							var leng_id = leng+(parseInt(index)+1);
+							oDiv.innerHTML ='<td  width="5%">'+parseInt(leng+1)+'</td>'
+											+'<td width="20%"></td>'
+											+'<td width="30%"></td>'
+											+'<td width="15%"></td>'
+											+'<td width="15%"></td>'
+											+'<td class="delect_add" width="15%"><a class="ul_margin_right" onclick="open_wind(0)">编辑</a><a  onclick="delete_div('+leng+(parseInt(index)+1)+')" class="ul_margin_left" href="#">删除</a></td>';
+							oFather.insertBefore(oDiv, oFather.firstElementChild);
+						}else{						
+							var oDiv = document.createElement("tr");
+							oDiv.id = "guanli"+(1);
+							var leng_id= 1;
+							oDiv.innerHTML = '<td  width="5%">'+parseInt(leng+1)+'</td>'
+											+'<td width="20%"></td>'
+											+'<td width="30%"></td>'
+											+'<td width="15%"></td>'
+											+'<td width="15%"></td>'
+											+'<td class="delect_add" width="15%"><a class="ul_margin_right" onclick="open_wind(0)">编辑</a><a  onclick="delete_div(1)" class="ul_margin_left" href="#">删除</a></td>';
+							oFather.insertBefore(oDiv, oFather.firstElementChild);
+						}
+				
+				
+}
+
+function delete_div(id){
+	var guanli_div = document.getElementById("guanli"+id);
+	guanli_div.parentNode.removeChild(guanli_div);
+}
+</script>
+</html>

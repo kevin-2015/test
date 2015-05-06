@@ -1,0 +1,32 @@
+var MEAP=require("meap");
+
+function run(Param,Robot,Request,Response,IF)
+{
+	try{
+		var id = Param.params.id;
+		var jStr = Param.params.jStr;
+		
+		jStr = JSON.parse(jStr);
+		jStr = JSON.stringify(jStr);
+		console.log("====jStr>",jStr);
+        var option={
+			CN:TCL_SERVER_CN,
+			sql:"update Meta set meta_value='"+jStr+"' where meta_id='"+id+"'"
+		};
+		MEAP.ODBC.Runner(option,function(err,rows,cols){
+			if(!err){
+				Response.setHeader("Content-type","application/json;charset=utf8")
+				Response.end(JSON.stringify({status:'0',message:"已更新"}));
+			}else{
+				Response.end(JSON.stringify({status:'-1',message:'Error'}));
+			}
+		},Robot);
+	}
+	catch(e)
+	{
+		Response.end(JSON.stringify({status:'-1',message:'Error'}));
+	}
+}
+
+exports.Runner=run;
+

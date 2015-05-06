@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+       <title data-localize="tcl.user.username"></title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="js/jquery.js" type="text/javascript">
+        </script>
+        <script src="js/main.js" type="text/javascript">
+        </script>
+		<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <!--body部分开始-->
+        <div id="boader" class="boader ul_hidden">
+            <!--right部分开始-->
+            <div id="right_boader" class="right_boader ">
+                <div class="title_top ul_margin_top ul_hidden">
+                    <div class="ul_float_left" data-localize="tcl.user.nomaluser">
+                        普通用户管理
+                    </div>
+                </div>
+                <div class="ul_margin_top shangchuan gaoju">
+                    <div class="read_input ul_float_left ul_margin_right">
+                        <span class="span"><input id="searchKey" name="searchKey" value="" type="text" class="inputstyle"></span>
+                    </div>
+                    <div class="inpit_font ul_float_left ul_margin_right">
+						<div class="inpit_font ul_float_left ul_margin_right" onclick="searchWithKey();" data-localize="tcl.user.search">搜索</div>
+                    </div>
+                    <div class="ul_float_right">
+                        <div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.user.alluser">
+                            总用户数:
+                        </div>
+                        <div class="ul_float_left quyu_header ul_margin_right delect_add" id="totalUsers">
+                        </div>
+                    </div>
+                </div>
+                <div class="ul_hidden ul_margin_top">
+                    <div class="ul_float_left quyu_header ul_margin_right" data-localize="tcl.user.all">
+                        全部
+                    </div>
+                    <div class="ul_float_left quyu_header ul_margin_right"  data-localize="tcl.user.Sort">
+                        按注册时间排序:
+                    </div>
+                    <div class="ul_float_left quyu_header ul_margin_right delect_add">
+                        <a href="#"  data-localize="tcl.user.up">升</a>/<a href="#"  data-localize="tcl.user.down">降</a>
+                    </div>
+                </div>
+                <div class="ul_margin_top" id="userList">
+                    <table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+                        <tr id="userHeader">
+                            <td width="10%" data-localize="tcl.user.no">序号</td>
+                            <td width="10%" data-localize="tcl.user.name">昵称</td>
+                            <td width="10%" data-localize="tcl.user.Registration">地址</td>
+                            <td width="20%" data-localize="tcl.user.email">邮箱</td>
+                            <td width="20%" data-localize="tcl.user.tel">电话</td>
+                            <td width="10%" data-localize="tcl.user.Registrationtime">注册时间</td>
+							<td width="10%" data-localize="tcl.user.mypro">我的产品</td>
+                            <td width="10%" data-localize="tcl.user.Operation">操作</td>
+                        </tr>
+                    </table>
+                    <table id="userTable" width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+                    </table>
+                </div>
+                <div class="ul_margin_top">
+                    <div class="page">
+                        <ul></ul>
+                    </div>
+                </div>
+            </div>
+            <!--right部分结束-->
+        </div>
+        <!--body部分结束-->
+    </body>
+    <script type="text/javascript">
+        window.onload = function(e){
+            search("", 1);
+        }
+        
+        //传入搜索关键字，页号pageNum
+        function search(searchKey, pageNum){
+            var param = {};
+            param.searchKey = searchKey;
+            param.pageNum = pageNum;
+            
+            var url = base_url + "user_list";
+            
+            jQuery.getJSON(url, param, function(data){
+                if (data.status == "0") {
+                    var size = data.data.length;
+                    //页面加载的时候要得到总用户数和分页栏,其他时候不管
+                    if (pageNum == 1) {
+                        var totalUsers = data.totalUsers;
+                        jQuery("#totalUsers")[0].innerHTML = totalUsers;
+                        var pageTotalNum = Math.ceil(totalUsers / size);
+                        
+                        var li = "<li onclick='clickPageN(1);'><a href='#'>首页</a></li><li onclick='clickPagePre();'><a href='#'>上一页</a></li><li id='page_1' class='now_page' onclick='clickPageN(1);'><a href='#'>1</a></li>";
+                        
+                        for (var i = 1; i < pageTotalNum; i++) {
+                            li = li + "<li id='page_" + (i + 1) + "' onclick='clickPageN(" + (i + 1) + ");'><a href ='#'>" + (i + 1) + "</a></li>";
+                        }
+                        jQuery(".page ul")[0].innerHTML = li + "<li onclick='clickPageNext();'><a href='#'>下一页</a></li>" +
+                        "<li onclick='clickPageN(" +
+                        pageTotalNum +
+                        ");'><a href='#'>尾页</a></li>";
+                    }
+                    var tr = "";
+                    for (var i = 0; i < size; i++) {
+                        var no = ((pageNum - 1) * 10 + i + 1);
+                        var name = data.data[i].name;
+                        var regMethod = data.data[i].regMethod;
+                        var email = data.data[i].email;
+                        var phoneNum = data.data[i].phoneNum;
+                        var createdAt = data.data[i].createdAt;
+                        var userId = data.data[i].id;
+                        
+                        tr = tr + "<tr id='" + userId + "'><td width='10%'>" +
+                        no +
+                        "</td><td width='10%'>" +
+                        name +
+                        "</td><td width='10%'>" +
+                        regMethod +
+                        "</td><td width='20%'>" +
+                        email +
+                        "</td><td width='20%'>" +
+                        phoneNum +
+                        "</td><td width='10%'>" +
+                        createdAt +
+                        "</td><td width='10%'>我的产品</td><td class='delect_add' width='10%'><input type='button' value='删除' onclick='deleteUser(" +
+                        userId +
+                        ");'/></td></tr>";
+                    }
+                    jQuery("#userTable")[0].innerHTML = tr;
+                }
+            });
+        }
+        
+        //第n页
+        function clickPageN(pageNum){
+            var thisId = "#page_" + pageNum;
+            jQuery(thisId).parent("ul").children("li[class='now_page']").removeAttr("class");
+            jQuery(thisId).attr("class", "now_page");
+            var searchKey = jQuery("#searchKey").val();
+            search(searchKey, pageNum);
+        }
+        
+        //点击搜索按钮
+        function searchWithKey(){
+            var searchKey = jQuery("#searchKey").val();
+            search(searchKey, 1);
+        }
+        
+        //上一页
+        function clickPagePre(){
+            var prePage = jQuery("div[class='page'] ul").children("li[class='now_page']").prev();
+            if ((typeof prePage.attr("id")) != "undefined") {
+                var pageNum = parseInt(prePage.text());
+                clickPageN(pageNum);
+            }
+            else {
+                alert("已是首页");
+            }
+        }
+        
+        //下一页
+        function clickPageNext(){
+            var nextPage = jQuery("div[class='page'] ul").children("li[class='now_page']").next();
+            if ((typeof nextPage.attr("id")) != "undefined") {
+                var pageNum = parseInt(nextPage.text());
+                clickPageN(pageNum);
+            }
+            else {
+                alert("已到尾页");
+            }
+        }
+
+        function deleteUser(userId){
+            var url = base_url + "user_del?userId=" + userId;
+            jQuery.getJSON(url, function(data){
+                if (data.status == "0") {
+                    alert(data.message);
+                    window.location.reload();
+                }
+                else {
+                    alert(data.message);
+                }
+            });
+        }
+    </script>
+</html>

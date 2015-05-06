@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Service support </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="um-vp" style="height:100%;width:100%;">
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+							<!--块容器开始-->
+<div class="ub uba b-gra c-gra zhy_title">
+    <div class=" uinn uc-l1 " onclick="goback();">
+    	<div class="zhy_back">return</div>
+	</div>
+    <div class="ub-f1 uinn uc-r1 tx-r">Service support</div>
+</div>
+<!--块容器结束-->
+<div class="ub mar_t mar_lr">
+	<div class="ub ub-pc ub-ac zhy_title">Guarantee no.&nbsp;&nbsp;</div>
+	<div class="ub-f1 s_input mar_r02" style="padding-left: 2em;">
+		<input style="height: 2.3em; line-height: 1.8em;" type="text" id="server_name" class="t_8f8 txt_input" value=""> 	</div> 
+	<div class="s_btn c_5fa mar_r02" onclick="server_name()">search</div>  
+</div>
+	</div>
+	</body>
+	<script>
+		function server_name(){
+			var server_name = $$('server_name').value;
+			if(server_name == ''){
+				alert('搜索内容不能为空');
+			}else{
+				
+			}
+		}
+	</script>
+</html>

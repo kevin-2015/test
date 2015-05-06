@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+       <title data-localize="tcl.usersev.usersevname"></title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/index.css" rel="stylesheet" />
+        <script src="js/jquery.js" type="text/javascript">
+        </script>
+        <script src="js/main.js" type="text/javascript">
+        </script>
+		<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <!--body部分开始-->
+        <div id="boader" class="boader ul_hidden">
+            <!--right部分开始-->
+            <div id="right_boader" class="right_boader ">
+                <div class="menu_top">
+                    <div id="menu_0" onclick="menu_rigt(0)" class="menu_now menu_font ul_float_left" data-localize="tcl.usersev.message.messagemanage">
+                        留言管理
+                    </div>
+                    <div id="menu_1" onclick="menu_rigt(1)" class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.usersev.Review.reviewname">
+                        评论管理
+                    </div>
+                    <div id="menu_2" onclick="menu_rigt(2)"class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.usersev.Repair.repairname">
+                        报修管理
+                    </div>
+                </div>
+                <div id="menu_boader" class="menu_boader">
+                    <!--1-->
+                    <div id="menu_boader0" class="">
+                        <div class="bot_menuww">
+                            <div class="cs_1 ul_hidden">
+                                <div id="canshu_bili0" onclick="canshu_bili(0)" class="chicun_menu ul_float_left" data-localize="tcl.usersev.message.newmessage">
+                                    最新留言
+                                </div>
+                                <div id="canshu_bili1" onclick="canshu_bili(1)" class="bili_menu ul_float_left" data-localize="tcl.usersev.message.askmessage">
+                                    已回复留言
+                                </div>
+                                <div id="canshu_bili2" onclick="canshu_bili(2)" class="bili_menu ul_float_left" data-localize="tcl.usersev.message.nomessage">
+                                    未回复留言 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ul_margin_top">
+                            <div id="zcs_con">
+                                <!--1--><!--1-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--1--><!--2-->
+                    <div id="menu_boader1" class="ul_display_none">
+                        
+                        <div id="plgl_con" class="ul_margin_top">
+                            <!--2-->
+                            <div id="plgl_con1" class="">
+                                <div class="bot_menu">
+                                    <div class="cs_1 ul_hidden">
+                                        <div id="new_pl0" onclick="doSearch(0)" class="chicun_menu ul_float_left" data-localize="tcl.usersev.Review.newreview">
+                                            最新评论
+                                        </div>
+                                        <div id="new_pl1" onclick="doSearch(1)" class="bili_menu ul_float_left" data-localize="tcl.usersev.Review.reviewed">
+                                            已回复评论
+                                        </div>
+                                        <div id="new_pl2" onclick="doSearch(2)" class="bili_menu ul_float_left" data-localize="tcl.usersev.Review.noreview">
+                                            未回复评论
+                                        </div>
+                                        <div id="new_pl3" onclick="doSearch(3)" class="bili_menu ul_float_left" data-localize="tcl.usersev.Review.noname">
+                                            匿名评论
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="ping_con" class="ul_margin_top">
+                                    <!--1-->
+                                    <div id="ping_con0" class="">
+                                        <table width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+                                            <tr>
+                                                <td width="10%" data-localize="tcl.usersev.Review.no">
+                                                    序号
+                                                </td>
+                                                <td width="15%" data-localize="tcl.usersev.Review.product">
+                                                    产品
+                                                </td>
+                                                <td width="20%" data-localize="tcl.usersev.Review.name">
+                                                    用户名
+                                                </td>
+                                                <td width="30%" data-localize="tcl.usersev.Review.time">
+                                                    时间
+                                                </td>
+                                                <td width="10%" data-localize="tcl.usersev.Review.content">
+                                                    留言描述
+                                                </td>
+                                                <td width="15%" data-localize="tcl.usersev.Review.Operation">
+                                                    操作
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table id ="userReviewTable" width="100%" class="table_con shuotu" border="1" cellpadding="1" cellspacing="1">
+                                        </table>
+                                    </div>
+                                    <!--1-->
+                                </div>
+                            </div>
+                            <!--2-->
+                        </div>
+                    </div>
+                    <!--2-->
+                    <!--3-->
+                    <div id="menu_boader2" class="ul_display_none">
+                        <div class="bot_menuww">
+                            <div class="cs_1 ul_hidden">
+                                <div id="hfbx0" onclick="hfbx(0)" class="chicun_menu ul_float_left" data-localize="tcl.usersev.Repair.newrepair">
+                                    最新报修
+                                </div>
+                                <div id="hfbx1" onclick="hfbx(1)" class="bili_menu ul_float_left" data-localize="tcl.usersev.Repair.repeat">
+                                    已转发报修
+                                </div>
+                                <div id="hfbx2" onclick="hfbx(2)" class="bili_menu ul_float_left" data-localize="tcl.usersev.Repair.norepeat">
+                                    未转发报修
+                                </div>
+                            </div>
+                        </div>
+                        <div id="hfbx_con" class="ul_margin_top">
+                            <!--1-->
+                            <!--1-->
+                        </div>
+                    </div>
+                    <!--3-->
+                </div>
+            </div>
+            <!--right部分结束-->
+        </div>
+        <!--body部分结束-->
+        <div id="mengban" class="ul_display_none" onclick="close_wind();">
+        </div>
+        <div id="window_open" class="ul_display_none">
+            <div class="win_header">
+                <div class="ul_float_right">
+                    <div class="ul_float_left anniu_qx ul_margin_right" >
+                        回复
+                    </div>
+                    <div class="ul_float_left anniu_qx" onclick="close_wind();">
+                        取消
+                    </div>
+                </div>
+            </div>
+            <div class="tan_con">
+                <div class="xuan_kuang ul_hidden">
+                    <div class="ul_hidden ul_margin_bottom">
+                        <div class="wenti ul_float_left">
+                            问&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;题:
+                        </div>
+                        <div class="ul_hidden add_yiji">
+                            问题问题问题问题问题问题问题问题问题问题问
+                            题问题问题问题问题问题问题问题问题，问题问
+                            题问题问题问题问题问题问题，问题问题问题问
+                            题问题问题问题问题。
+                        </div>
+                    </div>
+                    <div class="ul_hidden ul_margin_bottom">
+                        <div class="wenti ul_float_left">
+                            联系方式:
+                        </div>
+                        <div class="ul_hidden add_yiji">
+                            13641163449
+                        </div>
+                    </div>
+                </div>
+                <div class="ul_margin_bottom xuan_kuang">
+                    <textarea class="huifu_kung">
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <div id="window_open1" class="ul_display_none">
+            <div class="zhuanfa">
+                <div class="ul_float_left anniu_qx ul_margin_right">
+                    发送
+                </div>
+                <div class="ul_float_right anniu_qx" onclick="close_wind();">
+                    取消
+                </div>
+            </div>
+            <div class="tan_con">
+                <div class=" ul_hidden">
+                    <div class="ul_margin_bottom ul_hidden xiaxian xuan_kuang">
+                        <div class="ul_float_left ul_margin_right chekec_qi">
+                            <input type="checkbox" name="checkbox" id="zf_go1" value="checkbox" style="display:none;">
+                            <div class="mo_input" style="" onclick="myCheckbox('zf_go1',this);">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="ul_float_left ul_margin_right add_yiji">
+                            售后中心
+                        </div>
+                    </div>
+                    <div class="ul_margin_bottom ul_hidden xiaxian xuan_kuang">
+                        <div class="ul_float_left ul_margin_right chekec_qi">
+                            <input type="checkbox" name="checkbox" id="zf_go2" value="checkbox" style="display:none;">
+                            <div class="mo_input" style="" onclick="myCheckbox('zf_go2',this);">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="ul_float_left ul_margin_right add_yiji">
+                            客服中心
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="window_open2" class="ul_display_none">
+            <input type="hidden" id="userReviewId" value=""/>回复内容:
+            <textarea id="response" rows="3" cols="10" name="response">
+            </textarea>
+            <input type="button" value="提交" onclick="respondToReview();"/><input type="button" value="取消" onclick="close_wind();"/>
+        </div>
+    </body>
+    <script>
+        window.onload = function(e){
+			var msgTag = 0
+            getMsgList(msgTag);
+			
+        }
+		 var repData= null;
+        allNewIdsArr = [];
+        //留言管理列表数据
+        function getMsgList(msgTag){
+            var url = base_url + "message_list?replyStatus=" + msgTag;
+            jQuery.getJSON(url, function(info){
+                if (info.status == "0") {
+                    alert(info.message);
+                    return;
+                }
+                var msgData = info.data;
+                $$("zcs_con").innerHTML = "";
+                allNewIdsArr.length = 0;
+                if (msgData.length > 0) {
+                    var newDiv = document.createElement("div");
+                    newDiv.classId = "zcs_con" + msgTag;
+                    var newDiv = '<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1"><tr><td width="10%" data-localize="tcl.usersev.message.no">序号</td><td width="20%" data-localize="tcl.usersev.message.name">用户名</td><td width="20%" data-localize="tcl.usersev.message.email">联系方式</td><td width="20%" data-localize="tcl.usersev.message.time">时间</td><td width="10%" data-localize="tcl.usersev.messagecontent">留言描述</td><td width="20%" data-localize="tcl.usersev.message.Operation">设置</td></tr>'
+                    for (var i = 0; i < msgData.length; i++) {
+                        var oneNew = msgData[i];
+                        var operation = '';
+                        if (oneNew.replyStatus == 2) {
+                            operation = '<a href="javascript:void(0)" onclick="reply(' +msgTag +","+ oneNew.id + ')" class="ul_margin_right">回复</a>&nbsp;';
+                        }
+                        else {
+                            operation = '已回复&nbsp;';
+                        }
+                        allNewIdsArr.push(oneNew.id);
+                        newDiv += '<tr><td width="5%" align="center">' + i + '</td>' +
+                        '<td width="10%" align="center">' +
+                        oneNew.firstName +
+                        oneNew.lastName +
+                        '</td>' +
+                        '<td width="15%" align="center">' +
+                        oneNew.phoneNumber +
+                        '</td>' +
+                        '<td width="10%" align="center" class="">' +
+                        oneNew.createdAt +
+                        '</td>' +
+                        '<td width="10%" align="center" class=""><a href="javascript:void(0)"  onclick="delRow(' +
+                        oneNew.id +
+                        ')">使用问题</a></td>' +
+                        '<td width="10%" align="center">' +
+                        '<div class=" bianji isDisplay">' +
+                        operation +
+                        '<a href="javascript:void(0)" onclick="delMagRow(' +
+                        msgTag +
+                        ',' +
+                        oneNew.id +
+                        ')">删除</a>' +
+                        '</div></td></tr>';
+                    }
+                    newDiv += '</tr></table></div>';
+                    $$("zcs_con").innerHTML = newDiv;
+                    addHover();
+                }
+                else {
+                    $$("zcs_con").innerHTML = "没有数据！";
+                    $$("zcs_con").style.textAlign = "center";
+                }
+            });
+        }
+		
+		function reply(msgTag,id){
+			 	var url = base_url + "send_email_message";
+				
+				 JQ.getJSON(url, function(info){
+                    if (info.status == "0") {
+                       
+				 var delCateUrl = base_url + "message_update?id=" + id;
+                JQ.getJSON(delCateUrl, function(info){
+                    if (info.status == "0") {
+                        alert("回复成功！");
+                        getMsgList(msgTag);
+                    }
+                });
+					   
+                    }
+					
+                });
+				
+				
+              
+         
+		}
+        
+        function delMagRow(msgTag, id){
+            if (window.confirm("确定要删除？")) {
+                var delCateUrl = base_url + "message_del?id=" + id;
+                jQuery.getJSON(delCateUrl, function(info){
+                    if (info.status == "0") {
+                        alert(info.message);
+                        return;
+                    }
+                    alert("删除成功");
+                    getMsgList(msgTag);
+                });
+            }
+        }
+        
+        var menu_length = $$('menu_boader').children.length;
+        var menu_now = 0;
+        function menu_rigt(id){
+            if (menu_now == id) {
+                $$('menu_' + id).className = 'menu_now menu_font ul_float_left';
+            }
+            else {
+                $$('menu_' + id).className = 'menu_now menu_font ul_float_left'
+                $$('menu_' + menu_now).className = 'menu_nocheck menu_font ul_float_left'
+            }
+            menu_now = id;
+            for (var i = 0; i < menu_length; i++) {
+                if (id == i) {
+                    $$('menu_boader' + id).className = '';
+                }
+                else {
+                    $$('menu_boader' + i).className = 'ul_display_none';
+                }
+            }
+            if (id == 2) {
+                hfbx(0);
+            }
+        }
+        var zcs_con_length = $$('zcs_con').children.length;
+        var canshu_bili_now = 0;
+        function canshu_bili(id){
+            if (canshu_bili_now == id) {
+                $$('canshu_bili' + id).className = 'chicun_menu ul_float_left';
+            }
+            else {
+                $$('canshu_bili' + id).className = 'chicun_menu ul_float_left';
+                $$('canshu_bili' + canshu_bili_now).className = 'bili_menu ul_float_left';
+            }
+            getMsgList(id);
+            canshu_bili_now = id;
+            //	for(var i =0;i < zcs_con_length;i++){
+            //	     if(id == i){
+            //		 	$$('zcs_con'+id).className= '';
+            //		 }else{
+            //		 	$$('zcs_con'+i).className= 'ul_display_none'
+            //		 }
+            //	 }
+        }
+        var plgl_con_length = $$('plgl_con').children.length;
+        var plgl_now = 0;
+        function plgl(id){
+            if (plgl_now == id) {
+                $$('plgl' + id).className = 'channel  channel_con ul_font_weight ul_float_left ul_margin_right xia_up';
+            }
+            else {
+                $$('plgl' + id).className = 'channel  channel_con ul_font_weight ul_float_left ul_margin_right xia_up';
+                $$('plgl' + plgl_now).className = 'channel  channel_con ul_font_weight ul_float_left ul_margin_right';
+            }
+            plgl_now = id;
+            for (var i = 0; i < plgl_con_length; i++) {
+                if (id == i) {
+                    $$('plgl_con' + id).className = '';
+                }
+                else {
+                    $$('plgl_con' + i).className = 'ul_display_none';
+                }
+            }
+        }
+        
+        var ping_con_length = $$('ping_con').children.length;
+        var new_pl_now = 0;
+        function new_pl(id){
+            if (new_pl_now == id) {
+                $$('new_pl' + id).className = 'chicun_menu ul_float_left';
+            }
+            else {
+                $$('new_pl' + id).className = 'chicun_menu ul_float_left';
+                $$('new_pl' + new_pl_now).className = 'bili_menu ul_float_left';
+            }
+            new_pl_now = id;
+        }
+        
+        var hfbx_con_length = $$('hfbx_con').children.length;
+        var hfbx_now = 0;
+        function hfbx(id){
+            if (hfbx_now == id) {
+                $$('hfbx' + id).className = 'chicun_menu ul_float_left';
+            }
+            else {
+                $$('hfbx' + id).className = 'chicun_menu ul_float_left';
+                $$('hfbx' + hfbx_now).className = 'bili_menu ul_float_left';
+            }
+            getRepairList(id,country);
+            hfbx_now = id;
+            //	for(var i=0;i<hfbx_con_length;i++){
+            //		if(id==i){
+            //			$$('hfbx_con'+id).className=''
+            //		}else{
+            //			$$('hfbx_con'+i).className='ul_display_none'
+            //		}
+            //	}
+        }
+        
+        //报修数据管理
+        function getRepairList(repTag){
+            var url = base_url + "repair_list?transpStatus=" + repTag;
+            jQuery.getJSON(url, function(info){
+                if (info.status == "0") {
+                    alert(info.message);
+                    return;
+                }
+                repData = info.data;
+                $$("hfbx_con").innerHTML = "";
+                if (repData.length > 0) {
+                    var newDiv = document.createElement("div");
+                    newDiv.classId = "hfbx_con" + repTag;
+                    var newDiv = '<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1"><tr><td width="5%" data-localize="tcl.usersev.Repair.no">序号</td><td width="15%" data-localize="tcl.usersev.Repair.product">产品类型</td><td width="10%" data-localize="tcl.usersev.Repair.name">用户名</td><td width="15%" data-localize="tcl.usersev.Repair.email">联系方式</td><td width="15%" data-localize="tcl.usersev.Repair.address">地址</td><td width="10%" data-localize="tcl.usersev.Repair.time">时间</td><td width="20%" data-localize="tcl.usersev.Repair.Description">问题描述</td><td width="10%" data-localize="tcl.usersev.Repair.edit">设置</td></tr>'
+                    for (var i = 0; i < repData.length; i++) {
+                        var oneNew = repData[i];
+                        var operation = '';
+                        if (oneNew.transpondStatus == 2) {
+                            operation = '<a href="javascript:void(0)" onclick="transpond(' + oneNew.id + ')" class="ul_margin_right">转发</a>&nbsp;';
+                        }
+                        else {
+                            operation = '已转发&nbsp;';
+                        }
+                        newDiv += '<tr><td width="5%" align="center">' + i + '</td>' +
+                        '<td width="15%" align="center">' +
+                        oneNew.productBand +
+                        '</td>' +
+                        '<td width="10%" align="center">' +
+                        oneNew.firstName +
+                        oneNew.lastName +
+                        '</td>' +
+                        '<td width="15%" align="center">' +
+                        oneNew.mobileNo +
+                        '</td>' +
+                        '<td width="15%" align="center">' +
+                        oneNew.address +
+                        '</td>' +
+                        '<td width="10%" align="center" class="">' +
+                        oneNew.createdAt +
+                        '</td>' +
+                        '<td width="10%" align="center" class="">' +
+                        oneNew.description +
+                        '</td>' +
+                        '<td width="10%" align="center">' +
+                        '<div class=" bianji isDisplay">' +
+                        operation +
+                        '<a href="javascript:void(0)" onclick="delRepRow(' +
+                        repTag +
+                        ',' +
+                        oneNew.id +
+                        ')">删除</a>' +
+                        '</div></td></tr>';
+                    }
+                    newDiv += '</tr></table></div>';
+                    $$("hfbx_con").innerHTML = newDiv;
+                    addHover();
+                }
+                else {
+                    $$("hfbx_con").innerHTML = "没有数据！";
+                    $$("hfbx_con").style.textAlign = "center";
+                }
+            });
+        }
+        
+        //报修信息删除
+        function delRepRow(repTag, id){
+            if (window.confirm("确定要删除？")) {
+                var delCateUrl = base_url + "repair_del?id=" + id;
+                jQuery.getJSON(delCateUrl, function(info){
+                    if (info.status == "0") {
+                        alert(info.message);
+                        return;
+                    }
+                    alert("删除成功");
+                    getRepairList(repTag);
+                });
+            }
+        }
+        
+        function open_win(id){
+            if (id == 0) {
+                $$('mengban').className = 'mengban';
+                $$('window_open').className = 'window_open';
+                $$('window_open1').className = 'ul_display_none';
+            }
+            else 
+                if (id == 1) {
+                    $$('mengban').className = 'mengban';
+                    $$('window_open').className = 'ul_display_none';
+                    $$('window_open1').className = 'window_open1';
+                }
+        }
+        
+        function close_wind(){
+            $$('mengban').className = 'ul_display_none';
+            $$('window_open').className = 'ul_display_none';
+            $$('window_open1').className = 'ul_display_none';
+            $$('window_open2').className = 'ul_display_none';
+        }
+        
+        function reviewManage(){
+            plgl(1);
+            doSearch(0);
+        }
+        
+        function doSearch(flag){
+            new_pl(flag);
+            reviewSearch(flag);
+        }
+        
+        //flag 表示{0:最新评论,1:已回复评论,2:未回复评论,3:匿名评论}
+        function reviewSearch(flag){
+            var url = base_url + "user_review_list?flag=" + flag;
+            jQuery.getJSON(url, function(data){
+                if (data.status == "0") {
+                    var rows = data.rows;
+                    var tr = "";
+                    for (var i = 0; i < rows.length; i++) {
+                        var id = rows[i].id;
+                        var no = i + 1;
+                        var userUuid = rows[i].userUuid;
+                        var productUuid = rows[i].productUuid;
+                        var content = rows[i].content;
+                        var star = rows[i].star;
+                        var response = rows[i].response;
+                        if (response == "") {
+                            tr = tr + "<tr id=" + id + "><td width='10%'>" + no + "</td><td width='15%'>" + productUuid + "</td><td width='20%'>" + userUuid + "</td><td width='30%'>" + content + "</td><td width='10%'>" + star + "</td><td width='15%'><input type='button' value='回复' onclick='getResponseDiv(" + id + ");'/><input type='button' value='删除' onclick='deleteUserReview(" + id + ");'/></td></tr>";
+                        }
+                        else {
+                            tr = tr + "<tr id=" + id + "><td width='10%'>" + no + "</td><td width='15%'>" + productUuid + "</td><td width='20%'>" + userUuid + "</td><td width='30%'>" + content + "</td><td width='10%'>" + star + "</td><td width='15%'><input type='button' value='删除' onclick='deleteUserReview(" + id + ")'/></td></tr>";
+                        }
+                    }
+                    jQuery("#userReviewTable")[0].innerHTML = tr;
+                }
+                else {
+                    alert(data.message);
+                }
+            });
+        }
+        
+        //删除评论
+        function deleteUserReview(userReviewId){
+            var url = base_url + "user_review_del?userReviewId=" + userReviewId;
+            jQuery.getJSON(url, function(data){
+                if (data.status == "0") {
+                    alert(data.message);
+                    doSearch(0);
+                }
+                else {
+                    alert(data.message);
+                }
+            });
+        }
+        
+        //弹出回复框
+        function getResponseDiv(userReviewId){
+            jQuery("#userReviewId").val(userReviewId);
+            $$('mengban').className = 'mengban';
+            $$('window_open2').className = 'window_open1';
+        }
+        
+        //回复
+        function respondToReview(){
+            var userReviewId = jQuery("#userReviewId").val();
+            var response = jQuery("#response").val();
+            var url = base_url + "user_review_respond?userReviewId=" + userReviewId + "&response=" + response;
+            if (response == "") {
+                alert("未填写回复，请检查");
+                return;
+            }
+            else {
+                jQuery.getJSON(url, function(data){
+                    if (data.status == "0") {
+                        alert(data.message);
+                        close_wind();
+                        doSearch(0);
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                });
+            }
+        }
+		//在线报修转到呼叫中心
+		function transpond(id){
+			if(repData==null)
+				return;
+			for(var d in repData){
+				if(repData[d].id==id){
+					   jQuery.post(base_url+"repair_submit",
+						   {id:"cn"+id,
+						   	firstname : repData[d].firstName,
+							lastname:repData[d].lastName,
+							MobileNo:repData[d].mobileNo,
+							TelNo:"",
+							email :repData[d].email,
+							streetaddress:repData[d].address,
+							country:repData[d].country,
+							state:repData[d].province,
+							city:repData[d].city,
+							productBand:repData[d].productBand,
+							productCategory:repData[d].productCategory,
+							productfamily:repData[d].productFamily,
+							modelno:repData[d].modelNo,
+							serialno:repData[d].serialNo,
+							desc : ""||repData[d].description}, 
+						   function(data){
+									if(data.status == 1){
+					 						//如果是海外的，需要把data.caseid 写回到PC网站中
+									}else{
+										alert(data.message);
+									}
+							   	}, "json");
+					break;
+				}
+			}
+		}
+    </script>
+</html>

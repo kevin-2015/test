@@ -1,0 +1,851 @@
+@charset "utf-8";
+/* CSS Document */
+p,h1,h2,h3,h4,h5,h6,ul,li,a,dt,dd,dl,em,ol,td,th,tr,tt,form{
+margin:0 ;
+padding:0;
+}
+ul,li{
+list-style:none;
+}
+/***************网站背景的设置【开始】**************************/
+.ul_bg{
+background:url("");
+}
+.ul_bg_none{
+background:none;
+}
+.ul_bg_bottom{
+background:bottom;
+}
+.ul_bg_center{
+background:center;
+}
+.ul_bg_left{
+background:left;
+}
+.ul_bg_right{
+background:right;
+}
+.ul_bg_top{
+background:top;
+}
+.ul_bg_no_repeat{
+background:no-repeat;
+}
+.ul_bg_repeat{
+background:repeat;
+}
+.ul_bg_fixed{
+background-attachment:fixed;
+}
+.ul_bg_scroll{
+background-attachment:scroll;
+}
+.ul_bg_color{
+background-color:#ffffff;
+}
+.ul_bg_position_bottom{
+background-position:bottom;
+}
+.ul_bg_position_center{
+background-position:center;
+}
+.ul_bg_position_left{
+background-position:left;
+}
+.ul_bg_position_right{
+background-position:right;
+}
+.ul_bg_position_top{
+background-position:top;
+}
+.ul_bg_repeat_x{
+background-repeat:repeat-x;
+}
+.ul_bg_repeat_y{
+background-repeat:repeat-y;
+}
+.ul_background_repeat{
+background-repeat:no-repeat;
+}
+/***************网站背景的设置【结束】**************************/
+
+/***************设置或检索当前声音的音场角度【开始】************/
+.ul_azimuth{
+azimuth:left-side;
+ }
+/***************设置或检索当前声音的音场角度【结束】************/
+
+/*****************边框设置【开始】******************************/
+.ul_boder{
+border:1px;
+}
+.ul_boder_color{
+border:#000000;
+}
+.ul_boder_medium{
+border:medium; /*中间;中庸;适中*/
+}
+.ul_boder_thin{
+border:thin ;  /* 薄的;细的;瘦的*/
+}
+.ul_boder_thick{
+border:thick; /*厚的;粗的*/
+}
+.ul_boder_dashed{
+border:dashed ; /*虚线*/
+}
+.ul_boder_dotted{
+border: dotted ; /*1.点线的 2.有点的*/
+}
+.ul_boder_double{
+border: double; /*双线的*/
+}
+.ul_boder_groove{
+border: groove ; /*沟;槽*/
+}
+.ul_boder_hidden{
+border: hidden ; /*隐藏*/
+}
+.ul_boder_inset{
+border: inset ; /*嵌入,插入*/
+}
+.ul_boder_none{
+border: none;
+}
+.ul_boder_outset{
+border:outset ; /*最初,【开始】,开端*/
+}
+.ul_boder_ridge{
+border: ridge; /*屋脊,山脊,山脉 2. (狭长的)隆起部;(鼻)梁;田垄*/
+}
+.ul_boder_solid{
+border:solid ; /*直线，实线*/
+}
+.ul_boder_bottom{
+border-bottom:1px;
+}
+.ul_boder_collapse{
+border-collapse:collapse; /*表格的边框是否被合并为一个单一的边框*/
+}
+.ul_boder_separate{
+border-collapse:separate; /*边框会被分开,分离模式*/
+}
+.ul_boder_left{
+border-left:1px;
+}
+.ul_boder_right{
+border-right:1px;
+}
+.ul_boder_top{
+border-top:1px;
+}
+.ul_boder_spacing{
+border-spacing:10px 50px; /*设置相邻单元格的边框间的距离（仅用于“边框分离”模式）*/
+}
+/*****************边框设置【结束】******************************/
+
+/*******************边距的设置【开始】**************************/
+.ul_left{
+left:1px;
+}
+.ul_right{
+right:1px;
+}
+.ul_top{
+top:1px;
+}
+.ul_bottom{
+bottom:1px;
+}
+/*******************边距的设置【结束】**************************/
+
+/*******************设置表格标题的位置【开始】******************/
+.ul_caption_bottom{
+caption-side:bottom;
+}
+.ul_caption_left{
+caption-side:left;
+}
+.ul_caption_right{
+caption-side:right;
+}
+.ul_caption_top{
+caption-side:top;
+}
+/*******************设置表格标题的位置【结束】******************/
+
+/************规定元素的哪一侧不允许其他浮动元素【开始】********/
+.ul_clear_both{
+clear:both;
+}
+.ul_clear_left{
+clear:left;
+}
+.ul_clear_none{
+clear:none;
+}
+.ul_clear_right{
+clear:right;
+}
+/************规定元素的哪一侧不允许其他浮动元素【结束】********/
+
+/****************剪裁绝对定位元素【开始】**********************/
+
+.ul_clip_rect{
+clip:rect('0', '60px', '5px', '80px');
+}
+.ul_clip_auto{
+clip:rect(auto, auto, auto, auto);
+}
+/****************剪裁绝对定位元素【结束】**********************/
+
+/*************字体颜色设置【开始】*****************************/
+.ul_color_b{
+color:#000000;
+}
+.ul_color_w{
+color:#FFFFFF;
+}
+.ul_color_6{
+color:#666666;
+}
+.ul_color_c{
+color:#cccccc;
+}
+.ul_color_e{
+color:#eeeeee;
+}
+.ul_color_r{
+color:#FF0000;
+}
+/*************字体颜色设置【结束】*****************************/
+
+/**设置文本或图像出现（浮动）在另一个元素中的什么地方【开始】* 【  例子1  】*/
+.ul_content{
+content:open-quote;
+}
+/**设置文本或图像出现（浮动）在另一个元素中的什么地方【结束】**/
+
+/*******某个选取器每次出现的计数器增量。默认增量是1 【开始】***/
+.ul_increment{
+counter-increment:none;
+
+}
+.ul_reset{
+counter-reset:none; /*属性设置某个选择器出现次数的计数器的值。默认为 0*/
+}
+/*******某个选取器每次出现的计数器增量。默认增量是1 【结束】***/
+
+
+/*************听觉样式表可把语音合成与音响效果相组合，使用户可以听到信息，而无需进行阅读【开始】******************/
+.ul_cue{
+cue:url("");
+}
+.ul_cue_after{
+cue-after:url();
+}
+.ul_cue_before{
+cue-before:url();
+}
+/*************听觉样式表可把语音合成与音响效果相组合，使用户可以听到信息，而无需进行阅读【结束】******************/
+
+/*************要显示的光标的类型（形状）【开始】************/
+.ul_cursor_auto{
+cursor:auto;  /*默认。浏览器设置的光标。*/
+}
+.ul_cursor_crosshair{
+cursor:crosshair;  /*光标呈现为十字线。*/
+}
+.ul_cursor_default{
+cursor:default; /*默认光标（通常是一个箭头）*/
+}
+.ul_cursor_e{
+cursor:e-resize; /*此光标指示矩形框的边缘可被向右（东）移动。【左右箭头】*/
+}
+.ul_cursor_help{
+cursor:help;  /*此光标指示可用的帮助（通常是一个问号或一个气球）。*/
+}
+.ul_cursor_move{
+cursor:move; /*此光标指示某对象可被移动。*/
+}
+.ul_cursor_ne{
+cursor:ne-resize; /*此光标指示矩形框的边缘可被向上及向右移动（北/东）。*/
+}
+.ul_cursor_n{
+cursor:n-resize; /*此光标指示矩形框的边缘可被向上（北）移动。*/
+}
+.ul_cursor_nw{
+cursor:nw-resize; /*此光标指示矩形框的边缘可被向上及向左移动（北/西）。*/
+}
+.ul_cursor_pointer{
+cursor:pointer; /*光标呈现为指示链接的指针（一只手）*/
+}
+.ul_cursor_se{
+cursor:se-resize; /*此光标指示矩形框的边缘可被向下及向右移动（南/东）。*/
+}
+.ul_cursor_s{
+cursor:s-resize; /*此光标指示矩形框的边缘可被向下移动（北/西）。*/
+}
+.ul_cursor_sw{
+cursor:sw-resize; /*此光标指示矩形框的边缘可被向下及向左移动（南/西）。*/
+}
+.ul_cursor_text{
+cursor:text;  /*此光标指示文本。*/
+}
+.ul_cursor_wait{
+cursor:wait; /*此光标指示程序正忙（通常是一只表或沙漏）。*/
+}
+.ul_cursor_{
+cursor:w-resize; /*此光标指示矩形框的边缘可被向左移动（西）。*/
+}
+/*************要显示的光标的类型（形状）【结束】************/
+
+/************规定文本的方向 / 书写方向【开始】*************/
+.ul_direction_ltr{
+direction:ltr; /*默认。文本方向从左到右。*/
+}
+.ul_direction_rtl{
+direction:rtl; /*文本方向从右到左。*/
+}
+/************规定文本的方向 / 书写方向【开始】*************/
+
+/******属性规定元素应该生成的框的类型【开始】**************/
+.ul_display_block{
+display:block; /*此元素将显示为块级元素，此元素前后会带有换行符。*/
+}
+.ul_display_compact{
+display:compact; /*CSS 中有值 compact，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。*/
+}
+.ul_display_inline{
+display:inline; /*默认。此元素会被显示为内联元素，元素前后没有换行符。*/
+}
+.ul_display_table{
+display:inline-table; /*此元素会作为内联表格来显示（类似 <table>），表格前后没有换行符。*/
+}
+.ul_display_item{
+display:list-item; /*此元素会作为列表显示。*/
+}
+.ul_display_marker{
+display:marker; /*CSS 中有值 marker，不过由于缺乏广泛支持，已经从 CSS2.1 中删除。*/
+}
+.ul_display_none{
+display:none;
+}
+.ul_display_run{
+display:run-in; /*此元素会根据上下文作为块级元素或内联元素显示。*/
+}
+.ul_display_table2{
+display:table; /*此元素会作为块级表格来显示（类似 <table>），表格前后带有换行符。*/
+}
+.ul_display_caption{
+display:table-caption; /*此元素会作为一个表格标题显示（类似 <caption>）*/
+}
+.ul_display_cell{
+display:table-cell; /*此元素会作为一个表格单元格显示（类似 <td> 和 <th>）*/
+}
+.ul_display_column{
+display:table-column; /*此元素会作为一个单元格列显示（类似 <col>）*/
+}
+.ul_display_group{
+display:table-column-group; /*此元素会作为一个或多个列的分组来显示（类似 <colgroup>）。*/
+}
+.ul_display_footer{
+display:table-footer-group; /*此元素会作为一个或多个行的分组来显示（类似 <tfoot>）。*/
+}
+.ul_display_header{
+display:table-header-group; /*此元素会作为一个或多个行的分组来显示（类似 <thead>）。*/
+}
+.ul_display_row{
+display:table-row; /*此元素会作为一个表格行显示（类似 <tr>）。*/
+}
+.ul_display_row2{
+display:table-row-group; /*此元素会作为一个或多个行的分组来显示（类似 <tbody>）。*/
+}
+/******属性规定元素应该生成的框的类型【结束】**************/
+
+/**********设置或检索当前声音的音源仰角【开始】***********/
+
+.ul_elevation_above{
+elevation: 75deg
+}
+/**********设置或检索当前声音的音源仰角【结束】***********/
+
+
+/*******是否显示表格中的空单元格（仅用于“分离边框”模式）【开始】***********/
+.ul_empty_cells_hide{
+empty-cells:hide;  /*默认。不在空单元格周围绘制边框。*/
+}
+.ul_empty_cells_show{
+empty-cells:show; /*在空单元格周围绘制边框。*/
+}
+/*******是否显示表格中的空单元格（仅用于“分离边框”模式）【开始】***********/
+
+/************定义元素在哪个方向浮动【开始】************/
+.ul_float_left{
+float:left;
+}
+.ul_float_none{
+float:none;
+}
+.ul_float_right{
+float:right;
+}
+/************定义元素在哪个方向浮动【结束】************/
+
+/********设置字体大小，字体，颜色的属性值【开始】*****/
+.ul_font{
+font:12px bolder   "宋体";
+}
+.ul_font_family{
+font-family:"新宋体"; 
+}
+.ul_font_size{
+font-size:12px;
+}
+.ul_font_adjust{
+font-size-adjust:0.58; /*属性为某个元素规定一个 aspect 值，这样就可以保持首选字体的 x-height*/
+}
+.ul_font_stretch_normal{
+font-stretch:normal; /*属性可对当前的 font-family 进行伸缩变形。默认值。把缩放比例设置为标准。*/
+}
+.ul_font_stretch_wider{
+font-stretch:wider; /*把伸展比例设置为更进一步的伸展值*/
+}
+.ul_font_stretch_narrower{
+font-stretch:narrower; /*把收缩比例设置为更进一步的收缩值*/
+}
+/*设置 font-family 的缩放比例。"ultra-condensed" 是最宽的值，而 "ultra-expanded" 是最窄的值。*/
+
+.ul_font_style_normal{
+font-style:normal; /*定义字体的风格。默认值。浏览器显示一个标准的字体样式。*/
+}
+.ul_font_style_italic{
+font-style:italic; /*浏览器会显示一个斜体的字体样式。*/
+}
+.ul_font_style_oblique{
+font-style:oblique; /*浏览器会显示一个倾斜的字体样式。*/
+}
+.ul_font_variant_normal{
+font-variant:normal;  /*设置小型大写字母的字体显示文本，这意味着所有的小写字母均会被转换为大写，但是所有使用小型大写字体的字母与其余文本相比，其字体尺寸更小。默认值。浏览器会显示一个标准的字体。*/
+}
+.ul_font_variant_small{
+font-variant:small-caps; /*浏览器会显示小型大写字母的字体。*/
+}
+.ul_font_weight{
+font-weight:bolder;
+}
+/********设置字体大小，字体，颜色的属性值【结束】*****/
+
+/***********************设置高的属性值【开始】*******/
+.ul_height{
+height:100%;
+height:auto !important;
+}
+/***********************设置高的属性值【结束】*******/
+
+/*******增加或减少字符间的空白（字符间距）【开始】**/
+
+.ul_letter_normal{
+letter-spacing:normal; /*默认。规定字符间没有额外的空间。*/
+}
+.ul_letter_px{
+letter-spacing:2px;
+}
+/*******增加或减少字符间的空白（字符间距）【结束】**/
+
+/**************设置行间的距离（行高）【开始】******/
+.ul_line{
+line-height:180%;
+}
+/**************设置行间的距离（行高）【结束】******/
+
+/**********在一个声明中设置所有的列表属性【开始】**/
+.ul_list_none{
+list-style:none; /* 	无标记。*/
+}
+.ul_list_image{
+list-style-image:url(""); /*属性使用图像来替换列表项的标记*/
+}
+.ul_list_inside{
+list-style-position:inside; /*列表项目标记放置在文本以内，且环绕文本根据标记对齐。*/
+}
+.ul_list_outside{
+list-style-position:outside; /*默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。*/
+}
+.ul_list_circle{
+list-style-type:circle; /*标记是空心圆。*/
+}
+.ul_list_armenian{
+list-style-type:armenian; /*传统的亚美尼亚编号方式*/
+}
+.ul_list_cjk{
+list-style-type:cjk-ideographic; /*简单的表意数字*/
+}
+.ul_list_decimal{
+list-style-type:decimal; /*标记是数字。*/
+}
+.ul_list_zero{
+list-style-type:decimal-leading-zero; /*0开头的数字标记。(01, 02, 03, 等。)*/
+}
+.ul_list_disc{
+list-style-type:disc; /*默认。标记是实心圆。*/
+}
+.ul_list_georgian{
+list-style-type:georgian; /*传统的乔治亚编号方式(an, ban, gan, 等。)*/
+}
+.ul_list_hebrew{
+list-style-type:hebrew; /*传统的希伯来编号方式*/
+}
+.ul_list_hiragana{
+list-style-type:hiragana; /*标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）*/
+}
+.ul_list_iroha{
+list-style-type:hiragana-iroha; /*标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）*/
+}
+.ul_list_katakana{
+list-style-type:katakana; /*标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）*/
+}
+.ul_list_iroha2{
+list-style-type:katakana-iroha; /*标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）*/
+}
+.ul_list_alpha{
+list-style-type:lower-alpha; /*小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)*/
+}
+.ul_list_greek{
+list-style-type:lower-greek; /*小写希腊字母(alpha, beta, gamma, 等。)*/
+}
+.ul_list_latin{
+list-style-type:lower-latin; /*小写拉丁字母(a, b, c, d, e, 等。)*/
+}
+.ul_list_roman{
+list-style-type:lower-roman; /*小写罗马数字(i, ii, iii, iv, v, 等。)*/
+}
+.ul_list_square{
+list-style-type:square; /*标记是实心方块。*/
+}
+.ul_list_alpha2{
+list-style-type:upper-alpha; /*大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)*/
+}
+.ul_list_latin2{
+list-style-type:upper-latin; /*大写拉丁字母(A, B, C, D, E, 等。)*/
+}
+.ul_list_roman{
+list-style-type:upper-roman; /*大写罗马数字(I, II, III, IV, V, 等。)*/
+}
+/**********在一个声明中设置所有的列表属性【结束】**/
+
+
+/**************设置所有外边距属性【开始】*********/
+.ul_margin{
+margin:5px;
+}
+.ul_margin_bottom{
+margin-bottom:10px;
+}
+.ul_margin_left{
+margin-left:10px;
+}
+.ul_margin_right{
+margin-right:10px;
+}
+.ul_margin_top{
+margin-top:10px;
+}
+/**************设置所有外边距属性【结束】*********/
+
+
+/************设置最大和最小高度，宽度【开始】****/
+.ul_max_h{
+max-height:100px;
+}
+.ul_max_w{
+max-width:100px;
+}
+.ul_min_h{
+min-height:100px;
+}
+.ul_min_w{
+min-width:100px;
+}
+/************设置最大和最小高度，宽度【结束】****/
+
+/*********打印参考【开始】***********************/
+.ul_orphans{
+orphans:5px; /*设置元素放在页面底部时所允许的最少文本行数。*/
+}
+/*********打印参考【结束】***********************/
+
+/********（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用【开始】********************/
+
+.ul_outline{
+outline:outline:#00ff00 dotted thick;
+}
+.ul_outline_dashed{
+outline-style:dashed; /*定义虚线轮廓。*/
+}
+.ul_outline_dotted{
+outline-style:dotted; /*定义点状的轮廓。*/
+}
+.ul_outline_double{
+outline-style:double; /*定义双线轮廓。双线的宽度等同于 outline-width 的值。*/
+}
+.ul_outline_groove{
+outline-style:groove; /*定义 3D 凹槽轮廓。此效果取决于 outline-color 值。*/
+}
+.ul_outline_inset{
+outline-style:inset; /*定义 3D 凹边轮廓。此效果取决于 outline-color 值。*/
+}
+.ul_outline_outset{
+outline-style:outset; /*定义 3D 凸边轮廓。此效果取决于 outline-color 值。*/
+}
+.ul_outline_ridge{
+outline-style:ridge; /*定义 3D 凸槽轮廓。此效果取决于 outline-color 值。*/
+}
+.ul_outline_solid{
+outline-style:solid; /*定义实线轮廓。*/
+}
+.ul_outline_inherit{
+outline-style:inherit; /*规定应该从父元素继承轮廓样式的设置。*/
+}
+.ul_outline_color{
+outline-color:#000099;
+}
+.ul_outline_thin{ 
+outline-width:thin; /*规定细轮廓。*/
+}
+.ul_outline_thick{
+outline-width:thick; /*规定粗的轮廓。*/
+}
+.ul_outline_medium{
+outline-width:medium; /*默认。规定中等的轮廓。*/
+}
+.ul_outline_px{
+outline-width:3px;
+}
+/********（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用【结束】********************/
+
+/********当内容溢出元素框时发生的事情【开始】******/
+.ul_hidden{
+overflow:hidden; /*内容会被修剪，并且其余内容是不可见的。*/
+}
+.ul_inherit{
+overflow:inherit; /*规定应该从父元素继承 overflow 属性的值。*/
+}
+.ul_scroll{
+overflow:scroll; /*内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。auto属性一样*/
+}
+.ul_overflow_visible{
+overflow:visible; /*默认值。内容不会被修剪，会呈现在元素框之外。*/
+}
+/********当内容溢出元素框时发生的事情【结束】******/
+
+
+/************设置所有内边距属性【开始】***********/
+.ul_padding{
+padding:10px;
+}
+.ul_padding_bottom{
+padding-bottom:10px;
+}
+.ul_padding_left{
+padding-left:10px;
+}
+.ul_padding_top{
+padding-top:10px;
+}
+.ul_padding_right{
+padding-right:10px;
+}
+/************设置所有内边距属性【结束】***********/
+
+/***************规定元素的定位类型【开始】*******/
+
+.ul_absolute{
+position:absolute; /*生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。*/
+}
+.ul_fixed{
+position:fixed;   /*生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。*/
+}
+.ul_relative{
+position:relative; /*生成相对定位的元素，相对于其正常位置进行定位。因此，"left:20" 会向元素的 LEFT 位置添加 20 像素。*/
+}
+.ul_static{
+position:static; /*默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。*/
+}
+/***************规定元素的定位类型【结束】*******/
+
+/************引号类型【开始】*******************/
+
+.ul_quotes{
+quotes: '"' '"' "'" "'";  /*参照手册的例子*/
+}
+/************引号类型【开始】*******************/
+
+
+/****显示表格单元格、行、列的算法规则【开始】**/
+.ul_table_automatic{
+table-layout:automatic; /*默认。列宽度由单元格内容设定。*/
+}
+.ul_table_fixed{
+table-layout:fixed; /*列宽由表格宽度和列宽度设定。*/
+}
+/****显示表格单元格、行、列的算法规则【结束】**/
+
+/****规定元素中的文本的水平对齐方式【开始】***/
+.ul_text_center{
+text-align:center;
+}
+.ul_text_justify{
+text-align:justify; /*实现两端对齐文本效果。*/
+}
+.ul_text_left{
+text-align:left;
+}
+.ul_text_right{
+text-align:right;
+}
+/****规定元素中的文本的水平对齐方式【结束】***/
+
+/**********属性规定添加到文本的修饰【开始】***/
+.ul_text_blink{
+text-decoration:blink; /*定义闪烁的文本。 ie8不能用*/
+}
+.ul_text_through{
+text-decoration:line-through; /*定义穿过文本下的一条线。*/
+}
+.ul_text_none{
+text-decoration:none;
+}
+.ul_text_overline{
+text-decoration:overline; /*定义文本上的一条线。*/
+}
+.ul_text_underline{
+text-decoration:underline; /*定义文本下的一条线。*/
+} 
+/**********属性规定添加到文本的修饰【结束】***/
+
+/*******规定文本块中首行文本的缩进【开始】***/
+.ul_indent{
+text-indent:2em;
+}
+/*******规定文本块中首行文本的缩进【结束】***/
+
+/*********规定添加到文本的阴影效果【开始】***/
+.ul_shadow{
+text-shadow: 0 -1px 1px #145072; 
+}
+/*********规定添加到文本的阴影效果【结束】***/
+
+/********属性控制文本的大小写【开始】*******/
+
+.ul_text_capitalize{
+text-transform:capitalize; /*文本中的每个单词以大写字母开头。*/
+}
+.ul_text_lowercase{
+text-transform:lowercase; /*定义无大写字母，仅有小写字母。*/
+}
+.ul_text_none2{
+text-transform:none; /*默认。定义带有小写字母和大写字母的标准的文本。*/
+}
+.ul_text_uppercase{
+text-transform:uppercase; /*定义仅有大写字母。*/
+}
+/********属性控制文本的大小写【结束】*******/
+
+/*****设置文本的方向【开始】***************/
+.ul_unicode_override{
+unicode-bidi:bidi-override; /*这会为行内元素创建一个覆盖*/
+}
+.ul_unicode_embed{
+unicode-bidi:embed; /*对于双向算法会打开附件的一层嵌套*/
+}
+.ul_unicode_normal{
+unicode-bidi:normal; /*元素不会对双向算法打开附加的一层嵌套。*/
+}
+/*****设置文本的方向【结束】***************/
+
+/*********设置元素的垂直对齐方式【开始】*****************/
+.ul_vertical_baseline{
+vertical-align:baseline; /*默认。元素放置在父元素的基线上。*/
+}
+.ul_vertical_bottom{
+vertical-align:bottom; /*把元素的顶端与行中最低的元素的顶端对齐。*/
+}
+.ul_vertical_middle{
+vertical-align:middle; /*把此元素放置在父元素的中部。*/
+}
+.ul_vertical_sub{
+vertical-align:sub; /*垂直对齐文本的下标。*/
+}
+.ul_vertical_super{
+vertical-align:super; /*垂直对齐文本的上标*/
+}
+.ul_vertical_bottom2{
+vertical-align:text-bottom; /*把元素的底端与父元素字体的底端对齐。*/
+}
+.ul_vertical_top{
+vertical-align:top; /*把元素的顶端与行中最高元素的顶端对齐*/
+}
+.ul_vertical_top2{
+vertical-align:text-top; /*把元素的顶端与父元素字体的顶端对齐*/
+}
+.ul_vertical_height{
+vertical-align:180%;
+}
+/*********设置元素的垂直对齐方式【结束】*****************/
+
+/**********属性规定元素是否可见【开始】*****************/
+.ul_visible{
+visibility:visible; /*默认值。元素是可见的。*/
+}
+.ul_collapse{
+visibility:collapse; /*当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为 "hidden"。*/
+}
+.ul_hidden2{
+visibility:hidden; /*元素是不可见的。*/
+}
+/**********属性规定元素是否可见【结束】*****************/
+
+
+/**********设置如何处理元素内的空白【开始】************/
+.ul_white_normal{
+white-space:normal; /*默认。空白会被浏览器忽略。*/
+}
+.ul_white_nowrap{
+white-space:nowrap; /*文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
+}
+.ul_white_pre{
+white-space:pre; /*空白会被浏览器保留。其行为方式类似 HTML 中的 <pre> 标签。*/
+}
+.ul_white_wrap{
+white-space:pre-wrap; /*保留空白符序列，但是正常地进行换行。*/
+}
+.ul_white_line{
+white-space:pre-line; /*合并空白符序列，但是保留换行符。*/ 
+}
+/**********设置如何处理元素内的空白【结束】************/
+
+/*******增加或减少单词间的空白【开始】*****************/
+.ul_spacing{
+word-spacing:normal; /*默认。定义单词间的标准空间。*/
+}
+.ul_spacing_w{
+word-spacing:10px;
+}
+/*******增加或减少单词间的空白【结束】*****************/
+
+/***********设置元素的堆叠顺序【开始】******************/
+.ul_z_index{
+z-index:9999;
+}
+/***********设置元素的堆叠顺序【结束】******************/
+
+/***********************【定位和高度】************************/
+.ul_wei_gao{
+height:auto !important;
+height:100%;
+visibility:visible;
+overflow:hidden;
+position:relative;
+}

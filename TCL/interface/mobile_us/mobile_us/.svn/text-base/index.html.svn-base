@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl首页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/zy_slide.js"></script>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<style>
+	#pointer{height:2em; width:100%; position:absolute; left:0; bottom:0; z-index:99;}
+	._umh2{height:2em;}
+	.p_crl{padding:.2em; border-radius:.2em;  margin:0 .2em;}
+	.p_act{background-color:#fff}
+	.p_auto{background-color:#000;}
+</style>
+</head>
+
+<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+	<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+    <div class="banner">
+    	<div id="pointer">
+            			<div class="ub _umh2 ub-ac ub-pc" id="point">
+            				
+						</div>
+					</div>
+					<div class="uof ub ub-f1" style="width:100%;height:10em; overflow:hidden">
+                	<div class="ub ub-f1  ub-fh ub-hor" id="wraper">
+						 
+				 	</div>
+					</div>
+		</div>
+    <div class="ub" id="menu">
+    	<div class="ub ub-f1 ub-ac ub-pc bor_e4e" onClick="open_new('type')"><img src="images/tab_one.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc bor_e4e" onClick="open_new('type')"><img src="images/tab_two.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc bor_e4e" onClick="open_new('type')"><img src="images/tab_three.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc" onClick="open_new('type')"><img src="images/tab_four.png" style="width:3.6em; height:3em" /></div>
+    </div>
+    <div class="ub bor_top">
+    	<div class="ub ub-f1 ub-ac ub-pc bor_e4e"><img src="images/tab_three.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc bor_e4e"><img src="images/tab_one.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc bor_e4e"><img src="images/tab_four.png" style="width:3.6em; height:3em" /></div>
+        <div class="ub ub-f1 ub-ac ub-pc"><img src="images/tab_two.png" style="width:3.6em; height:3em" /></div>
+    </div>
+     <div class="c_f4f umh_06 "></div>
+    <div class="t_4a4 div_title font_02">New products listed</div>
+	<div id="news">
+		
+	</div>
+	<div style="clear:both;"></div>
+	<!--
+    <div class="ub  t_000 ">
+    	<div class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top bor_rit uof" onClick="open_new('detail')">
+        	<div class=" ">
+            	<img src="images/ds1.png" style="width:9em; height:6em" />
+            </div>
+            <div class="tx-c font_01">
+            	<p class=" mar_t05">L65H9600-CUD</p>
+                <p class="mar_t02 font_02 bold">65"</p>
+            </div>
+        </div>
+        <div class="ub-f1 ub ub-ver ub-ac ub-pc tv_div bor_top uof" onClick="open_new('detail')">
+            <div class="">
+                    <img src="images/ds2.png" style="width:9em; height:6em" />
+                </div>
+                <div class="tx-c font_01">
+                    <p class=" mar_t05">L65H9600-CUD</p>
+               		<p class="mar_t02 font_02 bold">65"</p>
+                </div>
+        </div>
+    </div>
+     <div class="ub  t_000" >
+    	<div class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top bor_rit uof" onClick="open_new('detail')">
+        	<div class=" ">
+            	<img src="images/ds3.png" style="width:9em; height:6em" />
+            </div>
+            <div class="tx-c font_01">
+            	<p class=" mar_t05">L65H9600-CUD</p>
+                <p class="mar_t02 font_02 bold">65"</p>
+            </div>
+        </div>
+        <div class="ub-f1 ub ub-ver ub-ac ub-pc tv_div bor_top uof" onClick="open_new('detail')">
+            <div class="">
+                    <img src="images/ds4.png" style="width:9em; height:6em" />
+                </div>
+                <div class="tx-c font_01">
+                    <p class=" mar_t05">L65H9600-CUD</p>
+               		<p class="mar_t02 font_02 bold">65"</p>
+                </div>
+        </div>
+    </div>
+     <div class="ub t_000">
+    	<div class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top bor_bot bor_rit uof" onClick="open_new('detail')">
+        	<div class=" ">
+            	<img src="images/ds5.png" style="width:9em; height:6em" />
+            </div>
+            <div class="tx-c font_01">
+            	<p class=" mar_t05">L65H9600-CUD</p>
+                <p class="mar_t02 font_02 bold">65"</p>
+            </div>
+        </div>
+        <div class="ub-f1 ub ub-ver ub-ac ub-pc tv_div bor_top bor_bot uof" onClick="open_new('detail')">
+            <div class="">
+                    <img src="images/ds6.png" style="width:9em; height:6em" />
+                </div>
+                <div class="tx-c font_01">
+                    <p class=" mar_t05">L65H9600-CUD</p>
+               		<p class="mar_t02 font_02 bold">65"</p>
+                </div>
+        </div>
+    </div>
+	-->
+    <div class="c_f4f umh_06 "></div>
+    <div class="t_4a4 div_title font_02">Recommended products</div>
+	<div id="recom">
+		
+	</div>
+	<div style="clear:both;"></div>
+	<div class="c_f4f umh_06 "></div>
+    <div class="t_4a4 font_011 tx-c mar_t05" id="more">Recommended products<img src="images/more_icon.png" style="width:.6em; height:1em; vertical-align:middle; margin-left:.5em" /></div>
+	<script src="js/footer.js"></script>
+	</div>
+</body>
+<script>
+	//图片滑动
+	function scroll_pic(){
+		var pornter = $$("point");
+		var note = pornter.children;
+		//var title=$$("img_title").children;
+		flip1 = new zySlide("wraper", "H", function(){
+			var cp = flip1.currentPoint;
+			for (var i in note) {
+				note[i].className = "p_crl p_auto";
+			//title[i].className= "uhide";
+			}
+			note[cp].className = "p_crl p_act";
+		// title[cp].className= "";
+		});
+		fliptimer();
+		fliptm = setInterval('fliptimer();', 3000);
+	}
+function fliptimer(){
+			if (flip1) {
+				var f = flip1;
+				var mp = f.maxPoint;
+				var tp = f.currentPoint + 1;
+				if (tp > mp) 
+					tp = 0;
+				f.moveToPoint(tp);
+				var pornter = $$("point");
+				var note = pornter.children;
+				//var title=$$("img_title").children;
+				for (var i in note) {
+					note[i].className = "p_crl p_auto";
+				//title[i].className= "uhide";
+				}
+				note[tp].className = "p_crl p_act";
+			//title[tp].className= "";
+			//fliptm = setTimeout('fliptimer();',3000);
+			}
+		}
+jQuery(function(){
+	jQuery("#more").click(function(){
+		$$("more").innerHTML = "加载中...";
+		setTimeout(function(){
+			$$("add").className="ub t_000";
+			$$("more").innerHTML = '查看更多产品<img src="images/more_icon.png" style="width:.6em; height:1em; vertical-align:middle; margin-left:.5em" />';
+		},1500)
+	})
+})
+window.onload = function(e){
+	islogin();
+	index_msg();
+}
+function index_msg(){
+	var url_data = base_url + 'home_page_get';
+	jQuery.getJSON(url_data, function(data){
+		console.log(data);
+		if (data.status == 0) {
+			var first_ad = data.firstAd;
+			var menuItem= data.menuItem;
+			var news= data.news;
+			var serviceContent = data.serviceContent;
+			var prodCategory = data.prodCategory;
+			var recommend = data.recommend;
+			var video = data.video;
+			var ad_html = '';
+			var p_html = '';
+			var menu_html = '';
+			var new_html = '';
+			var recom_html = '';
+			for(var i=0;i<first_ad.length;i++){
+				ad_html +='<div  class="ub-fh tx-c"><img src="images/banner.png" style="width:100%;height:10em"/></div>' ;
+				p_html += '<div class="p_crl p_auto"></div>'
+			}
+			document.getElementById('wraper').innerHTML = ad_html;
+			document.getElementById('point').innerHTML = p_html;
+			scroll_pic();
+			for(var i=0;i<news.length;i++){
+				recom_html += '<div class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top  uof" onClick="open_new(\'detail\')" style="width:50%;float:left; background:url(images/rit_line.png) right repeat-y">'
+        	+'<div class=" ">'
+            +'<img src="images/ds7.png" style="width:9em; height:6em" />'
+            +'</div>'
+            +'<div class="tx-c font_01">'
+            +'<p class=" mar_t05">L65H9600-CUD</p>'
+            +'<p class="mar_t02 font_02 bold">65"</p>'
+            +'</div>'
+       		+'</div>'
+			}
+			document.getElementById("news").innerHTML = recom_html;
+			for(var i=0;i<recommend.length;i++){
+				recom_html += '<div class="ub-f1 ub ub-ac ub-pc ub-ver tv_div bor_top  uof" onClick="open_new(\'detail\')" style="width:50%;float:left; background:url(images/rit_line.png) right repeat-y">'
+        	+'<div class=" ">'
+            +'<img src="images/ds7.png" style="width:9em; height:6em" />'
+            +'</div>'
+            +'<div class="tx-c font_01">'
+            +'<p class=" mar_t05">L65H9600-CUD</p>'
+            +'<p class="mar_t02 font_02 bold">65"</p>'
+            +'</div>'
+       		+'</div>'
+			}
+			document.getElementById("recom").innerHTML = recom_html;
+		}
+		else {
+			alert("error");
+		}
+	});
+}
+</script>
+</html>
+

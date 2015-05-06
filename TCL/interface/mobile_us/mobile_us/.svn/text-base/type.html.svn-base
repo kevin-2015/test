@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="">
+	<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+	<script src="js/window.js"></script>
+</div>
+<div id="page_0" class="up ub ub-ver">
+	<script src="js/header.js"></script>
+    <div class="mar_lr04 mar_t05">
+    	<div class="type_title">
+        	<img src="images/4k_icon.png" style="width:10em; height:1.8em; margin-top:.5em" />
+        </div>
+    	<div class="type_menu ub ub-ac tx-c" style="position:relative">
+        	<div class="ub-f1 type_line" id="size_tab">According to the classification of size</div>
+            <div class="ub-f1 type_line">New releases</div>
+            <div class="ub-f1" id="gn_tab">According to the feature classification</div>
+            <div id="size" class="uhide">
+            	<ul class="dialog" style="width:100%">
+                    <li class="" onClick="open_new('type')">110</li>
+                    <li class="" onClick="open_new('type')">65-85</li>
+                    <li class="" onClick="open_new('type')">45-65</li>
+                    <li class="" onClick="open_new('type')">30-45</li>
+                    <li class="" onClick="open_new('type')">20-30</li>
+                    <li class="size_up c_5fa" style="color:#fff">收起</li>
+     		   </ul>
+            </div>
+            <div id="gongneng" class="uhide">
+            	<ul class="dialog" style="width:100%">
+                    <li class="type_one" onClick="open_new('type')">曲面电视</li>
+                    <li class="type_two" onClick="open_new('type')">蓝光电视</li>
+                    <li class="type_three" onClick="open_new('type')">QLED</li>
+                    <li class="type_four" onClick="open_new('type')">至尊大屏电视</li>
+                    <li class="type_five" onClick="open_new('type')">4K智能云电视</li>
+                    <li class="type_six" onClick="open_new('type')">智能云电视</li>
+                    <li class="type_senve" onClick="open_new('type')">智能互联网电视</li>
+                     <li class="size_up c_5fa"  style="color:#fff;">收起</li>
+       			 </ul>
+            </div>
+        </div>
+        <div class="type_list">
+            <ul class="ub mar_t04">
+                <li class="ub-f1 tx-c" onClick="open_new('detail')">
+                    <div class="">
+                        <img src="images/ds7.png" style="width:9em; height:6em" />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+                <li class="ub-f1 tx-c umar_l04" onClick="open_new('detail')">
+                    <div class="">
+                        <img src="images/ds7.png" style="width:9em; height:6em" />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+            </ul>
+            <ul class="ub mar_t04 ">
+                            <li class="ub-f1 tx-c" onClick="open_new('detail')">
+                                <div class="">
+                                    <img src="images/type1.png" style="width:9em; height:6em" />
+                                </div>
+                                <div class="mar_t05 font_01">
+                                    <p>UHD S9 Serise</p>
+                                    <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                                </div>
+                            </li>
+                            <li class="ub-f1 tx-c umar_l04" onClick="open_new('detail')">
+                                <div class="">
+                                    <img src="images/type2.png" style="width:9em; height:6em" />
+                                </div>
+                                <div class="mar_t05 font_01">
+                                    <p>UHD S9 Serise</p>
+                                    <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                                </div>
+                            </li>
+             </ul> 
+             <ul class="ub mar_t04">
+                <li class="ub-f1 tx-c" onClick="open_new('detail')">
+                    <div class="">
+                        <img src="images/type1.png" style="width:9em; height:6em"  />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+                <li class="ub-f1 tx-c umar_l04" onClick="open_new('detail')">
+                    <div class="">
+                        <img src="images/type2.png" style="width:9em; height:6em"  />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+            </ul>
+            <ul id="add" class="ub mar_t04 uhide">
+                <li class="ub-f1 tx-c">
+                    <div class="">
+                        <img src="images/type1.png" style="width:9em; height:6em"  />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+                <li class="ub-f1 tx-c umar_l04">
+                    <div class="">
+                        <img src="images/type2.png" style="width:9em; height:6em"  />
+                    </div>
+                    <div class="mar_t05 font_01">
+                        <p>UHD S9 Serise</p>
+                        <p class="mar_t04">Smart TV -105" Class(104.6" Diag.)</p>
+                    </div>
+                </li>
+            </ul>           
+       </div>
+       <div id="more" class="t_7f7 more">查看更多&gt;</div>
+    </div>
+    
+    <div class="footer mar_lr06 mar_t1">
+		<script src="js/footer.js"></script>
+    </div>
+	</div>
+</body>
+<script>
+	window.onload = function(){
+		islogin();
+		show_list();
+	}
+	function show_list(){
+		
+	}
+	jQuery(function(){
+		jQuery("#more").click(function(){
+			$$("more").innerHTML = "加载中...";
+			setTimeout(function(){
+				$$("add").className="ub mar_t04 ";
+				$$("more").innerHTML = "查看更多&gt;";
+			},1500)
+			
+		})
+		jQuery("#size_tab").click(function(){
+			$$("size").className = "";
+		})
+		jQuery(".size_up").click(function(){
+			$$("size").className = "uhide";
+		})
+		jQuery("#gn_tab").click(function(){
+			$$("gongneng").className = "";
+		})
+		jQuery(".size_up").click(function(){
+			$$("gongneng").className = "uhide";
+		})
+	})
+</script>
+</html>

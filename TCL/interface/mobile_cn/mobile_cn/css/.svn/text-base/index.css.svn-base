@@ -1,0 +1,162 @@
+body {
+	margin:0;
+	padding:0;
+}
+#page_0{
+	background:#ffffff;
+}
+.umar-a {
+margin: 0.4em;
+}
+.uinn {
+padding: 0.5em;
+margin: 0;
+}
+.c-wh {
+background-color: #FFF;
+}
+.ub-ac {
+-webkit-box-align: center;
+box-align: center;
+}
+.ub {
+display: -webkit-box !important;
+display: box !important;
+position: relative;
+}
+.uba {
+border: 1px solid;
+}
+.ubb {
+border-bottom: 1px solid;
+}
+.ubb2{
+	border-bottom: 3px solid;
+}
+.umh4 {
+min-height: 2em;
+}
+.uc-t {
+-webkit-border-radius: .6em;
+border-radius: .6em;
+}
+.b-gra {
+border-color: #e4e4e4;
+}
+.t-bla {
+color: black;
+}
+.lis, .lis-m div {
+padding: 0.4em;
+}
+ul, li {
+list-style: none;
+}
+.ub-f1 {
+position: relative;
+-webkit-box-flex: 1;
+box-flex: 1;
+}
+.ut-s {
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+outline: 0 !important;
+}
+.ub-img {
+-webkit-background-size: contain;
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+}
+.lis-sw {
+width: 0.6em;
+height: 1em;
+margin-left: 0.4em;
+}
+.listIcon {
+background-image: url('../images/left.png');
+}
+.ub-ver
+{
+	-webkit-box-orient:vertical;
+	box-orient:vertical;
+}
+.ul_block{
+	display:block !important;
+}
+.ul_none{
+	display:none !important;
+}
+.tcl_bb{
+		color:#5fa5ea;
+}
+.xuan_k{
+	color:#5fa5ea;
+	text-align:center;
+}
+.zhong_xuan{
+	border-color:#5fa5ea;
+}
+
+.juzhongqu{
+	text-align:center;
+}
+.zhy_margin{
+	margin-top:0.5em;
+}
+.zhy_center_bg{
+	background:#5fa6e9;
+	border-bottom:.5em solid #dadad9;
+}
+.center_bg{
+	background:url(../images/center_bg.png);
+	width: 6em;
+height: 6em;
+background-size: 100% 100%;
+}
+.center_tou{
+	background:url(../images/touxiang.jpg);
+	width:5.5em;
+	height:5.5em;
+	background-size:100% 100%; 
+	border-radius: 3em;
+}
+.zhy_back{
+	background:url(../images/back.png);
+	padding-left:1.5em;
+	background-position:left center;
+	background-repeat:no-repeat;
+	background-size:1em 1em; 
+}
+.zhy_title{
+	color:#999999;
+}
+.zhy_wk{
+	background:#fff;
+	width:8em;
+	height:8em;
+	border:.2em solid #5fa6e9;zhy_left
+}
+.zhy_x{
+	background:url(../images/touxiang.jpg);
+	width:7.8em;
+	height:7.8em;
+	background-size:100% 100%;
+}
+.zhy_img{
+	background:url(../images/zhy_img.png);
+	background-size:100% 100%;
+	width:4em;
+	height:4.5em;
+}
+.zhy_left{
+	margin-left:.5em;
+	
+}
+.zhy_de{
+	color:#5fa6e9;
+}
+.share_win{
+	width:100%; height:100%; position:fixed; top:0; left:0; right:0; z-index:9999;
+}

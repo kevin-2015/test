@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.adminsetting.admins"></title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div id="boader" class="boader">
+		<div id="right_boader" class="right_boader ">
+			<div class="menu_top">
+				<div onclick="window.location.href='admins.html'" class="menu_nocheck menu_font ul_float_left"  data-localize="tcl.adminsetting.admin.adminame"></div>
+				<!--<div id="menu_1" onclick="window.location.href='admin_groups.html'" class="menu_nocheck menu_font ul_float_left" data-localize="tcl.adminsetting.Group.Groupname"></div>-->
+				<div onclick="window.location.href='admin_roles.html'" class="menu_now menu_font ul_float_left" data-localize="tcl.adminsetting.role.rolename"></div>
+			</div>
+	    	<div id="menu_boader" class="menu_boader">
+				<div id="menu_boader">
+					<div class="title_top ul_margin_top ul_hidden">
+						<div class="ul_float_left" data-localize="tcl.adminsetting.role.rolename"></div>
+						<div class="inpit_font ul_float_right" onclick="open_wind()" data-localize="tcl.adminsetting.role.add"></div>
+					</div>
+					<div class="ul_margin_top">
+						<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+							<tr>
+								<td width="10%" data-localize="tcl.adminsetting.role.number"></td>
+								<td width="20%" data-localize="tcl.adminsetting.role.name"></td>
+								<td width="20%" data-localize="tcl.adminsetting.role.Groupname"></td>
+								<td width="20%" data-localize="tcl.adminsetting.role.authority"></td>
+								<td width="30%" data-localize="tcl.adminsetting.role.Operation"></td>
+						  	</tr>
+						  	<tr>
+						  		<table id="juese_list" width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+						  		</table>
+						 	</tr>
+						</table>
+					</div>
+					<!--<div class="ul_margin_top ul_hidden">
+						<div class="page">
+							<ul>
+								<li><a href="#"  data-localize="tcl.adminsetting.role.homepage">首页</a></li>
+								<li><a href="#"  data-localize="tcl.adminsetting.role.onepage">上一页</a></li>
+								<li class="now_page"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li><a href="#"  data-localize="tcl.adminsetting.role.nextpage">下一页</a></li>
+								<li><a href="#"  data-localize="tcl.adminsetting.role.endpage">尾页</a></li>
+							</ul>
+						</div>
+					</div>-->
+				</div>
+	    	</div>
+		</div>
+	</div>
+	
+	<!--弹出层开始-->
+	<div id="mengban" class="ul_display_none"  onclick="close_wind();"></div>
+	<div id="window_open" class="ul_display_none">
+	<div id="tanchu_con" class="ul_display_none">
+		<div class="win_header">
+			<div class="ul_float_right">
+					<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.adminsetting.role.determine">确定</div>
+					<div class="ul_float_left anniu_qx" onclick="close_wind();" data-localize="tcl.adminsetting.role.cancel">取消</div>
+			</div>
+		</div>
+		<div class="tan_con">
+			<div class="xuan_kuang ul_hidden">
+			<div class="ul_margin_top ul_hidden">
+					<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.role.name">名称:</div>
+					<div class="read_input ul_float_left ">
+						<span class="span"><input name="" type="text" class="inputstyle"/></span>
+					</div>
+				</div>
+				<div class="ul_margin_top ul_hidden">
+					<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.role.Groupname">组别:</div>
+				</div>
+				<div class="ul_hidden ul_margin_top ul_padding_left">
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">北美</div>
+					</div>
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">北美</div>
+					</div>
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">北美</div>
+					</div>
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">北美</div>
+					</div>
+					
+				</div>
+				<div class="ul_margin_top ul_hidden">
+					<div class="ul_float_left add_yiji" data-localize="tcl.adminsetting.role.authority">权限:</div>
+				</div>
+				<div class="ul_margin_top ul_hidden">
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">权限</div>
+					</div>
+				</div>
+				
+				<div class="ul_hidden ul_margin_top ul_padding_left">
+					<div class="ul_float_left">
+						<div class="ul_float_left ul_margin_right chekec_qi">
+							<input type="checkbox" name="allchecked" id="xing1" value="checkbox" style="display:none;" />
+							<div class="mo_input" style="" onclick="myCheckbox('xing1',this);">&nbsp;</div>
+						</div>
+						<div class="ul_float_left ul_margin_right leixing">北美</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	</body>
+	<script type="text/javascript">
+		function role_editor(id){
+			$$('rolename'+id).className='fenlan';
+			$$('rolename_input'+id).readOnly= false;
+			$$('roleip'+id).className='fenlan';
+			$$('roleip_input'+id).readOnly= false;
+			$$('role_editor'+id).className='ul_display_none';
+			$$('role_save'+id).className='ul_margin_right';
+		}
+		
+		function role_save(id){
+			$$('rolename'+id).className='fenlaned';
+			$$('rolename_input'+id).readOnly= true;
+			$$('roleip'+id).className='fenlaned';
+			$$('roleip_input'+id).readOnly= true;
+			$$('role_editor'+id).className='ul_margin_right';
+			$$('role_save'+id).className='ul_display_none';
+		}
+	</script>
+</html>

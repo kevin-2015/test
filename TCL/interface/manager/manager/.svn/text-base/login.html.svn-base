@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>登录</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+</head>
+<body class="login_bg">
+	<div id="header" class="ul_hidden">
+	<div class="logo ul_float_left"></div>
+	<div class="ul_float_left logo_word"><div class="line_h">创意感动生活</div><div class="line_h">The Creative Life</div></div>
+	</div>
+	<div class="login_con">
+		<div class="login_border">
+			<div class="login_header">TCL全球官网后台管理系统</div>
+			<form id="loginForm" method="post" action="/admin/login?url=index.html" enctype="application/x-www-form-urlencoded">
+			<div class="houdeng">
+				<div class="ul_hidden ul_margin_bottom">
+					<div class="ul_float_left login_name ul_margin_right">登陆：</div>
+					<div class="login_in ul_float_left">
+						<div class="in_login ul_float_left"><input type="text" id="username" name="username" value="" /></div>
+						<div class="renwu ul_float_left"></div>
+					</div>
+				</div>
+				<div class="ul_hidden ul_margin_bottom">
+					<div class="ul_float_left login_name ul_margin_right">密码：</div>
+					<div class="login_in ul_float_left">
+						<div class="in_login ul_float_left"><input type="password" id="password" name="password" value="" /></div>
+						<div class="yaoshi ul_float_left"></div>
+					</div>
+				</div>
+				<div class="denglu_button ul_margin_bottom ul_margin_top ul_cursor_pointer" onclick="login();" style="margin-top: 65px;">登陆</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="shuoming">集团股份有限公司版权所有 粤ICP备05040863号 ©2010-2011 TCL CORPORATION All Rights Reserved.</div>
+	<div class="content">
+	</div>
+</body>
+<script type="text/javascript">
+				function login(){
+					var username = jQuery("#username").val();
+					var password = jQuery("#password").val();
+
+//					jQuery('#loginForm').submit();
+					jQuery.post(base_url+"login", {username:username, password:password}, function(result){
+						if(result.status == 0){
+							var suffix = window.location.toString().lastIndexOf("html?");
+							var join = suffix == -1 ? "?" : "&";
+//							window.location.href = window.location+join+"r="+Math.random();
+							window.location.href = "index.html?r="+Math.random();
+						}else{
+							alert(result.message);
+						}
+				   	}, "json");
+				}
+
+				document.onkeydown = function(e) {
+					if (!e) e = window.event;
+					if ((e.keyCode || e.which) == 13){
+	                    login();
+	                }
+	            }
+		</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tcl登陆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+
+<body class="">
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+<script src="js/header.js"></script>
+<div class="ub ub-ac login_title mar_t1" style="width: 100%;">
+	<div class="log_lef log_tip"></div>
+    <div class="ub-f1 tx-c">欢迎登陆我的TCL</div>
+    <div class="log_rit log_tip"></div>
+</div>
+<div class="mar_lr mar_t1">
+	<div class="log_input ub ub-ac" style="width:100%;">
+    	<div class="t_4a4 txt_w" >登陆名</div>
+        <div class="ub-f1 mar_l1">
+        	<input type="text"  id="username" class="t_8f8 txt_input" value="test" />
+        </div>
+    </div>
+    <div class="log_input ub ub-ac mar_t05" style="width:100%;">
+    	<div class="t_4a4 txt_w">密码</div>
+        <div class="ub-f1 mar_l1">
+        	<input type="password"  id="password" class="t_8f8 txt_input" value="admin" />
+        </div>
+        <div class="t_8f8 font_01 umar_l04" onclick="window.location.href='retrieve_pass.html'" >
+        	忘记密码？
+        </div>
+    </div>
+</div>
+<div class="login_btn mar_t1" onclick="login();">
+	<a  style="color:#fff">登陆</a>
+</div>
+<div class="reg_btn" style="margin-top:1em;"  onclick="window.location.href='registered.html'">
+	立即注册
+</div>
+</div>
+</body>
+<script>
+	window.onload = function(){
+		header_fenlei();
+	}
+	function login(){
+					var username = jQuery("#username").val();
+					var password = jQuery("#password").val();
+					if (username == '' ||  password == '') {
+						alert('用户名和密码不能为空');
+					}
+					else {
+						jQuery.post(base_url+"login", {username:username, password:password}, function(result){
+						if(result.status == 0){
+						setCookie('login_username',result.data.username);
+						if(getQueryString('type')==2){
+							window.history.go(-2);
+						}else{
+							window.history.go(-1);
+						}
+						//window.location.href='zhy_center.html';
+						}else{
+							alert(result.message);
+						}
+				   	}, "json");
+					}
+				}
+	document.onkeydown = function(e) {
+					if (!e) e = window.event;
+					if ((e.keyCode || e.which) == 13){
+	                    login();
+	                }
+	            }
+</script>
+</html>

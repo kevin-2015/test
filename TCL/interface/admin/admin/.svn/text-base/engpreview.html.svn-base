@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>预览</title>
+<link rel="stylesheet" href="http://10.118.0.218/web/css/layout.css">
+<script src="http://10.118.0.218/web/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+<div class="eDintroBox">
+	<a name="eDpart1"></a>
+<div class="eDintro">
+	<div class="edsmall">
+		<a href=""><img src="http://10.118.0.218/web/images/eDsmall01.jpg"></a>
+		<a href=""><img src="http://10.118.0.218/web/images/eDsmall02.jpg"></a>
+		<a href=""><img src="http://10.118.0.218/web/images/eDsmall03.jpg"></a>
+	</div>
+	<div class="eDbigimg"><img src="http://10.118.0.218/web/images/eDimg.jpg"></div>
+	<div class="eDconBox">
+		<div class="eDcon">
+			<h3>TCL L85H9500A-UD</h3>
+			<div class="eDstar">
+				<div class="eDstarCon">
+					<img src="http://10.118.0.218/web/images/star01.png"><img src="http://10.118.0.218/web/images/star01.png"><img src="http://10.118.0.218/web/images/star01.png"><img src="http://10.118.0.218/web/images/star01.png"><img src="http://10.118.0.218/web/images/star02.png">
+				</div>
+			</div>
+			<div class="eDsize"><span>SIZE</span><b>55"50"40"</b></div>
+			<div class="eDxn">
+				<img src="http://10.118.0.218/web/images/eDtv1.jpg"><img src="http://10.118.0.218/web/images/eDtv2.jpg"><img src="http://10.118.0.218/web/images/eDtv3.jpg"><img src="http://10.118.0.218/web/images/eDtv4.jpg">
+			</div>
+			<div class="intor">
+				<p>Experience Immersive Picture Quality from Any Angle</p>
+				<p>Stunning Ultra High Definition 4K Delivers 4x The Resolution of Full HD</p>
+				<p>Enjoy any TV Experience in Near UHD Quality with UHD Upscaling</p>
+				<p>Quickly and Powerfully Browse a New World of TV Entertainment with Smart TV</p>
+			</div>
+			<div class="findLocally">
+				<span>$200</span>
+				<a href="">Find Locally</a>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="interest">
+			<div class="popAdd f-left">
+				<div class="addInter"><input onclick="comparePop();" type="checkbox"><label>ADD TO INTEREST</label></div>
+				<a class="compare" style="display: none;">compare</a>
+			</div>
+			<div class="f-left eDshare">
+				<a href=""><img src="http://10.118.0.218/web/images/eDshare1.jpg"></a>
+				<a href=""><img src="http://10.118.0.218/web/images/eDshare2.jpg"></a>
+				<a href=""><img src="http://10.118.0.218/web/images/eDshare3.jpg"></a>
+				<a href=""><img src="http://10.118.0.218/web/images/eDshare4.jpg"></a>
+			</div>
+		</div>
+	</div>
+	<div class="clear"></div>
+</div>
+</div>
+<div class="introIMg">
+	<div class="revieweare"><a name="eDpart2">SPECS</a></div>
+	<div><img src="http://10.118.0.218/web/images/eDintro1.jpg" width="100%"></div>
+	<div><img src="http://10.118.0.218/web/images/eDintro3.jpg" width="100%"></div>
+	<div><img src="http://10.118.0.218/web/images/eDintro2.jpg" width="100%"></div>
+</div>
+<div class="specs">
+	<div class="revieweare"><a name="eDpart3" href="">SPECS</a></div>
+	<div class="specsList">
+		<ul>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs1.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs2.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs3.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs4.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs5.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs6.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs7.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs8.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs9.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+			<li>
+				<div class="specsIMg"><img src="http://10.118.0.218/web/images/eDspecs10.jpg" width="100%"></div>
+				<div class="specsCon">
+					<span>UHD 4K</span>
+					<p>Quickly and Powerfully</p>
+				</div>
+			</li>
+		</ul>
+		<div class="clear"></div>
+		<div class="fullSpecs" onclick="hiddenTable();"><span id="eDFlod" class="eDFlod">See Full Specs</span></div>
+		<!--功能参数-->
+		<div class="specstable" id="specstable" style="display: none;">
+			<div class="specstit">fullSpecs</div>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+					<td><span>fullSpecs</span></td>
+				</tr>
+				<tr>
+					<td><span>fulpecs</span></td>
+					<td><span>fpecs</span></td>
+					<td><span>fulpecs</span></td>
+					<td><span>fullSpeffcs</span></td>
+					<td><span>fullcs</span></td>
+					<td><span>fuecs</span></td>
+					<td><span>fulecs</span></td>
+				</tr>
+				<tr>
+					<td><span>fulpecs</span></td>
+					<td><span>fpecs</span></td>
+					<td><span>fulpecs</span></td>
+					<td><span>fullSpeffcs</span></td>
+					<td><span>fullcs</span></td>
+					<td><span>fuecs</span></td>
+					<td><span>fulecs</span></td>
+				</tr>
+			</tbody></table>
+			<table border="0" cellpadding="0" cellspacing="0" class="tablexi">
+				<tbody><tr>
+					<td><span>fullSpecs</span></td>
+					<td colspan="6"><span>fullSpecs</span></td>
+					<td colspan="2"><span>fullSpecs</span></td>
+				</tr>
+				<tr>
+					<td rowspan="2"><span>fulpecs</span></td>
+					<td colspan="3"><span>fpecs</span></td>
+					<td colspan="3"><span>fulpecs</span></td>
+					<td><span>fullSpeffcs</span></td>
+					<td><span>fullcs</span></td>
+				</tr>
+				<tr>
+					<td><span>fulpecs</span></td>
+					<td><span>fpecs</span></td>
+					<td><span>fulpecs</span></td>
+					<td><span>fullSpeffcs</span></td>
+					<td><span>fullcs</span></td>
+					<td><span>fuecs</span></td>
+					<td><span>&nbsp;</span></td>
+					<td><span>&nbsp;</span></td>
+				</tr>
+				<tr>
+					<td><span>fulpecs</span></td>
+					<td><span>fpecs</span></td>
+					<td><span>fulpecs</span></td>
+					<td><span>fullSpeffcs</span></td>
+					<td><span>fullcs</span></td>
+					<td><span>fuecs</span></td>
+					<td><span>fulecs</span></td>
+					<td><span>fulecs</span></td>
+					<td><span>fulecs</span></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+</body>
+<script>
+	var tableFlag = 0;
+	function hiddenTable(){
+		if(tableFlag == 0){
+			document.getElementById("specstable").style.display = "block";
+			document.getElementById("eDFlod").className = "eDopen";
+			tableFlag = 1;
+		}else{
+			document.getElementById("specstable").style.display = "none";
+			document.getElementById("eDFlod").className = "eDFlod";
+			tableFlag = 0;
+		}
+	}
+	function comparePop(){
+		console.log("####");
+		var addInterChk=$(".addInter input").prop("checked"); 
+		if(addInterChk){
+			$(".compare").show();
+		}else{
+			$(".compare").hide();
+		}
+	}
+</script>
+</html>

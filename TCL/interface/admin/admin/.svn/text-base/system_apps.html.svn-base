@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title data-localize="tcl.system.APPS.appname">系统管理</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<!--body部分开始-->
+<div id="boader" class="boader ul_hidden">
+  <!--right部分开始-->
+  <div id="right_boader" class="right_boader ">
+  		<div class="menu_top">
+	    	<div id="menu_0" onclick="window.location.href='system_management.html'" data-localize="tcl.system.home.homename" class="menu_nocheck menu_font ul_float_left">首页</div>
+			<div id="menu_1" onclick="window.location.href='system_product.html'" data-localize="tcl.system.product.productp" class="menu_nocheck menu_font ul_float_left">产品页</div>
+			<div id="menu_2" onclick="window.location.href='system_sersup.html'"  data-localize="tcl.system.support.supportname" class="menu_nocheck menu_font ul_float_left">服务与支持</div>
+			<div id="menu_3" onclick="window.location.href='system_apps.html'" data-localize="tcl.system.APPS.appname" class="menu_now menu_font ul_float_left">APPS</div>
+			<div id="menu_4" onclick="window.location.href='system_activity.html'" data-localize="tcl.system.active.activename" class="menu_nocheck menu_font ul_float_left">活动</div>
+	   </div>
+	     <div id="menu_boader" class="menu_boader">
+		 <!--4-->
+			<div id="menu_boader3" class="">
+				<div class="title_top ul_margin_top" data-localize="tcl.system.APPS.ad">广告上传</div>
+				<div class="ul_margin_top">
+					<table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+					  <tr>
+						<td width="10%"  data-localize="tcl.system.APPS.no">序号</td>
+						<td  width="10%"  data-localize="tcl.system.APPS.picupload">图片上传</td>
+						<td  width="50%"  data-localize="tcl.system.APPS.link">链接</td>
+						<td  width="30%"  data-localize="tcl.system.APPS.Operation">操作</td>
+					  </tr>
+					  <tr>
+						<td>1</td>
+						<td class="delect_add">
+							<div class="img_up_smail" id="img_up_smail1">
+								<input  type="file" name="smail1" id="smail1" onchange="preImged(this.id,'img_up_smail1');"  class="sami_img" />
+							</div>
+						</td>
+						<td class="delect_add"></td>
+						<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(0)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+					  </tr>
+					  <tr>
+						<td>1</td>
+						<td class="delect_add">
+							<div class="img_up_smail" id="img_up_smail2">
+								<input  type="file" name="smail2" id="smail2" onchange="preImged(this.id,'img_up_smail2');"  class="sami_img" />
+							</div>
+						</td>
+						<td class="delect_add"></td>
+						<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(0)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+					  </tr>
+					  <tr>
+						<td>1</td>
+						<td class="delect_add">
+							<div class="img_up_smail" id="img_up_smail3">
+								<input  type="file" name="smail3" id="smail3" onchange="preImged(this.id,'img_up_smail3');"  class="sami_img" />
+							</div>
+						</td>
+						<td class="delect_add"></td>
+						<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(0)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+					  </tr>
+					</table>
+				</div>
+				
+				<div class="title_top ul_margin_top" data-localize="tcl.system.APPS.appup">APP上传</div>
+				<div class="ul_margin_top">
+					 <table width="100%" class="table_con shuotu" border="1"  cellpadding="1" cellspacing="1">
+						  <tr>
+							<td width="10%"  data-localize="tcl.system.APPS.no">序号</td>
+							<td  width="10%"  data-localize="tcl.system.APPS.appname">APP名称</td>
+							<td  width="20%"  data-localize="tcl.system.APPS.apk">源文件</td>
+							<td  width="30%"  data-localize="tcl.system.APPS.Operation">操作</td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+						<td class="delect_add">TCL0001</td>
+						<td class="delect_add">TCL.APK</td>
+						
+							<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(1)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+						  </tr>
+						   <tr>
+							<td>1</td>
+						<td class="delect_add">TCL0001</td>
+						<td class="delect_add">TCL.APK</td>
+						
+							<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(1)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+						  </tr>
+						   <tr>
+							<td>1</td>
+						<td class="delect_add">TCL0001</td>
+						<td class="delect_add">TCL.APK</td>
+						
+							<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(1)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+						  </tr>
+						  <tr>
+							<td>1</td>
+						<td class="delect_add">TCL0001</td>
+						<td class="delect_add">TCL.APK</td>
+						
+							<td class="delect_add"><a class="ul_margin_right" onclick="menu_pz(1)">编辑</a><a class="ul_margin_right" href="#">删除</a></td>
+						  </tr>
+						</table>
+
+					 </div>
+					 <div class="ul_margin_top ul_padding ul_hidden">
+					<div class="ul_float_left baocun button_l" data-localize="tcl.system.APPS.savepage">保存</div>
+					
+					<div class="ul_float_left yulan button_l" data-localize="tcl.system.APPS.Preview">预览</div>
+					<div class="ul_float_left fabu button_l" data-localize="tcl.system.APPS.upload">上传</div>
+				</div>
+			</div>
+			<!--4-->
+						</div>
+			</div>
+			</div>
+			<div id="mengban" class="ul_display_none" onclick="close_wind();"></div>
+		<div id="window_open" class="ul_display_none">
+			<div id="win_con"> 
+			<div id="win_con0" class="ul_display_none">
+			<div class="header_tan">
+				<div class="ul_float_right">
+						<div class="ul_float_left anniu_qx ul_margin_right"  data-localize="tcl.system.APPS.confirm">确定</div>
+						<div class="ul_float_left anniu_qx" onclick="close_wind();"  data-localize="tcl.system.APPS.cancl">取消</div>
+					</div>
+			</div>
+			<div class="tan_con" style="height:400px;">
+				<div class="xuan_kuang ul_hidden">
+					<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.system.APPS.link">链接:</div>
+							<div id="files_7" class="ul_float_left tianxuan ul_margin_right ul_margin_left" data-localize="tcl.system.APPS.Chooselink" onclick="fill_choose('fill7','choose7')">填写链接</div>
+							<div id="choose_7" class="ul_float_left tianxuaned ul_margin_right ul_margin_left" data-localize="tcl.system.APPS.filllink" onclick="choose_fill('fill7','choose7')">选择链接</div>
+						</div>
+						<div class="read_input ul_margin_top ul_hidden" id="fill7">
+							<span class="span"><input name="" type="text" class="inputstyle"></span>
+						</div>
+						<div class="ul_display_none" id="choose7">
+							<div class="shaixuan_selsect">
+								<div class="selsect_ov">
+									<select class="xial">
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						
+				</div>
+			</div>
+			</div>
+			<div id="win_con1" class="ul_display_none">
+		<div class="header_tan">
+				<div class="ul_float_right">
+						<div class="ul_float_left anniu_qx ul_margin_right" data-localize="tcl.system.APPS.confirm">确定</div>
+						<div class="ul_float_left anniu_qx" onclick="close_wind();"  data-localize="tcl.system.APPS.cancl">取消</div>
+					</div>
+			</div>
+			<div class="tan_con" style="height:400px;">
+				<div class="xuan_kuang ul_hidden">
+					<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji"  data-localize="tcl.system.APPS.appname">APP名称:</div>
+							
+						</div>
+						<div class="read_input ul_margin_top ul_hidden" id="choose9">
+							<div class="shaixuan_selsect">
+								<div class="selsect_ov">
+									<select class="xial">
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+										<option>下拉框</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="ul_float_left add_yiji" data-localize="tcl.system.APPS.apk">源文件:</div>
+							
+						</div>
+						<div class="ul_margin_top ul_hidden">
+							<div class="read_input ul_float_left">
+								<span class="yiji_input" style="float:left;"> 
+									<input name="" type="text" id="uplodeseds1" onmouseout="document.getElementById('file_upseds1').style.display='none';" class="inputstyle"> 
+								</span>
+								 <label for="unload" style="float:left;" data-localize="tcl.system.APPS.choosen" onmouseover="document.getElementById('file_upseds1').style.display='block';" class="file1 inpit_font">选择</label> 
+								 <input type="file" onchange="document.getElementById('uplodeseds1').value=this.value;this.style.display='none';" class="file" id="file_upseds1" style="width: 274px; display: none; left: 22px;">
+							</div>
+						</div>
+						
+						
+				</div>
+			</div>
+	</div>
+			</div>
+		</div>	
+</body>
+<script>
+	/** 
+* 从 file 域获取 本地图片 url 
+*/ 
+function getFileUrl(sourceId) { 
+var url; 
+if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+url = document.getElementById(sourceId).value; 
+} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+} 
+return url; 
+} 
+/** 
+* 将本地图片 显示到浏览器上 
+*/ 
+function preImged(sourceId, targetId) { 
+var url = getFileUrl(sourceId); 
+var imgPre = document.getElementById(targetId); 
+if(url){
+imgPre.style.background ='url('+url+')'; 
+imgPre.style.backgroundSize = '100% 100%';
+}else{
+imgPre.style.background ='#dbdbdb'; 
+}
+}
+function close_wind(){
+$$('mengban').className='ul_display_none';
+$$('window_open').className='ul_display_none';
+}
+function menu_pz(id){
+$$('mengban').className='mengban';
+$$('window_open').className='window_opens';
+if(id==0){
+		
+		$$('win_con0').className= '';
+		$$('win_con1').className= 'ul_display_none';
+		
+	}else if(id==1){
+
+		$$('win_con0').className= 'ul_display_none';
+		$$('win_con1').className= '';
+	}
+}
+function fill_choose(id,ids){
+	$$(id).className='read_input ul_margin_top ul_hidden';
+	$$(ids).className='ul_display_none';
+	$$('files_7').className='ul_float_left tianxuan ul_margin_right ul_margin_left';
+	$$('choose_7').className='ul_float_left tianxuaned ul_margin_right ul_margin_left';
+}
+function choose_fill(id,ids){
+	$$(id).className='ul_display_none';
+	$$(ids).className='read_input ul_margin_top ul_hidden';
+		$$('files_7').className='ul_float_left tianxuaned ul_margin_right ul_margin_left';
+	$$('choose_7').className='ul_float_left tianxuan ul_margin_right ul_margin_left';
+}
+</script>
+</html>

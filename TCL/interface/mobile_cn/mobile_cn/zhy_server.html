@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>服务支持 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="um-vp" style="height:100%;width:100%;">
+<div id="page_0" class=" ub-ver"  style="width:100%;">
+	<script src="js/header.js"></script>
+							<!--块容器开始-->
+<div class="ub uba b-gra c-gra zhy_title" style="width:100%;">
+    <div class=" uinn uc-l1 " onclick="goback();">
+    	<div class="zhy_back">返回</div>
+	</div>
+    <div class="ub-f1 uinn uc-r1 tx-r">服务支持</div>
+</div>
+<!--块容器结束-->
+<div class="mar_lr mar_t">
+<div class="ub  " style="width:100%;">
+	<div class="ub ub-pc ub-ac zhy_title">保修单号&nbsp;&nbsp;</div>
+	<div class="ub-f1 s_input mar_r02" style="padding-left: 2em;">
+		<input style="height: 2.3em; line-height: 1.8em;" type="text" id="server_name" class="t_8f8 txt_input" value="填写手机"> 	</div> 
+	<div class="s_btn c_5fa mar_r02" onclick="server_name()">搜索</div>  
+</div>
+</div>
+<div class="mar_lr mar_t">
+    	<table class="uhide" id="list_border" border="1"  cellpadding="1" cellspacing="1" width="100%">
+    		<tr>
+    			<td width="10%">序号</td>
+				<td width="15%">产品</td>
+				<td width="15%">时间</td>
+				<td width="50%">描述</td>
+				<td width="10%">状态</td>
+    		</tr>
+        <tr>
+        	<table class="shuotu table_cons" id="list_search" border="1"  cellpadding="1" cellspacing="1" width="100%">
+				
+			</table>
+        </tr>
+			
+        </table>
+    </div>
+	<div id="zhy_status"></div>
+	</div>
+	</body>
+	<script>
+		window.onload = function (){
+			header_fenlei();
+			istobelogin();
+		}
+		function server_name(){
+			var server_name = $$('server_name').value;
+			if(server_name == ''){
+				alert('电话号码不能为空');
+			}else if(!check_Mobile(server_name)){
+				alert('手机格式不正确')
+			}else{
+				var url_data = base_url+'repair_search?phonenum='+server_name;
+				jQuery.getJSON(url_data,function(data){
+					if(data.status==1){
+						if(data.data!=''){
+							var template=""
+							for(var i =0;i<data.data.length;i++){ 
+							template+='<tr>'
+										    			+'<td width="10%">'+data.data[i].caseid+'</td>'
+														+'<td width="15%">'+data.data[i].productBand+'</td>'
+														+'<td width="15%">'+data.data[i].createdAt.substring(0,10)+'</td>'
+														+'<td width="50%">'+data.data[i].description+'</td>'
+														+'<td width="10%"><a onclick="checked('+data.data[i].caseid+')">查询</a></td>'
+										    		+'</tr>'
+							}
+							$$('list_border').className='table_con shuotu';
+							$$('list_search').innerHTML=template;
+						}else{
+							$$('list_search').innerHTML='暂无保单信息';
+						}
+					}else{
+						alert(data.message);
+					}
+				});
+			}
+		}
+		
+	function checked(id){
+		var url_data= base_url+ 'repair_getBy';
+		jQuery.post(url_data,{caseid:id,country:'cn'},function(data){
+			if(data.status==1){
+				$$('zhy_status').innerHTML=''
+			}else{
+				alert(data.message);
+			}
+		});
+	}
+	</script>
+</html>

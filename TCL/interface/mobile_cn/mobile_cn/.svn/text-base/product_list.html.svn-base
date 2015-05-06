@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<title>{cb:$1}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="stylesheet" href="css/ui-box.css">
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" href="css/index.css">
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+	</head>
+	<body class="um-vp" style="height:100%;width:100%;">
+<div onclick="colse_leftwin();" id="share_win" style="" class="uhide">
+<script src="js/window.js"></script>
+</div>
+		<div id="page_0" class="up ub ub-ver">
+				<script src="js/header.js"></script>
+					<div class="ub mar_t mar_lr">
+			        <div class="ub-f1 s_input mar_r02" style="padding-left: 2em;">
+			          <input style="height: 2.3em; line-height: 1.8em;" type="text"  id="product_namesd" class="t_8f8 txt_input"  />
+			        </div>
+			            <div class="s_btn c_5fa mar_r02" onClick="search_product2()" >搜索</div>
+			       </div>
+<!--块容器开始-->
+<div class="ub ub-ver  c-gra t-bla">
+    <div class="ubb b-gra uinn uc-t1">一共搜索到含有"<span id="search_name">TCL</span>"关键字的信息<span></span>条</div>
+</div>
+<!--块容器结束-->
+<!--块容器开始-->
+<div class="ub  b-gra c-gra">
+    <div id="tab1" onclick="tabs(1)" class="ubb2 zhong_xuan ub-f1 uinn xuan_k">所有：<span></span></div>
+    <div id="tab2" onclick="tabs(2)" class="ubb2 b-gra ub-f1 uinn xuan_k">产品：<span id="product_length"></span></div>
+    <div id="tab3" onclick="tabs(3)" class="ubb2 b-gra ub-f1 uinn xuan_k">服务：<span></span></div>
+</div>
+<!--块容器结束-->
+<div id="list_con">
+	<div id="list1">
+		<div id="list_product"></div>
+		<div id="list_server"></div>
+	</div>
+	<div id="list2" class="uhide">
+
+	</div>
+	<div id="list3"  class="uhide">
+		<!--块容器开始-->
+<div class="ub ub-ver ubb c-gra b-gra t-bla">
+    <div class=" uinn uc-t1 tcl_bb">tcl</div>
+    <div class=" uinn ">TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩TCL游戏电视很好玩</div>
+</div>
+<!--块容器结束-->
+
+
+	</div>
+</div>
+<div class="footer  mar_t">
+		 <script src="js/footer.js"></script>
+    </div>
+		</div>
+		
+	</body>
+<script>
+
+	var typename= '';
+	window.onload = function(e){
+	islogin();
+		typename = getQueryString('typename');
+		modifytitleandsoon([decodeURIComponent(decodeURIComponent(typename))]);
+		$$('product_namesd').value=decodeURIComponent(decodeURIComponent(typename));
+		$$('search_name').innerHTML=decodeURIComponent(decodeURIComponent(typename));
+		all_data(typename);
+	}
+	var tab_now =1;
+	var tabs_length= $$('list_con').children.length;
+	function tabs(id){
+		if(tab_now== id){
+			$$('tab'+id).className='ubb2 zhong_xuan ub-f1 uinn xuan_k';
+		}else{
+			$$('tab'+id).className='ubb2 zhong_xuan ub-f1 uinn xuan_k';
+			$$('tab'+tab_now).className='ubb2 b-gra ub-f1 uinn xuan_k';
+		}
+		tab_now = id;
+		for(var i =1;i<=tabs_length;i++){
+				if(id==i){
+					$$('list'+id).className='';
+				}else{
+					$$('list'+i).className='uhide';
+				}
+		}
+	}
+	function all_data(name){
+		var url_data = base_url+'product_list?&name='+ name;
+		jQuery.getJSON(url_data,function(data){
+			if(data.status==1){
+				if(data.data!=''){
+					 var template='';
+					 $$('product_length').innerHTML=data.data.length;
+					 for(var i =0;i<data.data.length;i++){
+					 		template+='<div class="ub ub-ver ubb c-gra b-gra t-bla zhy_margin">'
+										    +'<div class="uinn uc-t1 juzhongqu">'
+										    	+'<img src="'+base_url+data.data[i].accessUrl+'" width="" height="">'
+										    +'</div>'
+										    +'<div class=" uinn juzhongqu">'+data.data[i].name+'</div>'
+										    +'<div class=" uinn uc-b1">'+(data.data[i].description=='undefined' ? '' : ''+data.data[i].description+'')+'</div>'
+											  +'<div class=" uinn uc-b1">'
+											  	+'<div id="hide_search" class="mar_lr c_5fa" onclick="product_detail()">查看详情</div>'
+											 +' </div>'
+										+'</div>';
+					 }
+					 $$('list_product').innerHTML=template;
+					  $$('list2').innerHTML=template;
+				}else{
+					 $$('product_length').innerHTML='0';
+					$$('list_product').innerHTML='暂无搜索相关产品列表';
+					$$('list2').innerHTML='暂无搜索相关产品列表';
+				}
+			}else{
+				alert(data.message);
+			}
+			
+		});
+	}
+	function search_product2(){
+		var product_namesd = $$('product_namesd').value;
+		if(product_namesd == ''){
+			alert('搜索内容不能为空');
+		}else{
+			window.location.href='product_list.html?typename='+ encodeURIComponent(encodeURIComponent(product_namesd));
+		}
+	}
+	function product_detail(){
+		window.location.href='detail.html';
+	}
+</script>
+</html>

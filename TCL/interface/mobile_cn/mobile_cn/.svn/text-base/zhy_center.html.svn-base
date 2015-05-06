@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人中心</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="css/ui-box.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/index.css">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body class="um-vp" style="height:100%;width:100%;">
+		<div id="page_0" class="up ub ub-ver">
+			<script src="js/header.js"></script>
+			<!--块容器开始-->
+<div class="ub ub-ver  t-bla">
+    <div class=" uinn uc-t1 zhy_title">个人中心</div>
+</div>
+<!--块容器开始-->
+<div class="ub ub-ver zhy_center_bg t-bla" onclick=" window.location.href='zhy_information.html'">
+    <div class=" uinn uc-t1  ub ub-pc ub-ac">
+    	<div class="center_bg ub ub-pc ub-ac">
+    		<div class="center_tou"></div>
+    	</div>
+    </div>
+    <div class=" uinn c_fff ub ub-pc ub-ac" id="usernameed"></div>
+
+</div>
+<!--块容器结束-->
+<!--列表开始-->
+<div class="c-wh uinn umar-a">
+    <ul  onclick="window.location.href='zhy_password.html'" class="ubb ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s">修改密码</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+    
+    <ul  class=" ub ubb b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s" onclick="window.location.href='zhy_collection.html'">我的收藏</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+    
+    <ul class=" ubb ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s" onclick="window.location.href='zhy_browse.html'">浏览记录</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+	<ul class=" ubb ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s" onclick="window.location.href='zhy_comment.html'">我的评论	</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+	<ul  class=" ubb ub b-gra t-bla ub-ac umh4 lis">
+        <li class="ub-f1 ut-s" onclick="window.location.href='zhy_server.html'">服务支持</li>
+        <li class="listIcon lis-sw ub-img"></li>
+    </ul>
+</div>
+<!--列表结束-->
+<!--块容器开始-->
+<div class="ub ub-ver c_fff uinn">
+    <div class=" uinn uc-t1 c_5fa  ub ub-pc ub-ac" onclick="login_out();">退出</div>
+</div>
+<!--块容器结束-->
+<!--块容器结束-->
+			</div>
+	</body>
+	<script>
+		window.onload = function(e){
+			if(getCookie('login_username')){
+				$$('usernameed').innerHTML=getCookie('login_username');
+			}else{
+				$$('user_name').innerHTML = '';
+			}
+			
+		}
+		function login_out(){
+			var url_data = base_url+'logout';
+			jQuery.getJSON(url_data,function(data){
+				if(data.status==0){
+					setCookie('login_username','');
+					setCookie('x-mas-app_info',null);
+					window.location.href='index.html';
+				}else{
+					alert('退出失败');
+				}
+			});
+		}
+	</script>
+</html>

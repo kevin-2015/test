@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<title>top</title>
+	<link href="css/style.css" rel="stylesheet" />
+	<link href="css/index.css" rel="stylesheet" />
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+	<script src="js/i18n.js" type="text/javascript"></script>
+	<script src="js/jquery.localize.js" type="text/javascript" charset="utf-8"></script>
+   <script src="js/language_cookie.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body  style="margin: 0;padding: 0;">
+	<div id="header" class="ul_hidden">
+		<div class="header_line">
+		 	<div class="logo ul_float_left"></div>
+			<div class="ul_float_left logo_word">
+				<div class="line_h">创意感动生活</div>
+				<div class="line_h">The Creative Life</div>
+			</div>
+			<div class="ul_float_right outlogin" onclick="logout();" data-localize="tcl.logout"></div>
+			<div class=" ul_float_right ul_margin_right" style="margin-top: 20px;">
+				<div data-localize="tcl.lanaguage"  class="ul_float_left scqded_chang ul_margin_right ul_margin_left ul_font_weight" style="color:#ffffff;"></div>
+				<div class="read_input ul_float_left">
+					<div class="select_up">
+					<div class="ov_hiden">
+						<select class="select_nob" id="ddlSomoveLanguage" onchange="chgLang();">
+							<option value="">LAGUAGE</option>
+							<option value="cn">中文</option>
+						    <option value="en">ENGLISH</option>
+						</select>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class=" ul_float_right ul_margin_right" style="margin-top: 20px;">
+				<div data-localize="tcl.region" class="ul_float_left scqded_chang ul_margin_right ul_margin_left ul_font_weight" style="color:#ffffff;"></div>
+				<div class="read_input ul_float_left">
+					<div class="select_up">
+						<div class="ov_hiden">
+							<select  id="countrys" class="select_nob" onchange="chooseCountry(0);"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+window.onload = function(){
+	jQuery.getJSON(base_url+"country_get", function(data){
+		if(data.status != -1){
+			var html;
+			for(var i in data.data){
+				if(i == 0){
+					chooseCountry(data.data[i].countryCode);
+				}
+				html += "<option value=\""+data.data[i].countryCode+"\">"+data.data[i].countryName+"</option>";
+			}
+			jQuery("#countrys").html(html);
+		}
+   	});
+}
+
+function chooseCountry(code){
+	if(!code){
+		code = jQuery("#countrys").val();
+	}
+	jQuery.post(base_url+"choose_country", {code:code},  function(data){
+		if(data.status == -1){
+			window.location.reload();
+		}else{
+			window.top.frames['mainFrame'].location.reload();
+		}
+   	});
+}
+
+function logout(){
+	jQuery.getJSON(base_url+"logout", function(data){
+		if(data.status == 0){
+			document.cookie="MASSESSION = null;path=/";
+			document.cookie="x-mas-app-info = null;path=/";
+			parent.window.location.href = "login.html";
+		}else{
+			alert(data.message);
+		}
+   	}, "json");
+}
+</script>
+</html>
